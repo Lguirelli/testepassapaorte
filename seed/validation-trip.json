@@ -1,0 +1,49 @@
+{
+  "trip": {
+    "id": "demo-trip-001",
+    "synthetic": true,
+    "cityId": "city-demo-serra-negra",
+    "startsOn": "2026-09-12",
+    "endsOn": "2026-09-14",
+    "party": "couple",
+    "pace": "balanced",
+    "transport": "car",
+    "interests": ["cat-natureza", "cat-gastronomia", "cat-cultura"],
+    "intentions": ["conhecer os clássicos", "comer bem", "ver paisagens"]
+  },
+  "days": [
+    {
+      "date": "2026-09-12",
+      "items": [
+        {"id":"trip-item-001","placeId":"place-mirante-araucarias","startsAt":"09:00","durationMinutes":75,"source":"recommended_by_engine","state":"planned"},
+        {"id":"trip-item-002","placeId":"place-cafe-neblina","startsAt":"11:00","durationMinutes":60,"source":"recommended_by_engine","state":"planned"},
+        {"id":"trip-item-003","placeId":"place-centro-cultural","startsAt":"14:00","durationMinutes":90,"source":"recommended_by_engine","state":"planned"}
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "items": [
+        {"id":"trip-item-004","placeId":"place-jardim-nascentes","startsAt":"09:00","durationMinutes":90,"source":"recommended_by_engine","state":"planned"},
+        {"id":"trip-item-005","placeId":"place-bistro-estacao","startsAt":"12:00","durationMinutes":90,"source":"added_by_user","state":"fixed"},
+        {"id":"trip-item-006","placeId":"place-atelie-pedra-folha","startsAt":"15:00","durationMinutes":90,"source":"recommended_by_engine","state":"planned"}
+      ]
+    },
+    {
+      "date": "2026-09-14",
+      "items": [
+        {"id":"trip-item-007","placeId":"place-casa-mel","startsAt":"09:30","durationMinutes":60,"source":"recommended_by_engine","state":"planned"},
+        {"id":"trip-item-008","placeId":"place-aguas-claras","startsAt":"14:00","durationMinutes":90,"source":"recommended_by_engine","state":"planned"}
+      ]
+    }
+  ],
+  "visits": [
+    {"id":"visit-demo-001","placeId":"place-mirante-araucarias","occurredAt":"2026-09-12T10:05:00-03:00","evidence":"qr_demo","tripId":"demo-trip-001","isReturn":false},
+    {"id":"visit-demo-002","placeId":"place-cafe-neblina","occurredAt":"2026-09-12T11:42:00-03:00","evidence":"qr_demo","tripId":"demo-trip-001","isReturn":false},
+    {"id":"visit-demo-003","placeId":"place-casa-mel","occurredAt":"2026-09-12T16:10:00-03:00","evidence":"qr_demo","tripId":"demo-trip-001","isReturn":false,"outsidePlannedRoute":true}
+  ],
+  "weather": [
+    {"date":"2026-09-12","condition":"partly_cloudy","temperatureC":23,"rainProbability":20,"demo":true},
+    {"date":"2026-09-13","condition":"rain","temperatureC":19,"rainProbability":75,"demo":true},
+    {"date":"2026-09-14","condition":"clear","temperatureC":25,"rainProbability":10,"demo":true}
+  ]
+}

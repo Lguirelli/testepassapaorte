@@ -1,0 +1,4 @@
+{
+  "compilerOptions":{"target":"ES2022","lib":["ES2022","DOM"],"strict":true,"skipLibCheck":true,"module":"ESNext","moduleResolution":"Bundler","resolveJsonModule":true,"baseUrl":".","paths":{"@/*":["./src/*"]},"noEmit":true},
+  "include":["src/core/domain/types.ts","src/modules/trips/demo-engine.ts","src/features/stamps/types.ts","src/features/stamps/random.ts","src/features/stamps/formatters.ts","src/features/stamps/icons.ts","src/features/stamps/shapes.ts","src/features/stamps/theme.ts","src/features/stamps/generateStamp.ts","src/features/stamps/renderer.ts"]
+}

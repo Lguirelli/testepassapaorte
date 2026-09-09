@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server";import {getRepository} from "@/core/repository";export async function GET(){const r=getRepository();const places=await r.list('places');return NextResponse.json({ok:true,persistence:r.mode,demo:true,places:places.length})}

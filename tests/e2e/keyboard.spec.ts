@@ -1,0 +1,2 @@
+import {test,expect} from '@playwright/test';
+test('skip link e navegação essencial por teclado',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');const skip=page.getByRole('link',{name:'Ir para o conteúdo'});await expect(skip).toBeFocused();await page.keyboard.press('Enter');await expect(page.locator('#conteudo')).toBeFocused();await page.goto('/roteiro');await page.keyboard.press('Tab');await page.keyboard.press('Tab');const tag=await page.evaluate(()=>document.activeElement?.tagName);expect(tag).not.toBe('BODY')});

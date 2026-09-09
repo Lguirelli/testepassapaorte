@@ -1,0 +1,40 @@
+{
+  "seeds": 1000,
+  "shapes": [
+    "square",
+    "postal",
+    "scalloped",
+    "soft-shield",
+    "circle",
+    "irregular-circle",
+    "octagon",
+    "double-circle",
+    "double-border",
+    "oval-horizontal",
+    "rounded-square",
+    "badge",
+    "hexagon",
+    "oval-vertical",
+    "ticket",
+    "rectangle",
+    "rounded-rectangle"
+  ],
+  "colors": [
+    "#A24B2A",
+    "#274C6D",
+    "#782C3C",
+    "#4D5E32",
+    "#89620E",
+    "#684838",
+    "#16616A"
+  ],
+  "layouts": [
+    "banner",
+    "center",
+    "seal",
+    "ruled",
+    "radial",
+    "iconTop",
+    "split"
+  ]
+}

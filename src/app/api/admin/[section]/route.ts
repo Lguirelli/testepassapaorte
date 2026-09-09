@@ -1,0 +1,2 @@
+import {NextResponse} from "next/server";import {resolveAdminSection} from "@/modules/admin/config";import {getRepository} from "@/core/repository";
+export async function POST(req:Request,{params}:{params:Promise<{section:string}>}){const {section}=await params;const cfg=resolveAdminSection(section);if(!cfg)return NextResponse.json({error:'Seção inválida'},{status:404});const body=await req.json();try{return NextResponse.json(await getRepository().createDraft(cfg.kind,body.data||{}),{status:201})}catch(e:any){return NextResponse.json({error:e.message},{status:400})}}

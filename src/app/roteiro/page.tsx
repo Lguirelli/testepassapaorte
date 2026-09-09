@@ -1,0 +1,2 @@
+import {OnboardingClient} from "@/components/onboarding-client";import {PageTracker} from "@/components/page-tracker";
+export default function Page(){return <div className="container section"><PageTracker payload={{route:'/roteiro'}}/><div className="section-head"><span className="eyebrow">Criar roteiro</span><h1>Conte sobre esta viagem</h1><p>O fluxo abaixo é determinístico e usa somente contexto sintético.</p></div><OnboardingClient/></div>}

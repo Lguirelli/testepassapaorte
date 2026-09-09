@@ -1,0 +1,1 @@
+import Link from "next/link";export default function NotFound(){return <div className="container section"><div className="empty-state"><strong>Conteúdo não encontrado</strong><p className="muted">Esta rota não existe no conjunto de validação.</p><Link className="button secondary" href="/explorar">Voltar a explorar</Link></div></div>}

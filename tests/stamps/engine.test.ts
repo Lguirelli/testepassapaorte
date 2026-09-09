@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {generateStamp} from '../../src/features/stamps/generateStamp';import {renderStampSVG} from '../../src/features/stamps/renderer';
+const data={partnerId:'place-cafe-neblina',partnerName:'Café Neblina Alta',category:'coffee',visitId:'visit-1',visitDate:'2026-09-12',visitNumber:1,city:'Serra Negra',state:'SP'};
+test('carimbo é determinístico para a mesma visita',()=>{const a=generateStamp(data),b=generateStamp(data);assert.equal(a.seed,b.seed);assert.equal(a.shape.id,b.shape.id);assert.equal(a.layout,b.layout);assert.equal(a.icon.id,b.icon.id)});
+test('renderer produz SVG autossuficiente',()=>{const svg=renderStampSVG(generateStamp(data),{size:240});assert.match(svg,/^<svg/);assert.match(svg,/Café Neblina Alta/);assert.ok(svg.includes('viewBox'))});

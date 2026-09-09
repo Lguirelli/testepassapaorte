@@ -1,0 +1,6 @@
+export const months=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+export function formatDate(value?:string){if(!value)return 'DATA NÃO INFORMADA';const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(value);if(!m)return 'DATA NÃO INFORMADA';const [,y,mo,d]=m;const date=new Date(`${value}T12:00:00Z`);if(!Number.isFinite(+date)||date.toISOString().slice(0,10)!==value)return 'DATA NÃO INFORMADA';return `${d} ${months[+mo-1]} ${y}`;}
+export const formatVisit=(n?:number)=>n===1?'1ª VISITA':n&&n>1?`VISITA Nº ${Math.floor(n)}`:'';
+export const formatLocation=(city?:string,state?:string)=>[city,state].filter(Boolean).join(' • ').toLocaleUpperCase('pt-BR');
+export const escapeXML=(s:string)=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]!));
+export function fitText(text:string,width:number,max=27){const normalized=text.trim().toLocaleUpperCase('pt-BR');const parts=normalized.split(/\s+/);let lines=[normalized];if(normalized.length>28){let a='',b='';for(const p of parts){if(a.length<normalized.length/2)a+=(a?' ':'')+p;else b+=(b?' ':'')+p;}lines=b?[a,b]:[a];}const longest=Math.max(...lines.map(l=>Array.from(l).length));const size=Math.min(max,width/(longest*.57));return {lines,size,letterSpacing:size>18?1.1:.4};}

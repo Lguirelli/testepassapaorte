@@ -1,0 +1,9 @@
+import type { SVGProps } from "react";
+
+export function ParceiroRequerSolicitacaoIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="-10 -10 120 120" fill="none" aria-hidden="true" focusable="false" {...props}>
+      <g id="psn-parceiro-requer-solicitacao-pa-005" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><defs><mask id="psn-parceiro-requer-solicitacao-badge-cut"><rect x="-10" y="-10" width="120" height="120" fill="white" stroke="none"/><circle cx="77" cy="77" r="24" fill="black" stroke="none"/></mask></defs><g mask="url(#psn-parceiro-requer-solicitacao-badge-cut)"><path d="M23 12H60L79 31V85H23Z M60 12V31H79"/></g><circle cx="77" cy="77" r="19"/><g transform="translate(50 50) scale(0.54)" strokeWidth="7.40741"><path d="M37 50H63 M50 37V63"/></g></g>
+    </svg>
+  );
+}

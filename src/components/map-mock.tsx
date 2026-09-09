@@ -1,0 +1,2 @@
+import type {Place} from "@/core/domain/types";import {Icon} from "@/design-system/icons";
+export function MapMock({places}:{places:Place[]}){return <div className="map-mock" role="img" aria-label="Mapa de validação com locais fictícios">{places.filter(p=>p.location).slice(0,12).map((p,i)=><span key={p.id} className="map-pin" title={p.name} style={{left:`${14+(i*23)%72}%`,top:`${15+(i*31)%68}%`}}><Icon name={p.commercialRelation==="partner"?"parceiros":"mapa-ponto-turistico"} size="sm" title={p.name}/></span>)}</div>}

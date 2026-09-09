@@ -1,0 +1,4 @@
+"use client";
+import {useEffect,useState} from "react";import {Icon} from "@/design-system/icons";
+type Theme="light"|"dark"|"system";
+export function ThemeControl(){const [theme,setTheme]=useState<Theme>("system");useEffect(()=>{const stored=(localStorage.getItem("psn-theme") as Theme|null)||"system";setTheme(stored);document.documentElement.dataset.theme=stored},[]);function apply(next:Theme){setTheme(next);localStorage.setItem("psn-theme",next);document.documentElement.dataset.theme=next}return <div className="theme-controls" aria-label="Tema"><button aria-label="Tema claro" aria-pressed={theme==="light"} onClick={()=>apply("light")}><Icon name="sol" size="sm"/></button><button aria-label="Tema escuro" aria-pressed={theme==="dark"} onClick={()=>apply("dark")}><Icon name="lua" size="sm"/></button><button aria-label="Usar tema do sistema" aria-pressed={theme==="system"} onClick={()=>apply("system")}><Icon name="sistema" size="sm"/></button></div>}

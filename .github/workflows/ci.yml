@@ -1,0 +1,69 @@
+name: validation-ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:repo
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+        env:
+          PERSISTENCE_MODE: local
+  e2e-postgis:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_USER: passport
+          POSTGRES_PASSWORD: passport
+          POSTGRES_DB: passport_validation
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U passport -d passport_validation"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://passport:passport@127.0.0.1:5432/passport_validation
+      PERSISTENCE_MODE: postgres
+      AUTH_MODE: mock
+      MAPS_MODE: mock
+      ROUTES_MODE: mock
+      WEATHER_MODE: mock
+      ANALYTICS_MODE: local
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - run: npm ci
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-validation-artifacts
+          path: |
+            artifacts/playwright
+            artifacts/playwright-report
+            artifacts/playwright-results
+          if-no-files-found: ignore
