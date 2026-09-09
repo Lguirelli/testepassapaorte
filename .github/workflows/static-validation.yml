@@ -1,8 +1,0 @@
-name: legacy-static-validation-disabled
-on:
-  workflow_dispatch:
-jobs:
-  notice:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Workflow legado desativado. Use 03-visual-audit."

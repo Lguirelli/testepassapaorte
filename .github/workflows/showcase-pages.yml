@@ -1,8 +1,0 @@
-name: legacy-showcase-pages-disabled
-on:
-  workflow_dispatch:
-jobs:
-  notice:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Workflow legado desativado. Use 04-pages e 05-post-deploy."

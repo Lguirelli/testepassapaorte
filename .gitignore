@@ -10,3 +10,6 @@ test-results/
 *.log
 artifacts/playwright/**/*.png
 !artifacts/playwright/.gitkeep
+static-preview/
+artifacts/playwright-static/
+artifacts/showcase/
