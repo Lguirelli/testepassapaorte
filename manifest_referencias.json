@@ -1,0 +1,356 @@
+{
+  "project": "Passaporte Serra Negra",
+  "version": "v4",
+  "date": "2026-09-09",
+  "reference_count": 49,
+  "references": [
+    {
+      "id": "RV-01",
+      "file": "01_home_ref_vienna_hero.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/01_home_ref_vienna_hero.png",
+      "group": "Home",
+      "description": "Hero editorial de destino, base para fotografia de impacto."
+    },
+    {
+      "id": "RV-02",
+      "file": "02_home_ref_escape_search_hero.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/02_home_ref_escape_search_hero.png",
+      "group": "Home",
+      "description": "Hero com busca como porta de entrada para descoberta."
+    },
+    {
+      "id": "RV-03",
+      "file": "03_home_ref_saint_antonin_cards.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/03_home_ref_saint_antonin_cards.png",
+      "group": "Home",
+      "description": "Cards de pontos turísticos com destaque e navegação lateral."
+    },
+    {
+      "id": "RV-04",
+      "file": "04_home_ref_adventure_partner_loop.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/04_home_ref_adventure_partner_loop.png",
+      "group": "Home",
+      "description": "Loop/carrossel de parceiros, adaptado para exposição neutra."
+    },
+    {
+      "id": "RV-05",
+      "file": "05_home_ref_old_riga_route.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/05_home_ref_old_riga_route.png",
+      "group": "Roteiro",
+      "description": "Elemento visual de rota com pontos conectados."
+    },
+    {
+      "id": "RV-06",
+      "file": "06_home_ref_morocco_route_types.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/06_home_ref_morocco_route_types.png",
+      "group": "Roteiro",
+      "description": "Seleção editorial de tipos de roteiro."
+    },
+    {
+      "id": "RV-07",
+      "file": "07_home_ref_idyll_route_cards.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/07_home_ref_idyll_route_cards.png",
+      "group": "Roteiro",
+      "description": "Cards altos para tipos/modelos de roteiro."
+    },
+    {
+      "id": "RV-08",
+      "file": "08_home_ref_travel_time_sections.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/08_home_ref_travel_time_sections.png",
+      "group": "Home",
+      "description": "Seções editoriais para variar ritmo da landing."
+    },
+    {
+      "id": "RV-09",
+      "file": "09_home_ref_creacy_editorial_sections.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/09_home_ref_creacy_editorial_sections.png",
+      "group": "Home",
+      "description": "Composição editorial com respiro e fotografia."
+    },
+    {
+      "id": "RV-10",
+      "file": "10_home_ref_miljo_partner_categories.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/10_home_ref_miljo_partner_categories.png",
+      "group": "Home",
+      "description": "Categorias de parceiros e exploração visual."
+    },
+    {
+      "id": "RV-11",
+      "file": "11_partner_page_ref_armonia.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/11_partner_page_ref_armonia.png",
+      "group": "Parceiro público",
+      "description": "Página pública de parceiro, hero e conteúdo."
+    },
+    {
+      "id": "RV-12",
+      "file": "12_partner_page_ref_idyll.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/12_partner_page_ref_idyll.png",
+      "group": "Parceiro público",
+      "description": "Página pública de parceiro, organização editorial."
+    },
+    {
+      "id": "RV-13",
+      "file": "13_partner_page_ref_cabin_modules.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/13_partner_page_ref_cabin_modules.png",
+      "group": "Parceiro público",
+      "description": "Módulos de conteúdo e informação do estabelecimento."
+    },
+    {
+      "id": "RV-14",
+      "file": "14_partner_page_ref_athens_info_faq.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/14_partner_page_ref_athens_info_faq.png",
+      "group": "Parceiro público",
+      "description": "Informação prática e FAQ em página de negócio."
+    },
+    {
+      "id": "RV-15",
+      "file": "15_home_ref_faq_passport_dark.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/15_home_ref_faq_passport_dark.png",
+      "group": "Home",
+      "description": "FAQ e introdução da dinâmica do Passaporte em área escura."
+    },
+    {
+      "id": "RV-16",
+      "file": "16_partner_acquisition_landing_ref_old_riga.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/16_partner_acquisition_landing_ref_old_riga.png",
+      "group": "Aquisição de parceiro",
+      "description": "Landing de chamada para entrada de parceiros."
+    },
+    {
+      "id": "RV-17",
+      "file": "17_partner_dashboard_ref_dropify.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/17_partner_dashboard_ref_dropify.png",
+      "group": "Dashboard parceiro",
+      "description": "Estrutura visual de dashboard do parceiro."
+    },
+    {
+      "id": "RV-18",
+      "file": "18_admin_dashboard_ref_dodo.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/18_admin_dashboard_ref_dodo.png",
+      "group": "Admin",
+      "description": "Dashboard administrativo com visão geral."
+    },
+    {
+      "id": "RV-19",
+      "file": "19_dashboard_shared_components_ref_caplen.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/19_dashboard_shared_components_ref_caplen.png",
+      "group": "Dashboards",
+      "description": "Componentes compartilhados entre parceiro e Admin."
+    },
+    {
+      "id": "RV-20",
+      "file": "20_dashboard_tables_profiles_ref_korean.png",
+      "source_original": "passaporte_serra_negra_referencias/imagens/20_dashboard_tables_profiles_ref_korean.png",
+      "group": "Admin",
+      "description": "Tabelas, perfis e dados operacionais."
+    },
+    {
+      "id": "RV-21",
+      "file": "21_passaporte_ref_boarding_pass_minimal.png",
+      "source_original": "207b8380-374c-49ab-a73a-2c0720e4e69b.png",
+      "group": "Passaporte e ticket",
+      "description": "Bilhete de viagem minimalista e hierarquia de informação."
+    },
+    {
+      "id": "RV-22",
+      "file": "22_passaporte_ref_travel_app_modular_cards.png",
+      "source_original": "f3897aa7-2e61-4488-9b54-53337ecb591c.png",
+      "group": "Passaporte e ticket",
+      "description": "Linguagem modular de viagem, passport card, navegação e cartões funcionais."
+    },
+    {
+      "id": "RV-23",
+      "file": "23_turista_ref_mobile_destination_editorial.png",
+      "source_original": "bddd527f-086f-4ed4-baa2-3d232de8f787.png",
+      "group": "Turista e exploração",
+      "description": "Composição mobile editorial de descoberta, destino e detalhe."
+    },
+    {
+      "id": "RV-24",
+      "file": "24_passaporte_ref_mobile_boarding_pass.png",
+      "source_original": "f507402c-9af6-4ed7-b7d1-e2a8d9099919.png",
+      "group": "Passaporte e ticket",
+      "description": "Ticket mobile, estados de viagem e apresentação em cartão físico."
+    },
+    {
+      "id": "RV-25",
+      "file": "25_passaporte_ref_bali_boarding_pass_poster.png",
+      "source_original": "b6d66b28-1fd5-419e-ac14-7e246f3c4588.png",
+      "group": "Passaporte e ticket",
+      "description": "Bilhete de viagem compartilhável com forte identidade editorial."
+    },
+    {
+      "id": "RV-26",
+      "file": "26_passaporte_ref_capa_fisica_verde.png",
+      "source_original": "28b0015a-3f72-47bb-9a21-002f2bc9e495.png",
+      "group": "Passaporte físico",
+      "description": "Capa física com materialidade e ticket inserido."
+    },
+    {
+      "id": "RV-27",
+      "file": "27_passaporte_ref_abertura_editorial.png",
+      "source_original": "22c6cbe2-1563-497a-bcca-dd7e7e5fb3a7.png",
+      "group": "Passaporte físico",
+      "description": "Passaporte aberto com páginas editoriais, selos e campos de registro."
+    },
+    {
+      "id": "RV-28",
+      "file": "28_passaporte_ref_colagem_carimbos.png",
+      "source_original": "06c137c6-fdec-48ba-b0f8-9b9e61e5b9d1.png",
+      "group": "Passaporte físico",
+      "description": "Composição orgânica e sobreposição de carimbos de viagem."
+    },
+    {
+      "id": "RV-29",
+      "file": "29_passaporte_ref_abertura_carimbos.png",
+      "source_original": "3aed2c46-3c56-4324-8838-1a0961f8492c.png",
+      "group": "Passaporte físico",
+      "description": "Distribuição de carimbos em duas páginas abertas."
+    },
+    {
+      "id": "RV-30",
+      "file": "30_passaporte_ref_capas_internacionais.png",
+      "source_original": "dd9b2885-e567-4963-894b-626f13d8e6ff.png",
+      "group": "Passaporte físico",
+      "description": "Materialidade, contraste e hierarquia de capas de passaporte."
+    },
+    {
+      "id": "RV-31",
+      "file": "31_passaporte_ref_paginas_carimbos_moderno.png",
+      "source_original": "4f25d5cb-926d-4e34-9aa1-659ae9d6bf6e.png",
+      "group": "Passaporte físico",
+      "description": "Página dupla contemporânea com carimbos gráficos."
+    },
+    {
+      "id": "RV-32",
+      "file": "32_passaporte_ref_identificacao_spread.png",
+      "source_original": "97ac07eb-f17d-4e50-96a5-a5eb517ce651.png",
+      "group": "Passaporte físico",
+      "description": "Referência de spread de identificação e registros físicos."
+    },
+    {
+      "id": "RV-33",
+      "file": "33_passaporte_ref_ticket_inserido.png",
+      "source_original": "c2bc4e28-6302-4851-90c0-580d31b5a9a1.png",
+      "group": "Passaporte e ticket",
+      "description": "Ticket encaixado em passaporte, base para dobra compartilhável."
+    },
+    {
+      "id": "RV-34",
+      "file": "34_calendario_ref_mes_minimalista.png",
+      "source_original": "7bb3c72f-d4f5-47b2-8f08-33136481949b.png",
+      "group": "Calendário",
+      "description": "Calendário mensal limpo com hierarquia editorial."
+    },
+    {
+      "id": "RV-35",
+      "file": "35_calendario_ref_eventos_compacto.png",
+      "source_original": "0b434f6e-de89-4bc0-923c-fd2d65997b54.png",
+      "group": "Calendário",
+      "description": "Calendário compacto com eventos laterais e marcação de datas."
+    },
+    {
+      "id": "RV-36",
+      "file": "36_calendario_ref_semana_dashboard.png",
+      "source_original": "97e8a2b7-1c10-483d-b30b-2237d3da2b79.png",
+      "group": "Calendário",
+      "description": "Visão semanal por horários, adequada à organização da viagem."
+    },
+    {
+      "id": "RV-37",
+      "file": "37_interacao_ref_navegacao_orbital_desktop.png",
+      "source_original": "65882bf0-24c9-42da-a0c4-6190a8ff8627.png",
+      "group": "Interação orbital",
+      "description": "Menu curvo com item ativo, opacidade e progressão espacial."
+    },
+    {
+      "id": "RV-38",
+      "file": "38_interacao_ref_navegacao_orbital_mobile.png",
+      "source_original": "5f341eff-00dc-462e-a697-8d5555dd0692.png",
+      "group": "Interação orbital",
+      "description": "Seletor curvo mobile para interesses ou capítulos."
+    },
+    {
+      "id": "RV-39",
+      "file": "39_roteiro_ref_percurso_visual_vertical.png",
+      "source_original": "7563571b-d7b7-406b-a64e-7ffde90bf11f.png",
+      "group": "Roteiro e percurso",
+      "description": "Percurso visual com paradas, imagens e linha conectando pontos."
+    },
+    {
+      "id": "RV-40",
+      "file": "40_roteiro_ref_rota_editorial_deserto.png",
+      "source_original": "bbd00b2f-4d2e-46f1-8b0d-07fd302a722f.png",
+      "group": "Roteiro e percurso",
+      "description": "Hero editorial com rota desenhada e leitura territorial."
+    },
+    {
+      "id": "RV-41",
+      "file": "41_roteiro_ref_wireframes_responsivos.png",
+      "source_original": "a3334477-b3ee-4a71-acff-d2afad683655.png",
+      "group": "Roteiro e percurso",
+      "description": "Wireframes responsivos para organização de viagem e edição."
+    },
+    {
+      "id": "RV-42",
+      "file": "42_home_ref_landing_busca_destinos.png",
+      "source_original": "24e9bc93-3eff-4a5b-940a-49c84993251b.png",
+      "group": "Turista e exploração",
+      "description": "Landing de turismo com busca, destino em destaque e seções editoriais."
+    },
+    {
+      "id": "RV-43",
+      "file": "43_explorar_ref_destination_dark.png",
+      "source_original": "5cd6d0f7-c496-416a-ad27-e83eb9316309.png",
+      "group": "Turista e exploração",
+      "description": "Landing de destino com hero fotográfico e descoberta visual."
+    },
+    {
+      "id": "RV-44",
+      "file": "44_lugar_ref_editorial_assimetrico.png",
+      "source_original": "5ce4c221-6a5e-4762-8aa4-4a449b3b48c5.png",
+      "group": "Páginas editoriais",
+      "description": "Composição editorial assimétrica com texto, imagem e blocos informativos."
+    },
+    {
+      "id": "RV-45",
+      "file": "45_explorar_ref_adventure_dark_mobile.png",
+      "source_original": "b15f95d4-fc45-4f6b-bb1c-7b8b01f692d4.png",
+      "group": "Turista e exploração",
+      "description": "Direção visual escura de aventura e destinos em mobile."
+    },
+    {
+      "id": "RV-46",
+      "file": "46_explorar_ref_adventure_web.png",
+      "source_original": "b5ee9994-ee38-4961-a149-531b62dacd47.png",
+      "group": "Turista e exploração",
+      "description": "Página de aventura com cards, fotografia e ritmo editorial."
+    },
+    {
+      "id": "RV-47",
+      "file": "47_explorar_ref_mobile_cards_claros.png",
+      "source_original": "cc3ca326-03f7-42c0-aaac-ffdba5a59605.png",
+      "group": "Turista e exploração",
+      "description": "Exploração mobile com cards e navegação leve."
+    },
+    {
+      "id": "RV-48",
+      "file": "48_experiencia_ref_cards_editoriais.png",
+      "source_original": "d4d28909-0bff-4b97-aac5-e0ee7ed2c4a3.png",
+      "group": "Experiências",
+      "description": "Cards editoriais para experiências e destinos."
+    },
+    {
+      "id": "RV-49",
+      "file": "49_mapa_ref_exploracao_territorial_eventos.png",
+      "source_original": "e39064a4-82fd-4de7-85bc-63e154c48c01.png",
+      "group": "Mapa e território",
+      "description": "Página territorial com mapa vetorial, categorias e eventos."
+    }
+  ],
+  "notes": [
+    "As imagens são referências visuais fornecidas pelo usuário durante a construção.",
+    "Não assumir licença de produção a partir da presença neste pacote.",
+    "O documento mestre usa IDs RV-XX e caminhos relativos na pasta referencias."
+  ]
+}
