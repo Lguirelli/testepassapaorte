@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'showcase/**'
+      - 'scripts/sync_pages_entrypoints.py'
+      - 'PAGES_DEPLOYMENT.md'
       - 'scripts/validate_showcase.py'
       - 'scripts/capture_showcase.py'
       - '.github/workflows/showcase-pages.yml'

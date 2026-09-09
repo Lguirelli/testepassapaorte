@@ -77,8 +77,8 @@ Implementado no showcase:
 Validação executada localmente:
 
 - `python scripts/validate_showcase.py`: PASS;
-- 6 páginas com referências locais resolvidas;
-- 22 screenshots geradas: 6 páginas × desktop/tablet/mobile, mais Home e Passaporte em dark desktop/mobile;
+- 10 páginas HTML com referências locais resolvidas;
+- 31 screenshots geradas: 9 superfícies de produto × desktop/tablet/mobile, mais Home e Passaporte em dark desktop/mobile;
 - nenhuma ocorrência de overflow horizontal na rodada final;
 - nenhum erro de console capturado na rodada final.
 
