@@ -93,3 +93,22 @@ Todos os lugares, parceiros, experiências, eventos, contatos, clima, visitas e 
 ## Relatório
 
 `VALIDATION_REPORT.md` registra o que foi implementado, o que foi realmente executado no ambiente de montagem, os gates e as pendências de infraestrutura.
+
+## GitHub + Chromium + Playwright
+
+O repositório inclui um laboratório de validação no GitHub Actions e uma configuração de Codespaces para acompanhar o Playwright visualmente. Consulte `docs/PLAYWRIGHT_GITHUB_GUIDE.md`.
+
+Atalhos locais/Codespaces:
+
+```bash
+npm run pw:ui
+npm run pw:headed
+npm run pw:debug
+npm run pw:visual
+npm run pw:report
+```
+
+
+## Design System V1
+
+O patch V8 integra os tokens oficiais de marca à aplicação e à showcase. Consulte `docs/DESIGN_SYSTEM_INTEGRATION.md`. O CI executa `npm run design:check` e o Playwright inclui uma verificação no navegador.

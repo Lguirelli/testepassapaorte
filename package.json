@@ -22,7 +22,14 @@
     "validate:repo": "node scripts/validate-repository.mjs",
     "validate:static": "python3 scripts/static_preview.py",
     "showcase:validate": "python3 scripts/validate_showcase.py",
-    "showcase:capture": "python3 scripts/capture_showcase.py"
+    "showcase:capture": "python3 scripts/capture_showcase.py",
+    "pw:ui": "playwright test --ui --ui-host=0.0.0.0 --ui-port=9323",
+    "pw:headed": "playwright test --headed --project=desktop",
+    "pw:debug": "playwright test --debug --project=desktop",
+    "pw:report": "playwright show-report artifacts/playwright-report",
+    "pw:visual": "playwright test tests/e2e/visual-audit.spec.ts",
+    "design:check": "node scripts/validate-design-system.mjs",
+    "pw:design": "playwright test tests/e2e/design-system.spec.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

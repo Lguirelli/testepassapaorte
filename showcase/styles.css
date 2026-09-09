@@ -1,11 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap');
+@import url('design-tokens.css');
 @layer reset,tokens,base,layout,components,utilities,overrides;
 @layer tokens{
-:root{--cream:#f3f0e9;--cream-2:#e7e1d6;--paper:#eee8de;--sand:#c5bbae;--taupe:#968c80;--graphite:#565952;--charcoal:#292c28;--ink:#121412;--white:#fcfaf6;--line:#d4cec3;--forest:#425744;--rust:#8b4d37;--petrol:#38636a;--mustard:#9b7a32;--wine:#6d3d49;--shadow:0 22px 70px rgb(30 28 24 / .14);--max:1320px;--radius:18px;--home-display:"Druk Text Wide","Arial Black","Arial Narrow",sans-serif;--ui:"Helvetica Neue",Helvetica,Arial,sans-serif;--page-title:"Arimo",Arial,sans-serif;--editorial:"Cormorant Garamond",Georgia,serif;color-scheme:light}
-html[data-theme="dark"]{--cream:#111310;--cream-2:#1b1e1a;--paper:#20231f;--sand:#484c44;--taupe:#aaa398;--graphite:#d1cbc0;--charcoal:#e7e0d4;--ink:#f4eee4;--white:#171a16;--line:#343831;--shadow:0 28px 90px rgb(0 0 0 / .38)}
+:root{
+  /* Aliases de layout legados apontando para o Design System V1 oficial. */
+  --cream:var(--color-bg);
+  --cream-2:var(--color-bg-secondary);
+  --paper:var(--color-surface);
+  --sand:#C3BFB6;
+  --taupe:var(--color-text-muted);
+  --graphite:var(--color-text-secondary);
+  --charcoal:var(--psn-neutral-900);
+  --ink:var(--color-text);
+  --white:var(--color-surface);
+  --line:var(--color-border);
+  --forest:var(--psn-chive);
+  --rust:var(--psn-red-inferno);
+  --petrol:var(--psn-deep-blue);
+  --mustard:var(--psn-pastel-yellow);
+  --wine:var(--psn-red-inferno);
+  --shadow:0 22px 70px rgb(30 28 24 / .14);
+  --max:1320px;
+  --radius:18px;
+  --home-display:var(--font-home-heading);
+  --ui:var(--font-ui);
+  --page-title:var(--font-page-title);
+  --editorial:var(--font-page-subtitle);
+  color-scheme:light;
+}
+html[data-theme="dark"]{--shadow:0 28px 90px rgb(0 0 0 / .38);color-scheme:dark}
 }
 @layer reset{[hidden]{display:none!important}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}img,svg{display:block;max-width:100%}a{text-decoration:none;color:inherit}button,input{font:inherit}button{color:inherit}}
-@layer base{body{background:var(--cream);color:var(--ink);font-family:var(--ui);font-weight:300;line-height:1.55}.shell{width:min(calc(100% - 48px),var(--max));margin-inline:auto}.kicker{font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;font-weight:600}.display-home{font-family:var(--home-display);font-weight:900;text-transform:uppercase;line-height:.83;letter-spacing:-.055em}.display-page{font-family:var(--page-title);font-weight:600;line-height:.92;letter-spacing:-.055em}.editorial{font-family:var(--editorial);font-weight:500;line-height:1.04}.muted{color:var(--taupe)}.section{padding:112px 0}.section-sm{padding:64px 0}.section-title{max-width:900px;margin-bottom:44px}.section-title h2{font-size:clamp(3rem,6vw,6.8rem);margin:.15em 0}.section-title p{font-size:clamp(1.35rem,2.4vw,2.2rem);max-width:760px;margin:0;color:var(--graphite)}}
+@layer base{body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-weight:300;line-height:1.55}.shell{width:min(calc(100% - 48px),var(--max));margin-inline:auto}.kicker{font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;font-weight:600}.display-home{font-family:var(--home-display);font-weight:400;text-transform:uppercase;line-height:.83;letter-spacing:-.055em}.display-page{font-family:var(--page-title);font-weight:700;line-height:.92;letter-spacing:-.055em}.editorial{font-family:var(--editorial);font-weight:500;line-height:1.04}.muted{color:var(--taupe)}.section{padding:112px 0}.section-sm{padding:64px 0}.section-title{max-width:900px;margin-bottom:44px}.section-title h2{font-size:clamp(3rem,6vw,6.8rem);margin:.15em 0}.section-title p{font-size:clamp(1.35rem,2.4vw,2.2rem);max-width:760px;margin:0;color:var(--graphite)}}
 @layer layout{.cluster{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.spread{display:flex;align-items:center;justify-content:space-between;gap:18px}.grid-2{display:grid;grid-template-columns:1fr 1fr}.grid-3{display:grid;grid-template-columns:repeat(3,1fr)}.grid-4{display:grid;grid-template-columns:repeat(4,1fr)}}
 @layer components{
 /* Global header: minimal on public pages, overlay on Home/Roteiro as in RV-01/02/40 */
@@ -35,3 +60,14 @@ html[data-theme="dark"]{--cream:#111310;--cream-2:#1b1e1a;--paper:#20231f;--sand
 @media(max-width:480px){.home-hero h1{font-size:3.6rem}.feature-cards{grid-template-columns:1fr}.category-mosaic{grid-template-columns:1fr}.route-floating{grid-template-columns:1fr}.route-floating .route-type-mini:nth-child(2){display:none}.explore-card{grid-template-columns:1fr}.explore-card img{height:190px}.admin-metrics{grid-template-columns:1fr}.book-page{padding:30px 22px}.trip-ticket{grid-template-columns:1fr 62px}.stamp.s2{right:0}.stamp.s3{left:3%}.footer-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 }
+
+
+/* Design System V1 category accent helpers. */
+.niche-cafe{--niche-accent:var(--niche-cafe)}
+.niche-gastronomy{--niche-accent:var(--niche-gastronomy)}
+.niche-nature{--niche-accent:var(--niche-nature)}
+.niche-adventure{--niche-accent:var(--niche-adventure)}
+.niche-wellness{--niche-accent:var(--niche-wellness)}
+.niche-culture{--niche-accent:var(--niche-culture)}
+.niche-premium{--niche-accent:var(--niche-premium-hotel)}
+[data-niche]{accent-color:var(--niche-accent,var(--color-cta))}

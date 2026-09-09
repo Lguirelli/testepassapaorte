@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Brand neutrals */
+  --psn-neutral-050: #E7E7DE;
+  --psn-neutral-100: #D2CEC4;
+  --psn-neutral-500: #645B5B;
+  --psn-neutral-700: #424348;
+  --psn-neutral-750: #424041;
+  --psn-neutral-900: #262425;
+  --psn-neutral-950: #141416;
+
+  /* Accent palette */
+  --psn-red-inferno: #4E0000;
+  --psn-pastel-yellow: #F2E6D1;
+  --psn-reseda: #A1AD92;
+  --psn-chive: #50543B;
+  --psn-powder-blue: #94B2C4;
+  --psn-deep-blue: #01273E;
+  --psn-cocoa: #594536;
+  --psn-coconut-milk: #F0EDE5;
+
+  /* Semantic light theme */
+  --color-bg: var(--psn-neutral-050);
+  --color-bg-secondary: var(--psn-neutral-100);
+  --color-surface: var(--psn-coconut-milk);
+  --color-text: var(--psn-neutral-950);
+  --color-text-secondary: var(--psn-neutral-750);
+  --color-text-muted: var(--psn-neutral-500);
+  --color-border: #C3BFB6;
+  --color-icon: var(--psn-neutral-700);
+  --color-cta: var(--psn-neutral-900);
+  --color-on-cta: var(--psn-neutral-050);
+
+  /* Font stacks */
+  --font-home-heading: "CuturilaDEMO", "Bebas Neue", sans-serif;
+  --font-page-title: "Arimo", Arial, sans-serif;
+  --font-page-subtitle: "Cormorant Garamond", Georgia, serif;
+  --font-ui: "Inter", Arial, sans-serif;
+  --font-body: "Inter", Arial, sans-serif;
+
+  /* Category accents */
+  --niche-cafe: var(--psn-cocoa);
+  --niche-gastronomy: var(--psn-red-inferno);
+  --niche-wine-night: var(--psn-red-inferno);
+  --niche-nature: var(--psn-reseda);
+  --niche-adventure: var(--psn-chive);
+  --niche-wellness: var(--psn-powder-blue);
+  --niche-culture: var(--psn-pastel-yellow);
+  --niche-premium-hotel: var(--psn-deep-blue);
+  --niche-local-products: var(--psn-cocoa);
+}
+
+[data-theme="dark"] {
+  --color-bg: var(--psn-neutral-950);
+  --color-bg-secondary: var(--psn-neutral-900);
+  --color-surface: #2F2D2E;
+  --color-surface-elevated: var(--psn-neutral-750);
+  --color-text: var(--psn-neutral-050);
+  --color-text-secondary: var(--psn-neutral-100);
+  --color-text-muted: #AAA39F;
+  --color-border: var(--psn-neutral-700);
+  --color-icon: var(--psn-neutral-100);
+  --color-cta: var(--psn-neutral-050);
+  --color-on-cta: var(--psn-neutral-950);
+}
+
+.home-hero-title {
+  font-family: var(--font-home-heading);
+  font-size: clamp(4.5rem, 9vw, 9rem);
+  line-height: 0.88;
+}
+
+.home-subheading,
+.functional-subheading {
+  font-family: var(--font-ui);
+  font-weight: 500;
+}
+
+.page-title {
+  font-family: var(--font-page-title);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+}
+
+.page-subtitle {
+  font-family: var(--font-page-subtitle);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+body,
+.body-copy {
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+}
