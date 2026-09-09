@@ -15,7 +15,9 @@ jobs:
         with:
           node-version: '22.16.0'
           cache: npm
-      - run: npm ci
+      - name: Verify npm lockfile consistency
+        run: npm ci --ignore-scripts --dry-run --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
       - run: npm run validate:repo
       - run: npm run lint
       - run: npm run typecheck
@@ -53,7 +55,9 @@ jobs:
         with:
           node-version: '22.16.0'
           cache: npm
-      - run: npm ci
+      - name: Verify npm lockfile consistency
+        run: npm ci --ignore-scripts --dry-run --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
       - run: npm run db:migrate
       - run: npm run db:seed
       - run: npx playwright install --with-deps chromium
