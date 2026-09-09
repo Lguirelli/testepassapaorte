@@ -20,7 +20,9 @@
     "db:seed": "tsx scripts/db-seed.ts",
     "db:reset-local": "node scripts/reset-local-store.mjs",
     "validate:repo": "node scripts/validate-repository.mjs",
-    "validate:static": "python3 scripts/static_preview.py"
+    "validate:static": "python3 scripts/static_preview.py",
+    "showcase:validate": "python3 scripts/validate_showcase.py",
+    "showcase:capture": "python3 scripts/capture_showcase.py"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

@@ -15,3 +15,9 @@
 ## Não promover silenciosamente
 
 Se PostGIS, npm registry, Chromium ou qualquer provider não estiver operacional, o gate correspondente deve ficar pendente e o motivo deve ser registrado no `VALIDATION_REPORT.md`.
+
+## Publicação do modelo visual
+
+O repositório agora inclui `showcase/` como modelo visual navegável. No GitHub, configure **Settings → Pages → Source → GitHub Actions**. O workflow `showcase-pages` valida e publica essa pasta. Isso substitui a situação em que a URL do Pages exibia somente o README.
+
+Antes de usar o Work para refinamentos, abrir a URL publicada e tratar `showcase/` como referência visual de direção, mantendo a aplicação Next como implementação funcional.

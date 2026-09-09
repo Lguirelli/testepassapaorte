@@ -2,6 +2,18 @@
 
 Repositório de validação incremental do Passaporte Serra Negra. Esta build **não é o MVP final**: ela valida arquitetura, fluxos públicos, Admin operacional, roteiro, calendário, Passaporte e integração do motor de carimbos com conteúdo exclusivamente sintético.
 
+
+
+## Protótipo visual de destino
+
+A interface apresentada no GitHub Pages **não deve ser o README**. O repositório agora inclui `showcase/`, um modelo visual navegável de como o produto pode ficar na direção final, usando a paleta e tipografia definidas para o Passaporte Serra Negra.
+
+Páginas do showcase: Home, Explorar, Lugar, Roteiro, Passaporte e Admin.
+
+O workflow `.github/workflows/showcase-pages.yml` publica essa pasta no GitHub Pages e executa validação visual responsiva antes do deploy. Em **Settings → Pages**, use **Source: GitHub Actions**.
+
+Veja `docs/FINAL_VISUAL_MODEL.md` para a direção de design e a diferença entre o showcase e a build técnica de validação.
+
 ## O que existe
 
 - Next.js App Router + TypeScript strict.
