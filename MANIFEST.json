@@ -1,7 +1,7 @@
 {
-  "package": "Passaporte Serra Negra · Functional Demo Visual v2 · Official Palette",
+  "package": "Passaporte Serra Negra · Visual v2 · Logo oficial + regras de construção",
   "generated_at": "2026-09-10",
-  "file_count": 946,
+  "file_count": 953,
   "files": [
     {
       "path": ".devcontainer/devcontainer.json",
@@ -40,8 +40,8 @@
     },
     {
       "path": ".github/workflows/pages.yml",
-      "bytes": 1187,
-      "sha256": "9b4d4f8781b40c82db060f0f12970c30562749757cbdf0b2e9781ae7b8b9472f"
+      "bytes": 1263,
+      "sha256": "0ecce6d4df8aba7570b16a4e55b486f510b3c6ba660ad7d045499b08c5202f64"
     },
     {
       "path": ".gitignore",
@@ -60,13 +60,13 @@
     },
     {
       "path": "404.html",
-      "bytes": 2754,
-      "sha256": "586835c9510a44e2815f8531945814510c9914385e6df057ba5f27367dde9bce"
+      "bytes": 3475,
+      "sha256": "3626152389a488bdf78a19bf46db60612a7d0a1c0ce72958efe2bb8067a3484d"
     },
     {
       "path": "ASSET_LICENSES.md",
-      "bytes": 1146,
-      "sha256": "f27af11886c6b1c6f906ca37a96cc21e7809d0b502552046f332c48b6f900b73"
+      "bytes": 1882,
+      "sha256": "8985efb79b4cc0e8e523fb4b9133d9e6e8780c870b140dc81e1060ba669912be"
     },
     {
       "path": "BLOCK_REPORT.md",
@@ -80,13 +80,13 @@
     },
     {
       "path": "PACKAGE_MANIFEST.md",
-      "bytes": 1097,
-      "sha256": "8f74215c78e1b6762d643bada9019c1b112d2d99cd13787e5aedf0ac2741d4c8"
+      "bytes": 2097,
+      "sha256": "6553255c06386e4f63f6642ec6a54d9c53e70d02bd43c7526c44409b6db05f4b"
     },
     {
       "path": "README.md",
-      "bytes": 1597,
-      "sha256": "14989253fb288262c5fc36dfd1fc01a2ab9c2a7be975f5c5e67a4b331a12c333"
+      "bytes": 2252,
+      "sha256": "319509e627c8865218f42678d4d79d47df65801def90bed0662e1d0fbab17ff2"
     },
     {
       "path": "VALIDATION.md",
@@ -105,8 +105,8 @@
     },
     {
       "path": "WORK_STATE.md",
-      "bytes": 6879,
-      "sha256": "3b3ba952f96b6926bf01c5b4aa51d350c0dc590c1425cfacc29f3318606bdf32"
+      "bytes": 7322,
+      "sha256": "abe2d7c8df63e6b635c84724a76a69bb6f8f4ecab31925fa0af35d56e4db17e7"
     },
     {
       "path": "acceptance/DEFINITION_OF_DONE.md",
@@ -120,8 +120,8 @@
     },
     {
       "path": "app.js",
-      "bytes": 68987,
-      "sha256": "08094703c177424a132f581ad0f8a814f5709bee4f621e58230699e1b0e4cf06"
+      "bytes": 80306,
+      "sha256": "3563e3207ecc40e80603724bc82d5e3ece4bf30c74c63565c6abafd42f3c29db"
     },
     {
       "path": "artifacts/block_08/build.log",
@@ -307,6 +307,16 @@
       "path": "artifacts/visual-v2/static-render-smoke.log",
       "bytes": 395,
       "sha256": "ff713efa76491a107eb2a7cbb8f7e6d7644339c29faf8329b75457e6d0d07c43"
+    },
+    {
+      "path": "assets/brand/logo-passaporte-serra-negra.png",
+      "bytes": 72272,
+      "sha256": "043e50d4ec49cbe254172d5cdc9339920856eda6ebd584f20c20c1f1bf846ae7"
+    },
+    {
+      "path": "assets/brand/logo-passaporte-serra-negra.svg",
+      "bytes": 5418,
+      "sha256": "a3de3eabe39a00463207c8ad0afc3bd76e382b710efc30aabc1bc98e6d68071e"
     },
     {
       "path": "assets/icons/admin-arquivar.svg",
@@ -1119,6 +1129,11 @@
       "sha256": "0ba75a01ad65d28c06fbd631bfbe90e91aef64fb82ce113b629bc504fba9e1f6"
     },
     {
+      "path": "docs/implementation/CONSTRUCTION_RULES_STATUS.md",
+      "bytes": 2318,
+      "sha256": "ea848c85530016a5e5d4fc7b0388779f462edd8d342c4f289667036697f40275"
+    },
+    {
       "path": "docs/validation/BLOCK-03.md",
       "bytes": 1024,
       "sha256": "7187a974ec3495035a39a46fa1222999f6bdd84cfb02814412e613f430c5ee1f"
@@ -1190,8 +1205,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 2754,
-      "sha256": "586835c9510a44e2815f8531945814510c9914385e6df057ba5f27367dde9bce"
+      "bytes": 3793,
+      "sha256": "bc6cdda1cff2de8972dcdf603a2fecd42b4136a4ddedf6d1f506d6a2dbb1aef1"
     },
     {
       "path": "next-env.d.ts",
@@ -1964,9 +1979,19 @@
       "sha256": "f0d8c8866165de6322b577423671f118cb71422565440bd3331229dfef9a0a79"
     },
     {
+      "path": "references/CONSTRUCTION_RULES_2026-09-10.md",
+      "bytes": 20179,
+      "sha256": "483c60938ecc2af79dde1758e540dcd90d08e1e9276c41d584af1b3ff81e4fd6"
+    },
+    {
       "path": "references/Passaporte_Serra_Negra_Documentacao_Mestra_v4_2026-09-09.md",
       "bytes": 66139,
       "sha256": "cebe62dd63b70147609bc20be3815068446a10c9ea7f2ab82d3fe6cc3a4382fb"
+    },
+    {
+      "path": "references/brand/Ativo 2logo passaporte.svg",
+      "bytes": 5418,
+      "sha256": "a3de3eabe39a00463207c8ad0afc3bd76e382b710efc30aabc1bc98e6d68071e"
     },
     {
       "path": "references/icon-system-v2/ASSET_LICENSES.md",
@@ -3584,6 +3609,11 @@
       "sha256": "340fddb3429342dc0390d2353a0104ed07a4a45f47be8c8ab6e18cece0573ab0"
     },
     {
+      "path": "robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
       "path": "scripts/deliver-block.py",
       "bytes": 2760,
       "sha256": "917994feb1a015234c7945c0f596253d49fde32b944ab8a5f5fe0c3d48aa9d79"
@@ -3637,6 +3667,11 @@
       "path": "seed/validation-trip.json",
       "bytes": 2691,
       "sha256": "b2a1baa09080c8c15a1c4b83194c8c4ad59218d7bec2bb3e0a2c259b328949c2"
+    },
+    {
+      "path": "site.webmanifest",
+      "bytes": 327,
+      "sha256": "e150cbe17c5ab34407e8f9f9ba8b2ba65636d5251d37b94d2b3726fd3117b24b"
     },
     {
       "path": "src/app/admin/[kind]/[id]/page.tsx",
@@ -4730,8 +4765,8 @@
     },
     {
       "path": "visual-v2.css",
-      "bytes": 36062,
-      "sha256": "8726c30d484e77034bddfa574fc103b4eeb7a1e0fdbce9e4a82b3fe7a1dc371b"
+      "bytes": 38465,
+      "sha256": "b156cf756b3c72b99e62b963a810b60f880a1ceaf1f4ae8fdfd766f7bfc22473"
     }
   ]
 }

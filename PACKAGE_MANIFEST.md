@@ -1,21 +1,37 @@
-# Package manifest · Visual v2
+# Package manifest · Logo oficial + regras de construção
 
-Pacote GitHub Pages funcional com a camada visual v2 aplicada sobre o checkpoint Bloco 08 PARCIAL.
+Esta entrega parte do Visual v2 com a paleta oficial e incorpora o SVG fornecido pelo usuário como ativo real de marca.
 
-## Superfície publicada
+## Marca usada na interface
 
-A raiz contém `index.html`, `404.html`, `app.js`, `data.js`, `styles.css`, `visual-v2.css`, `.nojekyll` e `assets/`. O workflow `.github/workflows/pages.yml` monta o artefato Pages somente com essa superfície.
+- `assets/brand/logo-passaporte-serra-negra.svg`: ativo carregado pelo Header e Footer e usado como favicon;
+- `references/brand/Ativo 2logo passaporte.svg`: cópia preservada com o nome original;
+- os dois SVGs são byte a byte idênticos ao arquivo recebido;
+- SHA-256: `a3de3eabe39a00463207c8ad0afc3bd76e382b710efc30aabc1bc98e6d68071e`;
+- `assets/brand/logo-passaporte-serra-negra.png`: derivado raster para preview/social icon.
 
-## Alterações principais
+## Regras de construção aplicadas à demo
 
-- Home reconstruída em 12 seções via `sectionRegistry` local;
-- página pública de parceiro reconstruída;
-- nova landing `#/para-parceiros`;
-- Public Shell alinhado ao guia v2;
-- responsividade visual v2;
-- nenhum screenshot de referência usado como conteúdo público;
-- fluxos anteriores preservados.
+- páginas funcionais de Privacidade, Termos, Cookies/armazenamento e Acessibilidade;
+- 404 útil com busca e caminhos de retorno;
+- títulos e meta descriptions por rota;
+- breadcrumbs em páginas hierárquicas;
+- `robots.txt` definido conscientemente para impedir indexação desta build de validação;
+- nenhum analytics, pixel, CRM, mapa ou embed externo carregado nesta versão;
+- nenhum banner de consentimento artificial, pois não existem cookies opcionais ativos;
+- Admin explicitamente tratado como simulador local, sem fingir RBAC de produção;
+- dados sintéticos, contatos demo bloqueados e ausência de avaliações/claims inventados preservadas.
 
-## Validação desta camada
+## Regras que continuam sendo requisito de produção
 
-`node --check app.js` PASS, smoke de renderização JavaScript em oito rotas PASS e browser smoke autocontido PASS para Home/Parceiro em 1440×1100 e 390×844. Interações principais e ausência de overflow horizontal foram verificadas. Os gates do Bloco 08 não foram promovidos, pois essa checagem visual não substitui PostGIS nem a matriz E2E original.
+Clerk/RBAC real em frontend e backend, textos jurídicos definitivos, identificação do operador, integrações, consentimento quando aplicável, fotografias reais/licenciadas, LocalBusiness schema com dados reais e auditoria completa de segurança/acessibilidade continuam dependentes da versão de produção.
+
+## Verificação desta entrega
+
+- `node --check app.js`: PASS;
+- SVG válido como XML: PASS;
+- identidade do SVG recebido x SVG usado: PASS byte a byte;
+- referências de Header/Footer/favicon para o novo ativo: PASS;
+- rotas legais e links no Footer: PASS por inspeção estática;
+- `robots.txt`: PASS;
+- não foi alegada nova validação visual de navegador nesta etapa.

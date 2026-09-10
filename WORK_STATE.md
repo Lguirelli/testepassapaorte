@@ -58,3 +58,8 @@ Validação desta camada: `node --check` PASS; smoke estático de 8 rotas PASS; 
 ## Correção de paleta — 2026-09-10
 
 A camada Visual v2 foi corrigida para usar a paleta principal oficial em grandes superfícies, header, fundos, textos, bordas e CTA. O verde deixou de ser tratado como identidade global. A paleta complementar permanece disponível apenas em usos contextuais por nicho, como categorias, mídia ilustrativa, chips, pinos, carimbos e pequenos destaques. Light/Dark/System foram alinhados aos tokens fornecidos pelo usuário.
+
+
+## Logo oficial + regras de construção (2026-09-10)
+
+O SVG `Ativo 2logo passaporte.svg` foi incorporado sem alteração de conteúdo e usado na marca do Header/Footer e favicon. Foram aplicadas à demo estática as regras compatíveis de transparência, privacidade, cookies, acessibilidade, 404, títulos/meta descriptions, breadcrumbs e robots. RBAC/Clerk permanece requisito de produção e não é falsamente simulado no GitHub Pages.

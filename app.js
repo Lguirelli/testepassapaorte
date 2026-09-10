@@ -21,6 +21,34 @@
   const responseLabel = v => ({within_1_hour:'Em até 1 hora (demo)',same_day:'No mesmo dia (demo)',within_few_hours:'Em algumas horas (demo)'}[v] || 'Tempo não informado');
   const weatherLabel = v => ({partly_cloudy:'Parcialmente nublado',rain:'Chuva',clear:'Céu aberto'}[v] || v);
   const weatherIcon = v => ({partly_cloudy:'clima-parcialmente-nublado',rain:'clima-chuva',clear:'sol'}[v] || 'clima-nublado');
+  const PAGE_META = {
+    home:['Passaporte Serra Negra','Explore possibilidades e monte um roteiro demonstrativo por Serra Negra.'],
+    explorar:['Explorar · Passaporte Serra Negra','Busque lugares, experiências e categorias na demonstração do Passaporte Serra Negra.'],
+    roteiro:['Montar roteiro · Passaporte Serra Negra','Responda às etapas e gere um roteiro demonstrativo editável.'],
+    viagens:['Minha viagem · Passaporte Serra Negra','Consulte roteiro e calendário usando o mesmo estado demonstrativo da viagem.'],
+    'meu-passaporte':['Meu Passaporte · Passaporte Serra Negra','Veja registros demonstrativos separados dos itens apenas planejados.'],
+    admin:['Admin demo · Passaporte Serra Negra','Controle operacional local da demonstração. Não representa autorização de produção.'],
+    'para-parceiros':['Para parceiros · Passaporte Serra Negra','Veja como uma página de parceiro pode participar da jornada demonstrativa do turista.'],
+    privacidade:['Privacidade · Passaporte Serra Negra','Como esta demonstração local trata estado, preferências e dados no navegador.'],
+    termos:['Termos de uso · Passaporte Serra Negra','Condições aplicáveis à demonstração funcional do Passaporte Serra Negra.'],
+    cookies:['Cookies e armazenamento · Passaporte Serra Negra','Tecnologias de armazenamento utilizadas nesta demonstração funcional.'],
+    acessibilidade:['Acessibilidade · Passaporte Serra Negra','Recursos e critérios de acessibilidade considerados nesta demonstração.']
+  };
+  function setPageMeta(key,titleOverride='',descriptionOverride=''){
+    const fallback=PAGE_META[key]||['Página · Passaporte Serra Negra','Demonstração funcional do Passaporte Serra Negra.'];
+    document.title=titleOverride||fallback[0];
+    const meta=document.querySelector('meta[name="description"]'); if(meta) meta.setAttribute('content',descriptionOverride||fallback[1]);
+    const ogTitle=document.querySelector('meta[property="og:title"]'); if(ogTitle) ogTitle.setAttribute('content',document.title);
+    const ogDescription=document.querySelector('meta[property="og:description"]'); if(ogDescription) ogDescription.setAttribute('content',descriptionOverride||fallback[1]);
+  }
+  function breadcrumbs(items){
+    return `<nav class="breadcrumbs" aria-label="Breadcrumb">${items.map((item,i)=>`${i?'<span aria-hidden="true">›</span>':''}${item.href?`<a href="${item.href}">${esc(item.label)}</a>`:`<span class="current" aria-current="page">${esc(item.label)}</span>`}`).join('')}</nav>`;
+  }
+  function updateNavCurrent(page){
+    $$('#main-nav a').forEach(a=>a.removeAttribute('aria-current'));
+    const map={explorar:'#/explorar',roteiro:'#/viagens/demo-trip-001/roteiro','para-parceiros':'#/para-parceiros'};
+    const href=map[page]; if(href){const link=$(`#main-nav a[href="${href}"]`); link?.setAttribute('aria-current','page');}
+  }
 
   const defaultState = () => ({
     version: 1,
@@ -291,7 +319,7 @@
     const isPartner=asPartner || p.commercialRelation==='partner';
     if(isPartner) return renderPartner(p);
     const exps=experiencesFor(p.id), evs=eventsFor(p.id); const suggestions=publicPlaces().filter(x=>x.id!==p.id).slice(0,4);
-    app.innerHTML = `<a href="#/explorar">← Voltar a explorar</a><section class="hero"><div><p class="eyebrow">Ponto turístico · demonstração</p><h1 class="compact">${esc(p.name)}</h1><p class="lead">${esc(p.shortDescription)}</p><div class="actions">${statusBadges(p)}<button class="primary" data-action="add-trip" data-place="${p.id}">${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button><button data-action="register-visit" data-place="${p.id}">${visitFor(p.id)?'Visita registrada':'Registrar visita demo'}</button></div></div><div class="hero-visual"><div class="mark">PONTO<br><strong>DEMO</strong></div></div></section>
+    app.innerHTML = `${breadcrumbs([{label:'Início',href:'#/'},{label:'Explorar',href:'#/explorar'},{label:p.name}])}<section class="hero"><div><p class="eyebrow">Ponto turístico · demonstração</p><h1 class="compact">${esc(p.name)}</h1><p class="lead">${esc(p.shortDescription)}</p><div class="actions">${statusBadges(p)}<button class="primary" data-action="add-trip" data-place="${p.id}">${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button><button data-action="register-visit" data-place="${p.id}">${visitFor(p.id)?'Visita registrada':'Registrar visita demo'}</button></div></div><div class="hero-visual"><div class="mark">PONTO<br><strong>DEMO</strong></div></div></section>
       <section class="section two-col"><div><p class="eyebrow">Sobre o lugar</p><h2>Conheça este ponto</h2><p class="lead">${esc(p.longDescription||p.shortDescription)}</p><div class="gallery"><div></div><div></div><div></div></div></div><aside class="sidebar"><div class="panel"><h3>Informações rápidas</h3><dl class="info-list"><div><dt>Horário</dt><dd>${esc(p.openingHours?.text||'Demo')}</dd></div><div><dt>Duração</dt><dd>${p.durationMinutes} min</dd></div><div><dt>Ambiente</dt><dd>${esc(environmentLabel(p.environment))}</dd></div><div><dt>Custo</dt><dd>${esc(costLabel(p.costType))}</dd></div></dl></div>${weatherStrip()}</aside></section>
       ${section('Experiências neste lugar','O que fazer',exps.length?`<div class="grid">${exps.map(e=>`<article class="panel"><span class="badge">${esc(costLabel(e.costType))}</span><h3>${esc(e.name)}</h3><p class="muted">${e.durationMinutes} min · ${esc(environmentLabel(e.environment))}</p></article>`).join('')}</div>`:'<div class="empty">Nenhuma experiência associada.</div>')}
       ${evs.length?section('Eventos','Agenda',`<div class="grid">${evs.map(e=>`<article class="panel"><span class="badge">${fmtDate(e.startsAt.slice(0,10))}</span><h3>${esc(e.name)}</h3><p>${esc(costLabel(e.costType))}</p></article>`).join('')}</div>`):''}
@@ -308,7 +336,7 @@
     const partner=partnerForPlace(p.id); const exps=experiencesFor(p.id); const suggestions=publicPlaces().filter(x=>x.id!==p.id).slice(0,4);
     const visited=visitFor(p.id), planned=plannedItemFor(p.id);
     app.innerHTML = `<div class="partner-page-v2">
-      <section class="partner-hero-v2 full-bleed">${scenicMedia(p,'partner-hero')}<div class="partner-hero-overlay"></div><div class="v2-container partner-hero-copy"><a class="back-on-dark" href="#/explorar">${icon('voltar')} Voltar a explorar</a><p class="v2-kicker">${esc((p.categoryIds||[]).map(categoryName).join(' · '))} · parceiro demo</p><h1>${esc(p.name)}</h1><p>${esc(p.shortDescription)}</p><div class="partner-hero-actions"><button class="light-button" data-action="add-trip" data-place="${p.id}">${planned?'Já está no roteiro':'Adicionar ao roteiro'}</button><span class="partner-stamp">PARCEIRO<br><strong>DEMO</strong></span></div></div></section>
+      <section class="partner-hero-v2 full-bleed">${scenicMedia(p,'partner-hero')}<div class="partner-hero-overlay"></div><div class="v2-container partner-hero-copy">${breadcrumbs([{label:'Início',href:'#/'},{label:'Explorar',href:'#/explorar'},{label:p.name}])}<p class="v2-kicker">${esc((p.categoryIds||[]).map(categoryName).join(' · '))} · parceiro demo</p><h1>${esc(p.name)}</h1><p>${esc(p.shortDescription)}</p><div class="partner-hero-actions"><button class="light-button" data-action="add-trip" data-place="${p.id}">${planned?'Já está no roteiro':'Adicionar ao roteiro'}</button><span class="partner-stamp">PARCEIRO<br><strong>DEMO</strong></span></div></div></section>
       <div class="v2-container partner-quick-wrap">${partnerQuickInfo(p,partner)}</div>
       <section class="v2-section"><div class="v2-container partner-about-grid"><div><p class="v2-kicker">Sobre este lugar</p><h2>Uma parada que entra no contexto da viagem.</h2><p class="v2-copy">${esc(p.shortDescription)}</p><p class="muted">Conteúdo sintético para validação. Nenhum dado de atendimento ou localização representa um estabelecimento real.</p></div><div class="partner-about-media">${scenicMedia(p,'about')}<div class="partner-mini-media">${scenicMedia(p,'mini')}</div></div></div></section>
       ${exps.length?`<section class="v2-section partner-features full-bleed"><div class="v2-container"><div class="v2-section-heading light"><div><p class="v2-kicker">O que você encontra aqui</p><h2>Experiências associadas</h2></div><p>Os módulos abaixo são derivados das experiências existentes no seed demonstrativo.</p></div><div class="partner-feature-grid">${exps.map((e,i)=>`<article class="partner-feature ${i%2?'reverse':''}"><div class="feature-media">${scenicMedia(p,'feature-block')}</div><div><span class="badge">${esc(costLabel(e.costType))}</span><h3>${esc(e.name)}</h3><p>${e.durationMinutes} min · ${esc(environmentLabel(e.environment))}</p>${e.bookingType==='external_required'?'<button class="light-button" data-action="demo-contact">Solicitar reserva demo</button>':''}</div></article>`).join('')}</div></div></section>`:''}
@@ -400,7 +428,7 @@
   function adminLabel(kind,item){if(kind==='places'||kind==='experiences'||kind==='events'||kind==='categories')return item.name; if(kind==='sources')return item.sourceName; if(kind==='partners')return placeById(item.placeId)?.name||item.id; return item.id}
   function renderAdmin(){
     const kind=ui.adminKind, list=mergedCollection(kind); if(ui.adminEdit&&!list.find(x=>x.id===ui.adminEdit))ui.adminEdit=null;
-    app.innerHTML = `${pageTitle('Admin de demonstração','Controle operacional local','Edite, salve rascunho, visualize e publique no navegador. Nada é enviado a um servidor.')}<div class="admin-layout"><nav class="admin-nav" aria-label="Tipos de conteúdo">${Object.entries(adminKinds).map(([k,l])=>`<button class="${k===kind?'active':''}" data-admin-kind="${k}">${l}<span class="badge">${mergedCollection(k).length}</span></button>`).join('')}</nav><section>${ui.adminEdit?renderAdminEditor(kind,list.find(x=>x.id===ui.adminEdit)):renderAdminList(kind,list)}</section></div>`;
+    app.innerHTML = `${pageTitle('Admin de demonstração','Controle operacional local','Edite, salve rascunho, visualize e publique no navegador. Nada é enviado a um servidor.')}<div class="security-demo-note"><strong>Segurança desta build:</strong> esta área é somente uma simulação local e não possui autenticação real. Em produção, acesso administrativo exige RBAC validado tanto na interface quanto no backend; ocultar elementos no navegador não é autorização.</div><div class="admin-layout"><nav class="admin-nav" aria-label="Tipos de conteúdo">${Object.entries(adminKinds).map(([k,l])=>`<button class="${k===kind?'active':''}" data-admin-kind="${k}">${l}<span class="badge">${mergedCollection(k).length}</span></button>`).join('')}</nav><section>${ui.adminEdit?renderAdminEditor(kind,list.find(x=>x.id===ui.adminEdit)):renderAdminList(kind,list)}</section></div>`;
   }
   function renderAdminList(kind,list){
     return `<div class="panel"><div class="section-head"><div><p class="eyebrow">${esc(adminKinds[kind])}</p><h2>Conteúdo</h2></div>${kind==='places'?'<button data-action="admin-create">Criar lugar demo</button>':''}</div><div class="admin-list">${list.map(item=>`<div class="admin-row"><div><strong>${esc(adminLabel(kind,item))}</strong><div class="actions"><span class="badge">${esc(item.status||'ativo')}</span>${state.drafts[kind]?.[item.id]?'<span class="badge warn">rascunho salvo</span>':''}</div></div><button data-admin-edit="${item.id}">Editar</button></div>`).join('')}</div></div><section class="section"><h2>Histórico desta sessão</h2><div class="audit">${state.audit.slice(0,8).map(a=>`<div class="audit-item"><strong>${esc(a.action)}</strong><div>${esc(a.label)}</div><span class="muted">${new Date(a.at).toLocaleString('pt-BR')}</span></div>`).join('')}</div></section>`;
@@ -421,23 +449,61 @@
   function adminArchive(){const x=adminFormData();if(!x)return;state.adminOverrides[x.kind][x.id]={...(state.adminOverrides[x.kind][x.id]||{}),status:'archived'};delete state.drafts[x.kind][x.id];state.audit.unshift({at:new Date().toISOString(),action:'archived',label:adminLabel(x.kind,mergedCollection(x.kind).find(i=>i.id===x.id))});save();ui.adminEdit=null;toast('Item arquivado na demonstração.');renderAdmin()}
   function adminCreatePlace(){const id=`place-local-${Date.now()}`;state.adminCreated.places.push({id,slug:`novo-lugar-${Date.now()}`,name:'Novo lugar demo',placeType:'tourist_point',commercialRelation:'public_point',categoryIds:['cat-cultura'],shortDescription:'Novo conteúdo criado localmente no Admin de demonstração.',environment:'indoor',costType:'free',durationMinutes:60,openingHours:{type:'demo',text:'09:00–17:00'},location:{lat:-22.61,lng:-46.70,display:'Área de demonstração, Serra Negra, SP'},status:'draft',sourceIds:['source-synthetic']});save();ui.adminEdit=id;renderAdmin();toast('Novo lugar demo criado como rascunho.')}
 
-  function renderNotFound(){app.innerHTML=`${pageTitle('Página não encontrada','Demonstração','A rota solicitada não existe nesta versão.')}<a class="button primary" href="#/">Voltar ao início</a>`}
+
+  function legalShell(title,eyebrow,lead,body){
+    app.innerHTML=`<article class="legal-page">${breadcrumbs([{label:'Início',href:'#/'},{label:title}])}${pageTitle(title,eyebrow,lead)}${body}</article>`;
+  }
+  function renderPrivacy(){
+    legalShell('Política de Privacidade da demonstração','Transparência','Esta página descreve somente o comportamento desta versão de validação, sem presumir o funcionamento futuro da plataforma.',`
+      <section><h2>Dados tratados nesta versão</h2><p>A demonstração não possui cadastro real, autenticação de produção, CRM, pixels publicitários, mapas externos ou envio de formulários para servidor. O roteiro, as alterações do Admin demo, as visitas demonstrativas e a preferência de tema ficam armazenados localmente no navegador.</p></section>
+      <section><h2>Finalidade</h2><p>O armazenamento local existe exclusivamente para permitir validar continuidade de navegação e estados da interface. Esses dados não são apresentados como registros reais de viagem ou presença.</p></section>
+      <section><h2>Compartilhamento e fornecedores</h2><p>Nesta build estática não há integração ativa com fornecedores externos para analytics, autenticação, publicidade, mapas, reservas ou atendimento. Quando qualquer integração real for adicionada, esta política deverá ser revista antes de produção.</p></section>
+      <section><h2>Retenção e controle</h2><p>Os dados demonstrativos permanecem no armazenamento local deste navegador até serem limpos pelo usuário. Você pode usar “Restaurar demo” para recriar o estado inicial ou apagar todos os dados locais desta demonstração.</p><button data-action="clear-local-data">Apagar dados locais da demonstração</button></section>
+      <section><h2>Contato e validação jurídica</h2><p>Dados do operador comercial e canal jurídico ainda não foram fornecidos para esta build de validação e, por isso, não são inventados aqui. Antes de produção, a política precisa refletir o operador real, fornecedores, bases legais e direitos aplicáveis, com revisão jurídica quando necessário.</p></section>`);
+  }
+  function renderTerms(){
+    legalShell('Termos de uso da demonstração','Condições de uso','Estes termos descrevem a finalidade desta versão navegável e não substituem termos comerciais futuros.',`
+      <section><h2>Finalidade</h2><p>Esta versão existe para validação visual e funcional. Lugares, parceiros, clima, visitas, contatos, eventos e demais dados exibidos são sintéticos.</p></section>
+      <section><h2>Sem transação real</h2><p>Nenhuma ação desta demonstração conclui reserva, pagamento, contratação, visita presencial ou contato comercial. Botões externos demonstrativos são bloqueados justamente para evitar essa interpretação.</p></section>
+      <section><h2>Contas e permissões</h2><p>Não há autenticação real nesta publicação estática. O Admin é um simulador local. Qualquer versão de produção com papéis diferentes deverá aplicar autorização no frontend e no backend.</p></section>
+      <section><h2>Disponibilidade e responsabilidade</h2><p>A demonstração pode mudar ou ser reiniciada a qualquer momento e não oferece garantia de disponibilidade, conteúdo turístico atual ou funcionamento de integrações futuras.</p></section>
+      <section><h2>Versão de produção</h2><p>Antes de uma operação comercial real, estes termos deverão ser substituídos ou ampliados conforme o modelo de negócio, operador, legislação e jurisdição aplicáveis.</p></section>`);
+  }
+  function renderCookies(){
+    legalShell('Cookies e armazenamento','Preferências','A demonstração foi construída para evitar rastreamento externo e documentar as tecnologias que realmente utiliza.',`
+      <section><h2>Cookies</h2><p>Esta build não instala cookies opcionais de analytics, publicidade ou remarketing e não carrega scripts de terceiros que dependam de consentimento.</p></section>
+      <section><h2>Armazenamento local</h2><p>O navegador utiliza <code>localStorage</code> para salvar o estado da demonstração e a preferência de aparência. Isso permite que roteiro, Passaporte, alterações locais do Admin e tema persistam após recarregar a página.</p></section>
+      <section><h2>Consentimento</h2><p>Como não há cookies opcionais nem ferramentas externas de rastreamento nesta build, não exibimos um banner de consentimento artificial. Caso ferramentas opcionais sejam adicionadas, elas deverão ser bloqueadas até o consentimento quando a legislação aplicável assim exigir.</p></section>
+      <section><h2>Limpar preferências</h2><button data-action="clear-local-data">Apagar dados locais da demonstração</button></section>`);
+  }
+  function renderAccessibility(){
+    legalShell('Acessibilidade','Experiência inclusiva','A acessibilidade é tratada como requisito da construção, não como acabamento posterior.',`
+      <section><h2>Navegação</h2><p>A demo inclui link de salto para o conteúdo, foco visível, navegação por teclado, fechamento do menu móvel por Escape, labels em formulários e controles com nomes acessíveis.</p></section>
+      <section><h2>Movimento e contraste</h2><p>As transições respeitam <code>prefers-reduced-motion</code>. Estados importantes não devem depender apenas de cor e a paleta usa os tokens oficiais de contraste da interface.</p></section>
+      <section><h2>Imagens e mapas</h2><p>As mídias demonstrativas recebem descrição funcional. Mapas abstratos não substituem informação textual de localização.</p></section>
+      <section><h2>Limites desta validação</h2><p>Esta página não declara certificação formal. Auditorias automatizadas e testes assistivos completos continuam necessários antes de produção.</p></section>`);
+  }
+
+  function renderNotFound(){app.innerHTML=`${breadcrumbs([{label:'Início',href:'#/'},{label:'Página não encontrada'}])}${pageTitle('Página não encontrada','Demonstração','A rota solicitada não existe nesta versão.')}<form class="not-found-search" id="not-found-search" role="search"><label class="field" for="not-found-q">Pesquisar no Passaporte</label><div class="search-inline"><input id="not-found-q" type="search" placeholder="Café, natureza, cultura…"><button class="primary" type="submit">Explorar</button></div></form><div class="not-found-actions"><a class="button primary" href="#/">Voltar ao início</a><a class="button" href="#/explorar">Explorar lugares</a><a class="button" href="#/roteiro">Montar roteiro</a></div>`}
 
   function render(){
     window.scrollTo(0,0); const hash=(location.hash||'#/').slice(1).split('?')[0]; const parts=hash.split('/').filter(Boolean);
-    document.title='Passaporte Serra Negra · Demo Visual v2';
-    document.body.dataset.page=parts[0]||'home';
-    if(parts.length===0)renderHome();
-    else if(parts[0]==='explorar')renderExplore();
-    else if(parts[0]==='lugares'&&parts[1])renderPlace(parts[1],false);
-    else if(parts[0]==='parceiros'&&parts[1])renderPlace(parts[1],true);
-    else if(parts[0]==='roteiro'&&parts.length===1)renderOnboarding();
-    else if(parts[0]==='viagens'&&parts[2]==='roteiro')renderRoute();
-    else if(parts[0]==='viagens'&&parts[2]==='calendario')renderCalendar();
-    else if(parts[0]==='meu-passaporte')renderPassport();
-    else if(parts[0]==='admin')renderAdmin();
-    else if(parts[0]==='para-parceiros')renderPartnerAcquisition();
-    else renderNotFound();
+    const page=parts[0]||'home'; document.body.dataset.page=page; updateNavCurrent(page);
+    if(parts.length===0){setPageMeta('home');renderHome();}
+    else if(parts[0]==='explorar'){setPageMeta('explorar');renderExplore();}
+    else if(parts[0]==='lugares'&&parts[1]){const p=placeBySlug(parts[1]);setPageMeta('explorar',p?`${p.name} · Passaporte Serra Negra`:'Lugar · Passaporte Serra Negra',p?.shortDescription||'Página de lugar na demonstração.');renderPlace(parts[1],false);}
+    else if(parts[0]==='parceiros'&&parts[1]){const p=placeBySlug(parts[1]);setPageMeta('explorar',p?`${p.name} · Passaporte Serra Negra`:'Parceiro · Passaporte Serra Negra',p?.shortDescription||'Página de parceiro na demonstração.');renderPlace(parts[1],true);}
+    else if(parts[0]==='roteiro'&&parts.length===1){setPageMeta('roteiro');renderOnboarding();}
+    else if(parts[0]==='viagens'&&parts[2]==='roteiro'){setPageMeta('viagens','Roteiro da viagem · Passaporte Serra Negra');renderRoute();}
+    else if(parts[0]==='viagens'&&parts[2]==='calendario'){setPageMeta('viagens','Calendário da viagem · Passaporte Serra Negra');renderCalendar();}
+    else if(parts[0]==='meu-passaporte'){setPageMeta('meu-passaporte');renderPassport();}
+    else if(parts[0]==='admin'){setPageMeta('admin');renderAdmin();}
+    else if(parts[0]==='para-parceiros'){setPageMeta('para-parceiros');renderPartnerAcquisition();}
+    else if(parts[0]==='privacidade'){setPageMeta('privacidade');renderPrivacy();}
+    else if(parts[0]==='termos'){setPageMeta('termos');renderTerms();}
+    else if(parts[0]==='cookies'){setPageMeta('cookies');renderCookies();}
+    else if(parts[0]==='acessibilidade'){setPageMeta('acessibilidade');renderAccessibility();}
+    else {setPageMeta('home','Página não encontrada · Passaporte Serra Negra','A rota solicitada não existe nesta demonstração.');renderNotFound();}
     app.focus({preventScroll:true});
   }
 
@@ -480,6 +546,7 @@
     if(a==='admin-publish'){adminPublish();return}
     if(a==='admin-archive'){adminArchive();return}
     if(a==='reset-demo'){if(confirm('Restaurar todos os dados locais da demonstração?')){state=defaultState();save();ui.activeDay=state.trip.days[0].date;ui.passportPage=0;toast('Demonstração restaurada.');render()}return}
+    if(a==='clear-local-data'){if(confirm('Apagar estado e preferências locais desta demonstração?')){localStorage.removeItem(STORE);localStorage.removeItem(THEME_STORE);state=defaultState();document.documentElement.dataset.theme='system';themeSelect.value='system';syncThemeMeta('system');toast('Dados locais apagados.');location.hash='#/';render()}return}
   });
 
 
@@ -487,6 +554,11 @@
     if(e.target?.id==='home-search-form'){
       e.preventDefault();
       const q=$('#home-search')?.value?.trim()||'';
+      location.hash=`#/explorar${q?`?q=${encodeURIComponent(q)}`:''}`;
+    }
+    if(e.target?.id==='not-found-search'){
+      e.preventDefault();
+      const q=$('#not-found-q')?.value?.trim()||'';
       location.hash=`#/explorar${q?`?q=${encodeURIComponent(q)}`:''}`;
     }
   });

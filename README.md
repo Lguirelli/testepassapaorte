@@ -26,3 +26,8 @@ A camada técnica, testes e relatórios continuam no repositório apenas como su
 ## Paleta visual
 
 A demonstração usa a paleta principal oficial fornecida para o Passaporte Serra Negra. Grandes superfícies, header, CTAs, fundos, textos e bordas usam grafite, carvão, creme e cinzas quentes. As cores complementares são reservadas a contextos de nicho, como categorias, chips, carimbos, pinos e pequenos destaques. A especificação está em `docs/visual/PALETA_OFICIAL.md`.
+## Identidade e regras aplicadas
+
+Esta revisão usa diretamente o SVG oficial fornecido para o projeto em `assets/brand/logo-passaporte-serra-negra.svg`. O arquivo é byte a byte igual ao original preservado em `references/brand/Ativo 2logo passaporte.svg`.
+
+A demonstração também aplica as regras de construção compatíveis com GitHub Pages: transparência de privacidade/cookies, 404 útil, metadados por rota, breadcrumbs, acessibilidade e `robots.txt`. Recursos que exigem backend seguro, como RBAC/Clerk, não são simulados como proteção real. O arquivo recebido com as regras foi preservado em `references/CONSTRUCTION_RULES_2026-09-10.md`.

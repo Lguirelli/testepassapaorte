@@ -1,42 +1,25 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="system">
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#E8E8E0" />
-  <link rel="icon" href="./assets/icons/passaporte.svg" type="image/svg+xml" />
-  <meta name="description" content="Passaporte Serra Negra · demonstração visual e funcional para validação." />
-  <title>Passaporte Serra Negra · Demo Visual v2</title>
-  <link rel="stylesheet" href="./styles.css" />
-  <link rel="stylesheet" href="./visual-v2.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#E8E8E0">
+  <link rel="icon" href="./assets/brand/logo-passaporte-serra-negra.svg" type="image/svg+xml">
+  <title>Página não encontrada · Passaporte Serra Negra</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#161618;background:#E8E8E0}
+    *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px}.card{width:min(720px,100%);background:#F3F1EC;border:1px solid #C8C3B8;border-radius:24px;padding:clamp(28px,6vw,64px)}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;font-weight:750}.brand img{width:52px;height:52px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;color:#7A7372;font-size:.72rem;font-weight:750;margin-top:36px}h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(2.8rem,8vw,5rem);line-height:.95;margin:.5rem 0 1rem}p{color:#403D3F;line-height:1.65;max-width:55ch}.actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:24px}a.button,button{min-height:44px;border-radius:999px;border:1px solid #C8C3B8;background:#F3F1EC;color:#161618;padding:.7rem 1rem;text-decoration:none;font:inherit;cursor:pointer}.primary{background:#403D3F!important;color:#E8E8E0!important;border-color:#403D3F!important}label{display:grid;gap:6px;margin-top:28px;font-weight:650}input{min-height:46px;border-radius:12px;border:1px solid #C8C3B8;background:#fff;padding:.7rem .8rem;font:inherit}.search{display:grid;grid-template-columns:1fr auto;gap:8px}@media(max-width:520px){.search{grid-template-columns:1fr}.actions{display:grid}.actions>*{width:100%;text-align:center}}</style>
 </head>
 <body>
-  <a class="skip" href="#app">Ir para o conteúdo</a>
-  <div class="demo-banner">Modo de validação · conteúdo fictício</div>
-  <header class="site-header">
-    <a class="brand" href="#/" aria-label="Passaporte Serra Negra, página inicial">
-      <img src="./assets/icons/passaporte.svg" alt="" />
-      <span><small>Passaporte</small><strong>Serra Negra</strong></span>
-    </a>
-    <button class="mobile-menu" type="button" data-action="toggle-menu" aria-expanded="false" aria-controls="main-nav">
-      <img src="./assets/icons/menu.svg" alt="" /> Menu
-    </button>
-    <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
-      <a href="#/explorar">Explorar</a>
-      <a href="#/explorar?relation=public_point">Pontos turísticos</a>
-      <a href="#/viagens/demo-trip-001/roteiro">Roteiros</a>
-      <a href="#/explorar">Mapa</a>
-      <a href="#/para-parceiros">Para parceiros</a>
-      <a class="button primary nav-cta" href="#/roteiro">Montar meu roteiro</a>
-    </nav>
-    <label class="theme-picker">Aparência
-      <select id="theme-select" aria-label="Aparência"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Escuro</option></select>
-    </label>
-  </header>
-  <main id="app" tabindex="-1" aria-live="polite"></main>
-  <footer class="v2-footer"><div class="footer-brand"><a class="brand" href="#/"><img src="./assets/icons/passaporte.svg" alt=""><span><small>Passaporte</small><strong>Serra Negra</strong></span></a><p>Demonstração visual e funcional. Dados exclusivamente sintéticos.</p></div><div class="footer-cols"><nav aria-label="Descoberta"><strong>Descobrir</strong><a href="#/explorar">Explorar</a><a href="#/roteiro">Montar roteiro</a><a href="#/meu-passaporte">Meu Passaporte</a></nav><nav aria-label="Projeto"><strong>Ecossistema</strong><a href="#/para-parceiros">Para parceiros</a><a href="#/admin">Admin demo</a><button class="linklike" data-action="reset-demo">Restaurar demo</button></nav></div></footer>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="./data.js"></script>
-  <script src="./app.js"></script>
+  <main class="card">
+    <a class="brand" id="home-brand" href="./" aria-label="Passaporte Serra Negra, página inicial"><img src="./assets/brand/logo-passaporte-serra-negra.svg" alt=""><span>Passaporte Serra Negra</span></a>
+    <p class="eyebrow">Erro 404</p>
+    <h1>Este caminho não existe.</h1>
+    <p>Você pode voltar ao início, explorar os conteúdos disponíveis ou pesquisar uma ideia para continuar navegando pela demonstração.</p>
+    <form id="search-form"><label for="search">Pesquisar no Passaporte</label><div class="search"><input id="search" type="search" placeholder="Café, natureza, cultura…"><button class="primary" type="submit">Explorar</button></div></form>
+    <div class="actions"><a class="button" id="home-link" href="./">Página inicial</a><a class="button" id="explore-link" href="./#/explorar">Explorar</a><a class="button" id="route-link" href="./#/roteiro">Montar roteiro</a></div>
+  </main>
+  <script>(function(){var parts=location.pathname.split('/').filter(Boolean);var base=location.hostname.endsWith('github.io')&&parts.length?'/'+parts[0]+'/':'/';document.getElementById('home-brand').href=base;document.getElementById('home-link').href=base;document.getElementById('explore-link').href=base+'#/explorar';document.getElementById('route-link').href=base+'#/roteiro';document.getElementById('search-form').addEventListener('submit',function(e){e.preventDefault();var q=document.getElementById('search').value.trim();location.href=base+'#/explorar'+(q?'?q='+encodeURIComponent(q):'')})})()</script>
 </body>
 </html>
