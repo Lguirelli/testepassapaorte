@@ -1,15 +1,13 @@
 # PACKAGE_MANIFEST
 
-Entrega: **Landing V3 reconstruída do PSD**.
+Entrega corrigida: **Landing V3 + fotografias Pexels remotas + fallbacks locais reais nos cards**.
 
-- Arquivos empacotados no repositório: 972
-- Tamanho descompactado aproximado: 11.67 MiB
-- Manifesto de integridade: `MANIFEST.json` (971 arquivos, excluindo o próprio manifesto para evitar hash circular)
+- Arquivos descritos no manifesto de integridade: 982
+- Tamanho descompactado aproximado antes do manifesto: 11.77 MiB
 - Entrada funcional: `index.html`
-- CSS específico da reconstrução: `visual.css`
-- Logo oficial em uso: `assets/brand/logo-passaporte-serra-negra.svg`
-- Prompt executado diretamente: `references/landing-reconstruction-v3/PROMPT_RECONSTRUCAO_LANDING_V3.md`
-- Metadados do PSD: `references/landing-reconstruction-v3/PSD_LAYER_METADATA.json`
-- Evidências: `screenshots/`
+- Pasta `assets/stock/`: 10 arquivos, incluindo 8 JPGs locais + manifesto/fontes
+- Fotografias Pexels: carregadas remotamente e documentadas em `ASSET_SOURCES_STOCK_IMAGES.md`
+- Fallback local: usado automaticamente quando o carregamento remoto falhar
+- Manifesto de integridade: `MANIFEST.json`
 
 Não são incluídos caches, `node_modules`, builds transitórios ou segredos.

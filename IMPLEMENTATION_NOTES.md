@@ -93,11 +93,12 @@ Foram exercitadas e aprovadas na validação em Chromium:
 
 Permanecem explicitamente temporários:
 
-- paisagens e fotografias representadas por composições abstratas CSS/SVG;
+- fotografias de banco gratuitas do Pexels aplicadas aos oito lugares fictícios como mídia ilustrativa;
+- oito JPGs locais em `assets/stock/` funcionam como fallback automático se o CDN remoto falhar;
 - dados de lugares, parceiros, clima, evento e visitas, todos sintéticos;
 - mapa territorial, que demonstra relação entre lista/pins sem afirmar geografia real;
 - QR real, providers externos, autenticação de produção e integrações de mapa/clima;
-- imagens fotográficas finais.
+- imagens fotográficas finais dos lugares reais; as fotos Pexels atuais são temporárias e não representam Serra Negra nem os estabelecimentos fictícios.
 
 Nenhuma screenshot do PSD foi usada como asset de produção, e textos/botões estrangeiros das referências não foram incorporados.
 
@@ -137,7 +138,7 @@ Arquivos de evidência:
 
 A reconstrução estrutural/compositiva da landing está concluída para validação. Permanecem dependências externas ou de produção, e não bloqueios desta entrega:
 
-- substituir placeholders por fotografias finais licenciadas quando os assets forem definidos;
+- substituir as fotografias Pexels de validação por fotografias finais/licenciadas dos lugares reais quando os assets forem definidos;
 - integrar geografia/provedor de mapa real apenas quando houver fonte e credenciais aprovadas;
 - integrar autenticação/RBAC e autorização de backend antes de tratar Admin/parceiro como áreas seguras de produção;
 - integrar QR, analytics e demais providers somente com contratos reais;
@@ -156,3 +157,8 @@ A reconstrução estrutural/compositiva da landing está concluída para valida�
 - `screenshots/`
 - `references/landing-reconstruction-v3/`
 - este `IMPLEMENTATION_NOTES.md`
+
+
+## Fotografias temporárias dos cards
+
+A proveniência das oito fotografias de validação está documentada em `ASSET_SOURCES_STOCK_IMAGES.md`. As URLs ficam centralizadas em `data.js` e a mesma foto acompanha o mesmo lugar em todas as ocorrências.

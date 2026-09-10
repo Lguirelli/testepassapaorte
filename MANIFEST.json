@@ -1,7 +1,7 @@
 {
   "format": 1,
-  "scope": "Passaporte Serra Negra Landing V3 reconstructed from PSD",
-  "file_count": 971,
+  "scope": "Passaporte Serra Negra Landing V3 + Pexels remote stock imagery + local card fallbacks",
+  "file_count": 982,
   "files": [
     {
       "path": ".devcontainer/devcontainer.json",
@@ -65,8 +65,13 @@
     },
     {
       "path": "ASSET_LICENSES.md",
-      "bytes": 1882,
-      "sha256": "8985efb79b4cc0e8e523fb4b9133d9e6e8780c870b140dc81e1060ba669912be"
+      "bytes": 2733,
+      "sha256": "7d4ed2d5154c5019683ba380bd1a7dc6cb164d46b6405409ca3a619800720e9e"
+    },
+    {
+      "path": "ASSET_SOURCES_STOCK_IMAGES.md",
+      "bytes": 2126,
+      "sha256": "f6f6d5d2c58691888b5e0128c593b2da04c8dac42953f525ca46d64d22913687"
     },
     {
       "path": "BLOCK_REPORT.md",
@@ -80,18 +85,18 @@
     },
     {
       "path": "IMPLEMENTATION_NOTES.md",
-      "bytes": 10701,
-      "sha256": "86c6f85ba5559edac64e9662f4b1869744cfb8ab4b6316969083210f61db3ae8"
+      "bytes": 11249,
+      "sha256": "8e1d6e9f676011955acb2f0eb41161fa3d893712399ca845143a90b17dabd16c"
     },
     {
       "path": "PACKAGE_MANIFEST.md",
-      "bytes": 726,
-      "sha256": "5a36079a9bcd0cbb77d7aca3468a75c4464ca2d964919a9f7930b41a596718e2"
+      "bytes": 649,
+      "sha256": "8d7e316fcc2a459175d8d42341ed12bcd2d38aed47c2fab385d73d60a8a56ce5"
     },
     {
       "path": "README.md",
-      "bytes": 2841,
-      "sha256": "46d964d280bcd455ea074a7dc4b63d30da130f56b7f1c91bb5d412618a8e32df"
+      "bytes": 3272,
+      "sha256": "7df5dddce9c51cfbb13032ecf1776de000c49031b9d56b07e648ca0931afcb11"
     },
     {
       "path": "VALIDATION.md",
@@ -125,8 +130,8 @@
     },
     {
       "path": "app.js",
-      "bytes": 85438,
-      "sha256": "506a1edeabfe5337af602ab66bdee73fd3750d51c17f0bea85c2ad7003b573b5"
+      "bytes": 86023,
+      "sha256": "7a1bc1dc66ffab338a247eefc2e8b0d7f0290421cda062c674f975b05436ce04"
     },
     {
       "path": "artifacts/block_08/build.log",
@@ -1069,9 +1074,59 @@
       "sha256": "f0d8c8866165de6322b577423671f118cb71422565440bd3331229dfef9a0a79"
     },
     {
+      "path": "assets/stock/01-mirante-vale-araucarias.jpg",
+      "bytes": 30421,
+      "sha256": "3ff84134b9a114160768982e1a325d7a06e332aced7739c1aae2e7853b43433a"
+    },
+    {
+      "path": "assets/stock/02-jardim-nascentes.jpg",
+      "bytes": 34086,
+      "sha256": "caec2782b089895b9aa89d0f49ef7ef5af4cb34c3ee45d36765d02c063a4217e"
+    },
+    {
+      "path": "assets/stock/03-centro-cultural.jpg",
+      "bytes": 42882,
+      "sha256": "7cba3d1e7484f731551ee4d2e23e960856bea0ed2f33cf4a8bc768462b2d03bc"
+    },
+    {
+      "path": "assets/stock/04-cafe-neblina-alta.jpg",
+      "bytes": 23648,
+      "sha256": "bc9b4d6a83fc0e2e85f59f5b4d0c9c9e028d4339c67d1331bdd0f55b7f10cd64"
+    },
+    {
+      "path": "assets/stock/05-bistro-estacao-verde.jpg",
+      "bytes": 31413,
+      "sha256": "431d73cf988cfc4a496d22ebb89d77d152dd2facb634b2c9d7aea00ce3e3c8d2"
+    },
+    {
+      "path": "assets/stock/06-atelie-pedra-folha.jpg",
+      "bytes": 44653,
+      "sha256": "c635c14f256b7307bde8537d45dcb1def1ce260f44b63a513a9f6b0fed6f1956"
+    },
+    {
+      "path": "assets/stock/07-casa-mel-serra.jpg",
+      "bytes": 37780,
+      "sha256": "bc19153cefe9f08af3bcfc380c4b7cb0042cf53dd1438c5cb5acd280c0781078"
+    },
+    {
+      "path": "assets/stock/08-bem-estar-aguas-claras.jpg",
+      "bytes": 31246,
+      "sha256": "acf277a66d6a4e24145988d251796c7e309934e9dd7f495d17a3348c7df9a067"
+    },
+    {
+      "path": "assets/stock/README.md",
+      "bytes": 558,
+      "sha256": "d9d734ebbbed7e7ba83b886ca8bc71c9748fa7513a554736346ebd64be45392c"
+    },
+    {
+      "path": "assets/stock/SOURCES.json",
+      "bytes": 1233,
+      "sha256": "68f2228c2ff936ddef7b3bdfad5fb1d801abf97f2859c17c2c6e7ff3b79a33a2"
+    },
+    {
       "path": "data.js",
-      "bytes": 19203,
-      "sha256": "1f41f982b5bd7f37251092f7c8db475da3bb4a477ce638063d85f8f5b3b8143c"
+      "bytes": 23967,
+      "sha256": "5a1d2ea4e59389f786a1378f88ab58dc990c5fd682d88a2d359d2c8ffd96e3da"
     },
     {
       "path": "docker-compose.yml",
@@ -1194,14 +1249,14 @@
       "sha256": "86324c2f2c4e3ad080e153bf8b1476cc8073a837c7d6338e72c91c18664f1cc8"
     },
     {
-      "path": "drizzle.config.ts",
-      "bytes": 253,
-      "sha256": "15ef17a6cb3b9ceec1bc2b73cbf3b3a17f80984ffa03e7e24cd05a366c2970ca"
-    },
-    {
       "path": "drizzle/0000_validation.sql",
       "bytes": 965,
       "sha256": "2a83a7bcf1779d8f2ea883175152faed9dfa16ceb4f52fc8ac5259c9eb81ff97"
+    },
+    {
+      "path": "drizzle.config.ts",
+      "bytes": 253,
+      "sha256": "15ef17a6cb3b9ceec1bc2b73cbf3b3a17f80984ffa03e7e24cd05a366c2970ca"
     },
     {
       "path": "eslint.config.mjs",
@@ -3669,16 +3724,6 @@
       "sha256": "72bdd64c00a26171c407226d4f69601f15aabb4ee7f9e84b852d38c9d677c496"
     },
     {
-      "path": "screenshots/validation-report.json",
-      "bytes": 9674,
-      "sha256": "abccc65f7f52e504cf81de0a81178b7208235c9a2428915b81bcb07604b9735b"
-    },
-    {
-      "path": "screenshots/validation-run.txt",
-      "bytes": 9681,
-      "sha256": "d98626840c235c2e3d1129b7664007c12f2f9e2499a7f59756781d54c18113f8"
-    },
-    {
       "path": "screenshots/validation/implementation-720.jpg",
       "bytes": 421425,
       "sha256": "c98c48effe6c0c83288b5bc8ab2a4abe8be06db4cd885c04b8f1d0472788bce2"
@@ -3697,6 +3742,16 @@
       "path": "screenshots/validation/psd-vs-implementation.jpg",
       "bytes": 924571,
       "sha256": "71e57f1a44b11154f24c4a1c5feb3f37d298bb40ac0b8413be82ebb6e3de5255"
+    },
+    {
+      "path": "screenshots/validation-report.json",
+      "bytes": 9674,
+      "sha256": "abccc65f7f52e504cf81de0a81178b7208235c9a2428915b81bcb07604b9735b"
+    },
+    {
+      "path": "screenshots/validation-run.txt",
+      "bytes": 9681,
+      "sha256": "d98626840c235c2e3d1129b7664007c12f2f9e2499a7f59756781d54c18113f8"
     },
     {
       "path": "scripts/deliver-block.py",
@@ -4855,8 +4910,8 @@
     },
     {
       "path": "visual.css",
-      "bytes": 37832,
-      "sha256": "c652b6f90141772463d2bfa2c695d55c517270c4a49e8e2ec113f4d7b5273682"
+      "bytes": 38628,
+      "sha256": "0b01d1d9bd89dfecc7ef3e4fcaea30b14737b354840309bca5544cee7735138e"
     }
   ]
 }

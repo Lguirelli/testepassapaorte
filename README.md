@@ -53,3 +53,12 @@ O PSD binário não é duplicado dentro do ZIP para evitar inflar o repositório
 ## Natureza desta versão
 
 Todos os lugares, parceiros, clima, evento e visitas desta build continuam sendo **dados sintéticos de validação**. Fotografias finais, geografia real, QR, autenticação de produção e providers externos permanecem fora desta reconstrução.
+
+## Imagens ilustrativas de validação
+
+Os cards usam temporariamente fotografias gratuitas do Pexels para melhorar a leitura visual da demonstração. Elas não representam os lugares fictícios do dataset. O diretório `assets/stock/` agora contém oito JPGs locais reais usados automaticamente como fallback se a imagem remota falhar. Autores e páginas-fonte das fotografias remotas estão em `ASSET_SOURCES_STOCK_IMAGES.md`.
+
+
+## Atualização de mídia
+
+Esta versão substitui os placeholders vetoriais dos cards por **fotografias reais de banco salvas localmente** em `assets/stock/`.

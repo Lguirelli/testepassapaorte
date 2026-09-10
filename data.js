@@ -94,7 +94,19 @@ window.PSN_DATA = {
         "status": "published",
         "sourceIds": [
           "source-synthetic"
-        ]
+        ],
+        "imageAsset": {
+          "src": "assets/stock/01-mirante-vale-araucarias.jpg",
+          "fallbackSrc": "assets/stock/01-mirante-vale-araucarias.jpg",
+          "sourcePage": "https://www.pexels.com/photo/scenic-mountain-view-in-minas-gerais-brazil-34077879/",
+          "author": "Malcoln Oliveira",
+          "provider": "Pexels",
+          "alt": "Paisagem montanhosa em Minas Gerais, usada como foto ilustrativa",
+          "position": "center 48%",
+          "illustrative": true,
+          "notActualPlace": true
+        
+        }
       },
       {
         "id": "place-jardim-nascentes",
@@ -122,7 +134,19 @@ window.PSN_DATA = {
         "status": "published",
         "sourceIds": [
           "source-synthetic"
-        ]
+        ],
+        "imageAsset": {
+          "src": "assets/stock/02-jardim-nascentes.jpg",
+          "fallbackSrc": "assets/stock/02-jardim-nascentes.jpg",
+          "sourcePage": "https://www.pexels.com/photo/tropical-garden-pathway-in-parana-brazil-36949609/",
+          "author": "Silas Guadagnini",
+          "provider": "Pexels",
+          "alt": "Caminho em jardim tropical no Brasil, usado como foto ilustrativa",
+          "position": "center 55%",
+          "illustrative": true,
+          "notActualPlace": true
+        
+        }
       },
       {
         "id": "place-centro-cultural",
@@ -150,7 +174,19 @@ window.PSN_DATA = {
         "status": "published",
         "sourceIds": [
           "source-synthetic"
-        ]
+        ],
+        "imageAsset": {
+          "src": "assets/stock/03-centro-cultural.jpg",
+          "fallbackSrc": "assets/stock/03-centro-cultural.jpg",
+          "sourcePage": "https://pixabay.com/photos/museum-building-interior-windows-5731683/",
+          "author": "akagi99",
+          "provider": "Pixabay",
+          "alt": "Interior monumental de museu histórico, usado como foto ilustrativa",
+          "position": "center 45%",
+          "illustrative": true,
+          "notActualPlace": true
+        
+        }
       },
       {
         "id": "place-cafe-neblina",
@@ -180,7 +216,19 @@ window.PSN_DATA = {
         "status": "published",
         "sourceIds": [
           "source-synthetic"
-        ]
+        ],
+        "imageAsset": {
+          "src": "assets/stock/04-cafe-neblina-alta.jpg",
+          "fallbackSrc": "assets/stock/04-cafe-neblina-alta.jpg",
+          "sourcePage": "https://www.pexels.com/photo/cozy-cafe-interior-design-8847017/",
+          "author": "Sveta K",
+          "provider": "Pexels",
+          "alt": "Interior aconchegante de café, usado como foto ilustrativa",
+          "position": "center 55%",
+          "illustrative": true,
+          "notActualPlace": true
+        
+        }
       },
       {
         "id": "place-bistro-estacao",
@@ -209,7 +257,19 @@ window.PSN_DATA = {
         "status": "published",
         "sourceIds": [
           "source-synthetic"
-        ]
+        ],
+        "imageAsset": {
+          "src": "assets/stock/05-bistro-estacao-verde.jpg",
+          "fallbackSrc": "assets/stock/05-bistro-estacao-verde.jpg",
+          "sourcePage": "https://www.pexels.com/photo/restaurant-interior-19039292/",
+          "author": "Orhan Pergel",
+          "provider": "Pexels",
+          "alt": "Interior de restaurante com luz quente, usado como foto ilustrativa",
+          "position": "center 52%",
+          "illustrative": true,
+          "notActualPlace": true
+        
+        }
       },
       {
         "id": "place-atelie-pedra-folha",
@@ -239,7 +299,19 @@ window.PSN_DATA = {
         "status": "published",
         "sourceIds": [
           "source-synthetic"
-        ]
+        ],
+        "imageAsset": {
+          "src": "assets/stock/06-atelie-pedra-folha.jpg",
+          "fallbackSrc": "assets/stock/06-atelie-pedra-folha.jpg",
+          "sourcePage": "https://www.pexels.com/photo/pottery-standing-on-a-shelf-in-ceramics-studio-15440780/",
+          "author": "Oleg Prachuk",
+          "provider": "Pexels",
+          "alt": "Peças de cerâmica artesanal em estúdio, usadas como foto ilustrativa",
+          "position": "center 46%",
+          "illustrative": true,
+          "notActualPlace": true
+        
+        }
       },
       {
         "id": "place-casa-mel",
@@ -269,7 +341,19 @@ window.PSN_DATA = {
         "status": "published",
         "sourceIds": [
           "source-synthetic"
-        ]
+        ],
+        "imageAsset": {
+          "src": "assets/stock/07-casa-mel-serra.jpg",
+          "fallbackSrc": "assets/stock/07-casa-mel-serra.jpg",
+          "sourcePage": "https://www.pexels.com/photo/artisanal-honey-jars-with-honeycomb-outdoors-35042437/",
+          "author": "Mykhailo Kaparchuk",
+          "provider": "Pexels",
+          "alt": "Potes de mel artesanal e favos ao ar livre, usados como foto ilustrativa",
+          "position": "center 48%",
+          "illustrative": true,
+          "notActualPlace": true
+        
+        }
       },
       {
         "id": "place-aguas-claras",
@@ -298,7 +382,19 @@ window.PSN_DATA = {
         "status": "published",
         "sourceIds": [
           "source-synthetic"
-        ]
+        ],
+        "imageAsset": {
+          "src": "assets/stock/08-bem-estar-aguas-claras.jpg",
+          "fallbackSrc": "assets/stock/08-bem-estar-aguas-claras.jpg",
+          "sourcePage": "https://www.pexels.com/photo/interior-of-a-massage-room-7598366/",
+          "author": "Max Vakhtbovych",
+          "provider": "Pexels",
+          "alt": "Ambiente de massagem e bem-estar, usado como foto ilustrativa",
+          "position": "center 50%",
+          "illustrative": true,
+          "notActualPlace": true
+        
+        }
       }
     ],
     "partners": [

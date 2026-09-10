@@ -122,9 +122,15 @@
     const cls=(place?.imagePlaceholder||'landscape-01').replace(/[^a-z0-9-]/gi,'');
     const relation=place?.commercialRelation==='partner'?'Parceiro demo':'Ponto demo';
     const title=place?.name||'Serra Negra';
-    return `<div class="scenic-media scenic-${variant} media-${cls}" role="img" aria-label="Mídia visual demonstrativa de ${esc(title)}">
-      <span class="scenic-ridge ridge-a"></span><span class="scenic-ridge ridge-b"></span><span class="scenic-sun"></span>
-      <span class="scenic-grain"></span><span class="scenic-caption">${esc(relation)} · mídia ilustrativa</span>
+    const asset=place?.imageAsset;
+    const stockStyle=asset?.src ? ` style="--stock-position:${esc(asset.position||'center')}"` : '';
+    const source=asset?.provider ? `${asset.provider} · foto ilustrativa` : 'mídia ilustrativa';
+    const label=asset?.alt || `Mídia visual demonstrativa de ${title}`;
+    const fallback=asset?.fallbackSrc || 'assets/placeholders/card.svg';
+    const photo=asset?.src ? `<img class="scenic-photo" src="${esc(asset.src)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${esc(fallback)}'">` : '';
+    return `<div class="scenic-media scenic-${variant} media-${cls}${asset?.src?' has-stock-photo':''}" role="img" aria-label="${esc(label)}"${stockStyle}>
+      ${photo}<span class="scenic-ridge ridge-a"></span><span class="scenic-ridge ridge-b"></span><span class="scenic-sun"></span>
+      <span class="scenic-grain"></span><span class="scenic-caption">${esc(relation)} · ${esc(source)}</span>
     </div>`;
   }
   function cardMedia(place){

@@ -201,3 +201,11 @@ body[data-page="home"] .mobile-menu img{width:20px!important;height:20px!importa
 .home-editorial{padding:clamp(4rem,4.2vw,5rem) 0}.editorial-top h2{font-size:clamp(3rem,4.2vw,5rem)}.editorial-modules{margin-top:2rem}.editorial-modules>article{min-height:210px}.editorial-photo-tile{height:250px}.editorial-photo-tile.alt{height:230px}
 .home-categories{padding:clamp(4rem,4.5vw,5.5rem) 0}.category-reference-tile{min-height:clamp(220px,13vw,250px)}
 @media(max-width:760px){.home-partners,.home-route-types,.home-route-cards,.home-editorial,.home-categories{padding:4.5rem 0}.partner-reference-card{height:430px}.route-types-poster{height:480px}.route-reference-card{min-height:570px}.editorial-modules>article,.editorial-modules>article:nth-child(4),.editorial-modules>article:nth-child(5){min-height:300px;height:300px}.category-reference-tile{min-height:250px}}
+
+/* Stock imagery for validation cards. Remote Pexels image first, local file fallback on load error. */
+.scenic-media.has-stock-photo{background:linear-gradient(180deg,#a9aaa6 0%,#777673 45%,#4a4849 100%);}
+.scenic-media .scenic-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--stock-position,center);z-index:0;}
+.scenic-media.has-stock-photo:before{background:linear-gradient(180deg,rgba(22,22,24,.02),rgba(22,22,24,.18));z-index:1;}
+.scenic-media.has-stock-photo .scenic-ridge,.scenic-media.has-stock-photo .scenic-sun{display:none;}
+.scenic-media.has-stock-photo .scenic-grain{opacity:.16;z-index:2;}
+.scenic-media.has-stock-photo .scenic-caption{position:relative;z-index:3;background:rgba(22,22,24,.66);color:#F3F1EC;backdrop-filter:blur(3px);}

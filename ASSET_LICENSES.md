@@ -15,3 +15,9 @@ Visual v2: a nova camada pública usa somente CSS, ícones já presentes e dados
 - SHA-256 do SVG: `a3de3eabe39a00463207c8ad0afc3bd76e382b710efc30aabc1bc98e6d68071e`.
 - `assets/brand/logo-passaporte-serra-negra.png`: derivado raster gerado localmente apenas para ícone/social preview; o SVG original é o ativo usado na interface.
 - Origem/licença: ativo fornecido diretamente pelo usuário para uso neste projeto; confirmar termos formais de titularidade/licenciamento antes de publicação comercial definitiva.
+
+## Fotografias Pexels para validação dos cards
+
+Esta revisão adiciona fotografias externas do Pexels apenas para melhorar a leitura visual dos cards e módulos de demonstração. As fotografias não representam os lugares fictícios nomeados no dataset e permanecem identificadas na interface como imagens ilustrativas.
+
+A licença consultada informa uso gratuito em sites e aplicativos, possibilidade de modificação e atribuição não obrigatória. A lista completa de autores e páginas-fonte está em `ASSET_SOURCES_STOCK_IMAGES.md`. As fotografias do Pexels continuam carregadas remotamente de `images.pexels.com`; os binários originais do Pexels não são redistribuídos neste pacote. O repositório inclui oito JPGs locais independentes em `assets/stock/` usados somente como fallback visual quando a rede/CDN não estiver disponível.
