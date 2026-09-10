@@ -22,3 +22,7 @@ Depois da publicação, a URL do Pages abre diretamente a Home funcional, não o
 - Admin demo com rascunho, preview e publicação local.
 
 A camada técnica, testes e relatórios continuam no repositório apenas como suporte de desenvolvimento e validação.
+
+## Paleta visual
+
+A demonstração usa a paleta principal oficial fornecida para o Passaporte Serra Negra. Grandes superfícies, header, CTAs, fundos, textos e bordas usam grafite, carvão, creme e cinzas quentes. As cores complementares são reservadas a contextos de nicho, como categorias, chips, carimbos, pinos e pequenos destaques. A especificação está em `docs/visual/PALETA_OFICIAL.md`.

@@ -494,8 +494,11 @@
   window.addEventListener('hashchange',()=>{const nav=$('#main-nav');nav?.classList.remove('open');document.body.classList.remove('menu-open');$('.mobile-menu')?.setAttribute('aria-expanded','false');render()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){const nav=$('#main-nav');if(nav?.classList.contains('open')){nav.classList.remove('open');document.body.classList.remove('menu-open');$('.mobile-menu')?.setAttribute('aria-expanded','false');$('.mobile-menu')?.focus();}}});
   const themeSelect=$('#theme-select');
-  const savedTheme=localStorage.getItem(THEME_STORE)||'system'; document.documentElement.dataset.theme=savedTheme; themeSelect.value=savedTheme;
-  themeSelect.addEventListener('change',()=>{document.documentElement.dataset.theme=themeSelect.value;localStorage.setItem(THEME_STORE,themeSelect.value)});
+  const themeMeta=document.querySelector('meta[name="theme-color"]');
+  const syncThemeMeta=(theme)=>{if(!themeMeta)return;const dark=theme==='dark'||(theme==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);themeMeta.setAttribute('content',dark?'#161618':'#E8E8E0')};
+  const savedTheme=localStorage.getItem(THEME_STORE)||'system'; document.documentElement.dataset.theme=savedTheme; themeSelect.value=savedTheme; syncThemeMeta(savedTheme);
+  themeSelect.addEventListener('change',()=>{document.documentElement.dataset.theme=themeSelect.value;localStorage.setItem(THEME_STORE,themeSelect.value);syncThemeMeta(themeSelect.value)});
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(themeSelect.value==='system')syncThemeMeta('system')});
 
   render();
 })();

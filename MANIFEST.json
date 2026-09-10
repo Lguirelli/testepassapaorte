@@ -1,7 +1,7 @@
 {
-  "package": "Passaporte Serra Negra · Functional Demo Visual v2",
+  "package": "Passaporte Serra Negra · Functional Demo Visual v2 · Official Palette",
   "generated_at": "2026-09-10",
-  "file_count": 944,
+  "file_count": 946,
   "files": [
     {
       "path": ".devcontainer/devcontainer.json",
@@ -61,7 +61,7 @@
     {
       "path": "404.html",
       "bytes": 2754,
-      "sha256": "5c47dfa05d4170870e0189074dc3219f44cfa271cc731d98fd3eda010a22a449"
+      "sha256": "586835c9510a44e2815f8531945814510c9914385e6df057ba5f27367dde9bce"
     },
     {
       "path": "ASSET_LICENSES.md",
@@ -85,8 +85,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 1198,
-      "sha256": "a7ed86b9dd2dbf2891b398b316d2d8fdcb630af11b98dddfc690203521845bb0"
+      "bytes": 1597,
+      "sha256": "14989253fb288262c5fc36dfd1fc01a2ab9c2a7be975f5c5e67a4b331a12c333"
     },
     {
       "path": "VALIDATION.md",
@@ -105,8 +105,8 @@
     },
     {
       "path": "WORK_STATE.md",
-      "bytes": 6415,
-      "sha256": "6ee838de5d3f29fd80843f57d7ee04c6dfc5405b735e839c7ca145e6648d864f"
+      "bytes": 6879,
+      "sha256": "3b3ba952f96b6926bf01c5b4aa51d350c0dc590c1425cfacc29f3318606bdf32"
     },
     {
       "path": "acceptance/DEFINITION_OF_DONE.md",
@@ -120,8 +120,8 @@
     },
     {
       "path": "app.js",
-      "bytes": 68494,
-      "sha256": "45fea999e464daba34d0a52e72ac1e133893a9697b33c8d20ff16605514a5344"
+      "bytes": 68987,
+      "sha256": "08094703c177424a132f581ad0f8a814f5709bee4f621e58230699e1b0e4cf06"
     },
     {
       "path": "artifacts/block_08/build.log",
@@ -279,24 +279,29 @@
       "sha256": "133d3a9bd0d07504fd8eacf221b1a598f4925335a98710a781a9ffe0dbb106b1"
     },
     {
+      "path": "artifacts/visual-v2/home-dark.jpg",
+      "bytes": 777588,
+      "sha256": "6408065f17bed55273afd4401c7d558d119e819ed92b2f71f20742695b6c5fa9"
+    },
+    {
       "path": "artifacts/visual-v2/home-desktop.jpg",
-      "bytes": 832910,
-      "sha256": "fcc5b3948b8d16e77172a06347a9c3cee5810875face8e93819ea02df9c7aa43"
+      "bytes": 786068,
+      "sha256": "c8f4e47637901524235a594be9846d6ef16e26a48b20bc4e902d9a06d963e8ac"
     },
     {
       "path": "artifacts/visual-v2/home-mobile.jpg",
-      "bytes": 474130,
-      "sha256": "5cb61f1cec0961ba260274e708ff2ebdebdf0ba51cc20883122135048f51a87d"
+      "bytes": 442556,
+      "sha256": "fa2d12b82f09b0bdc8441abd33211cc463a828afcf761cbe9091cc200512bbfb"
     },
     {
       "path": "artifacts/visual-v2/partner-desktop.jpg",
-      "bytes": 378818,
-      "sha256": "a4a1e28d2d325b4db8337275a9c1d080789e5ae2e98c8d2a80ff57a0192dc592"
+      "bytes": 360488,
+      "sha256": "7565e85f9826fb2cb430c0ac2b768545c35dc9874d90a7c72c7ecf5fc637378e"
     },
     {
       "path": "artifacts/visual-v2/partner-mobile.jpg",
-      "bytes": 244330,
-      "sha256": "e9fc009cdbbf1a92a41ed2c44351e6e0eaffe9e4fd1fe8c1cb3abf1385419092"
+      "bytes": 229192,
+      "sha256": "0e393a87eee864c8746966935f951d959605277de60268009b8e5169276e6171"
     },
     {
       "path": "artifacts/visual-v2/static-render-smoke.log",
@@ -1075,8 +1080,8 @@
     },
     {
       "path": "docs/NO_BRAND_DECISIONS.md",
-      "bytes": 1075,
-      "sha256": "9b2398e674b045266be407177fbaa6d393e3de780a85e92c1961dca2b32b9de3"
+      "bytes": 1275,
+      "sha256": "41ab8c475204f8dbe99c3822628254da12e2256c6317333f6fcc6c0821cd6fb1"
     },
     {
       "path": "docs/REPO_BLUEPRINT.md",
@@ -1164,6 +1169,11 @@
       "sha256": "741af9084e43729d9af96e6a6ca0c4f5fd1830c9cacf6e9e2f8c946cae2e8584"
     },
     {
+      "path": "docs/visual/PALETA_OFICIAL.md",
+      "bytes": 1563,
+      "sha256": "86324c2f2c4e3ad080e153bf8b1476cc8073a837c7d6338e72c91c18664f1cc8"
+    },
+    {
       "path": "drizzle/0000_validation.sql",
       "bytes": 965,
       "sha256": "2a83a7bcf1779d8f2ea883175152faed9dfa16ceb4f52fc8ac5259c9eb81ff97"
@@ -1181,7 +1191,7 @@
     {
       "path": "index.html",
       "bytes": 2754,
-      "sha256": "5c47dfa05d4170870e0189074dc3219f44cfa271cc731d98fd3eda010a22a449"
+      "sha256": "586835c9510a44e2815f8531945814510c9914385e6df057ba5f27367dde9bce"
     },
     {
       "path": "next-env.d.ts",
@@ -4645,8 +4655,8 @@
     },
     {
       "path": "styles.css",
-      "bytes": 14885,
-      "sha256": "edad170cd7d3678f28239d6da9c53cd7ca7f9151fd3ebce82b87099b1692c8d8"
+      "bytes": 16163,
+      "sha256": "64eb056bd63725f7e883ccfba355d887840fdc2161a8492fd06d26fdbac1feb9"
     },
     {
       "path": "tests/e2e/00-bootstrap.spec.ts",
@@ -4720,8 +4730,8 @@
     },
     {
       "path": "visual-v2.css",
-      "bytes": 34241,
-      "sha256": "2f2616925e43d87761aec09b74b1c0f74735a275857c50405452f30720af4811"
+      "bytes": 36062,
+      "sha256": "8726c30d484e77034bddfa574fc103b4eeb7a1e0fdbce9e4a82b3fe7a1dc371b"
     }
   ]
 }
