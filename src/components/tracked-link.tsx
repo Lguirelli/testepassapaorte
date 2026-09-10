@@ -1,2 +1,0 @@
-"use client";import Link from "next/link";import type {ReactNode} from "react";
-export function TrackedLink({href,event,payload,children,...rest}:{href:string;event:string;payload:Record<string,unknown>;children:ReactNode;className?:string;"aria-label"?:string}){return <Link href={href} {...rest} onClick={()=>{navigator.sendBeacon?.('/api/tracking',new Blob([JSON.stringify({name:event,payload})],{type:'application/json'}))}}>{children}</Link>}

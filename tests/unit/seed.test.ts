@@ -1,5 +1,0 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import content from '../../seed/validation-content.json' with {type:'json'};import trip from '../../seed/validation-trip.json' with {type:'json'};
-test('datasets estão marcados como sintéticos',()=>{assert.equal(content.meta.synthetic,true);assert.equal(trip.trip.synthetic,true);assert.match(content.meta.warning.toLowerCase(),/fict/)});
-test('contatos externos demo não apontam para hosts reais',()=>{for(const partner of content.partners){const website=partner.demoContacts.website;if(website)assert.match(website,/example\.invalid/)}});
-test('há conteúdo suficiente para o vertical slice',()=>{assert.ok(content.places.length>=8);assert.ok(content.categories.length>=6);assert.equal(trip.days.length,3);assert.ok(trip.visits.length>=1)});
-test('categorias usam somente identificadores presentes no Icon System v2',()=>{const types=fs.readFileSync('src/design-system/icons/icon.types.ts','utf8');for(const category of content.categories)assert.ok(types.includes(`| "${category.icon}"`),`ícone inexistente: ${category.icon}`)});

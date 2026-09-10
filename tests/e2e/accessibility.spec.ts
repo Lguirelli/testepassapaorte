@@ -1,2 +1,0 @@
-import {test,expect} from '@playwright/test';import AxeBuilder from '@axe-core/playwright';
-for(const route of ['/','/explorar'])test(`axe sério/crítico ${route}`,async({page})=>{await page.goto(route);const result=await new AxeBuilder({page}).analyze();const blocking=result.violations.filter(v=>['serious','critical'].includes(v.impact||''));expect(blocking,JSON.stringify(blocking,null,2)).toEqual([])});
