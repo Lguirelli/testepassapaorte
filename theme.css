@@ -1,0 +1,232 @@
+/* Passaporte Serra Negra — semantic theme layer v3. Loaded last on purpose. */
+:root{
+  --color-canvas:#E8E8E0;
+  --color-section:#D4D1C7;
+  --color-surface:#F3F1EC;
+  --color-surface-raised:#FFFFFF;
+  --color-surface-inset:#D4D1C7;
+  --color-text:#161618;
+  --color-text-secondary:#403D3F;
+  --color-text-muted:#5E5A50;
+  --color-text-inverse:#F3F1EC;
+  --color-icon:#45454A;
+  --color-icon-muted:#666158;
+  --color-border-subtle:#C8C3B8;
+  --color-border-control:#8A8378;
+  --color-divider:#B9B2A7;
+  --color-action:#403D3F;
+  --color-action-hover:#262425;
+  --color-action-text:#F3F1EC;
+  --color-focus:#161618;
+  --color-success:#4A553B;
+  --color-success-bg:#E1E7DA;
+  --color-warning:#694D28;
+  --color-warning-bg:#F2E8D1;
+  --color-danger:#7A1B1B;
+  --color-danger-bg:#F2DDDD;
+  --color-overlay:rgba(22,22,24,.64);
+  --color-overlay-strong:rgba(22,22,24,.84);
+  --color-paper:#F0EDE5;
+  --color-paper-text:#161618;
+  --color-paper-muted:#5E5A50;
+  --color-paper-border:#BDB6AA;
+  --on-dark-text:#F3F1EC;
+  --on-dark-secondary:#E8E8E0;
+  --on-dark-muted:#C8C3B8;
+  --on-dark-border:#7A7372;
+  --niche-red-bg:#4E0000; --niche-red-fg:#F3F1EC;
+  --niche-yellow-bg:#F2E8D1; --niche-yellow-fg:#161618;
+  --niche-sage-bg:#A1AD92; --niche-sage-fg:#161618;
+  --niche-olive-bg:#5A5D43; --niche-olive-fg:#F3F1EC;
+  --niche-blue-bg:#94B2C4; --niche-blue-fg:#161618;
+  --niche-navy-bg:#00324D; --niche-navy-fg:#F3F1EC;
+  --niche-cocoa-bg:#5B4536; --niche-cocoa-fg:#F3F1EC;
+  --niche-coconut-bg:#F0EDE5; --niche-coconut-fg:#161618;
+
+  /* backward-compatible aliases */
+  --bg-primary:var(--color-canvas); --bg-secondary:var(--color-section);
+  --surface-primary:var(--color-surface); --surface-secondary:var(--color-surface-inset);
+  --text-primary:var(--color-text); --text-secondary:var(--color-text-secondary); --text-muted:var(--color-text-muted);
+  --border-primary:var(--color-border-subtle); --icon-primary:var(--color-icon);
+  --accent-primary:var(--color-action); --accent-secondary:var(--color-icon-muted);
+  --page:var(--color-canvas); --surface:var(--color-surface); --surface-2:var(--color-surface-inset);
+  --ink:var(--color-text); --muted:var(--color-text-muted); --border:var(--color-border-subtle);
+  --accent:var(--color-action); --accent-ink:var(--color-action-text); --focus:var(--color-focus);
+  --success:var(--color-success); --warning:var(--color-warning); --danger:var(--color-danger);
+  --paper:var(--color-paper); --paper-2:var(--niche-coconut-bg);
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --color-canvas:#161618;
+  --color-section:#211F20;
+  --color-surface:#2C292A;
+  --color-surface-raised:#373334;
+  --color-surface-inset:#403D3F;
+  --color-text:#F3F1EC;
+  --color-text-secondary:#D4D1C7;
+  --color-text-muted:#B8B1AA;
+  --color-text-inverse:#161618;
+  --color-icon:#E8E8E0;
+  --color-icon-muted:#B8B1AA;
+  --color-border-subtle:#555154;
+  --color-border-control:#817B7B;
+  --color-divider:#555154;
+  --color-action:#E8E8E0;
+  --color-action-hover:#FFFFFF;
+  --color-action-text:#161618;
+  --color-focus:#F2E8D1;
+  --color-success:#C5D0B8;
+  --color-success-bg:#30372B;
+  --color-warning:#F0D5A0;
+  --color-warning-bg:#413726;
+  --color-danger:#F1B1B1;
+  --color-danger-bg:#4A2828;
+  --color-overlay:rgba(0,0,0,.64);
+  --color-overlay-strong:rgba(0,0,0,.84);
+  --color-paper:#E9E5DC;
+  --color-paper-text:#161618;
+  --color-paper-muted:#5E5A50;
+  --color-paper-border:#AAA397;
+  --on-dark-text:#F3F1EC;
+  --on-dark-secondary:#D4D1C7;
+  --on-dark-muted:#B8B1AA;
+  --on-dark-border:#817B7B;
+  color-scheme:dark;
+}
+@media(prefers-color-scheme:dark){
+  [data-theme="system"]{
+    --color-canvas:#161618;
+    --color-section:#211F20;
+    --color-surface:#2C292A;
+    --color-surface-raised:#373334;
+    --color-surface-inset:#403D3F;
+    --color-text:#F3F1EC;
+    --color-text-secondary:#D4D1C7;
+    --color-text-muted:#B8B1AA;
+    --color-text-inverse:#161618;
+    --color-icon:#E8E8E0;
+    --color-icon-muted:#B8B1AA;
+    --color-border-subtle:#555154;
+    --color-border-control:#817B7B;
+    --color-divider:#555154;
+    --color-action:#E8E8E0;
+    --color-action-hover:#FFFFFF;
+    --color-action-text:#161618;
+    --color-focus:#F2E8D1;
+    --color-success:#C5D0B8;
+    --color-success-bg:#30372B;
+    --color-warning:#F0D5A0;
+    --color-warning-bg:#413726;
+    --color-danger:#F1B1B1;
+    --color-danger-bg:#4A2828;
+    --color-overlay:rgba(0,0,0,.64);
+    --color-overlay-strong:rgba(0,0,0,.84);
+    --color-paper:#E9E5DC;
+    --color-paper-text:#161618;
+    --color-paper-muted:#5E5A50;
+    --color-paper-border:#AAA397;
+    --on-dark-text:#F3F1EC;
+    --on-dark-secondary:#D4D1C7;
+    --on-dark-muted:#B8B1AA;
+    --on-dark-border:#817B7B;
+    color-scheme:dark;
+  }
+}
+
+/* Icon system: the SVG acts as a mask and inherits currentColor. */
+.ui-icon{display:inline-block;width:var(--icon-size,20px);height:var(--icon-size,20px);flex:0 0 var(--icon-size,20px);background:currentColor;mask:var(--icon-src) center/contain no-repeat;-webkit-mask:var(--icon-src) center/contain no-repeat;vertical-align:-.14em}
+.icon-label{display:inline-flex;align-items:center;gap:.45rem}.icon-label .ui-icon{color:var(--color-icon)}
+button .ui-icon,.button .ui-icon,a .ui-icon{pointer-events:none}
+.main-nav>a{display:inline-flex;align-items:center;gap:.38rem}.main-nav>a:not(.button) .ui-icon{width:16px;height:16px;opacity:.8}
+.mobile-menu .ui-icon{width:20px;height:20px}.theme-picker-label{display:flex;align-items:center;gap:.35rem}.theme-picker-label .ui-icon{color:currentColor}
+.category-reference-icon .ui-icon{color:var(--color-text);width:18px;height:18px}.category-reference-all .category-reference-icon .ui-icon{color:var(--color-text-inverse)}
+.round-control .ui-icon,.back-on-dark .ui-icon{color:currentColor}.round-control .ui-icon{width:19px;height:19px}.back-on-dark .ui-icon{width:16px;height:16px}
+.tourism-note .ui-icon,.tourism-location-copy>.ui-icon,.partner-quick-info .ui-icon{color:var(--color-icon)}
+
+/* Controls need a stronger edge than decorative dividers in dark mode. */
+button,.button,.field input,.field select,.field textarea,input[type="search"],select,textarea,.partners-tabs button{border-color:var(--color-border-control)}
+.card,.panel,.tourism-highlight,.tourism-note,.tourism-source-box,.tourism-location-copy,.partners-feature-card,.partners-mosaic-grid article,.partners-tab-visual{border-color:var(--color-border-subtle)}
+button,.button{background:var(--color-surface);color:var(--color-text)}
+button:hover,.button:hover{background:var(--color-surface-raised)}
+.primary,.button.primary{background:var(--color-action);color:var(--color-action-text);border-color:var(--color-action)}
+.primary:hover,.button.primary:hover{background:var(--color-action-hover);color:var(--color-action-text);opacity:1}
+.ghost{background:transparent}
+.danger{color:var(--color-danger);border-color:color-mix(in srgb,var(--color-danger) 70%,var(--color-border-control));background:color-mix(in srgb,var(--color-danger-bg) 36%,transparent)}
+.badge.ok{color:var(--color-success);border-color:color-mix(in srgb,var(--color-success) 65%,var(--color-border-control));background:color-mix(in srgb,var(--color-success-bg) 58%,transparent)}
+.badge.warn{color:var(--color-warning);border-color:color-mix(in srgb,var(--color-warning) 65%,var(--color-border-control));background:color-mix(in srgb,var(--color-warning-bg) 58%,transparent)}
+:focus-visible{outline-color:var(--color-focus)}
+
+/* Explicit surface contexts stop light text leaking onto light cards in dark mode. */
+.book-page,.passport-book-page,.passport-book>div,.stamp,.ticket{background:var(--color-paper);color:var(--color-paper-text);border-color:var(--color-paper-border)}
+.book-page .eyebrow,.book-page .muted,.passport-book-page em,.ticket .muted{color:var(--color-paper-muted)}
+.book-page .info-list dt,.book-page .info-list dd,.book-page h2,.book-page h3,.book-page p,.book-page strong,.stamp,.ticket{color:var(--color-paper-text)}
+.passport-book-cover{background:var(--color-text-secondary)!important;color:var(--on-dark-text)!important}
+.passport-book-cover *{color:inherit!important}
+
+/* The partner landing deliberately contains dark editorial sections, independent of theme. */
+body[data-page="parceiros"] .site-header,body[data-page="para-parceiros"] .site-header{background:color-mix(in srgb,#161618 94%,transparent);color:var(--on-dark-text);border-bottom-color:var(--on-dark-border)}
+body[data-page="parceiros"] .site-header .brand small,body[data-page="para-parceiros"] .site-header .brand small,body[data-page="parceiros"] .theme-picker,body[data-page="para-parceiros"] .theme-picker{color:var(--on-dark-muted)}
+body[data-page="parceiros"] .theme-picker select,body[data-page="para-parceiros"] .theme-picker select{background:#262425;color:var(--on-dark-text);border-color:var(--on-dark-border)}
+.partners-b2b-hero,.partners-manifesto{background:#161618;color:var(--on-dark-text)}
+.partners-story{background:#262425;color:var(--on-dark-text)}
+.partners-story-copy>p:not(.partners-eyebrow),.partners-editorial-heading.inverted>p,.partners-manifesto p{color:var(--on-dark-secondary)}
+.partners-story-line{border-color:var(--on-dark-border)}
+.partners-text-button.light{color:var(--on-dark-text)}
+.partners-button-light,.light-button{background:var(--on-dark-text)!important;color:#161618!important;border-color:var(--on-dark-text)!important}
+.partners-category-chip .ui-icon,.partners-feature-top .ui-icon{color:var(--color-icon)}
+
+/* Niche/background cards receive a matching foreground instead of inheriting the global theme. */
+.partners-tone-cocoa{background:var(--niche-cocoa-bg)!important;color:var(--niche-cocoa-fg)!important}.partners-tone-cocoa p,.partners-tone-cocoa span{color:color-mix(in srgb,var(--niche-cocoa-fg) 84%,transparent)!important}
+.partners-tone-sand{background:var(--niche-yellow-bg)!important;color:var(--niche-yellow-fg)!important}.partners-tone-sand p,.partners-tone-sand span{color:var(--niche-yellow-fg)!important}
+.partners-feature-card.tone-gold{background:var(--niche-yellow-bg)!important;color:var(--niche-yellow-fg)!important}.partners-feature-card.tone-gold p{color:color-mix(in srgb,var(--niche-yellow-fg) 78%,transparent)!important}
+.partners-feature-card.tone-blue{background:var(--niche-blue-bg)!important;color:var(--niche-blue-fg)!important}.partners-feature-card.tone-blue p{color:color-mix(in srgb,var(--niche-blue-fg) 78%,transparent)!important}
+
+/* Researched tourism pages */
+.tourism-hero-copy,.tourism-hero-copy .breadcrumbs,.tourism-photo-credit{color:var(--on-dark-text)}
+.tourism-hero-copy .lead{color:var(--on-dark-secondary)}
+.tourism-media-story{background:#1D1B1F;color:var(--on-dark-text)}
+.tourism-story-copy p{color:var(--on-dark-secondary)}
+.tourism-research-badge{border-color:var(--on-dark-border)}
+
+/* Dynamic action/fact rows */
+.fact-list{display:grid;gap:0}.fact-row{display:grid;grid-template-columns:28px minmax(90px,.45fr) 1fr;gap:.75rem;align-items:start;padding:.85rem 0;border-bottom:1px solid var(--color-border-subtle)}.fact-row:last-child{border-bottom:0}.fact-row>.ui-icon{color:var(--color-icon);margin-top:.08rem}.fact-row small{color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.08em;font-size:.7rem}.fact-row strong{font-weight:650}
+.choice{display:flex!important;align-items:center!important;gap:.7rem!important;text-align:left}.choice .ui-icon{color:var(--color-icon)}.choice.selected .ui-icon{color:currentColor}
+.status-with-icon{display:inline-flex;align-items:center;gap:.35rem}.route-actions button{gap:.35rem}.route-actions .ui-icon{width:17px;height:17px}.calendar-mode button{gap:.4rem}.admin-nav button{display:flex;align-items:center;gap:.55rem;text-align:left}.admin-nav .ui-icon{color:currentColor}.admin-row button .ui-icon{width:16px;height:16px}
+.map-dot-icon{position:absolute;z-index:2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--color-action);color:var(--color-action-text);border:2px solid var(--color-surface);transform:translate(-50%,-50%);box-shadow:0 0 0 1px var(--color-action)}.map-dot-icon .ui-icon{width:17px;height:17px}.map-label{transform:translate(14px,-14px)}
+.territory-pin{border-color:var(--color-text);background:var(--color-surface);color:var(--color-text)}.territory-pin .ui-icon{color:currentColor;width:20px;height:20px;transform:rotate(45deg)}
+.route-visual-stop .ui-icon{width:16px;height:16px}
+
+/* Light/dark corrections for home editorial blocks that intentionally remain dark. */
+.home-faq,.home-passport-intro{color:var(--on-dark-text)}
+.home-faq .faq-reference-copy h2,.home-passport-intro .passport-reference-copy h2{color:var(--on-dark-text)}
+.home-faq .faq-reference-copy>p,.home-faq .faq-reference-answer,.home-faq .faq-reference-preview p,.home-passport-intro .passport-reference-copy>p{color:var(--on-dark-secondary)}
+.home-faq .faq-reference-list,.home-faq .faq-reference-item{border-color:color-mix(in srgb,var(--on-dark-border) 55%,transparent)}
+.home-faq .faq-reference-item>button{color:var(--on-dark-text)}
+.home-faq .faq-reference-item>button>span,.home-faq .faq-reference-preview>small{color:var(--on-dark-muted)}
+.home-map{color:var(--on-dark-text)}.home-map .map-reference-title h2{color:var(--on-dark-text)}.home-map .map-reference-title p,.home-map .map-reference-title small,.home-map .map-reference-panel .psd-kicker,.home-map .map-reference-list small,.home-map .map-reference-list a>span{color:var(--on-dark-muted)}
+
+/* Form controls always resolve foreground/background/placeholder from the active surface. */
+input,select,textarea,.field input,.field select,.field textarea,input[type="search"]{background:var(--color-surface);color:var(--color-text);border-color:var(--color-border-control)}
+input::placeholder,textarea::placeholder{color:var(--color-text-muted);opacity:1}
+select option{background:var(--color-surface);color:var(--color-text)}
+button:disabled,.button[aria-disabled="true"]{opacity:.5}
+
+/* Icon catalogue */
+.icon-catalog{max-width:1280px;margin:0 auto;padding:2rem}.icon-catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem}.icon-catalog-card{background:var(--color-surface);border:1px solid var(--color-border-subtle);border-radius:12px;padding:1rem;display:grid;gap:.7rem}.icon-catalog-card .ui-icon{width:28px;height:28px;color:var(--color-icon)}.icon-catalog-card code{font-size:.72rem;overflow-wrap:anywhere;color:var(--color-text-muted)}
+
+/* Final cascade corrections for legacy visual layers that previously forced light-theme foregrounds. */
+.route-types,.route-type-copy,.route-type-copy h2{color:var(--color-text)}
+.route-types-main{background:var(--color-surface)}
+.route-type-copy p{color:var(--color-text-muted)}
+.partners-feature-card:not(.tone-gold):not(.tone-blue) p{color:var(--color-text-secondary)}
+.partners-timeline,.partners-timeline li{border-color:var(--on-dark-border)}
+.partners-contact small,.partners-final-note{color:var(--on-dark-muted)!important}
+.partners-category-chip{color:var(--color-text)}
+.partners-tabs button[aria-selected="true"]{background:var(--color-action);color:var(--color-action-text);border-color:var(--color-action)}
+
+/* Semantic navigation/action states. */
+.main-nav a[aria-current="page"]{color:var(--color-text);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.main-nav a[aria-current="page"] .ui-icon{opacity:1}
+.admin-nav button.active,.choice.selected,.chip.active{background:var(--color-action);color:var(--color-action-text);border-color:var(--color-action)}
+.admin-nav button.active .ui-icon,.choice.selected .ui-icon{color:currentColor}
+.partners-text-button,.partners-text-button:hover,.linklike,.linklike:hover,.faq-reference-item>button:hover{background:transparent}

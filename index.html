@@ -19,41 +19,19 @@
   <link rel="stylesheet" href="./visual.css" />
   <link rel="stylesheet" href="./partners-page.css" />
   <link rel="stylesheet" href="./tourism-pages.css" />
+  <link rel="stylesheet" href="./theme.css" />
 </head>
 <body>
   <a class="skip" href="#app">Ir para o conteúdo</a>
   <div class="demo-banner">Modo de validação · parceiros e jornada são demonstrativos · atrativos públicos pesquisados</div>
-  <header class="site-header">
-    <a class="brand" href="#/" aria-label="Passaporte Serra Negra, página inicial">
-      <img class="brand-logo" src="./assets/brand/logo-passaporte-serra-negra.svg" alt="" />
-      <span><small>Passaporte</small><strong>Serra Negra</strong></span>
-    </a>
-    <button class="mobile-menu" type="button" data-action="toggle-menu" aria-expanded="false" aria-controls="main-nav">
-      <img src="./assets/icons/menu.svg" alt="" /> Menu
-    </button>
-    <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
-      <a href="#/explorar">Explorar</a>
-      <a href="#/explorar?relation=public_point">Pontos turísticos</a>
-      <a href="#/viagens/demo-trip-001/roteiro">Roteiros</a>
-      <a href="#/explorar">Mapa</a>
-      <a href="#/parceiros">Para parceiros</a>
-      <a class="button primary nav-cta" href="#/roteiro">Montar meu roteiro</a>
-    </nav>
-    <label class="theme-picker">Aparência
-      <select id="theme-select" aria-label="Aparência"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Escuro</option></select>
-    </label>
-  </header>
+  <div id="site-header-slot"></div>
   <main id="app" tabindex="-1" aria-live="polite"></main>
-  <footer class="v2-footer">
-    <div class="footer-brand"><a class="brand" href="#/" aria-label="Passaporte Serra Negra, página inicial"><img class="brand-logo" src="./assets/brand/logo-passaporte-serra-negra.svg" alt=""><span><small>Passaporte</small><strong>Serra Negra</strong></span></a><p>Demonstração visual e funcional. Parceiros e jornada continuam sintéticos; atrativos públicos destacados usam pesquisa em fontes oficiais.</p></div>
-    <div class="footer-cols">
-      <nav aria-label="Descoberta"><strong>Descobrir</strong><a href="#/explorar">Explorar</a><a href="#/roteiro">Montar roteiro</a><a href="#/meu-passaporte">Meu Passaporte</a></nav>
-      <nav aria-label="Ecossistema"><strong>Ecossistema</strong><a href="#/parceiros">Para parceiros</a><a href="#/admin">Admin demo</a><button class="linklike" data-action="reset-demo">Restaurar demo</button></nav>
-      <nav aria-label="Informações legais"><strong>Transparência</strong><a href="#/privacidade">Privacidade</a><a href="#/termos">Termos de uso</a><a href="#/cookies">Cookies e armazenamento</a><a href="#/acessibilidade">Acessibilidade</a></nav>
-    </div>
-  </footer>
+  <div id="site-footer-slot"></div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="./data.js"></script>
+  <script src="./icon-registry.js"></script>
+  <script src="./ui-config.js"></script>
+  <script src="./ui-shell.js"></script>
   <script src="./tourism-data.js"></script>
   <script src="./partners-page.js"></script>
   <script src="./app.js"></script>
