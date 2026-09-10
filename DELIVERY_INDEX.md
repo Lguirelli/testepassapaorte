@@ -1,12 +1,18 @@
-# Delivery index
+# Entrega atual
 
-| Entrega | Estado | Próxima ação |
-|---|---|---|
-| block_08.zip | Checkpoint PARCIAL; integridade verificada pelo empacotador | Continuar validação Bloco 08 |
-| LATEST.zip | Snapshot completo correspondente ao checkpoint | npm ci; seguir WORK_STATE.md |
+Entrada principal para validação: **GitHub Pages pela raiz do repositório**.
 
-Hashes e tamanhos finais: DELIVERY_RECEIPT.json externo. Entregas históricas recebidas são preservadas na base e no pacote original. Não houve entrega dos blocos 09–12 nesta execução.
+Arquivos públicos principais:
 
-## GitHub Pages root update
+- `index.html`
+- `404.html`
+- `app.js`
+- `data.js`
+- `styles.css`
+- `visual-v2.css`
+- `assets/`
+- `.nojekyll`
 
-A demonstração funcional foi movida de `demo/` para a raiz do repositório. `index.html` agora é a entrada principal do Pages; assets e scripts usam caminhos relativos à raiz.
+Checkpoint visual: `docs/validation/VISUAL-V2.md`.
+
+A Home e a página pública de parceiro usam a camada Visual v2. Explorar, roteiro, calendário, Passaporte e Admin preservam a funcionalidade existente da validação anterior.

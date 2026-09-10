@@ -45,3 +45,11 @@ block_07.zip contém apenas arquivos relacionados à regressão; LATEST.zip cont
 ## GitHub Pages na raiz
 
 A demonstração funcional foi movida de `demo/` para a raiz do repositório. `index.html`, `app.js`, `data.js`, `styles.css`, `404.html`, `.nojekyll` e `assets/` passam a ser a entrada de publicação. Esta é uma alteração de empacotamento/apresentação e não muda o estado PARCIAL do Bloco 08.
+
+## Checkpoint de apresentação visual v2
+
+Aplicada uma camada visual e modular sobre a demonstração GitHub Pages, sem alterar seed, banco ou contratos de produção. Home e página pública de parceiro foram reconstruídas segundo o Guia de Construção Visual v2. A Home usa um `sectionRegistry` local para 12 seções configuradas. Foi adicionada a rota `#/para-parceiros` e o Public Shell passou a expor a navegação prevista no guia.
+
+A superfície Pages continua na raiz (`index.html`, `app.js`, `data.js`, `styles.css`, `visual-v2.css`, `assets/`). As referências visuais não são exibidas como conteúdo final. A ausência de fotografia final, galeria de parceiro e FAQ estruturado continua sendo tratada sem inventar dados.
+
+Validação desta camada: `node --check` PASS; smoke estático de 8 rotas PASS; ícones referenciados 0 ausentes. Browser smoke autocontido PASS para Home e Parceiro em desktop 1440×1100 e mobile 390×844, com interações e ausência de overflow horizontal verificadas. Capturas estão em `artifacts/visual-v2/`. Os gates G1–G8 do Bloco 08 permanecem PARCIAIS porque essa validação não substitui a suíte E2E/PostGIS original.

@@ -1,22 +1,21 @@
-# Conteúdo do pacote
+# Package manifest · Visual v2
 
-## Entrega principal: site funcional na raiz
+Pacote GitHub Pages funcional com a camada visual v2 aplicada sobre o checkpoint Bloco 08 PARCIAL.
 
-A demonstração do Passaporte Serra Negra agora fica diretamente na raiz do repositório, de modo que o GitHub Pages encontre `index.html` como entrada principal sem transformar o `README.md` em página do site.
+## Superfície publicada
 
-Arquivos publicados:
+A raiz contém `index.html`, `404.html`, `app.js`, `data.js`, `styles.css`, `visual-v2.css`, `.nojekyll` e `assets/`. O workflow `.github/workflows/pages.yml` monta o artefato Pages somente com essa superfície.
 
-- `index.html`: entrada da versão navegável;
-- `404.html`: fallback da aplicação estática;
-- `app.js`: navegação e interações;
-- `data.js`: conteúdo sintético da demonstração;
-- `styles.css`: layout responsivo e temas;
-- `assets/`: Icon System v2 e placeholders;
-- `.nojekyll`: impede processamento Jekyll;
-- `.github/workflows/pages.yml`: empacota esses arquivos da raiz e publica no GitHub Pages.
+## Alterações principais
 
-A antiga pasta `demo/` foi removida para evitar duas fontes concorrentes da mesma interface.
+- Home reconstruída em 12 seções via `sectionRegistry` local;
+- página pública de parceiro reconstruída;
+- nova landing `#/para-parceiros`;
+- Public Shell alinhado ao guia v2;
+- responsividade visual v2;
+- nenhum screenshot de referência usado como conteúdo público;
+- fluxos anteriores preservados.
 
-## Base técnica preservada
+## Validação desta camada
 
-O restante do repositório continua preservando a implementação Next.js/Drizzle, seeds, testes, Playwright, CI, documentação e evidências acumuladas até o Bloco 08 PARCIAL. A mudança desta entrega é somente de publicação/entrada do GitHub Pages e não promove os gates técnicos.
+`node --check app.js` PASS, smoke de renderização JavaScript em oito rotas PASS e browser smoke autocontido PASS para Home/Parceiro em 1440×1100 e 390×844. Interações principais e ausência de overflow horizontal foram verificadas. Os gates do Bloco 08 não foram promovidos, pois essa checagem visual não substitui PostGIS nem a matriz E2E original.

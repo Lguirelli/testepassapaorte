@@ -1,20 +1,24 @@
-# Passaporte Serra Negra — demonstração funcional
+# Passaporte Serra Negra · demonstração visual v2
 
-A interface funcional desta validação está **na raiz do repositório**. O GitHub Pages deve abrir diretamente `index.html`, sem usar o README como página principal.
+A entrada principal deste repositório é a **experiência navegável do Passaporte Serra Negra**, publicada diretamente pela raiz no GitHub Pages.
 
-## Abrir no GitHub Pages
+A Home e a página pública de parceiro foram reconstruídas a partir do **Kit Visual e Guia de Construção v2**, preservando os fluxos funcionais da validação anterior. A demonstração continua usando apenas dados sintéticos.
 
-Em **Settings → Pages**, use **GitHub Actions**. O workflow `Deploy functional demo` publica a interface da raiz automaticamente a cada push na `main`.
+## Abrir como site
 
-A demonstração inclui Home, Explorar, páginas de lugares e parceiros, roteiro, calendário, Meu Passaporte e Admin demo. Os dados são sintéticos e persistem localmente no navegador apenas para validação.
+Em **Settings → Pages**, selecione **GitHub Actions**. O workflow `Deploy functional demo` publica `index.html` e os assets da raiz.
 
-## Arquivos da interface
+Depois da publicação, a URL do Pages abre diretamente a Home funcional, não o README.
 
-- `index.html`
-- `404.html`
-- `styles.css`
-- `data.js`
-- `app.js`
-- `assets/`
+## O que navegar
 
-A documentação técnica, o código Next.js, testes e relatórios permanecem no repositório como suporte, mas não são a página inicial da demonstração.
+- Home visual v2, com descoberta, pontos turísticos, parceiros, rota, tipos de roteiro, categorias, FAQ, Passaporte e mapa;
+- Explorar com busca e filtros;
+- página pública visual v2 de parceiros;
+- landing “Para parceiros”;
+- onboarding e roteiro editável;
+- calendário integrado ao roteiro;
+- Meu Passaporte;
+- Admin demo com rascunho, preview e publicação local.
+
+A camada técnica, testes e relatórios continuam no repositório apenas como suporte de desenvolvimento e validação.

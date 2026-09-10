@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#181818" />
   <link rel="icon" href="./assets/icons/passaporte.svg" type="image/svg+xml" />
-  <meta name="description" content="Passaporte Serra Negra — demonstração navegável para validação." />
-  <title>Passaporte Serra Negra — Demo</title>
+  <meta name="description" content="Passaporte Serra Negra · demonstração visual e funcional para validação." />
+  <title>Passaporte Serra Negra · Demo Visual v2</title>
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./visual-v2.css" />
 </head>
 <body>
   <a class="skip" href="#app">Ir para o conteúdo</a>
@@ -22,21 +23,18 @@
     </button>
     <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
       <a href="#/explorar">Explorar</a>
-      <a href="#/meu-passaporte">Meu Passaporte</a>
-      <a href="#/admin">Admin demo</a>
-      <a class="button primary" href="#/roteiro">Montar meu roteiro</a>
+      <a href="#/explorar?relation=public_point">Pontos turísticos</a>
+      <a href="#/viagens/demo-trip-001/roteiro">Roteiros</a>
+      <a href="#/explorar">Mapa</a>
+      <a href="#/para-parceiros">Para parceiros</a>
+      <a class="button primary nav-cta" href="#/roteiro">Montar meu roteiro</a>
     </nav>
     <label class="theme-picker">Aparência
-      <select id="theme-select" aria-label="Aparência">
-        <option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Escuro</option>
-      </select>
+      <select id="theme-select" aria-label="Aparência"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Escuro</option></select>
     </label>
   </header>
   <main id="app" tabindex="-1" aria-live="polite"></main>
-  <footer>
-    <div><strong>Passaporte Serra Negra</strong><p>Protótipo funcional de validação. Todos os dados exibidos são sintéticos.</p></div>
-    <nav aria-label="Rodapé"><a href="#/explorar">Explorar</a><a href="#/roteiro">Roteiro</a><a href="#/meu-passaporte">Passaporte</a><button class="linklike" data-action="reset-demo">Restaurar demo</button></nav>
-  </footer>
+  <footer class="v2-footer"><div class="footer-brand"><a class="brand" href="#/"><img src="./assets/icons/passaporte.svg" alt=""><span><small>Passaporte</small><strong>Serra Negra</strong></span></a><p>Demonstração visual e funcional. Dados exclusivamente sintéticos.</p></div><div class="footer-cols"><nav aria-label="Descoberta"><strong>Descobrir</strong><a href="#/explorar">Explorar</a><a href="#/roteiro">Montar roteiro</a><a href="#/meu-passaporte">Meu Passaporte</a></nav><nav aria-label="Projeto"><strong>Ecossistema</strong><a href="#/para-parceiros">Para parceiros</a><a href="#/admin">Admin demo</a><button class="linklike" data-action="reset-demo">Restaurar demo</button></nav></div></footer>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="./data.js"></script>
   <script src="./app.js"></script>
