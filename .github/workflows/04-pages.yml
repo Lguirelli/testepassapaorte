@@ -1,0 +1,86 @@
+name: 04-pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'showcase/**'
+      - 'docs/design-system-v1/**'
+      - 'src/design-system/tokens/brand.*'
+      - 'scripts/validate_showcase.py'
+      - 'scripts/capture_showcase.py'
+      - '.github/workflows/04-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  validate-showcase:
+    name: Validate static showcase
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate HTML references
+        run: python scripts/validate_showcase.py
+
+      - name: Install Playwright Python
+        run: pip install playwright
+
+      - name: Install Chromium
+        run: playwright install --with-deps chromium
+
+      - name: Capture showcase
+        run: python scripts/capture_showcase.py
+
+      - name: Upload showcase screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: showcase-predeploy-screenshots
+          path: artifacts/showcase
+          retention-days: 14
+
+  deploy-pages:
+    name: Deploy GitHub Pages
+    needs: validate-showcase
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: showcase
+
+      - name: Deploy visual showcase
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Deployment summary
+        run: |
+          {
+            echo '## GitHub Pages'
+            echo ''
+            echo 'Showcase publicada em:'
+            echo '${{ steps.deployment.outputs.page_url }}'
+          } >> "$GITHUB_STEP_SUMMARY"

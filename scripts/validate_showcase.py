@@ -12,7 +12,7 @@ class Parser(HTMLParser):
             if v and not v.startswith(('http://','https://','#','mailto:','tel:','javascript:')):
                 self.refs.append(v.split('?')[0].split('#')[0])
 errors=[]
-required=['index.html','explorar.html','lugar.html','roteiro.html','passaporte.html','admin.html','styles.css','app.js','.nojekyll']
+required=['index.html','explorar.html','lugar.html','parceiro.html','roteiro-criar.html','roteiro.html','calendario.html','passaporte.html','admin.html','404.html','styles.css','app.js','.nojekyll']
 for name in required:
     if not (SHOW/name).exists(): errors.append(f'missing: {name}')
 for html in SHOW.glob('*.html'):
