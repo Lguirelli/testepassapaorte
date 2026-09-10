@@ -40,3 +40,8 @@ PostGIS/Docker e Chromium standalone indisponíveis na execução anterior. G1�
 
 ## Entrega atual
 block_07.zip contém apenas arquivos relacionados à regressão; LATEST.zip contém fontes completas. O bloco 06 permanece em block_06.zip. Relatórios específicos em docs/validation/ e em cada pasta de entrega. Gates G1–G8 ainda parciais, sem promoção a produção.
+
+
+## GitHub Pages na raiz
+
+A demonstração funcional foi movida de `demo/` para a raiz do repositório. `index.html`, `app.js`, `data.js`, `styles.css`, `404.html`, `.nojekyll` e `assets/` passam a ser a entrada de publicação. Esta é uma alteração de empacotamento/apresentação e não muda o estado PARCIAL do Bloco 08.

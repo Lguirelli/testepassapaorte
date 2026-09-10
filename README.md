@@ -1,25 +1,20 @@
 # Passaporte Serra Negra — demonstração funcional
 
-Este repositório contém uma **versão navegável para validação do produto**. A entrega principal não é a documentação técnica: é a interface em `demo/`, preparada para publicação automática no **GitHub Pages**.
+A interface funcional desta validação está **na raiz do repositório**. O GitHub Pages deve abrir diretamente `index.html`, sem usar o README como página principal.
 
-## O que pode ser validado navegando
+## Abrir no GitHub Pages
 
-- Home e descoberta;
-- Explorar com busca e filtros;
-- páginas de pontos turísticos e parceiros;
-- inclusão de lugares no roteiro;
-- onboarding de roteiro;
-- roteiro editável por dia;
-- calendário Dia, Semana e Mês usando o mesmo estado do roteiro;
-- Meu Passaporte, separando itens planejados de visitas registradas;
-- registro fictício de visitas;
-- Admin demo com rascunho, preview, publicação e arquivamento local;
-- responsividade e tema Claro, Escuro e Sistema.
+Em **Settings → Pages**, use **GitHub Actions**. O workflow `Deploy functional demo` publica a interface da raiz automaticamente a cada push na `main`.
 
-Todos os dados desta versão são **sintéticos**. Nenhum contato, parceiro, visita, clima ou evento representa informação real.
+A demonstração inclui Home, Explorar, páginas de lugares e parceiros, roteiro, calendário, Meu Passaporte e Admin demo. Os dados são sintéticos e persistem localmente no navegador apenas para validação.
 
-## Publicação no GitHub Pages
+## Arquivos da interface
 
-O workflow **Deploy functional demo** publica automaticamente a pasta `demo/` no GitHub Pages quando houver push na `main`. Depois da primeira execução, abra a URL indicada no próprio workflow/deployment do GitHub.
+- `index.html`
+- `404.html`
+- `styles.css`
+- `data.js`
+- `app.js`
+- `assets/`
 
-A validação técnica original do projeto permanece preservada em segundo plano no repositório. Ela não precisa ser lida para navegar pela demonstração.
+A documentação técnica, o código Next.js, testes e relatórios permanecem no repositório como suporte, mas não são a página inicial da demonstração.

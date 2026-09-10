@@ -4,7 +4,13 @@ on:
   push:
     branches: [main]
     paths:
-      - 'demo/**'
+      - 'index.html'
+      - '404.html'
+      - 'styles.css'
+      - 'data.js'
+      - 'app.js'
+      - 'assets/**'
+      - '.nojekyll'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -28,10 +34,17 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload demo
+      - name: Assemble Pages artifact from repository root
+        shell: bash
+        run: |
+          rm -rf pages-dist
+          mkdir -p pages-dist
+          cp index.html 404.html styles.css data.js app.js .nojekyll pages-dist/
+          cp -R assets pages-dist/assets
+      - name: Upload functional site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./demo
+          path: ./pages-dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

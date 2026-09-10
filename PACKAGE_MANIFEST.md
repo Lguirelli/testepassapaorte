@@ -1,16 +1,22 @@
 # Conteúdo do pacote
 
-## Entrega principal: demonstração funcional
+## Entrega principal: site funcional na raiz
 
-- `demo/index.html`: entrada da versão navegável;
-- `demo/app.js`: navegação e interações do protótipo;
-- `demo/data.js`: conteúdo sintético de demonstração;
-- `demo/styles.css`: layout responsivo e temas;
-- `demo/assets/`: Icon System v2 e placeholders usados pela interface;
-- `.github/workflows/pages.yml`: publicação da pasta `demo/` no GitHub Pages.
+A demonstração do Passaporte Serra Negra agora fica diretamente na raiz do repositório, de modo que o GitHub Pages encontre `index.html` como entrada principal sem transformar o `README.md` em página do site.
 
-A demonstração funciona como site estático, sem PostgreSQL, PostGIS, credenciais ou backend externo. O estado de roteiro, Passaporte e Admin é mantido no navegador para permitir validação visual e funcional pelo GitHub Pages.
+Arquivos publicados:
+
+- `index.html`: entrada da versão navegável;
+- `404.html`: fallback da aplicação estática;
+- `app.js`: navegação e interações;
+- `data.js`: conteúdo sintético da demonstração;
+- `styles.css`: layout responsivo e temas;
+- `assets/`: Icon System v2 e placeholders;
+- `.nojekyll`: impede processamento Jekyll;
+- `.github/workflows/pages.yml`: empacota esses arquivos da raiz e publica no GitHub Pages.
+
+A antiga pasta `demo/` foi removida para evitar duas fontes concorrentes da mesma interface.
 
 ## Base técnica preservada
 
-O restante do repositório mantém integralmente a implementação e as evidências acumuladas até o Bloco 08 PARCIAL, incluindo Next.js, Drizzle, seeds, testes, Playwright, CI, documentação de arquitetura e relatórios. A criação da demo navegável não promove os gates técnicos existentes nem inicia o Bloco 09.
+O restante do repositório continua preservando a implementação Next.js/Drizzle, seeds, testes, Playwright, CI, documentação e evidências acumuladas até o Bloco 08 PARCIAL. A mudança desta entrega é somente de publicação/entrada do GitHub Pages e não promove os gates técnicos.
