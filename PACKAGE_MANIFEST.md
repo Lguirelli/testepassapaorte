@@ -1,13 +1,16 @@
 # PACKAGE_MANIFEST
 
-Entrega corrigida: **Landing V3 + fotografias Pexels remotas + fallbacks locais reais nos cards**.
+Entrega: **Passaporte Serra Negra + landing de parceiros + páginas internas de pontos turísticos pesquisados**.
 
-- Arquivos descritos no manifesto de integridade: 982
-- Tamanho descompactado aproximado antes do manifesto: 11.77 MiB
-- Entrada funcional: `index.html`
-- Pasta `assets/stock/`: 10 arquivos, incluindo 8 JPGs locais + manifesto/fontes
-- Fotografias Pexels: carregadas remotamente e documentadas em `ASSET_SOURCES_STOCK_IMAGES.md`
-- Fallback local: usado automaticamente quando o carregamento remoto falhar
-- Manifesto de integridade: `MANIFEST.json`
+- Entrada principal: `index.html`
+- Nova camada de dados: `tourism-data.js`
+- Estilos das páginas: `tourism-pages.css`
+- Rotas pesquisadas: 12
+- Entradas físicas em `/lugares/`: 13 (`index` + 12 atrativos)
+- Fotografias temporárias: Wikimedia Commons/Pexels com origem e licença registradas no dataset
+- Fallbacks: fotografias reais locais em `assets/stock/`
+- Parceiros e roteiro demo permanecem funcionais e separados da pesquisa de atrativos
+- Pesquisa: `TOURISM_RESEARCH.md`
+- Validação: `TOURISM_VALIDATION.md`
 
-Não são incluídos caches, `node_modules`, builds transitórios ou segredos.
+Não incluir `node_modules`, `.next`, caches ou segredos no ZIP final.

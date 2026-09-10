@@ -15,7 +15,7 @@
   const fmtFullDate = (date) => new Intl.DateTimeFormat('pt-BR',{weekday:'long',day:'2-digit',month:'long'}).format(new Date(`${date}T12:00:00`));
   const byId = (arr,id) => arr.find(x=>x.id===id);
   const categoryName = id => byId(DATA.content.categories,id)?.name || id;
-  const costLabel = v => ({free:'Sem custo',paid:'Pago',mixed:'Misto',paid_with_booking:'Pago · reserva'}[v] || v);
+  const costLabel = v => ({free:'Sem custo',paid:'Pago',mixed:'Misto',paid_with_booking:'Pago · reserva',not_informed:'Confirmar'}[v] || v);
   const environmentLabel = v => ({indoor:'Ambiente interno',outdoor:'Ao ar livre',mixed:'Misto'}[v] || v);
   const relationLabel = v => v === 'partner' ? 'Parceiro demo' : 'Ponto turístico demo';
   const responseLabel = v => ({within_1_hour:'Em até 1 hora (demo)',same_day:'No mesmo dia (demo)',within_few_hours:'Em algumas horas (demo)'}[v] || 'Tempo não informado');
@@ -28,7 +28,8 @@
     viagens:['Minha viagem · Passaporte Serra Negra','Consulte roteiro e calendário usando o mesmo estado demonstrativo da viagem.'],
     'meu-passaporte':['Meu Passaporte · Passaporte Serra Negra','Veja registros demonstrativos separados dos itens apenas planejados.'],
     admin:['Admin demo · Passaporte Serra Negra','Controle operacional local da demonstração. Não representa autorização de produção.'],
-    'para-parceiros':['Para parceiros · Passaporte Serra Negra','Veja como uma página de parceiro pode participar da jornada demonstrativa do turista.'],
+    parceiros:['Para parceiros · Passaporte Serra Negra','Entenda como negócios locais podem entrar de forma contextual na jornada de quem visita Serra Negra.'],
+    'para-parceiros':['Para parceiros · Passaporte Serra Negra','Entenda como negócios locais podem entrar de forma contextual na jornada de quem visita Serra Negra.'],
     privacidade:['Privacidade · Passaporte Serra Negra','Como esta demonstração local trata estado, preferências e dados no navegador.'],
     termos:['Termos de uso · Passaporte Serra Negra','Condições aplicáveis à demonstração funcional do Passaporte Serra Negra.'],
     cookies:['Cookies e armazenamento · Passaporte Serra Negra','Tecnologias de armazenamento utilizadas nesta demonstração funcional.'],
@@ -46,7 +47,7 @@
   }
   function updateNavCurrent(page){
     $$('#main-nav a').forEach(a=>a.removeAttribute('aria-current'));
-    const map={explorar:'#/explorar',roteiro:'#/viagens/demo-trip-001/roteiro','para-parceiros':'#/para-parceiros'};
+    const map={explorar:'#/explorar',roteiro:'#/viagens/demo-trip-001/roteiro',parceiros:'#/parceiros','para-parceiros':'#/parceiros'};
     const href=map[page]; if(href){const link=$(`#main-nav a[href="${href}"]`); link?.setAttribute('aria-current','page');}
   }
 
@@ -76,7 +77,8 @@
     homeSpotIndex:0,
     homePartnerIndex:0,
     homeRouteType:'primeira-visita',
-    homeFaqOpen:0
+    homeFaqOpen:0,
+    partnerLandingTab:0
   };
 
   function mergedCollection(kind){
@@ -87,6 +89,8 @@
   }
   const allPlaces = () => mergedCollection('places');
   const publicPlaces = () => allPlaces().filter(p => p.status !== 'archived');
+  const discoverablePlaces = () => publicPlaces().filter(p => p.discoveryVisible !== false);
+  const researchedTouristPlaces = () => discoverablePlaces().filter(p => p.commercialRelation==='public_point' && p.research?.verified);
   const placeById = id => allPlaces().find(p=>p.id===id);
   const placeBySlug = slug => allPlaces().find(p=>p.slug===slug);
   const partnerForPlace = pid => mergedCollection('partners').find(p=>p.placeId===pid);
@@ -120,11 +124,11 @@
   };
   function scenicMedia(place,variant='card'){
     const cls=(place?.imagePlaceholder||'landscape-01').replace(/[^a-z0-9-]/gi,'');
-    const relation=place?.commercialRelation==='partner'?'Parceiro demo':'Ponto demo';
+    const relation=place?.commercialRelation==='partner'?'Parceiro demo':(place?.research?.verified?'Ponto turístico':'Ponto demo');
     const title=place?.name||'Serra Negra';
     const asset=place?.imageAsset;
     const stockStyle=asset?.src ? ` style="--stock-position:${esc(asset.position||'center')}"` : '';
-    const source=asset?.provider ? `${asset.provider} · foto ilustrativa` : 'mídia ilustrativa';
+    const source=asset?.provider ? `${asset.provider} · ${asset.notActualPlace?'foto ilustrativa':'foto temporária'}` : 'mídia ilustrativa';
     const label=asset?.alt || `Mídia visual demonstrativa de ${title}`;
     const fallback=asset?.fallbackSrc || 'assets/placeholders/card.svg';
     const photo=asset?.src ? `<img class="scenic-photo" src="${esc(asset.src)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${esc(fallback)}'">` : '';
@@ -194,7 +198,7 @@
     </section>`;
   }
   function homeTouristSpotsSection(){
-    const spots=publicPlaces().filter(p=>p.placeType==='tourist_point');
+    const spots=researchedTouristPlaces();
     const idx=Math.min(ui.homeSpotIndex,Math.max(0,spots.length-1)); const active=spots[idx]||spots[0];
     if(!active)return '';
     return `<section class="home-section home-spots" data-psd-layer="02" aria-labelledby="spots-title">
@@ -240,7 +244,7 @@
   function homeCategoriesSection(){
     const cats=mergedCollection('categories').filter(c=>c.enabled!==false);
     const mediaMap={'cat-natureza':'place-jardim-nascentes','cat-gastronomia':'place-bistro-estacao','cat-cafes':'place-cafe-neblina','cat-cultura':'place-centro-cultural','cat-compras':'place-atelie-pedra-folha','cat-bem-estar':'place-aguas-claras'};
-    return `<section class="home-section home-categories" data-psd-layer="08" aria-labelledby="categories-title"><div class="psd-container"><div class="categories-heading"><div><p class="psd-kicker">Explore por interesse</p><h2 id="categories-title">O que combina com a sua viagem?</h2></div><p>As categorias filtram o conteúdo existente sem criar uma hierarquia de importância.</p></div><div class="categories-grid">${cats.map((c,i)=>{const p=placeById(mediaMap[c.id])||publicPlaces()[0];return `<a href="#/explorar?category=${encodeURIComponent(c.id)}" class="category-reference-tile niche-${i+1}"><div>${scenicMedia(p,'category-ref')}</div><span class="category-reference-icon">${icon(categoryIconById(c.id))}</span><strong>${esc(c.name)}</strong><small>Explorar interesse</small></a>`}).join('')}<a href="#/explorar" class="category-reference-tile category-reference-all"><span class="category-reference-icon">${icon('explorar')}</span><strong>Ver todos</strong><small>Busca e filtros</small></a></div></div></section>`;
+    return `<section class="home-section home-categories" data-psd-layer="08" aria-labelledby="categories-title"><div class="psd-container"><div class="categories-heading"><div><p class="psd-kicker">Explore por interesse</p><h2 id="categories-title">O que combina com a sua viagem?</h2></div><p>As categorias filtram o conteúdo existente sem criar uma hierarquia de importância.</p></div><div class="categories-grid">${cats.map((c,i)=>{const p=placeById(mediaMap[c.id])||discoverablePlaces()[0];return `<a href="#/explorar?category=${encodeURIComponent(c.id)}" class="category-reference-tile niche-${i+1}"><div>${scenicMedia(p,'category-ref')}</div><span class="category-reference-icon">${icon(categoryIconById(c.id))}</span><strong>${esc(c.name)}</strong><small>Explorar interesse</small></a>`}).join('')}<a href="#/explorar" class="category-reference-tile category-reference-all"><span class="category-reference-icon">${icon('explorar')}</span><strong>Ver todos</strong><small>Busca e filtros</small></a></div></div></section>`;
   }
   function homeFaqSection(){
     const faqs=[
@@ -258,7 +262,7 @@
     return `<section class="home-section home-passport-intro" data-psd-layer="10" aria-labelledby="passport-intro-title"><div class="psd-container passport-reference-layout"><div class="passport-reference-mock"><div class="passport-wire" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div class="passport-book"><div class="passport-book-cover"><img src="./assets/brand/logo-passaporte-serra-negra.svg" alt=""><small>PASSAPORTE</small><strong>SERRA<br>NEGRA</strong><span>memórias da viagem</span></div><div class="passport-book-page"><small>VISITA</small><strong>12 SET</strong><span>DEMO</span><em>${state.trip.visits.length} registros demonstrativos</em></div></div></div><div class="passport-reference-copy"><p class="psd-kicker">Da intenção à memória</p><h2 id="passport-intro-title">O roteiro organiza.<br>O Passaporte guarda.</h2><p>A experiência separa claramente o que você pretende fazer daquilo que registrou como vivido.</p><ol>${steps.map((x,i)=>`<li><span>0${i+1}</span><strong>${esc(x)}</strong></li>`).join('')}</ol><a class="button light-button" href="#/meu-passaporte">Abrir meu Passaporte</a></div></div></section>`;
   }
   function homeMapSection(){
-    const ps=publicPlaces().slice(0,5); const positions=[[17,68],[32,31],[49,55],[67,24],[82,46]];
+    const ps=researchedTouristPlaces().slice(0,5); const positions=[[17,68],[32,31],[49,55],[67,24],[82,46]];
     return `<section class="home-section home-map" data-psd-layer="11" aria-labelledby="map-title"><div class="home-map-landscape" aria-hidden="true"><span></span><span></span></div><div class="psd-container map-reference-layout"><div class="map-reference-panel"><p class="psd-kicker">Visão territorial</p><div class="map-reference-list">${ps.slice(0,3).map((p,i)=>`<a data-map-place="${p.id}" href="${p.commercialRelation==='partner'?'#/parceiros/':'#/lugares/'}${p.slug}"><span>0${i+1}</span><div><small>${esc((p.categoryIds||[]).map(categoryName).join(' · '))}</small><strong>${esc(p.name)}</strong></div></a>`).join('')}</div><a class="button light-button" href="#/explorar">Abrir exploração completa</a></div><div class="map-reference-canvas" aria-label="Mapa demonstrativo sem geografia definitiva"><svg viewBox="0 0 1000 600" aria-hidden="true"><path d="M88 510 C190 430 202 260 348 308 S536 468 610 334 S726 150 900 92"/></svg>${ps.map((p,i)=>`<a data-map-place="${p.id}" class="territory-pin" style="left:${positions[i][0]}%;top:${positions[i][1]}%" href="${p.commercialRelation==='partner'?'#/parceiros/':'#/lugares/'}${p.slug}" aria-label="Abrir ${esc(p.name)}"><span>${i+1}</span></a>`).join('')}</div><div class="map-reference-title"><small>Mapa demonstrativo</small><h2 id="map-title">Explore também<br>pelo mapa</h2><p>O mapa desta validação é abstrato. Ele demonstra vínculo entre pins, cards e filtros sem afirmar geografia real.</p></div></div></section>`;
   }
   function homeFinalCtaSection(){
@@ -296,7 +300,7 @@
   }
   function exploreFiltered(){
     const q=ui.explore.q.trim().toLocaleLowerCase('pt-BR');
-    return publicPlaces().filter(p=>{
+    return discoverablePlaces().filter(p=>{
       const text=[p.name,p.shortDescription,...(p.categoryIds||[]).map(categoryName)].join(' ').toLocaleLowerCase('pt-BR');
       return (!q||text.includes(q)) && (!ui.explore.category||(p.categoryIds||[]).includes(ui.explore.category)) && (!ui.explore.relation||p.commercialRelation===ui.explore.relation) && (!ui.explore.environment||p.environment===ui.explore.environment) && (!ui.explore.cost||p.costType===ui.explore.cost);
     });
@@ -329,10 +333,44 @@
     save();toast('Visita de demonstração registrada.');render();
   }
 
+  function renderResearchedTourist(p){
+    const suggestions=researchedTouristPlaces().filter(x=>x.id!==p.id).slice(0,3);
+    const r=p.research||{}; const src=r.officialSource||{}; const asset=p.imageAsset||{};
+    const categories=(p.categoryIds||[]).map(categoryName).join(' · ');
+    const duration=p.durationIsEstimate?`${p.durationMinutes} min · estimativa`:`${p.durationMinutes} min`;
+    const price=p.priceNote||costLabel(p.costType);
+    const notes=[...(r.practicalNotes||[]),...(p.requirements||[])];
+    const photoStatus=asset.notActualPlace?'Foto temporária relacionada ao tema, não ao local específico':'Foto do atrativo · uso temporário';
+    app.innerHTML=`<article class="tourism-page">
+      <section class="tourism-hero full-bleed">
+        ${scenicMedia(p,'tourism-hero')}
+        <div class="tourism-hero-copy">
+          ${breadcrumbs([{label:'Início',href:'#/'},{label:'Pontos turísticos',href:'#/explorar?relation=public_point'},{label:p.name}])}
+          <span class="tourism-research-badge">Informação pública pesquisada</span>
+          <p class="v2-kicker">${esc(categories||'Ponto turístico')} · Serra Negra</p>
+          <h1>${esc(p.name)}</h1>
+          <p class="lead">${esc(p.shortDescription)}</p>
+          <div class="tourism-hero-actions">${statusBadges(p)}<button class="light-button" data-action="add-trip" data-place="${p.id}">${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button><button class="light-button" data-action="register-visit" data-place="${p.id}">${visitFor(p.id)?'Visita registrada':'Registrar visita demo'}</button></div>
+        </div>
+        <div class="tourism-photo-credit">${esc(photoStatus)} · ${asset.sourcePage?`<a href="${esc(asset.sourcePage)}" target="_blank" rel="noopener noreferrer">${esc(asset.provider||'Fonte')} · ${esc(asset.author||'crédito')}</a>`:esc(asset.provider||'mídia temporária')}</div>
+      </section>
+      <section class="tourism-intro">
+        <div class="tourism-intro-copy"><p class="v2-kicker">Conheça o lugar</p><h2>Uma parada real dentro da leitura da cidade.</h2><p>${esc(p.longDescription||p.shortDescription)}</p></div>
+        <aside class="tourism-practical" aria-label="Informações práticas"><div class="tourism-practical-row"><span>Horário</span><strong>${esc(p.openingHours?.text||'Não informado')}</strong></div><div class="tourism-practical-row"><span>Localização</span><strong>${esc(p.location?.display||'Não informada')}</strong></div><div class="tourism-practical-row"><span>Tempo</span><strong>${esc(duration)}</strong></div><div class="tourism-practical-row"><span>Custo</span><strong>${esc(price)}</strong></div></aside>
+      </section>
+      <section class="tourism-section"><div class="tourism-container"><div class="tourism-heading"><div><p class="v2-kicker">O que vale observar</p><h2>Pontos para orientar a visita.</h2></div><p>Os destaques abaixo foram sintetizados a partir de fontes públicas de turismo. Onde a informação não estava publicada, a página sinaliza a ausência em vez de inventar dados.</p></div><div class="tourism-highlights">${(r.highlights||[]).map((h,i)=>`<article class="tourism-highlight"><span>0${i+1}</span><p>${esc(h)}</p></article>`).join('')}</div></div></section>
+      <section class="tourism-media-story full-bleed"><div class="tourism-story-image">${scenicMedia(p,'tourism-story')}</div><div class="tourism-story-copy"><p class="v2-kicker">Antes de sair</p><h2>Planeje com informação verificável.</h2><p>Esta página já usa pesquisa real sobre Serra Negra, mas continua sendo uma build de validação. Horários, preços, acesso e regras operacionais podem mudar. A fonte oficial consultada fica disponível abaixo para conferência.</p><a class="button light-button" href="${esc(src.url||'#')}" target="_blank" rel="noopener noreferrer">Consultar fonte oficial ${icon('link-externo')}</a></div></section>
+      <section class="tourism-section"><div class="tourism-container"><div class="tourism-heading"><div><p class="v2-kicker">Informações práticas</p><h2>O que saber antes da visita.</h2></div><p>Notas editoriais e limites de informação desta primeira versão.</p></div><div class="tourism-notes">${notes.length?notes.map(n=>`<article class="tourism-note">${icon('lugar-informacao')}<p>${esc(n)}</p></article>`).join(''):'<article class="tourism-note">'+icon('lugar-informacao')+'<p>Não foram identificadas observações adicionais na fonte consultada.</p></article>'}</div><div class="tourism-source-box"><div><small>Fonte principal da página</small><strong>${esc(src.label||'Fonte pública consultada')}</strong><p>Pesquisa realizada em ${esc(r.checkedAt||'2026-09-10')}. Reconfirme informações sensíveis a mudança antes de publicar em produção.</p></div>${src.url?`<a class="button" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">Abrir fonte</a>`:''}</div></div></section>
+      <section class="tourism-section"><div class="tourism-container"><div class="tourism-heading"><div><p class="v2-kicker">Localização</p><h2>Use o endereço como referência.</h2></div><p>O mapa desta demo continua abstrato. Ele demonstra integração com o roteiro sem se apresentar como cartografia definitiva.</p></div><div class="tourism-location-grid"><div>${mockMap([p,...suggestions.slice(0,2)])}</div><aside class="tourism-location-copy">${icon('lugar-localizacao')}<h3>${esc(p.location?.display||'Localização não informada')}</h3><p>Adicione este ponto ao roteiro para validar a continuidade entre descoberta, planejamento, calendário e Passaporte.</p><button class="primary" data-action="add-trip" data-place="${p.id}">${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button></aside></div></div></section>
+      <section class="tourism-section"><div class="tourism-container"><div class="tourism-heading"><div><p class="v2-kicker">Continue explorando</p><h2>Outros pontos de Serra Negra.</h2></div><a class="text-link" href="#/explorar?relation=public_point">Ver todos ${icon('avancar')}</a></div><div class="tourism-more-grid">${suggestions.map(x=>placeCard(x,'editorial')).join('')}</div></div></section>
+    </article>`;
+  }
+
   function renderPlace(slug,asPartner=false){
     const p=placeBySlug(slug); if(!p){return renderNotFound();}
     const isPartner=asPartner || p.commercialRelation==='partner';
     if(isPartner) return renderPartner(p);
+    if(p.research?.verified) return renderResearchedTourist(p);
     const exps=experiencesFor(p.id), evs=eventsFor(p.id); const suggestions=publicPlaces().filter(x=>x.id!==p.id).slice(0,4);
     app.innerHTML = `${breadcrumbs([{label:'Início',href:'#/'},{label:'Explorar',href:'#/explorar'},{label:p.name}])}<section class="hero"><div><p class="eyebrow">Ponto turístico · demonstração</p><h1 class="compact">${esc(p.name)}</h1><p class="lead">${esc(p.shortDescription)}</p><div class="actions">${statusBadges(p)}<button class="primary" data-action="add-trip" data-place="${p.id}">${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button><button data-action="register-visit" data-place="${p.id}">${visitFor(p.id)?'Visita registrada':'Registrar visita demo'}</button></div></div><div class="hero-visual"><div class="mark">PONTO<br><strong>DEMO</strong></div></div></section>
       <section class="section two-col"><div><p class="eyebrow">Sobre o lugar</p><h2>Conheça este ponto</h2><p class="lead">${esc(p.longDescription||p.shortDescription)}</p><div class="gallery"><div></div><div></div><div></div></div></div><aside class="sidebar"><div class="panel"><h3>Informações rápidas</h3><dl class="info-list"><div><dt>Horário</dt><dd>${esc(p.openingHours?.text||'Demo')}</dd></div><div><dt>Duração</dt><dd>${p.durationMinutes} min</dd></div><div><dt>Ambiente</dt><dd>${esc(environmentLabel(p.environment))}</dd></div><div><dt>Custo</dt><dd>${esc(costLabel(p.costType))}</dd></div></dl></div>${weatherStrip()}</aside></section>
@@ -362,19 +400,11 @@
   }
 
   function renderPartnerAcquisition(){
-    app.innerHTML=`<div class="partner-acquisition"><section class="acquisition-hero full-bleed"><div class="v2-container"><p class="v2-kicker">Para parceiros</p><h1>Faça parte do caminho,<br>não de uma lista.</h1><p>Uma demonstração da proposta de presença dentro da jornada do turista. Nenhuma condição comercial é final nesta versão.</p><a class="button light-button" href="#/parceiros/cafe-neblina-alta">Ver uma página de parceiro</a></div></section><section class="v2-section"><div class="v2-container"><div class="v2-section-heading"><div><p class="v2-kicker">Jornada visual</p><h2>Descoberta → interesse → visita → memória</h2></div></div><div class="journey-steps">${['Descoberta','Página','Contato','Roteiro','Visita','Passaporte'].map((x,i)=>`<div><span>0${i+1}</span><strong>${x}</strong></div>`).join('')}</div></div></section><section class="v2-section"><div class="v2-container partner-about-grid"><div><p class="v2-kicker">Valor demonstrado</p><h2>O parceiro aparece no contexto certo.</h2><p class="v2-copy">A proposta visual v2 integra o negócio ao ecossistema do Passaporte, preservando a identidade da plataforma e separando ações internas de links externos.</p></div><div class="panel"><h3>O que esta demo permite validar</h3><p>Página pública, informações práticas, experiências, inclusão no roteiro, registro demonstrativo de visita e continuidade da exploração.</p><a class="button primary" href="#/parceiros/cafe-neblina-alta">Abrir exemplo funcional</a></div></div></section></div>`;
+    const view=window.PSN_PARTNER_PAGE;
+    if(!view){app.innerHTML=pageTitle('Para parceiros','Erro de carregamento','A página institucional não pôde ser carregada.');return;}
+    app.innerHTML=view.render(ui.partnerLandingTab);
   }
 
-  const onboardingSteps = [
-    {key:'dates',title:'Quando você vai?',lead:'A demo usa o período de 12 a 14 de setembro de 2026.',choices:['12 a 14 de setembro','13 a 14 de setembro','Ainda não sei']},
-    {key:'party',title:'Com quem você viaja?',choices:['Casal','Família','Amigos','Sozinho']},
-    {key:'interests',title:'O que você quer encontrar?',multi:true,choices:()=>mergedCollection('categories').filter(c=>c.enabled!==false).map(c=>({value:c.id,label:c.name}))},
-    {key:'intent',title:'Qual é a intenção da viagem?',choices:['Conhecer e descobrir','Relaxar','Comer bem','Ver paisagens']},
-    {key:'pace',title:'Qual ritmo combina com vocês?',choices:['Tranquilo','Equilibrado','Ativo']},
-    {key:'transport',title:'Como vocês vão circular?',choices:['Carro','A pé','Táxi / app']},
-    {key:'needs',title:'Alguma necessidade importante?',choices:['Nenhuma necessidade específica','Preferir opções sem custo','Acessibilidade parcial ou completa','Restrição alimentar']},
-    {key:'review',title:'Pronto para montar?',review:true}
-  ];
   function renderOnboarding(){
     const s=onboardingSteps[ui.onboarding.step]; const pct=((ui.onboarding.step+1)/onboardingSteps.length)*100;
     const choices=typeof s.choices==='function'?s.choices():(s.choices||[]).map(v=>({value:v,label:v}));
@@ -393,7 +423,7 @@
     if(!state.trip.days.some(d=>d.date===ui.activeDay)) ui.activeDay=state.trip.days[0].date;
     const day=state.trip.days.find(d=>d.date===ui.activeDay); const items=day.items.filter(i=>i.state!=='removed');
     app.innerHTML = `${pageTitle('Seu roteiro de demonstração','Viagem · 12 a 14 de setembro','Edite uma parada sem reconstruir silenciosamente o restante da viagem.')}${weatherStrip(day.date)}<div class="trip-toolbar"><div class="day-tabs">${state.trip.days.map(d=>`<button data-day="${d.date}" class="${d.date===day.date?'primary':''}">${fmtDate(d.date)}</button>`).join('')}</div><div class="actions"><a class="button" href="#/viagens/demo-trip-001/calendario">Ver calendário</a><a class="button" href="#/meu-passaporte">Meu Passaporte</a></div></div>
-      <section class="two-col"><div><div class="timeline">${items.length?items.map(i=>routeItem(i,day.date)).join(''):'<div class="empty">Este dia está livre.</div>'}</div></div><aside class="sidebar"><div class="panel"><h3>Adicionar uma parada</h3><label class="field">Lugar<select id="route-add-place"><option value="">Escolha um lugar</option>${publicPlaces().filter(p=>!plannedItemFor(p.id)).map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('')}</select></label><button data-action="route-add-selected">Adicionar ao dia</button></div><div class="panel"><h3>Como editar</h3><p class="muted">Mover altera apenas o horário da parada. Fixar preserva a escolha. Remover não reorganiza automaticamente o restante.</p></div>${mockMap(items.map(i=>placeById(i.placeId)).filter(Boolean))}</aside></section>`;
+      <section class="two-col"><div><div class="timeline">${items.length?items.map(i=>routeItem(i,day.date)).join(''):'<div class="empty">Este dia está livre.</div>'}</div></div><aside class="sidebar"><div class="panel"><h3>Adicionar uma parada</h3><label class="field">Lugar<select id="route-add-place"><option value="">Escolha um lugar</option>${discoverablePlaces().filter(p=>!plannedItemFor(p.id)).map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('')}</select></label><button data-action="route-add-selected">Adicionar ao dia</button></div><div class="panel"><h3>Como editar</h3><p class="muted">Mover altera apenas o horário da parada. Fixar preserva a escolha. Remover não reorganiza automaticamente o restante.</p></div>${mockMap(items.map(i=>placeById(i.placeId)).filter(Boolean))}</aside></section>`;
   }
   function routeItem(i,date){
     const p=placeById(i.placeId); const fixed=i.state==='fixed'; const visited=!!visitFor(i.placeId);
@@ -436,7 +466,7 @@
   function stampHtml(v){const p=placeById(v.placeId);return `<div class="stamp"><span>VISITA DEMO<br><strong>${esc(p?.name||v.placeId)}</strong><br>12 SET 2026</span></div>`}
   function renderPassport(){
     const pages=passportPages(); ui.passportPage=Math.max(0,Math.min(ui.passportPage,pages.length-1)); const a=pages[ui.passportPage],b=pages[ui.passportPage+1];
-    app.innerHTML = `${pageTitle('Meu Passaporte','Memória digital da viagem','Planejamento e presença continuam visualmente separados nesta versão.')}<div class="book-wrap"><nav class="book-index" aria-label="Capítulos">${pages.map((p,i)=>`<button class="${ui.passportPage===i?'primary':''}" data-passport-page="${i}">${i+1}. ${esc(p.title)}</button>`).join('')}</nav><div><div class="book"><article class="book-page active"><p class="eyebrow">${esc(a.eyebrow)}</p><h2>${esc(a.title)}</h2>${a.body}<span class="page-number">${ui.passportPage+1}</span></article>${b?`<article class="book-page"><p class="eyebrow">${esc(b.eyebrow)}</p><h2>${esc(b.title)}</h2>${b.body}<span class="page-number">${ui.passportPage+2}</span></article>`:''}</div><div class="trip-toolbar"><button data-action="passport-prev" ${ui.passportPage===0?'disabled':''}>Página anterior</button><button data-action="passport-next" ${ui.passportPage>=pages.length-1?'disabled':''}>Próxima página</button></div><section class="panel"><h3>Registrar presença fictícia</h3><p class="muted">Este controle existe apenas para validar a diferença entre planejamento e presença registrada.</p><div class="actions"><select id="passport-place"><option value="">Escolha um lugar</option>${publicPlaces().filter(p=>!visitFor(p.id)).map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('')}</select><button data-action="passport-register">Registrar visita demo</button></div></section></div></div>`;
+    app.innerHTML = `${pageTitle('Meu Passaporte','Memória digital da viagem','Planejamento e presença continuam visualmente separados nesta versão.')}<div class="book-wrap"><nav class="book-index" aria-label="Capítulos">${pages.map((p,i)=>`<button class="${ui.passportPage===i?'primary':''}" data-passport-page="${i}">${i+1}. ${esc(p.title)}</button>`).join('')}</nav><div><div class="book"><article class="book-page active"><p class="eyebrow">${esc(a.eyebrow)}</p><h2>${esc(a.title)}</h2>${a.body}<span class="page-number">${ui.passportPage+1}</span></article>${b?`<article class="book-page"><p class="eyebrow">${esc(b.eyebrow)}</p><h2>${esc(b.title)}</h2>${b.body}<span class="page-number">${ui.passportPage+2}</span></article>`:''}</div><div class="trip-toolbar"><button data-action="passport-prev" ${ui.passportPage===0?'disabled':''}>Página anterior</button><button data-action="passport-next" ${ui.passportPage>=pages.length-1?'disabled':''}>Próxima página</button></div><section class="panel"><h3>Registrar presença fictícia</h3><p class="muted">Este controle existe apenas para validar a diferença entre planejamento e presença registrada.</p><div class="actions"><select id="passport-place"><option value="">Escolha um lugar</option>${discoverablePlaces().filter(p=>!visitFor(p.id)).map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('')}</select><button data-action="passport-register">Registrar visita demo</button></div></section></div></div>`;
   }
 
   const adminKinds = {places:'Lugares',partners:'Parceiros',experiences:'Experiências',events:'Eventos',categories:'Categorias',sources:'Fontes'};
@@ -507,13 +537,14 @@
     if(parts.length===0){setPageMeta('home');renderHome();}
     else if(parts[0]==='explorar'){setPageMeta('explorar');renderExplore();}
     else if(parts[0]==='lugares'&&parts[1]){const p=placeBySlug(parts[1]);setPageMeta('explorar',p?`${p.name} · Passaporte Serra Negra`:'Lugar · Passaporte Serra Negra',p?.shortDescription||'Página de lugar na demonstração.');renderPlace(parts[1],false);}
+    else if(parts[0]==='parceiros'&&parts.length===1){setPageMeta('parceiros');renderPartnerAcquisition();}
     else if(parts[0]==='parceiros'&&parts[1]){const p=placeBySlug(parts[1]);setPageMeta('explorar',p?`${p.name} · Passaporte Serra Negra`:'Parceiro · Passaporte Serra Negra',p?.shortDescription||'Página de parceiro na demonstração.');renderPlace(parts[1],true);}
     else if(parts[0]==='roteiro'&&parts.length===1){setPageMeta('roteiro');renderOnboarding();}
     else if(parts[0]==='viagens'&&parts[2]==='roteiro'){setPageMeta('viagens','Roteiro da viagem · Passaporte Serra Negra');renderRoute();}
     else if(parts[0]==='viagens'&&parts[2]==='calendario'){setPageMeta('viagens','Calendário da viagem · Passaporte Serra Negra');renderCalendar();}
     else if(parts[0]==='meu-passaporte'){setPageMeta('meu-passaporte');renderPassport();}
     else if(parts[0]==='admin'){setPageMeta('admin');renderAdmin();}
-    else if(parts[0]==='para-parceiros'){setPageMeta('para-parceiros');renderPartnerAcquisition();}
+    else if(parts[0]==='para-parceiros'){location.replace('#/parceiros');return;}
     else if(parts[0]==='privacidade'){setPageMeta('privacidade');renderPrivacy();}
     else if(parts[0]==='termos'){setPageMeta('termos');renderTerms();}
     else if(parts[0]==='cookies'){setPageMeta('cookies');renderCookies();}
@@ -523,11 +554,14 @@
   }
 
   document.addEventListener('click',e=>{
-    const t=e.target.closest('button,[data-action],[data-filter-category],[data-day],[data-day-calendar],[data-calendar-mode],[data-passport-page],[data-admin-kind],[data-admin-edit],[data-route-action],[data-onboard-key],[data-home-spot],[data-home-partner],[data-route-type],[data-home-faq]'); if(!t)return;
+    const t=e.target.closest('button,[data-action],[data-filter-category],[data-day],[data-day-calendar],[data-calendar-mode],[data-passport-page],[data-admin-kind],[data-admin-edit],[data-route-action],[data-onboard-key],[data-home-spot],[data-home-partner],[data-route-type],[data-home-faq],[data-participation-tab],[data-partner-scroll]'); if(!t)return;
     if(t.dataset.homeSpot!==undefined){ui.homeSpotIndex=Number(t.dataset.homeSpot);renderHome();return}
     if(t.dataset.homePartner!==undefined){ui.homePartnerIndex=Number(t.dataset.homePartner);renderHome();return}
     if(t.dataset.routeType){ui.homeRouteType=t.dataset.routeType;if(t.dataset.action==='route-type-to-onboarding'){location.hash='#/roteiro';return}renderHome();return}
     if(t.dataset.homeFaq!==undefined){const i=Number(t.dataset.homeFaq);ui.homeFaqOpen=ui.homeFaqOpen===i?-1:i;renderHome();return}
+    if(t.dataset.participationTab!==undefined){const idx=Number(t.dataset.participationTab);ui.partnerLandingTab=idx;renderPartnerAcquisition();requestAnimationFrame(()=>{document.querySelector(`[data-participation-tab="${idx}"]`)?.focus({preventScroll:true});document.querySelector('.partners-participation')?.scrollIntoView({block:'start'});});return}
+    if(t.dataset.partnerScroll){document.getElementById(t.dataset.partnerScroll)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return}
+    if(t.dataset.action==='partner-contact-demo'){toast('Contato demonstrativo: nenhum dado foi enviado.');return}
     if(t.matches('[data-filter-category]')){ui.explore.category=t.dataset.filterCategory;$$('[data-filter-category]').forEach(b=>b.classList.toggle('active',b===t));renderExploreResults();return}
     if(t.dataset.day){ui.activeDay=t.dataset.day;renderRoute();return}
     if(t.dataset.dayCalendar){ui.activeDay=t.dataset.dayCalendar;renderCalendar();return}
@@ -587,6 +621,13 @@
     const tab=e.target.closest?.('[role="tab"][data-route-type]'); if(!tab||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
     const tabs=$$('[role="tab"][data-route-type]'); if(!tabs.length)return; e.preventDefault();
     let i=tabs.indexOf(tab); if(e.key==='ArrowLeft')i=(i-1+tabs.length)%tabs.length; if(e.key==='ArrowRight')i=(i+1)%tabs.length; if(e.key==='Home')i=0; if(e.key==='End')i=tabs.length-1;
+    tabs[i].focus(); tabs[i].click();
+  });
+
+  document.addEventListener('keydown',e=>{
+    const tab=e.target.closest?.('[role="tab"][data-participation-tab]'); if(!tab||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(e.key))return;
+    const tabs=$$('[role="tab"][data-participation-tab]'); if(!tabs.length)return; e.preventDefault();
+    let i=tabs.indexOf(tab); if(['ArrowLeft','ArrowUp'].includes(e.key))i=(i-1+tabs.length)%tabs.length; if(['ArrowRight','ArrowDown'].includes(e.key))i=(i+1)%tabs.length; if(e.key==='Home')i=0; if(e.key==='End')i=tabs.length-1;
     tabs[i].focus(); tabs[i].click();
   });
 

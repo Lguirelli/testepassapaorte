@@ -62,3 +62,8 @@ Os cards usam temporariamente fotografias gratuitas do Pexels para melhorar a le
 ## Atualização de mídia
 
 Esta versão substitui os placeholders vetoriais dos cards por **fotografias reais de banco salvas localmente** em `assets/stock/`.
+
+
+## Páginas internas de pontos turísticos pesquisados
+
+A descoberta pública agora prioriza atrativos reais de Serra Negra pesquisados em fontes municipais. Cada página possui informações práticas, fonte oficial, fotografia temporária com crédito e continuidade para roteiro. Os parceiros e a jornada demonstrativa continuam identificados como conteúdo de validação.
