@@ -1,4 +1,0 @@
-import type {Page,TestInfo} from '@playwright/test';import fs from 'node:fs/promises';import path from 'node:path';
-export function watchPage(page:Page){const errors:string[]=[];page.on('console',m=>{if(m.type()==='error')errors.push(`console: ${m.text()}`)});page.on('pageerror',e=>errors.push(`pageerror: ${e.message}`));page.on('response',r=>{if(r.status()>=500)errors.push(`http ${r.status()}: ${r.url()}`)});return errors}
-export async function shot(page:Page,testInfo:TestInfo,name:string){const dir=path.join(process.cwd(),'artifacts','playwright',testInfo.project.name);await fs.mkdir(dir,{recursive:true});await page.screenshot({path:path.join(dir,`${name}.png`),fullPage:true})}
-export async function expectNoHorizontalOverflow(page:Page){const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth+2);if(overflow)throw new Error('Horizontal overflow detectado')}

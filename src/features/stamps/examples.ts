@@ -1,5 +1,0 @@
-import type {StampData} from './types';
-const rows=[['cafe-santa-serra','CAFÉ SANTA SERRA','cafeteria'],['teleferico','TELEFÉRICO','teleferico'],['familia-silotto','FAMÍLIA SILOTTO','vinícola'],['7-quedas','7 QUEDAS','cachoeira'],['paroquia','PARÓQUIA NOSSA SENHORA DO ROSÁRIO','igreja'],['peterlini','PETERLINI','turismo-rural'],['nonno-marchi','NONNO MARCHI','restaurante'],['bioparque','BIOPARQUE','parque'],['sciani','SCIANI','restaurante'],['atalaia','FAZENDA ATALAIA','fazenda'],['dortmund','DORTMUND BIER','cervejaria'],['bullhof','BULLHOF','cervejaria']];
-export const examples:StampData[]=rows.map(([partnerId,partnerName,category],i)=>({partnerId,partnerName,category,visitId:`demo-${i}`,visitDate:`2026-${String(8+i%3).padStart(2,'0')}-${String(8+i).padStart(2,'0')}`,visitNumber:i%4+1,city:'Serra Negra',state:'SP'}));
-examples[9].city='Amparo';examples[5].city='Monte Alegre do Sul';examples[3].city='Águas de Lindóia';
-export const initialData:StampData={...examples[0],visitDate:'2026-09-08',visitNumber:2,seed:'santa-serra-18'};

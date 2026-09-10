@@ -1,12 +1,27 @@
+# Checkpoint atual: Bloco 08 PARCIAL
+
+Baseline local concluída; Validation V1 NÃO fechada. Próxima ação: continuar Bloco 08. Blocos 09–12 não iniciados. Nenhuma mudança de produto, seed ou lockfile nesta sessão.
+
+## Evidência desta execução
+Lint, typecheck, 13 unitários, persistência PGlite, build e migração/seed PASS. Smoke HTTP: nove rotas 200. Playwright: 51 tentativas, 51 falhas de inicialização, zero corpos executados. Chromium indisponível; download com timeout. Docker/PostgreSQL/PostGIS ausentes; apt-get falhou por permissões. Sem nova inspeção visual ou Axe. G0 PASS; G1–G8 PARCIAL.
+
+## Continuação exata
+Executar PostGIS real e Chromium, ampliar/executar CRUD/status das seis entidades e demais fluxos requeridos, corrigir apenas defeitos comprovados, inspecionar screenshots/acessibilidade e reempacotar Bloco 08 antes do checkpoint visual. Consultar docs/validation/BLOCK-08.md e artifacts/block_08/.
+
+## Artefatos
+Entregas desta sessão: deliveries/block_08.zip e deliveries/LATEST.zip. SHA-256 de ambos no DELIVERY_RECEIPT.json externo e na cópia externa deste WORK_STATE.md, gerados após fechar os ZIPs para evitar hash circular. ZIP íntegro não significa gate aprovado. Base recebida sem Git; SHA-256: f758bed53abb8d8ac0664f52efa156d0f4f2618d25281d8fb5a5032ade2f25e7.
+
+## Histórico preservado do Bloco 07
+
 # WORK_STATE
 
-Atualizado: 2026-09-10. Bloco atual: 08, merge seguro do LATEST com carimbos automáticos, page flip e CI revisado. Blocos 00–07 permanecem preservados como checkpoints; não reiniciar nem sobrescrever decisões válidas.
+Atualizado: 2026-09-10. Bloco atual: 07, regressão e entrega consolidadas. Bloco 06 entregue com ZIP validado. Blocos 00–05 concluídos como checkpoints, com gates técnicos parciais documentados; não reiniciar.
 
 ## Decisões permanentes
-Next.js App Router, React, TypeScript strict, Drizzle/PostgreSQL/PostGIS; monólito modular. Dados fictícios, sem branding final. Icon System v2 fornecido. Providers mock substituíveis; sem autenticação real, QR, reservas, pagamentos ou mapa territorial. O motor procedural de carimbos fornecido foi integrado no Bloco 08; ele não valida presença nem substitui as regras futuras de QR/antifraude. PGlite é fallback explícito sem PostGIS. Preservar os arquivos de referência em reference/ e documentação existente.
+Next.js App Router, React, TypeScript strict, Drizzle/PostgreSQL/PostGIS; monólito modular. Dados fictícios, sem branding final. Icon System v2 fornecido. Providers mock substituíveis; sem autenticação real, QR, reservas, pagamentos, motor oficial de carimbos ou mapa territorial. PGlite é fallback explícito sem PostGIS. Preservar os arquivos de referência em reference/ e documentação existente.
 
 ## Estado técnico e validações
-Home, Explorar, lugares/parceiros, Admin operacional, onboarding, roteiro determinístico, calendário e Passaporte implementados. Lint, typecheck e 13 testes unitários passaram. Fluxos cloud de Admin (draft/preview/publicação/audit), roteiro (geração/movimento/fixado), calendário e Passaporte verificados em 1363×936. CI e testes E2E de três viewports preparados, não executados. PostGIS ainda estava pendente no Bloco 07. Build completo e persistência isolada daquele checkpoint permaneceram PASS histórico. O Bloco 08 altera o caminho do Passaporte e exige nova regressão remota: carimbos agora persistem `visitNumber`, `stampSeed` e `stampSnapshot`; o livro possui page flip 3D. A validação sintática e o smoke isolado do motor passaram, mas lint/typecheck/build/Playwright completos do estado pós-merge ainda precisam rodar no GitHub Actions.
+Home, Explorar, lugares/parceiros, Admin operacional, onboarding, roteiro determinístico, calendário e Passaporte implementados. Lint, typecheck e 13 testes unitários passaram. Fluxos cloud de Admin (draft/preview/publicação/audit), roteiro (geração/movimento/fixado), calendário e Passaporte verificados em 1363×936. CI e testes E2E de três viewports preparados, não executados. PostGIS ainda pendente. Build completo final PASS. Persistência isolada PASS: 30 conteúdos, 1 viagem, idempotência e edição preservada. 51 casos E2E enumerados; smoke falhou antes do corpo por Chromium ausente. Logs em artifacts/validation/.
 
 ## Arquivos principais
 README.md; package.json/package-lock.json; src/app/; src/modules/; src/core/db/; drizzle/; seed/; public/; docs/decisions/; docs/validation/; tests/; artifacts/playwright/; scripts/deliver-block.py. Entregas antigas passaporte-bloco-00.zip a passaporte-bloco-05.zip preservadas. Nova regra: deliveries/block_XX, ZIP delta, LATEST completo, relatórios e manifests.
@@ -21,7 +36,7 @@ Snapshot distribui seed sintético reproduzível, não o diretório binário do 
 PostGIS/Docker e Chromium standalone indisponíveis na execução anterior. G1–G7 parciais. i18n parcialmente extraído; esquema v0 JSONB com relações na aplicação; CRUD completo das seis entidades e matriz responsiva ainda exigem regressão E2E. Não conectar APIs reais nem publicar sem escopo explícito.
 
 ## Próximo bloco recomendado
-08: patch implementado; executar o workflow `Validation` no GitHub para regressão completa com Chromium e PostGIS em três viewports. Depois, completar CRUD/arquivo/relações ainda pendentes e atualizar gates. Relatório final em VALIDATION_REPORT.md. Não reiniciar o projeto. Conferir ZIP atual antes de avançar. Pacotes devem ter CRC válido e SHA-256 de todos os arquivos, sem caches/segredos/dependências reinstaláveis.
+08: executar regressão completa com Chromium e PostGIS; completar CRUD/arquivo/relações e três viewports, corrigir defeitos e atualizar gates. Relatório final em VALIDATION_REPORT.md. Não reiniciar o projeto. Conferir ZIP atual antes de avançar. Pacotes devem ter CRC válido e SHA-256 de todos os arquivos, sem caches/segredos/dependências reinstaláveis.
 
 ## Entrega atual
-O snapshot recebido `LATEST(1).zip` é a base do Bloco 08. O patch incremental gerado contém somente arquivos novos/modificados do merge; os blocos anteriores permanecem preservados em `docs/validation/`. Gates G1–G8 continuam parciais até o novo workflow remoto passar.
+block_07.zip contém apenas arquivos relacionados à regressão; LATEST.zip contém fontes completas. O bloco 06 permanece em block_06.zip. Relatórios específicos em docs/validation/ e em cada pasta de entrega. Gates G1–G8 ainda parciais, sem promoção a produção.

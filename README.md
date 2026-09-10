@@ -1,114 +1,110 @@
-# Passaporte Serra Negra — Validation V1
+# Passaporte Serra Negra: repositório de validação
 
-Repositório de validação incremental do Passaporte Serra Negra. Esta build **não é o MVP final**: ela valida arquitetura, fluxos públicos, Admin operacional, roteiro, calendário, Passaporte e integração do motor de carimbos com conteúdo exclusivamente sintético.
+> **Estado:** vertical slice funcional para validação incremental. Dados, parceiros, clima, visitas e conteúdo são fictícios. Não é MVP final nem aprovação de produção.
 
+## Revisão no GitHub
 
+Este pacote foi preparado para ser revisado diretamente no GitHub. A forma mais rápida é ler o [relatório de validação](VALIDATION_REPORT.md), abrir o [guia de revisão](docs/GITHUB_VALIDATION_GUIDE.md) e usar GitHub Codespaces para navegar pela aplicação. O workflow `Validation` também pode ser executado manualmente em Actions e usa PostGIS + Playwright.
 
-## Protótipo visual de destino
+**Gates atuais:** G0 = PASS; G1–G8 = PARCIAL. Não interpretar build verde como aprovação integral dos fluxos.
 
-A interface apresentada no GitHub Pages **não deve ser o README**. O repositório inclui `showcase/`, um modelo visual navegável reconstruído a partir das referências RV-01 a RV-49. A pasta contém HTMLs explícitos para Home, Explorar, Lugar, Parceiro, criação de roteiro, roteiro gerado, Calendário, Passaporte, Admin e 404. Veja `showcase/PAGES.md` e `showcase/VISUAL_REFERENCE_IMPLEMENTATION.md`.
+![Visão consolidada das telas de validação](docs/validation/screenshots-overview.jpg)
 
-A matriz de implementação indica quais referências orientam cada superfície. As imagens originais de referência permanecem em `docs/source/visual-reference-v4/` somente como material de desenvolvimento e não são servidas pelo GitHub Pages.
+### Escopo já construído
 
-O workflow `.github/workflows/showcase-pages.yml` publica essa pasta no GitHub Pages e executa validação visual responsiva antes do deploy. Em **Settings → Pages**, use **Source: GitHub Actions**.
+| Área | Rota principal | Estado de implementação |
+|---|---|---|
+| Home | `/` | Implementada |
+| Explorar | `/explorar` | Implementada |
+| Lugar | `/lugares/[slug]` | Implementada |
+| Parceiro | `/parceiros/[slug]` | Implementada |
+| Admin | `/admin` | Implementada, regressão completa pendente |
+| Onboarding | `/roteiro` | Implementado |
+| Roteiro da viagem | `/viagens/demo-trip-001/roteiro` | Implementado |
+| Calendário | `/viagens/demo-trip-001/calendario` | Implementado |
+| Meu Passaporte | `/meu-passaporte` | Implementado |
+| Health | `/health` | Implementado |
 
-Veja `docs/FINAL_VISUAL_MODEL.md` para a direção de design e a diferença entre o showcase e a build técnica de validação.
+### Checkpoint atual: Bloco 08 PARCIAL
 
-## O que existe
+A baseline foi reexecutada no Bloco 08: `npm ci`, lint, TypeScript strict, 13 testes unitários, persistência PGlite, build, migrations/seed e smoke HTTP de nove rotas foram registrados como PASS. A suíte Playwright tentou os 51 casos, mas todos falharam antes do corpo dos testes porque o Chromium não pôde ser instalado naquele ambiente. PostgreSQL/PostGIS, Axe e novas screenshots responsivas continuam pendentes. Consulte `docs/validation/BLOCK-08.md` e `VALIDATION_REPORT.md` antes de alterar qualquer gate.
 
-- Next.js App Router + TypeScript strict.
-- Monólito modular com contratos de providers e repository.
-- Persistência `local` determinística por padrão e adapter PostgreSQL/PostGIS.
-- Drizzle schema + migration SQL + seed idempotente.
-- Home, Explorar, Lugar, Parceiro, onboarding, roteiro, calendário e Passaporte.
-- Admin com `draft → preview → publish → history`.
-- Icon System v2 fornecido como fonte oficial de ícones.
-- Motor procedural de carimbos fornecido, integrado via `StampRenderer`.
-- Tracking local de eventos de validação.
-- Playwright desktop/tablet/mobile, incluindo reduced motion e axe.
-- GitHub Actions para qualidade e E2E com PostGIS.
+---
 
-## Requisitos
+## Executar
 
-- Node.js >= 22.13 (CI usa 22.16).
-- npm compatível com o lockfile.
-- Para Postgres real: Docker + Docker Compose, ou PostgreSQL com PostGIS acessível.
+Requisitos: Node 24, npm e Docker Compose.
 
-## Execução rápida sem credenciais
-
-```bash
-cp .env.example .env.local
+```sh
 npm ci
-npm run db:reset-local
-npm run dev
-```
-
-Abra `http://localhost:3000`. O modo padrão usa `PERSISTENCE_MODE=local` e providers mock. O banner `Modo de validação — conteúdo fictício` deve permanecer visível.
-
-## PostgreSQL/PostGIS
-
-```bash
+cp .env.example .env.local
 docker compose up -d
 npm run db:migrate
 npm run db:seed
-PERSISTENCE_MODE=postgres npm run dev
+npm run dev
 ```
 
-A migration habilita PostGIS e cria o schema **v0 de validação**, que não deve ser tratado como modelo definitivo.
+Abra http://localhost:4173. `/health` verifica a conexão. Os scripts de banco usam DATABASE_URL do ambiente ou a URL local demo padrão descrita em .env.example. Seeds preservam conteúdo existente por ID e não duplicam registros.
 
-## Validação
+No Admin, use **Entrar no Admin demo**. Este login assume um administrador fictício, sem credenciais reais. Não é autenticação de produção. Salvar cria rascunho; Preview mostra o último rascunho salvo; Publicar atualiza o conteúdo público; Histórico mantém antes/depois. Publicação não inclui alterações ainda não salvas.
 
-```bash
-npm run validate:repo
+## Fallback explícito sem Docker
+
+Para validar fluxos sem serviço externo, há PGlite (PostgreSQL embarcado, sem PostGIS). Defina DB_MODE=pglite e ALLOW_DEMO=true em `.env.local`.
+
+Com a aplicação parada:
+
+```sh
+DB_MODE=pglite npm run db:migrate
+DB_MODE=pglite npm run db:seed
+npm run dev
+```
+
+Em PowerShell, defina `$env:DB_MODE="pglite"` antes dos comandos de migração e seed. PGlite é single-process: não abra o mesmo `.data/pglite` em processos simultâneos. O caminho padrão é descartável e ignorado pelo Git. Nunca execute seed/migration sobre ele com o servidor ativo.
+
+## Verificar
+
+```sh
 npm run lint
 npm run typecheck
 npm test
-npm run build
+ALLOW_DEMO=true npm run build
+npx playwright install chromium
 npm run test:e2e
 ```
 
-Para usar Chromium já instalado:
+Playwright inclui desktop 1440×1000, tablet 1024×768 e mobile 390×844 com reduced motion. CI instala dependências pelo lockfile, usa PostGIS e executa verificações e suíte E2E. Workflow entregue não significa execução remota confirmada.
 
-```bash
-PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e
+## Arquitetura e limites
+
+Monólito modular em `src/modules`. Drizzle concentra a persistência. Conteúdo versionado separa `draft` e `published`; o público não recebe o rascunho. Cookie mock assinado protege o Admin no servidor; mutações e auditoria são transacionais, com comparação de versão.
+
+Providers de autenticação, mapa, rotas, clima, armazenamento e analytics são substituíveis. Adapters demo são determinísticos. Produção exige ALLOW_DEMO=true explicitamente; adapters reais ainda não estão implementados. A página pública impede abrir contatos example.invalid como reais.
+
+Icon System v2 é fornecido pelo kit e mantido em `src/design-system` e `public/icons`. Não há ícones de outras bibliotecas. Fontes e cores são temporárias, marcadas VALIDATION_ONLY. Claro/Escuro/Sistema usam tokens. O helper de i18n oferece pt-BR e chaves para en/es; extração completa e traduções ainda são pendências.
+
+O schema é v0 de validação, com JSONB tipado e relações validadas pela aplicação. Não é o Data Model definitivo. Consulte `docs/decisions/` e `docs/validation/`.
+
+## Fora do escopo e pendências
+
+Não inclui identidade visual final, fotografias reais, mapa territorial oficial, motor oficial de carimbos, QR antifraude, reservas, pagamentos, Travel Engine definitivo, analytics avançado, integrações com credenciais ou conclusões jurídicas. Screenshots disponíveis ficam em `artifacts/playwright/`.
+
+O Bloco 08 continuou sem Docker/PostGIS e sem um Chromium Playwright instalável no ambiente que produziu o checkpoint. A checagem visual histórica disponível permanece a do navegador cloud do Bloco 07. Consulte `docs/validation/BLOCK-08.md` e ADR-004 para distinguir verificações executadas de testes apenas preparados.
+
+## Entrega e continuidade
+
+Os blocos 00–06 estão implementados e o Bloco 08 é o checkpoint de regressão atual, ainda PARCIAL. `WORK_STATE.md`, `docs/validation/BLOCK-08.md` e `VALIDATION_REPORT.md` descrevem decisões, limites e próximos passos. O PASS de integridade dos ZIPs não significa aprovação integral dos gates.
+
+Para verificar persistência sem afetar o banco de trabalho:
+
+```sh
+node --import tsx scripts/verify-persistence.ts
 ```
 
-## Fallback visual offline
+O script cria banco PGlite temporário, repete migração e seed, confere contagens e preservação de edição e remove somente o banco criado por ele. Não valida PostGIS.
 
-Se a instalação npm não estiver disponível, os scripts abaixo geram uma prévia estática a partir dos mesmos seeds/tokens e executam Chromium em três viewports. Isso **não substitui** a suíte Next/Playwright.
+Para build separado da prévia ativa, use `NEXT_BUILD_DIR=.next-build ALLOW_DEMO=true npm run build`; se quiser executar esse build, mantenha `NEXT_BUILD_DIR=.next-build` também em `npm start`. O comando padrão continua usando `.next`.
 
-```bash
-python3 scripts/static_preview.py
-python3 scripts/run_static_visuals.py
-```
+`LATEST.zip` é o projeto completo sem caches, dependências ou banco binário. Após extrair, siga os comandos de instalação/seed acima. ZIP individual contém apenas arquivos do bloco e deve ser aplicado sobre o snapshot anterior. Não restaura as mutações transitórias feitas durante QA. Os relatórios e screenshots preservam a evidência desses fluxos.
 
-## Arquitetura
-
-Veja `docs/VALIDATION_ARCHITECTURE.md` e os ADRs em `docs/decisions/`.
-
-## Dados e limites
-
-Todos os lugares, parceiros, experiências, eventos, contatos, clima, visitas e métricas desta build são fictícios. O mapa territorial definitivo e integrações externas não são implementados. Nenhuma conclusão jurídica de LGPD é feita. A showcase aplica a direção visual atual por tokens e referências; assets fotográficos licenciados, símbolo definitivo e webfonts comerciais ainda devem ser fechados antes de produção.
-
-## Relatório
-
-`VALIDATION_REPORT.md` registra o que foi implementado, o que foi realmente executado no ambiente de montagem, os gates e as pendências de infraestrutura.
-
-## GitHub + Chromium + Playwright
-
-O repositório inclui um laboratório de validação no GitHub Actions e uma configuração de Codespaces para acompanhar o Playwright visualmente. Consulte `docs/PLAYWRIGHT_GITHUB_GUIDE.md`.
-
-Atalhos locais/Codespaces:
-
-```bash
-npm run pw:ui
-npm run pw:headed
-npm run pw:debug
-npm run pw:visual
-npm run pw:report
-```
-
-
-## Design System V1
-
-O patch V8 integra os tokens oficiais de marca à aplicação e à showcase. Consulte `docs/DESIGN_SYSTEM_INTEGRATION.md`. O CI executa `npm run design:check` e o Playwright inclui uma verificação no navegador.
+A execução anterior registrou commits por bloco, mas o `.git` não fazia parte do snapshot recebido. Este pacote inicia um histórico novo a partir do estado consolidado, sem inventar commits antigos. Para publicar, adicione o remote autorizado e faça push de `main`. Nunca inclua `.env.local` ou diretórios de banco.
