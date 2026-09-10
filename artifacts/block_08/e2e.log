@@ -1,0 +1,1337 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> passaporte-serra-negra-validation@0.1.0 test:e2e
+> playwright test
+
+
+Running 51 tests using 1 worker
+
+(node:30) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [desktop] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health (2ms)
+(node:42) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   2 [desktop] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / (2ms)
+(node:54) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   3 [desktop] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar (2ms)
+(node:66) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   4 [desktop] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state (2ms)
+(node:78) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   5 [desktop] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares (2ms)
+(node:90) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   6 [desktop] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros (2ms)
+(node:102) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   7 [desktop] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit (2ms)
+(node:114) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   8 [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares (2ms)
+(node:126) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   9 [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias (2ms)
+(node:138) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  10 [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros (1ms)
+(node:150) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  11 [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos (2ms)
+(node:162) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  12 [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias (3ms)
+(node:174) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes (2ms)
+(node:186) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 [desktop] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview (2ms)
+(node:198) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  15 [desktop] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit (2ms)
+(node:210) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  16 [desktop] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data (2ms)
+(node:222) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  17 [desktop] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence (1ms)
+(node:234) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  18 [tablet] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health (2ms)
+(node:246) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  19 [tablet] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / (2ms)
+(node:258) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  20 [tablet] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar (4ms)
+(node:270) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  21 [tablet] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state (2ms)
+(node:282) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  22 [tablet] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares (2ms)
+(node:294) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  23 [tablet] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros (2ms)
+(node:306) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  24 [tablet] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit (2ms)
+(node:318) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  25 [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares (2ms)
+(node:330) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  26 [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias (2ms)
+(node:342) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  27 [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros (2ms)
+(node:354) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  28 [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos (3ms)
+(node:366) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  29 [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias (2ms)
+(node:378) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  30 [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes (2ms)
+(node:390) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  31 [tablet] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview (2ms)
+(node:402) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  32 [tablet] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit (2ms)
+(node:414) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  33 [tablet] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data (2ms)
+(node:426) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  34 [tablet] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence (2ms)
+(node:438) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  35 [mobile] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health (2ms)
+(node:450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  36 [mobile] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / (2ms)
+(node:462) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  37 [mobile] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar (2ms)
+(node:474) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  38 [mobile] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state (2ms)
+(node:486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  39 [mobile] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares (2ms)
+(node:498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  40 [mobile] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros (2ms)
+(node:510) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  41 [mobile] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit (2ms)
+(node:522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  42 [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares (2ms)
+(node:534) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  43 [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias (4ms)
+(node:546) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  44 [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros (2ms)
+(node:558) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  45 [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos (3ms)
+(node:570) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  46 [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias (3ms)
+(node:582) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  47 [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes (2ms)
+(node:594) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  48 [mobile] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview (2ms)
+(node:606) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  49 [mobile] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit (1ms)
+(node:618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  50 [mobile] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data (2ms)
+(node:630) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  51 [mobile] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence (2ms)
+
+
+  1) [desktop] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health ───────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/00-bootstrap-G1-home-and-health-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/00-bootstrap-G1-home-and-health-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/00-bootstrap-G1-home-and-health-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / ────────────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2--desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2--desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2--desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar ────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2-explorar-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2-explorar-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2-explorar-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state 
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [desktop] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares ──────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/02-entities-G3-lugares-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/02-entities-G3-lugares-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/02-entities-G3-lugares-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [desktop] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros ────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/02-entities-G3-parceiros-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/02-entities-G3-parceiros-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/02-entities-G3-parceiros-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [desktop] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit ───────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-draft-preview-publish-and-audit-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-draft-preview-publish-and-audit-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-draft-preview-publish-and-audit-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares ─────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-lugares-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-lugares-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-lugares-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias ────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-experiencias-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-experiencias-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-experiencias-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros ──────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-parceiros-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-parceiros-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-parceiros-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos ────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-eventos-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-eventos-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-eventos-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias ─────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-categorias-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-categorias-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-categorias-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes ─────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-fontes-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-fontes-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-fontes-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [desktop] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview ──────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [desktop] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit ─────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/04-trip-G5-onboarding-and-local-edit-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/04-trip-G5-onboarding-and-local-edit-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/04-trip-G5-onboarding-and-local-edit-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [desktop] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data ──
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [desktop] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence 
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [tablet] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health ───────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/00-bootstrap-G1-home-and-health-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/00-bootstrap-G1-home-and-health-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/00-bootstrap-G1-home-and-health-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) [tablet] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / ────────────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2--tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2--tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2--tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) [tablet] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar ────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2-explorar-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2-explorar-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2-explorar-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) [tablet] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state 
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) [tablet] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares ──────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/02-entities-G3-lugares-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/02-entities-G3-lugares-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/02-entities-G3-lugares-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) [tablet] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros ────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/02-entities-G3-parceiros-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/02-entities-G3-parceiros-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/02-entities-G3-parceiros-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) [tablet] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit ───────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-draft-preview-publish-and-audit-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-draft-preview-publish-and-audit-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-draft-preview-publish-and-audit-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares ─────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-lugares-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-lugares-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-lugares-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias ────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-experiencias-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-experiencias-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-experiencias-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-parceiros-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-parceiros-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-parceiros-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos ─────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-eventos-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-eventos-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-eventos-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  29) [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias ──────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-categorias-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-categorias-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-categorias-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  30) [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes ──────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-fontes-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-fontes-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-fontes-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  31) [tablet] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview ───────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  32) [tablet] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit ──────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/04-trip-G5-onboarding-and-local-edit-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/04-trip-G5-onboarding-and-local-edit-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/04-trip-G5-onboarding-and-local-edit-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  33) [tablet] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data ───
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  34) [tablet] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence 
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-tablet/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-tablet/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-tablet/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  35) [mobile] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health ───────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/00-bootstrap-G1-home-and-health-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/00-bootstrap-G1-home-and-health-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/00-bootstrap-G1-home-and-health-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  36) [mobile] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / ────────────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2--mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2--mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2--mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  37) [mobile] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar ────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2-explorar-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2-explorar-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2-explorar-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  38) [mobile] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state 
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/01-discovery-G2-search-and-filters-share-list-and-map-state-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  39) [mobile] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares ──────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/02-entities-G3-lugares-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/02-entities-G3-lugares-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/02-entities-G3-lugares-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  40) [mobile] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros ────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/02-entities-G3-parceiros-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/02-entities-G3-parceiros-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/02-entities-G3-parceiros-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  41) [mobile] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit ───────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-draft-preview-publish-and-audit-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-draft-preview-publish-and-audit-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-draft-preview-publish-and-audit-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  42) [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares ─────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-lugares-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-lugares-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-lugares-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  43) [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias ────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-experiencias-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-experiencias-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-experiencias-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  44) [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros ───────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-parceiros-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-parceiros-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-parceiros-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  45) [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos ─────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-eventos-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-eventos-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-eventos-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  46) [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias ──────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-categorias-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-categorias-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-categorias-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  47) [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes ──────────────────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-list-fontes-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-list-fontes-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-list-fontes-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  48) [mobile] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview ───────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/03-admin-G4-anonymous-cannot-read-editor-or-preview-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  49) [mobile] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit ──────────────────────
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/04-trip-G5-onboarding-and-local-edit-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/04-trip-G5-onboarding-and-local-edit-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/04-trip-G5-onboarding-and-local-edit-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  50) [mobile] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data ───
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/05-calendar-G6-calendar-views-and-shared-itinerary-data-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  51) [mobile] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence 
+
+    Error: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/06-passport-G7-passport-bo-ebe79--and-distinguishes-evidence-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  51 failed
+    [desktop] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health ────────────────────────────
+    [desktop] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / ─────────────────────────────────────────
+    [desktop] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar ─────────────────────────────────
+    [desktop] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state 
+    [desktop] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares ───────────────────────────────────
+    [desktop] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros ─────────────────────────────────
+    [desktop] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit ────────────────
+    [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares ──────────────────────────────────
+    [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias ─────────────────────────────
+    [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros ────────────────────────────────
+    [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos ──────────────────────────────────
+    [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias ───────────────────────────────
+    [desktop] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes ───────────────────────────────────
+    [desktop] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview ────────
+    [desktop] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit ───────────────────────
+    [desktop] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data ────
+    [desktop] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence 
+    [tablet] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health ─────────────────────────────
+    [tablet] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / ──────────────────────────────────────────
+    [tablet] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar ──────────────────────────────────
+    [tablet] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state ─
+    [tablet] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares ────────────────────────────────────
+    [tablet] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros ──────────────────────────────────
+    [tablet] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit ─────────────────
+    [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares ───────────────────────────────────
+    [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias ──────────────────────────────
+    [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros ─────────────────────────────────
+    [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos ───────────────────────────────────
+    [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias ────────────────────────────────
+    [tablet] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes ────────────────────────────────────
+    [tablet] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview ─────────
+    [tablet] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit ────────────────────────
+    [tablet] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data ─────
+    [tablet] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence 
+    [mobile] › tests/e2e/00-bootstrap.spec.ts:3:1 › G1 home and health ─────────────────────────────
+    [mobile] › tests/e2e/01-discovery.spec.ts:2:38 › G2 / ──────────────────────────────────────────
+    [mobile] › tests/e2e/01-discovery.spec.ts:2:38 › G2 /explorar ──────────────────────────────────
+    [mobile] › tests/e2e/01-discovery.spec.ts:3:1 › G2 search and filters share list and map state ─
+    [mobile] › tests/e2e/02-entities.spec.ts:2:104 › G3 lugares ────────────────────────────────────
+    [mobile] › tests/e2e/02-entities.spec.ts:2:104 › G3 parceiros ──────────────────────────────────
+    [mobile] › tests/e2e/03-admin.spec.ts:3:1 › G4 draft preview publish and audit ─────────────────
+    [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list lugares ───────────────────────────────────
+    [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list experiencias ──────────────────────────────
+    [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list parceiros ─────────────────────────────────
+    [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list eventos ───────────────────────────────────
+    [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list categorias ────────────────────────────────
+    [mobile] › tests/e2e/03-admin.spec.ts:4:90 › G4 list fontes ────────────────────────────────────
+    [mobile] › tests/e2e/03-admin.spec.ts:5:1 › G4 anonymous cannot read editor or preview ─────────
+    [mobile] › tests/e2e/04-trip.spec.ts:2:1 › G5 onboarding and local edit ────────────────────────
+    [mobile] › tests/e2e/05-calendar.spec.ts:2:1 › G6 calendar views and shared itinerary data ─────
+    [mobile] › tests/e2e/06-passport.spec.ts:2:1 › G7 passport book is responsive and distinguishes evidence 

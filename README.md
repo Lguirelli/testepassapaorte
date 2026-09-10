@@ -67,8 +67,3 @@ Esta versão substitui os placeholders vetoriais dos cards por **fotografias rea
 ## Páginas internas de pontos turísticos pesquisados
 
 A descoberta pública agora prioriza atrativos reais de Serra Negra pesquisados em fontes municipais. Cada página possui informações práticas, fonte oficial, fotografia temporária com crédito e continuidade para roteiro. Os parceiros e a jornada demonstrativa continuam identificados como conteúdo de validação.
-
-
-## Páginas internas de lugares
-
-As páginas de pontos turísticos pesquisados agora seguem o mesmo template visual das páginas individuais de parceiros, mantendo diferenças de conteúdo e ações conforme o tipo de lugar. Veja `PLACE_DETAIL_TEMPLATE.md`.

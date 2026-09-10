@@ -333,128 +333,37 @@
     save();toast('Visita de demonstração registrada.');render();
   }
 
-  function touristQuickInfo(p){
-    const r=p.research||{};
-    const duration=p.durationIsEstimate?`${p.durationMinutes} min · estimativa`:`${p.durationMinutes} min`;
-    const rows=[
-      ['lugar-horario','Horário',p.openingHours?.text||'Não informado'],
-      ['lugar-duracao-sugerida','Tempo sugerido',duration],
-      ['lugar-informacao','Ambiente',environmentLabel(p.environment)],
-      ['lugar-sem-custo','Custo',p.priceNote||costLabel(p.costType)],
-      ['link-externo','Pesquisa',r.officialSource?.label?'Fonte pública':'Conteúdo demo']
-    ];
-    return `<div class="partner-quick-info tourist-quick-info">${rows.map(x=>`<div>${icon(x[0])}<span><small>${esc(x[1])}</small><strong>${esc(x[2])}</strong></span></div>`).join('')}</div>`;
-  }
-
   function renderResearchedTourist(p){
-    const suggestions=researchedTouristPlaces().filter(x=>x.id!==p.id).slice(0,4);
+    const suggestions=researchedTouristPlaces().filter(x=>x.id!==p.id).slice(0,3);
     const r=p.research||{}; const src=r.officialSource||{}; const asset=p.imageAsset||{};
     const categories=(p.categoryIds||[]).map(categoryName).join(' · ');
     const duration=p.durationIsEstimate?`${p.durationMinutes} min · estimativa`:`${p.durationMinutes} min`;
     const price=p.priceNote||costLabel(p.costType);
     const notes=[...(r.practicalNotes||[]),...(p.requirements||[])];
-    const visited=visitFor(p.id), planned=plannedItemFor(p.id);
-    const photoStatus=asset.notActualPlace?'Imagem temporária relacionada ao tema':'Fotografia temporária do atrativo';
-    const highlights=(r.highlights||[]).slice(0,4);
-
-    app.innerHTML=`<div class="partner-page-v2 tourist-detail-v2">
-      <section class="partner-hero-v2 tourism-partner-hero full-bleed">
-        ${scenicMedia(p,'partner-hero')}
-        <div class="partner-hero-overlay"></div>
-        <div class="v2-container partner-hero-copy">
+    const photoStatus=asset.notActualPlace?'Foto temporária relacionada ao tema, não ao local específico':'Foto do atrativo · uso temporário';
+    app.innerHTML=`<article class="tourism-page">
+      <section class="tourism-hero full-bleed">
+        ${scenicMedia(p,'tourism-hero')}
+        <div class="tourism-hero-copy">
           ${breadcrumbs([{label:'Início',href:'#/'},{label:'Pontos turísticos',href:'#/explorar?relation=public_point'},{label:p.name}])}
+          <span class="tourism-research-badge">Informação pública pesquisada</span>
           <p class="v2-kicker">${esc(categories||'Ponto turístico')} · Serra Negra</p>
           <h1>${esc(p.name)}</h1>
-          <p>${esc(p.shortDescription)}</p>
-          <div class="partner-hero-actions">
-            <button class="light-button" data-action="add-trip" data-place="${p.id}">${planned?'Já está no roteiro':'Adicionar ao roteiro'}</button>
-            <span class="partner-stamp tourist-stamp">PONTO<br><strong>TURÍSTICO</strong></span>
-          </div>
+          <p class="lead">${esc(p.shortDescription)}</p>
+          <div class="tourism-hero-actions">${statusBadges(p)}<button class="light-button" data-action="add-trip" data-place="${p.id}">${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button><button class="light-button" data-action="register-visit" data-place="${p.id}">${visitFor(p.id)?'Visita registrada':'Registrar visita demo'}</button></div>
         </div>
-        <div class="tourism-photo-credit partner-style-credit">${esc(photoStatus)}${asset.sourcePage?` · <a href="${esc(asset.sourcePage)}" target="_blank" rel="noopener noreferrer">${esc(asset.provider||'Fonte')} · ${esc(asset.author||'crédito')}</a>`:''}</div>
+        <div class="tourism-photo-credit">${esc(photoStatus)} · ${asset.sourcePage?`<a href="${esc(asset.sourcePage)}" target="_blank" rel="noopener noreferrer">${esc(asset.provider||'Fonte')} · ${esc(asset.author||'crédito')}</a>`:esc(asset.provider||'mídia temporária')}</div>
       </section>
-
-      <div class="v2-container partner-quick-wrap">${touristQuickInfo(p)}</div>
-
-      <section class="v2-section">
-        <div class="v2-container partner-about-grid">
-          <div>
-            <p class="v2-kicker">Sobre este lugar</p>
-            <h2>Conheça esta parada de Serra Negra.</h2>
-            <p class="v2-copy">${esc(p.longDescription||p.shortDescription)}</p>
-            <div class="tourist-source-inline"><span>${icon('link-externo')}</span><div><small>Pesquisa pública</small><strong>${esc(src.label||'Fonte pública consultada')}</strong>${src.url?`<a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">Consultar fonte oficial</a>`:''}</div></div>
-          </div>
-          <div class="partner-about-media">${scenicMedia(p,'about')}<div class="partner-mini-media">${scenicMedia(p,'mini')}</div></div>
-        </div>
+      <section class="tourism-intro">
+        <div class="tourism-intro-copy"><p class="v2-kicker">Conheça o lugar</p><h2>Uma parada real dentro da leitura da cidade.</h2><p>${esc(p.longDescription||p.shortDescription)}</p></div>
+        <aside class="tourism-practical" aria-label="Informações práticas"><div class="tourism-practical-row"><span>Horário</span><strong>${esc(p.openingHours?.text||'Não informado')}</strong></div><div class="tourism-practical-row"><span>Localização</span><strong>${esc(p.location?.display||'Não informada')}</strong></div><div class="tourism-practical-row"><span>Tempo</span><strong>${esc(duration)}</strong></div><div class="tourism-practical-row"><span>Custo</span><strong>${esc(price)}</strong></div></aside>
       </section>
-
-      <section class="v2-section partner-features full-bleed tourist-highlights-section">
-        <div class="v2-container">
-          <div class="v2-section-heading light">
-            <div><p class="v2-kicker">O que vale observar</p><h2>Pontos para orientar a visita.</h2></div>
-            <p>Informações sintetizadas a partir das fontes públicas registradas na página, sem transformar estimativas editoriais em dados oficiais.</p>
-          </div>
-          <div class="tourist-partner-highlights">
-            ${highlights.length?highlights.map((h,i)=>`<article><span>0${i+1}</span><p>${esc(h)}</p></article>`).join(''):'<article><span>01</span><p>Consulte a descrição e a fonte oficial desta página antes da visita.</p></article>'}
-          </div>
-        </div>
-      </section>
-
-      <section class="v2-section">
-        <div class="v2-container partner-details-grid">
-          <div>
-            <p class="v2-kicker">Antes de visitar</p>
-            <h2>Informações práticas</h2>
-            <div class="details-list">
-              <div><span>Horário</span><strong>${esc(p.openingHours?.text||'Não informado')}</strong></div>
-              <div><span>Localização</span><strong>${esc(p.location?.display||'Não informada')}</strong></div>
-              <div><span>Ambiente</span><strong>${esc(environmentLabel(p.environment))}</strong></div>
-              <div><span>Duração sugerida</span><strong>${esc(duration)}</strong></div>
-              <div><span>Custo</span><strong>${esc(price)}</strong></div>
-            </div>
-            <div class="tourist-practical-notes">
-              ${notes.length?notes.map(n=>`<div>${icon('lugar-informacao')}<p>${esc(n)}</p></div>`).join(''):`<div>${icon('lugar-informacao')}<p>Não foram identificadas observações adicionais na fonte consultada.</p></div>`}
-            </div>
-            ${src.url?`<a class="button" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">Abrir fonte oficial ${icon('link-externo')}</a>`:''}
-          </div>
-          <aside class="sticky-summary tourist-trip-summary">
-            <p class="v2-kicker">Na sua viagem</p>
-            <h3>${planned?'Este lugar já está no roteiro.':'Quer incluir esta parada?'}</h3>
-            <p>${visited?'Há uma visita demonstrativa registrada para este ponto.':planned?'Planejado não significa visitado. O registro continua separado no Passaporte.':'Adicione o atrativo ao roteiro sem reorganizar automaticamente as outras paradas.'}</p>
-            <button class="primary" data-action="add-trip" data-place="${p.id}">${planned?'Já adicionado':'Adicionar ao roteiro'}</button>
-            <button data-action="register-visit" data-place="${p.id}">${visited?'Visita registrada':'Registrar visita demo'}</button>
-          </aside>
-        </div>
-      </section>
-
-      <section class="v2-section partner-location">
-        <div class="v2-container">
-          <div class="v2-section-heading">
-            <div><p class="v2-kicker">Localização</p><h2>Onde esta parada entra no mapa</h2></div>
-            <p>O endereço pesquisado é apresentado como texto. O mapa visual desta demo continua abstrato até a integração cartográfica definitiva.</p>
-          </div>
-          <div class="map-explore-grid">
-            <div>${mockMap([p,...suggestions.slice(0,3)])}</div>
-            <div class="location-copy">
-              <span>${icon('lugar-localizacao')}</span>
-              <h3>${esc(p.location?.display||'Localização não informada')}</h3>
-              <p>Use as informações públicas desta página como referência e reconfirme horários, acesso e condições antes da visita.</p>
-              ${src.url?`<a class="button" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">Ver informações oficiais ${icon('link-externo')}</a>`:''}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="v2-section">
-        <div class="v2-container">
-          <div class="v2-section-heading">
-            <div><p class="v2-kicker">Continue explorando</p><h2>Outros pontos de Serra Negra</h2></div>
-            <a class="text-link" href="#/explorar?relation=public_point">Ver todos ${icon('avancar')}</a>
-          </div>
-          <div class="grid">${suggestions.slice(0,3).map(x=>placeCard(x,'editorial')).join('')}</div>
-        </div>
-      </section>
-    </div>`;
+      <section class="tourism-section"><div class="tourism-container"><div class="tourism-heading"><div><p class="v2-kicker">O que vale observar</p><h2>Pontos para orientar a visita.</h2></div><p>Os destaques abaixo foram sintetizados a partir de fontes públicas de turismo. Onde a informação não estava publicada, a página sinaliza a ausência em vez de inventar dados.</p></div><div class="tourism-highlights">${(r.highlights||[]).map((h,i)=>`<article class="tourism-highlight"><span>0${i+1}</span><p>${esc(h)}</p></article>`).join('')}</div></div></section>
+      <section class="tourism-media-story full-bleed"><div class="tourism-story-image">${scenicMedia(p,'tourism-story')}</div><div class="tourism-story-copy"><p class="v2-kicker">Antes de sair</p><h2>Planeje com informação verificável.</h2><p>Esta página já usa pesquisa real sobre Serra Negra, mas continua sendo uma build de validação. Horários, preços, acesso e regras operacionais podem mudar. A fonte oficial consultada fica disponível abaixo para conferência.</p><a class="button light-button" href="${esc(src.url||'#')}" target="_blank" rel="noopener noreferrer">Consultar fonte oficial ${icon('link-externo')}</a></div></section>
+      <section class="tourism-section"><div class="tourism-container"><div class="tourism-heading"><div><p class="v2-kicker">Informações práticas</p><h2>O que saber antes da visita.</h2></div><p>Notas editoriais e limites de informação desta primeira versão.</p></div><div class="tourism-notes">${notes.length?notes.map(n=>`<article class="tourism-note">${icon('lugar-informacao')}<p>${esc(n)}</p></article>`).join(''):'<article class="tourism-note">'+icon('lugar-informacao')+'<p>Não foram identificadas observações adicionais na fonte consultada.</p></article>'}</div><div class="tourism-source-box"><div><small>Fonte principal da página</small><strong>${esc(src.label||'Fonte pública consultada')}</strong><p>Pesquisa realizada em ${esc(r.checkedAt||'2026-09-10')}. Reconfirme informações sensíveis a mudança antes de publicar em produção.</p></div>${src.url?`<a class="button" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">Abrir fonte</a>`:''}</div></div></section>
+      <section class="tourism-section"><div class="tourism-container"><div class="tourism-heading"><div><p class="v2-kicker">Localização</p><h2>Use o endereço como referência.</h2></div><p>O mapa desta demo continua abstrato. Ele demonstra integração com o roteiro sem se apresentar como cartografia definitiva.</p></div><div class="tourism-location-grid"><div>${mockMap([p,...suggestions.slice(0,2)])}</div><aside class="tourism-location-copy">${icon('lugar-localizacao')}<h3>${esc(p.location?.display||'Localização não informada')}</h3><p>Adicione este ponto ao roteiro para validar a continuidade entre descoberta, planejamento, calendário e Passaporte.</p><button class="primary" data-action="add-trip" data-place="${p.id}">${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button></aside></div></div></section>
+      <section class="tourism-section"><div class="tourism-container"><div class="tourism-heading"><div><p class="v2-kicker">Continue explorando</p><h2>Outros pontos de Serra Negra.</h2></div><a class="text-link" href="#/explorar?relation=public_point">Ver todos ${icon('avancar')}</a></div><div class="tourism-more-grid">${suggestions.map(x=>placeCard(x,'editorial')).join('')}</div></div></section>
+    </article>`;
   }
 
   function renderPlace(slug,asPartner=false){
