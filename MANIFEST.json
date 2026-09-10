@@ -1,7 +1,7 @@
 {
-  "package": "Passaporte Serra Negra · Visual v2 · Logo oficial + regras de construção",
-  "generated_at": "2026-09-10",
-  "file_count": 953,
+  "format": 1,
+  "scope": "Passaporte Serra Negra Landing V3 reconstructed from PSD",
+  "file_count": 971,
   "files": [
     {
       "path": ".devcontainer/devcontainer.json",
@@ -40,8 +40,8 @@
     },
     {
       "path": ".github/workflows/pages.yml",
-      "bytes": 1263,
-      "sha256": "0ecce6d4df8aba7570b16a4e55b486f510b3c6ba660ad7d045499b08c5202f64"
+      "bytes": 1295,
+      "sha256": "1bdf98367ca26ca771fcf234f557734d7c59230f5bb63af7c5e292fd6c702aa0"
     },
     {
       "path": ".gitignore",
@@ -79,14 +79,19 @@
       "sha256": "35be9bf9d58a144e1d9387ec52003f94f701aac87e8f28a68b17155095de2dd8"
     },
     {
+      "path": "IMPLEMENTATION_NOTES.md",
+      "bytes": 10701,
+      "sha256": "86c6f85ba5559edac64e9662f4b1869744cfb8ab4b6316969083210f61db3ae8"
+    },
+    {
       "path": "PACKAGE_MANIFEST.md",
-      "bytes": 2097,
-      "sha256": "6553255c06386e4f63f6642ec6a54d9c53e70d02bd43c7526c44409b6db05f4b"
+      "bytes": 726,
+      "sha256": "5a36079a9bcd0cbb77d7aca3468a75c4464ca2d964919a9f7930b41a596718e2"
     },
     {
       "path": "README.md",
-      "bytes": 2252,
-      "sha256": "319509e627c8865218f42678d4d79d47df65801def90bed0662e1d0fbab17ff2"
+      "bytes": 2841,
+      "sha256": "46d964d280bcd455ea074a7dc4b63d30da130f56b7f1c91bb5d412618a8e32df"
     },
     {
       "path": "VALIDATION.md",
@@ -120,8 +125,8 @@
     },
     {
       "path": "app.js",
-      "bytes": 80306,
-      "sha256": "3563e3207ecc40e80603724bc82d5e3ece4bf30c74c63565c6abafd42f3c29db"
+      "bytes": 85438,
+      "sha256": "506a1edeabfe5337af602ab66bdee73fd3750d51c17f0bea85c2ad7003b573b5"
     },
     {
       "path": "artifacts/block_08/build.log",
@@ -1189,14 +1194,14 @@
       "sha256": "86324c2f2c4e3ad080e153bf8b1476cc8073a837c7d6338e72c91c18664f1cc8"
     },
     {
-      "path": "drizzle/0000_validation.sql",
-      "bytes": 965,
-      "sha256": "2a83a7bcf1779d8f2ea883175152faed9dfa16ceb4f52fc8ac5259c9eb81ff97"
-    },
-    {
       "path": "drizzle.config.ts",
       "bytes": 253,
       "sha256": "15ef17a6cb3b9ceec1bc2b73cbf3b3a17f80984ffa03e7e24cd05a366c2970ca"
+    },
+    {
+      "path": "drizzle/0000_validation.sql",
+      "bytes": 965,
+      "sha256": "2a83a7bcf1779d8f2ea883175152faed9dfa16ceb4f52fc8ac5259c9eb81ff97"
     },
     {
       "path": "eslint.config.mjs",
@@ -1205,8 +1210,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 3793,
-      "sha256": "bc6cdda1cff2de8972dcdf603a2fecd42b4136a4ddedf6d1f506d6a2dbb1aef1"
+      "bytes": 3841,
+      "sha256": "9a6611fc1c437eb3407b3c8089cb0815688c8589d13022940a45b9770b0bfa5e"
     },
     {
       "path": "next-env.d.ts",
@@ -3599,6 +3604,16 @@
       "sha256": "29a733dd3b6d57a2e355bfefe8683b87d7eb232dacd2f75689d93e6722f94538"
     },
     {
+      "path": "references/landing-reconstruction-v3/PROMPT_RECONSTRUCAO_LANDING_V3.md",
+      "bytes": 41102,
+      "sha256": "fbc216495a21126ce38504969f365dabd16d7ab7ed6f37bc025924d1ba91e5d5"
+    },
+    {
+      "path": "references/landing-reconstruction-v3/PSD_LAYER_METADATA.json",
+      "bytes": 2956,
+      "sha256": "cb5c7393000be1997e6806316f27721795d8cdad1a7b8a2bb7a0c165098d962f"
+    },
+    {
       "path": "references/visual-v2/Passaporte_Serra_Negra_Guia_de_Construcao_v2.md",
       "bytes": 38233,
       "sha256": "fb8d2b51b11fd8b0762afc74add28eff6c8ddc01e545fabc7ca9b014135d01d0"
@@ -3612,6 +3627,76 @@
       "path": "robots.txt",
       "bytes": 26,
       "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "screenshots/asset-reference-check.json",
+      "bytes": 52,
+      "sha256": "685d6df39b6d58b404ca2bdd22f8e7f5fc3828f463027389c5ce25febbf55bed"
+    },
+    {
+      "path": "screenshots/home-1024.png",
+      "bytes": 246789,
+      "sha256": "4bfd152e2a80b0ed97db6ec9e29e1d20604e02f7de98f5bb0351034e8b817ea9"
+    },
+    {
+      "path": "screenshots/home-1440.png",
+      "bytes": 345160,
+      "sha256": "f7839ed289727ffc1dffd5c25b1ccc429437d929ec9445a11978a2baef5c91dd"
+    },
+    {
+      "path": "screenshots/home-1920.png",
+      "bytes": 477600,
+      "sha256": "48a3273c1eaad0cef41227c5855cde72c0583068b4a5175463c470e8e89a39be"
+    },
+    {
+      "path": "screenshots/home-390.png",
+      "bytes": 164356,
+      "sha256": "b0a5939a4ae0b16004552d59a5b722eabed4e3e09390c4f8529763705c7be12d"
+    },
+    {
+      "path": "screenshots/home-fullpage-1440-thumb.jpg",
+      "bytes": 190307,
+      "sha256": "bccecd418f457670c5ee928a4408fe1f0c7efad87c9c8343d192b7f5e35cd38c"
+    },
+    {
+      "path": "screenshots/home-fullpage-1440.png",
+      "bytes": 2294902,
+      "sha256": "5786177e3893420567aa5fbb0f6e8cc1e24f25aa73f2e134179a4f3042178331"
+    },
+    {
+      "path": "screenshots/psd-geometry-comparison.json",
+      "bytes": 3452,
+      "sha256": "72bdd64c00a26171c407226d4f69601f15aabb4ee7f9e84b852d38c9d677c496"
+    },
+    {
+      "path": "screenshots/validation-report.json",
+      "bytes": 9674,
+      "sha256": "abccc65f7f52e504cf81de0a81178b7208235c9a2428915b81bcb07604b9735b"
+    },
+    {
+      "path": "screenshots/validation-run.txt",
+      "bytes": 9681,
+      "sha256": "d98626840c235c2e3d1129b7664007c12f2f9e2499a7f59756781d54c18113f8"
+    },
+    {
+      "path": "screenshots/validation/implementation-720.jpg",
+      "bytes": 421425,
+      "sha256": "c98c48effe6c0c83288b5bc8ab2a4abe8be06db4cd885c04b8f1d0472788bce2"
+    },
+    {
+      "path": "screenshots/validation/psd-reference-720.jpg",
+      "bytes": 650104,
+      "sha256": "c4bfbba8569bf6335fc37d9d4af054ecd032a1f9fc39e3fda468857993904339"
+    },
+    {
+      "path": "screenshots/validation/psd-vs-implementation-thumb.jpg",
+      "bytes": 270524,
+      "sha256": "940bf24885e197b6f9f94b9c2684e2af850d8a54d9fb257a00e07f524b825304"
+    },
+    {
+      "path": "screenshots/validation/psd-vs-implementation.jpg",
+      "bytes": 924571,
+      "sha256": "71e57f1a44b11154f24c4a1c5feb3f37d298bb40ac0b8413be82ebb6e3de5255"
     },
     {
       "path": "scripts/deliver-block.py",
@@ -4767,6 +4852,11 @@
       "path": "visual-v2.css",
       "bytes": 38465,
       "sha256": "b156cf756b3c72b99e62b963a810b60f880a1ceaf1f4ae8fdfd766f7bfc22473"
+    },
+    {
+      "path": "visual.css",
+      "bytes": 37832,
+      "sha256": "c652b6f90141772463d2bfa2c695d55c517270c4a49e8e2ec113f4d7b5273682"
     }
   ]
 }

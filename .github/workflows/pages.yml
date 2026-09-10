@@ -8,6 +8,7 @@ on:
       - '404.html'
       - 'styles.css'
       - 'visual-v2.css'
+      - 'visual.css'
       - 'data.js'
       - 'app.js'
       - 'assets/**'
@@ -42,7 +43,7 @@ jobs:
         run: |
           rm -rf pages-dist
           mkdir -p pages-dist
-          cp index.html 404.html styles.css visual-v2.css data.js app.js robots.txt site.webmanifest .nojekyll pages-dist/
+          cp index.html 404.html styles.css visual-v2.css visual.css data.js app.js robots.txt site.webmanifest .nojekyll pages-dist/
           cp -R assets pages-dist/assets
       - name: Upload functional site
         uses: actions/upload-pages-artifact@v3

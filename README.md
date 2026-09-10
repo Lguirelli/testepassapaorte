@@ -1,33 +1,55 @@
-# Passaporte Serra Negra · demonstração visual v2
+# Passaporte Serra Negra — Landing V3 reconstruída do PSD
 
-A entrada principal deste repositório é a **experiência navegável do Passaporte Serra Negra**, publicada diretamente pela raiz no GitHub Pages.
+A entrada principal deste repositório é a **landing funcional do Passaporte Serra Negra em `index.html`**, reconstruída diretamente a partir do comando `PROMPT_RECONSTRUCAO_LANDING_V3.md` e do PSD `landing page(2).psd`.
 
-A Home e a página pública de parceiro foram reconstruídas a partir do **Kit Visual e Guia de Construção v2**, preservando os fluxos funcionais da validação anterior. A demonstração continua usando apenas dados sintéticos.
+A regra da reconstrução é simples: o **index define o que cada parte faz** e o **PSD define posição, proporção, composição e ritmo visual**. As 12 camadas do PSD foram mapeadas 1:1 para as 12 seções originais da Home. A busca continua dentro do Hero e a última camada, embora também esteja nomeada `Visão territorial`, foi corretamente tratada como CTA final.
 
 ## Abrir como site
 
-Em **Settings → Pages**, selecione **GitHub Actions**. O workflow `Deploy functional demo` publica `index.html` e os assets da raiz.
+Não há build obrigatória para a landing estática. Na raiz do repositório:
 
-Depois da publicação, a URL do Pages abre diretamente a Home funcional, não o README.
+```bash
+python -m http.server 4173
+```
 
-## O que navegar
+Abra `http://localhost:4173/`.
 
-- Home visual v2, com descoberta, pontos turísticos, parceiros, rota, tipos de roteiro, categorias, FAQ, Passaporte e mapa;
-- Explorar com busca e filtros;
-- página pública visual v2 de parceiros;
-- landing “Para parceiros”;
-- onboarding e roteiro editável;
-- calendário integrado ao roteiro;
-- Meu Passaporte;
-- Admin demo com rascunho, preview e publicação local.
+No GitHub Pages, publique a raiz do repositório. `index.html`, CSS, JavaScript e assets necessários estão no nível raiz.
 
-A camada técnica, testes e relatórios continuam no repositório apenas como suporte de desenvolvimento e validação.
+## O que está funcional
 
-## Paleta visual
+- Header sticky, navegação, menu mobile e tema Sistema/Claro/Escuro;
+- Hero com busca e sugestões rápidas;
+- seletor editorial de pontos turísticos;
+- carrossel de parceiros, sem ranking;
+- rota demonstrativa construída em SVG/CSS;
+- tabs de tipos de roteiro com ARIA e teclado;
+- cards de roteiro;
+- descoberta contextual com clima/evento sintéticos;
+- categorias;
+- FAQ interativo;
+- introdução visual ao Passaporte;
+- mapa demonstrativo com lista e pins vinculados;
+- CTA final;
+- demais páginas funcionais da demo anterior continuam disponíveis pelas rotas hash.
 
-A demonstração usa a paleta principal oficial fornecida para o Passaporte Serra Negra. Grandes superfícies, header, CTAs, fundos, textos e bordas usam grafite, carvão, creme e cinzas quentes. As cores complementares são reservadas a contextos de nicho, como categorias, chips, carimbos, pinos e pequenos destaques. A especificação está em `docs/visual/PALETA_OFICIAL.md`.
-## Identidade e regras aplicadas
+## Identidade
 
-Esta revisão usa diretamente o SVG oficial fornecido para o projeto em `assets/brand/logo-passaporte-serra-negra.svg`. O arquivo é byte a byte igual ao original preservado em `references/brand/Ativo 2logo passaporte.svg`.
+A paleta principal usa os tokens neutros oficiais: creme, carvão, grafite e cinzas quentes. Cores complementares aparecem apenas como identidade contextual de nichos. O SVG oficial fornecido pelo proprietário é usado diretamente em `assets/brand/logo-passaporte-serra-negra.svg`.
 
-A demonstração também aplica as regras de construção compatíveis com GitHub Pages: transparência de privacidade/cookies, 404 útil, metadados por rota, breadcrumbs, acessibilidade e `robots.txt`. Recursos que exigem backend seguro, como RBAC/Clerk, não são simulados como proteção real. O arquivo recebido com as regras foi preservado em `references/CONSTRUCTION_RULES_2026-09-10.md`.
+## Validação
+
+Foram exercitados `1920×1080`, `1440×900`, `1280×800`, `1024×768`, `768×1024`, `390×844` e `360×800`, todos sem overflow horizontal no harness de Chromium. Screenshots e comparação com o PSD estão em `screenshots/`.
+
+Leia `IMPLEMENTATION_NOTES.md` para o mapeamento camada a camada, geometria, decisões, interações, limitações do ambiente e pendências reais.
+
+## Fontes preservadas
+
+- `references/landing-reconstruction-v3/PROMPT_RECONSTRUCAO_LANDING_V3.md`
+- `references/landing-reconstruction-v3/PSD_LAYER_METADATA.json`
+
+O PSD binário não é duplicado dentro do ZIP para evitar inflar o repositório; sua estrutura e evidências de comparação estão documentadas.
+
+## Natureza desta versão
+
+Todos os lugares, parceiros, clima, evento e visitas desta build continuam sendo **dados sintéticos de validação**. Fotografias finais, geografia real, QR, autenticação de produção e providers externos permanecem fora desta reconstrução.
