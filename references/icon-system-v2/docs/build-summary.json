@@ -1,0 +1,22 @@
+{
+  "semanticNames": 165,
+  "sourceGlyphs": 154,
+  "canonicalAssets": 145,
+  "geometryAliases": 9,
+  "declaredAliases": 11,
+  "totalAliases": 20,
+  "scopes": {
+    "core": 24,
+    "travel-profile": 18,
+    "place-partner": 21,
+    "weather": 12,
+    "route": 16,
+    "travel-calendar": 8,
+    "qr-visit": 8,
+    "passport": 8,
+    "map": 14,
+    "sharing": 8,
+    "partner-area": 10,
+    "admin-cms": 18
+  }
+}

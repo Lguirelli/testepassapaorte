@@ -1,0 +1,17 @@
+{
+  "name": "Passaporte Serra Negra Validation",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-24-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [4173, 9323],
+  "portsAttributes": {
+    "4173": { "label": "Passaporte preview", "onAutoForward": "openPreview" },
+    "9323": { "label": "Playwright UI", "onAutoForward": "notify" }
+  },
+  "postCreateCommand": "npm ci --no-audit --no-fund && npx playwright install --with-deps chromium",
+  "remoteEnv": {
+    "ALLOW_DEMO": "true",
+    "DB_MODE": "pglite"
+  }
+}

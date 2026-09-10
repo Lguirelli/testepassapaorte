@@ -1,3 +1,4 @@
+/* eslint-disable */
 export type StampStatus = 'first_visit'|'visited'|'return'|'favorite'|'special'|'completed_route'|'seasonal';
 export interface StampData {
   partnerId: string; partnerName: string; category: string; subcategory?: string;

@@ -1,0 +1,3 @@
+import {db} from '@/core/db';import {tracking} from '@/core/db/schema';import type {AnalyticsProvider} from '@/providers';
+export const events=['PAGE_VIEWED','PLACE_VIEWED','SEARCH_PERFORMED','FILTER_APPLIED','PARTNER_CARD_CLICK','ROUTE_STARTED','TRIP_CREATED','PLACE_ADDED','PLACE_REMOVED','PLACE_SWAPPED','VISIT_CONFIRMED','PASSPORT_SHARED','PLACE_MOVED','PLACE_FIXED','PLACE_RESTORED'] as const;
+export const analyticsProvider:AnalyticsProvider={async record(event,payload){if(!events.includes(event as typeof events[number]))throw new Error('Invalid event');await(await db()).insert(tracking).values({id:crypto.randomUUID(),event,payload});}};

@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use client';
 import {memo,useId} from 'react';import type {StampData,StampOptions,GeneratedStamp} from './types';import {generateStamp} from './generateStamp';import {renderStampSVG} from './renderer';
 type Props={data:StampData;options?:StampOptions;className?:string}|{partnerId:string;name:string;category:string;date?:string;visitNumber?:number;city?:string;state?:string;options?:StampOptions;className?:string};

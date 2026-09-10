@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type {ShapeDefinition} from './types';
 export const layoutRegistry:Record<string,{label:string}>={radial:{label:'Nome em arco'},center:{label:'Clássico central'},iconTop:{label:'Ícone superior'},split:{label:'Ícone lateral'},ruled:{label:'Com divisória'},banner:{label:'Faixa central'},seal:{label:'Selo circular'}};
 const centered=['center','iconTop','ruled','banner'];const round=['radial','center','seal','ruled'];

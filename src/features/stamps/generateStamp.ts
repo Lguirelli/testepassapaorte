@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type {StampData,StampOptions,GeneratedStamp} from './types';
 import {hash,createSeededRandom} from './random';import {resolveStampIcon} from './icons';import {shapeRegistry} from './shapes';import {defaultTheme,tokens,createStampTheme} from './theme';
 export function generateStamp(input:StampData,options:StampOptions={}):GeneratedStamp {

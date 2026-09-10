@@ -1,0 +1,9 @@
+ADMIN E CMS
+
+15 novos ícones SVG separados, com fundo transparente e formas editáveis.
+Pranchetas de 120 × 120. Traços pretos, pontas e junções arredondadas.
+
+Três símbolos já existentes no pacote anterior não foram recriados:
+A-027 Restaurar versão: PS-009-historico.svg
+A-030 Ativar: Q-007-visita-registrada.svg ou O-025-nenhuma-necessidade.svg
+A-031 Desativar: PA-018-cancelado.svg

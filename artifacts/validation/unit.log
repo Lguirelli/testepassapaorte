@@ -1,0 +1,26 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> passaporte-serra-negra-validation@0.1.0 test
+> node --import tsx --test tests/unit/*.test.ts
+
+✔ signed admin role rejects forged and expired cookies (1.423406ms)
+✔ editor rejects unsafe links and invalid events (3.211295ms)
+✔ evidence is bound to place and date, not merely a planned item (0.975025ms)
+✔ planned items never become registered visits by inference (9.733357ms)
+✔ demo visit deduplication and return detection are explicit (0.534389ms)
+✔ mock route is deterministic (2.392079ms)
+✔ unknown weather is absent, never invented (0.19726ms)
+✔ empty optional select values are absent and unknown form fields are discarded (1.624784ms)
+✔ move preserves every unrelated item and original input (11.940783ms)
+✔ fixed item cannot be silently changed (0.49169ms)
+✔ explicit regeneration is deterministic and preserves fixed item and visits (5.45159ms)
+✔ regeneration refuses losing manual choices outside new dates (0.55577ms)
+✔ removal retains a recoverable item (0.340154ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1043.474527

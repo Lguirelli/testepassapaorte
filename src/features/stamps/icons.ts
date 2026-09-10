@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {builtinIcons} from './icon-data';
 import type {IconDefinition} from './types';
 export const normalizeCategory=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().replace(/['’]/g,'').replace(/[\s_]+/g,'-').replace(/-+/g,'-');

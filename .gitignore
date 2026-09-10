@@ -1,12 +1,9 @@
 node_modules/
 .next/
-out/
-coverage/
-playwright-report/
-test-results/
-.data/
 .env
 .env.local
-*.log
-artifacts/playwright/**/*.png
-!artifacts/playwright/.gitkeep
+*.tsbuildinfo
+.data/
+playwright-report/
+test-results/
+.next-build/

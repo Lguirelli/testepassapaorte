@@ -1,0 +1,13 @@
+:root {
+  --icon-size-xs: 1rem;   /* 16 px */
+  --icon-size-sm: 1.25rem;/* 20 px */
+  --icon-size-md: 1.5rem; /* 24 px */
+  --icon-size-lg: 2rem;   /* 32 px */
+  --icon-size-xl: 2.5rem; /* 40 px */
+}
+
+.psn-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  color: currentColor;
+}

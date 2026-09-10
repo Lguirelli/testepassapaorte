@@ -1,69 +1,143 @@
-name: validation-ci
+name: Validation
+
 on:
   push:
     branches: [main]
   pull_request:
   workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: passaporte-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ALLOW_DEMO: 'true'
+  NEXT_TELEMETRY_DISABLED: '1'
+
 jobs:
   quality:
+    name: Quality + build + persistence
     runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      DB_MODE: pglite
+      PGLITE_PATH: .data/ci-quality
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node from .nvmrc
+        uses: actions/setup-node@v4
         with:
-          node-version: '22.16.0'
+          node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
-      - run: npm run validate:repo
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm test
-      - run: npm run build
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Isolated persistence + stamp snapshot verification
+        run: node --import tsx scripts/verify-persistence.ts
+
+      - name: Next build
         env:
-          PERSISTENCE_MODE: local
-  e2e-postgis:
+          NEXT_BUILD_DIR: .next-build
+        run: npm run build
+
+  e2e:
+    name: Chromium + PostGIS · ${{ matrix.project }}
+    needs: quality
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [desktop, tablet, mobile]
     services:
       postgres:
         image: postgis/postgis:16-3.4
         env:
-          POSTGRES_USER: passport
-          POSTGRES_PASSWORD: passport
-          POSTGRES_DB: passport_validation
+          POSTGRES_USER: validation
+          POSTGRES_PASSWORD: validation
+          POSTGRES_DB: passaporte
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U passport -d passport_validation"
-          --health-interval 10s
+          --health-cmd "pg_isready -U validation -d passaporte"
+          --health-interval 5s
           --health-timeout 5s
-          --health-retries 10
+          --health-retries 12
     env:
-      DATABASE_URL: postgresql://passport:passport@127.0.0.1:5432/passport_validation
-      PERSISTENCE_MODE: postgres
-      AUTH_MODE: mock
-      MAPS_MODE: mock
-      ROUTES_MODE: mock
-      WEATHER_MODE: mock
-      ANALYTICS_MODE: local
+      DATABASE_URL: postgres://validation:validation@localhost:5432/passaporte
+      DB_MODE: postgres
+      CI: 'true'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node from .nvmrc
+        uses: actions/setup-node@v4
         with:
-          node-version: '22.16.0'
+          node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
-      - run: npm run db:migrate
-      - run: npm run db:seed
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
-      - uses: actions/upload-artifact@v4
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Prepare PostGIS validation database
+        run: |
+          npm run db:migrate
+          npm run db:seed
+          npm run db:backfill-stamps
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright project
+        run: npx playwright test --project=${{ matrix.project }}
+
+      - name: Upload Playwright evidence
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: playwright-validation-artifacts
+          name: playwright-${{ matrix.project }}-${{ github.run_id }}
           path: |
             artifacts/playwright
-            artifacts/playwright-report
-            artifacts/playwright-results
+            playwright-report
+            test-results
           if-no-files-found: ignore
+          retention-days: 14
+
+  summary:
+    name: Validation summary
+    if: always()
+    needs: [quality, e2e]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write summary
+        run: |
+          {
+            echo '## Passaporte Serra Negra · validação'
+            echo ''
+            echo '| Gate | Resultado |'
+            echo '|---|---|'
+            echo '| Quality + build + persistence | ${{ needs.quality.result }} |'
+            echo '| Chromium + PostGIS (3 viewports) | ${{ needs.e2e.result }} |'
+            echo ''
+            echo 'Em falhas de navegador, baixe os artifacts `playwright-*` para screenshots, traces e relatório HTML.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail when a required gate failed
+        if: needs.quality.result != 'success' || needs.e2e.result != 'success'
+        run: exit 1

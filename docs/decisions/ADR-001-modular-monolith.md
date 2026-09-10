@@ -1,16 +1,7 @@
-# ADR-001 — Monólito modular
+# ADR-001: monólito modular de validação
 
-**Status:** aceito para validação.
+Next.js App Router com React e TypeScript strict. Conteúdo, Admin, viagens, Passaporte e tracking possuem limites de módulo. Repositórios concentram acesso por Drizzle; componentes não importam JSON de conteúdo para renderizar registros públicos.
 
-## Decisão
+O schema v0 usa documentos JSONB tipados para as seis entidades editoriais, com ID, tipo, slug único, versão, status, rascunho e publicação. É uma decisão reversível de validação, não o Data Model definitivo. Relações são validadas na camada de aplicação. Chaves estrangeiras relacionais e migração para tabelas por domínio deverão ser decididas antes de dados reais.
 
-Usar um único Next.js App Router com módulos internos separados por domínio.
-
-## Motivo
-
-O vertical slice precisa validar relações entre descoberta, conteúdo, roteiro, calendário, Passaporte e Admin antes de justificar serviços independentes. Um monólito modular reduz infraestrutura sem impedir extração posterior.
-
-## Consequências
-
-- Contratos de repository/provider devem impedir dependência direta das telas em infraestrutura.
-- Fronteiras de módulo são mantidas por organização e tipos, não por deploy separado.
+Viagem, dias, itens, visitas e clima demo compartilham um agregado JSONB versionado por usuário mock. A escrita usa comparação de versão; não sobrescreve silenciosamente uma edição concorrente.

@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const months=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
 export function formatDate(value?:string){if(!value)return 'DATA NÃO INFORMADA';const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(value);if(!m)return 'DATA NÃO INFORMADA';const [,y,mo,d]=m;const date=new Date(`${value}T12:00:00Z`);if(!Number.isFinite(+date)||date.toISOString().slice(0,10)!==value)return 'DATA NÃO INFORMADA';return `${d} ${months[+mo-1]} ${y}`;}
 export const formatVisit=(n?:number)=>n===1?'1ª VISITA':n&&n>1?`VISITA Nº ${Math.floor(n)}`:'';

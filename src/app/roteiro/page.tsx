@@ -1,2 +1,3 @@
-import {OnboardingClient} from "@/components/onboarding-client";import {PageTracker} from "@/components/page-tracker";
-export default function Page(){return <div className="container section"><PageTracker payload={{route:'/roteiro'}}/><div className="section-head"><span className="eyebrow">Criar roteiro</span><h1>Conte sobre esta viagem</h1><p>O fluxo abaixo é determinístico e usa somente contexto sintético.</p></div><OnboardingClient/></div>}
+import {publicContent} from '@/modules/content/repository';import {Onboarding} from '@/modules/trips/Onboarding';
+export const dynamic='force-dynamic';export const metadata={title:'Montar roteiro demo'};
+export default async function Page({searchParams}:{searchParams:Promise<{interest?:string}>}){const categories=await publicContent('categories');const {interest}=await searchParams;return <Onboarding categories={categories} initialInterest={categories.some(c=>c.id===interest)?interest:undefined}/>;}
