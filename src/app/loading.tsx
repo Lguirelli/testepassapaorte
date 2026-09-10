@@ -1,1 +1,2 @@
-export default function Loading(){return <div className="container section"><div className="loading-state" aria-live="polite"><strong>Carregando validação…</strong></div></div>}
+import {t} from '@/core/i18n';
+export default function Loading(){return <p role="status">{t('loading')}</p>;}

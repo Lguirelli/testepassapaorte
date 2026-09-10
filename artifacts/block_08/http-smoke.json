@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/health",
+    "status": 200,
+    "bytes": 67
+  },
+  {
+    "path": "/",
+    "status": 200,
+    "bytes": 47174
+  },
+  {
+    "path": "/explorar",
+    "status": 200,
+    "bytes": 50827
+  },
+  {
+    "path": "/lugares/mirante-vale-das-araucarias",
+    "status": 200,
+    "bytes": 31025
+  },
+  {
+    "path": "/parceiros/cafe-neblina-alta",
+    "status": 200,
+    "bytes": 24419
+  },
+  {
+    "path": "/admin",
+    "status": 200,
+    "bytes": 11910
+  },
+  {
+    "path": "/roteiro",
+    "status": 200,
+    "bytes": 11888
+  },
+  {
+    "path": "/viagens/demo-trip-001/roteiro",
+    "status": 200,
+    "bytes": 43811
+  },
+  {
+    "path": "/meu-passaporte",
+    "status": 200,
+    "bytes": 33818
+  }
+]

@@ -1,0 +1,4 @@
+export type StampData={placeName:string;occurredAt:string;visitNumber:number;evidence:string;outsidePlannedRoute?:boolean};
+export type StampRendererProps={data:StampData};
+// Replace only this renderer when the official stamp engine is provided.
+export function StampRenderer({data}:StampRendererProps){return <details className="stamp"><summary><strong>{data.placeName}</strong><br/><small>{new Date(data.occurredAt).toLocaleDateString('pt-BR',{timeZone:'America/Sao_Paulo'})} · visita {data.visitNumber}</small></summary><p>Presença registrada de demonstração.</p><p>{data.evidence==='qr_demo'?'Evidência sintética do seed QR demo.':'Registro manual de teste.'}</p>{data.outsidePlannedRoute&&<p>Descoberta fora do planejamento no momento do registro.</p>}<p>Não comprova compra ou consumo.</p><small>PLACEHOLDER DE CARIMBO · motor oficial ausente</small></details>;}

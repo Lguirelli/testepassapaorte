@@ -1,0 +1,126 @@
+{
+  "source": "landing page(2).psd",
+  "document": {
+    "width": 1920,
+    "height": 10533,
+    "main_layer_count": 12,
+    "reference_width_approx": 1560,
+    "side_margin_approx": 180
+  },
+  "note": "Layer names and dimensions were inspected from the PSD. Document x/y mapping follows the command matrix and visual sequence because ImageMagick exposes extracted layer canvases normalized to local origin.",
+  "layers": [
+    {
+      "order": "01",
+      "label": "Passaporte Serra Negra · validação visual v2",
+      "x": 180,
+      "y": 0,
+      "width": 1560,
+      "height": 1080,
+      "component": "homeHeroSection()"
+    },
+    {
+      "order": "02",
+      "label": "Primeiros caminhos",
+      "x": 180,
+      "y": 1080,
+      "width": 1560,
+      "height": 802,
+      "component": "homeTouristSpotsSection()"
+    },
+    {
+      "order": "03",
+      "label": "Encontros pelo caminho",
+      "x": 180,
+      "y": 1882,
+      "width": 1560,
+      "height": 788,
+      "component": "homePartnerLoopSection()"
+    },
+    {
+      "order": "04",
+      "label": "A linha conecta a experiência",
+      "x": 180,
+      "y": 2834,
+      "width": 1560,
+      "height": 750,
+      "component": "homeRouteVisualSection()"
+    },
+    {
+      "order": "05",
+      "label": "Tipos de roteiro",
+      "x": 181,
+      "y": 3584,
+      "width": 1560,
+      "height": 783,
+      "component": "homeRouteTypesSection()"
+    },
+    {
+      "order": "06",
+      "label": "Escolha um ponto de partida",
+      "x": 181,
+      "y": 4363,
+      "width": 1560,
+      "height": 1014,
+      "component": "homeRouteCardsSection()"
+    },
+    {
+      "order": "07",
+      "label": "Descoberta contextual",
+      "x": 180,
+      "y": 5213,
+      "width": 1560,
+      "height": 816,
+      "component": "homeEditorialSection()"
+    },
+    {
+      "order": "08",
+      "label": "Explore por interesse",
+      "x": 180,
+      "y": 6029,
+      "width": 1560,
+      "height": 1278,
+      "component": "homeCategoriesSection()"
+    },
+    {
+      "order": "09",
+      "label": "Perguntas frequentes",
+      "x": 179,
+      "y": 7307,
+      "width": 1561,
+      "height": 1029,
+      "component": "homeFaqSection()"
+    },
+    {
+      "order": "10",
+      "label": "Da intenção à memória",
+      "x": 181,
+      "y": 8336,
+      "width": 1559,
+      "height": 792,
+      "component": "homePassportIntroSection()"
+    },
+    {
+      "order": "11",
+      "label": "Visão territorial",
+      "x": 180,
+      "y": 9128,
+      "width": 1560,
+      "height": 808,
+      "component": "homeMapSection()"
+    },
+    {
+      "order": "12",
+      "label": "Visão territorial",
+      "x": 180,
+      "y": 9936,
+      "width": 1560,
+      "height": 597,
+      "component": "homeFinalCtaSection()"
+    }
+  ],
+  "special_relations": {
+    "gap_layer_03_to_04_approx_px": 164,
+    "overlap_layer_06_to_07_approx_px": 164,
+    "layer_12_duplicate_name_resolved_as": "homeFinalCtaSection()"
+  }
+}

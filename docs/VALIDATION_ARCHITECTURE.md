@@ -1,41 +1,20 @@
 # Arquitetura de validação
 
-## Objetivo
-
-Validar o vertical slice com o menor número de decisões irreversíveis. A aplicação é um monólito modular Next.js com contratos explícitos para conteúdo, viagem e providers externos.
-
-## Camadas
-
-1. `src/app`: rotas e APIs.
-2. `src/components`: UI reutilizável e telas compostas.
-3. `src/modules`: regras de domínio específicas, como Admin e `DemoTravelEngine`.
-4. `src/core/repository`: contrato único de persistência, implementado por `LocalRepository` e `PostgresRepository`.
-5. `src/providers`: abstrações mock para Auth, Maps, Routes, Weather, Storage e Analytics.
-6. `src/design-system`: Icon System v2 e tokens.
-7. `src/features/stamps`: motor procedural fornecido e integrado sem redesenho.
+Monólito modular Next.js App Router, React e TypeScript strict. Rotas server renderizam conteúdo persistido e componentes client tratam interações locais. Módulos: content, admin, trips, calendar, passport e tracking. Design system usa exclusivamente o Icon System v2 fornecido e tokens neutros temporários.
 
 ## Persistência
+Drizzle sobre PostgreSQL; Compose fornece PostGIS. PGlite é fallback explícito para o ambiente sem Docker, não valida extensão nem consultas geográficas. Migration inicial transacional e idempotente, sem ledger de evolução ainda. Seed cria 30 registros de conteúdo e uma viagem e preserva IDs existentes.
 
-### Local
+Conteúdo contém draft/published, estado, versão e flag synthetic. Auditoria mantém antes/depois. Viagem usa agregado JSONB tipado; movimentar uma parada não reconstrói dias alheios. Fixados, removidos recuperáveis e registros de visita são preservados pela geração explícita. Schema v0: relações verificadas na aplicação, sem compromisso com o modelo definitivo.
 
-Arquivo `.data/validation-store.json`, criado a partir dos seeds. Serve para demonstração, Playwright local e fluxo Admin sem credenciais. Mantém entidades publicadas, drafts separados, auditoria, trip bundle e tracking.
-
-### PostgreSQL/PostGIS
-
-`content_entities`, `content_drafts`, `audit_logs`, `trip_bundles` e `tracking_events`. `content_entities.geom` usa `geometry(Point,4326)` com índice GIST. O adapter expõe o mesmo contrato do modo local.
-
-## Publicação
-
-A versão pública permanece em `entities/content_entities`. `saveDraft` grava uma cópia separada. Preview pede `draft:true`. `publish` promove o draft para a entidade pública e registra `before/after` na auditoria.
-
-## Roteiro e Passaporte
-
-`TripBundle` é a fonte compartilhada de roteiro, calendário e visitas. O roteiro expressa planejamento. `visits` expressa registro. O Passaporte gera carimbos somente das visitas existentes.
+## Admin e concorrência
+Login mock de administrador, cookie assinado com validade, autorização no servidor e transações com comparação de versão. Salvar não publica; preview usa componentes públicos com dados draft; publicar promove a versão; arquivo retira a entidade da consulta pública. O login é exclusivo de demonstração e não oferece isolamento multiusuário real. Relações entre registros arquivados ainda precisam de regressão integral.
 
 ## Providers
+AuthProvider, MapsProvider, RoutesProvider, WeatherProvider, StorageProvider e AnalyticsProvider têm contratos substituíveis. Mocks são determinísticos. Ausência de clima não gera previsão inventada. Mapa é esquema funcional; deslocamentos são estimativas demo sem garantia geográfica. Modo demo em produção exige ALLOW_DEMO explícito.
 
-Os modos padrão são mock e determinísticos. Nenhuma chave externa é necessária para a build de apresentação. Os contratos permitem troca futura sem acoplar UI à implementação.
+## Passaporte
+Trip.visits é a fonte de evidência; itens planejados nunca são convertidos em presença automaticamente. Registro manual demo tem deduplicação por lugar/dia, classificação de retorno e transação com tracking. StampRenderer é placeholder substituível, sem desenho oficial presumido. Livro adapta a quantidade de páginas pela largura; viewport mobile ainda depende de execução da suíte.
 
-## Identidade
-
-Tokens semânticos e system font temporária. Light/Dark/System são implementados tecnicamente sem assumir paleta, fonte ou marca final.
+## Continuidade
+LATEST.zip inclui fontes, assets, fixtures, migrations, lockfile, CI, testes, evidências e WORK_STATE.md. Não inclui dependências reinstaláveis, builds ou bancos binários temporários. Reproduz o cenário inicial pelo seed; as mutações feitas durante QA ficam documentadas, não alteram os fixtures. block_XX.zip é um delta sobre o checkpoint anterior. MANIFEST.json enumera hashes dos arquivos; scripts/deliver-block.py confere a correspondência exata da pasta e do ZIP.

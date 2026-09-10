@@ -1,1 +1,3 @@
-"use client";import {useEffect} from "react";export default function ErrorPage({error,reset}:{error:Error&{digest?:string};reset:()=>void}){useEffect(()=>{console.error(error)},[error]);return <div className="container section"><div className="error-state" role="alert"><strong>Falha ao carregar esta área</strong><p className="muted">O erro foi mantido visível para a validação.</p><button className="button secondary" onClick={reset}>Tentar novamente</button></div></div>}
+'use client';
+import {t} from '@/core/i18n';
+export default function ErrorPage({reset}:{reset:()=>void}){return <div role="alert"><h1>Falha temporária</h1><p>{t('error')}</p><button onClick={reset}>Tentar novamente</button></div>;}

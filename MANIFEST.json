@@ -1,0 +1,5038 @@
+{
+  "format": 1,
+  "scope": "Passaporte Serra Negra + partner B2B + researched tourist pages with real-photo local fallbacks",
+  "generated_at": "2026-09-10",
+  "file_count": 1006,
+  "files": [
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "bytes": 413,
+      "sha256": "fd5c7be5665c50a895b6441b065cb1c2f926fc907d13b2ed4757307be5605f75"
+    },
+    {
+      "path": ".devcontainer/post-create.sh",
+      "bytes": 322,
+      "sha256": "c71b45d9ad0b2e2e60624e2af3a31cee59a26548d0bdcd904d05224b591ad923"
+    },
+    {
+      "path": ".env.example",
+      "bytes": 454,
+      "sha256": "7ac894df5dd776dcf175091f3e043d94d1039bdc211c031fee473a8b8df6b0b4"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/validation-bug.yml",
+      "bytes": 1387,
+      "sha256": "f16d7ecdf52f99c2539d35b7edf30502d67c6b602dcd85e028a1d80bc5de8af2"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/validation-feedback.yml",
+      "bytes": 950,
+      "sha256": "97b71eaf19e2d05a56706f22f3e3af104d9113750f07403acc2aa1c57e39f1df"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "bytes": 628,
+      "sha256": "3408883522c70b06743ee42c1f06cc628d115cb709c1dce19cfbd1b19a247203"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 1256,
+      "sha256": "9643d5f99cdc2bcca8b4509b1d8892bfa7b865a1553bc5e6420e0382a297aedb"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "bytes": 1295,
+      "sha256": "1bdf98367ca26ca771fcf234f557734d7c59230f5bb63af7c5e292fd6c702aa0"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 104,
+      "sha256": "4b006ec46244c0d7e995773878f3feff7958e547c716e2121cec38630e303a71"
+    },
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".nvmrc",
+      "bytes": 3,
+      "sha256": "68ca3fba3b7e864770cb61aeb306d4bd4354b68ab4dd38450860c5d823e42a53"
+    },
+    {
+      "path": "404.html",
+      "bytes": 3475,
+      "sha256": "3626152389a488bdf78a19bf46db60612a7d0a1c0ce72958efe2bb8067a3484d"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "bytes": 2733,
+      "sha256": "7d4ed2d5154c5019683ba380bd1a7dc6cb164d46b6405409ca3a619800720e9e"
+    },
+    {
+      "path": "ASSET_SOURCES_STOCK_IMAGES.md",
+      "bytes": 2540,
+      "sha256": "6a89e197f85a73fcdd448be0cdeb527e884ff578797bfb0a98f86c89529ac36e"
+    },
+    {
+      "path": "BLOCK_REPORT.md",
+      "bytes": 4121,
+      "sha256": "dc18fea1c1444a8bbbb43cabbdb7d9e17ccaf6992d3203fd7adc71c544c010f3"
+    },
+    {
+      "path": "DELIVERY_INDEX.md",
+      "bytes": 471,
+      "sha256": "35be9bf9d58a144e1d9387ec52003f94f701aac87e8f28a68b17155095de2dd8"
+    },
+    {
+      "path": "IMPLEMENTATION_NOTES.md",
+      "bytes": 11249,
+      "sha256": "8e1d6e9f676011955acb2f0eb41161fa3d893712399ca845143a90b17dabd16c"
+    },
+    {
+      "path": "PACKAGE_MANIFEST.md",
+      "bytes": 729,
+      "sha256": "96d011a19bf89267726d21ac76a88a93a2ba49dea000dcbec2a83caf54e9070b"
+    },
+    {
+      "path": "PARTNERS_IMPLEMENTATION_NOTES.md",
+      "bytes": 2861,
+      "sha256": "890ca66247d89edc3229a3a95b82ad3dc5c6cd4d3d459b17d06a3480fe48e660"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3813,
+      "sha256": "114b96b6925af336ee31135bcabfbe2ae092aa1224db2faabfd518d5d4d22569"
+    },
+    {
+      "path": "TOURISM_RESEARCH.md",
+      "bytes": 5584,
+      "sha256": "39de9b3662eeeac9d707116debac33f8a71fa2bc02defac0a0242c5b8ed9bd22"
+    },
+    {
+      "path": "TOURISM_VALIDATION.md",
+      "bytes": 1607,
+      "sha256": "9c1e76dd161499f40a1acdca8cf472e9af96ac06693ffd1534321c633e3ef66f"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 8381,
+      "sha256": "004e0393e02c93416afc7506a490040c1a7c0bfa5c357f76c12a17e31fb440fd"
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "bytes": 8381,
+      "sha256": "004e0393e02c93416afc7506a490040c1a7c0bfa5c357f76c12a17e31fb440fd"
+    },
+    {
+      "path": "WORK_COMMAND.md",
+      "bytes": 17055,
+      "sha256": "546a6273ace59525bcfc7e429b1089d28dd4160dce359c5ec880704e9d6d8c4d"
+    },
+    {
+      "path": "WORK_STATE.md",
+      "bytes": 7322,
+      "sha256": "abe2d7c8df63e6b635c84724a76a69bb6f8f4ecab31925fa0af35d56e4db17e7"
+    },
+    {
+      "path": "acceptance/DEFINITION_OF_DONE.md",
+      "bytes": 1086,
+      "sha256": "f736e8d28e0413ad64a07780bc6ec8913a59ee2e06be74272af01dbd7512c4a5"
+    },
+    {
+      "path": "acceptance/PLAYWRIGHT_MATRIX.md",
+      "bytes": 2604,
+      "sha256": "452a79f3ed1f1dd4ea597c476fa962604b79447dd9529d3cdbb82d509ee20367"
+    },
+    {
+      "path": "app.js",
+      "bytes": 91882,
+      "sha256": "06d30943231cbbb40505c824fed121d2baf081fd8ad8f6f2bb50b5e955948653"
+    },
+    {
+      "path": "artifacts/block_08/http-smoke.json",
+      "bytes": 706,
+      "sha256": "cf4c807dfcd1a33b2b6b87d8e1008955823701855fa78b1fcc08c9e689a5962d"
+    },
+    {
+      "path": "artifacts/block_08/source-integrity.json",
+      "bytes": 187,
+      "sha256": "11320dcd45e08e82d5f4d3efea9cca1f2f515d3bd98075efc64236762ea8cd15"
+    },
+    {
+      "path": "artifacts/playwright/README.md",
+      "bytes": 634,
+      "sha256": "b517b27bcf1421e3abda638f29e20950f1c447c192832eaa6563557a1c2ca1f1"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/00-home.jpg",
+      "bytes": 71477,
+      "sha256": "837c67510fd8d75c9e8ca22b5024e475732d19675adef26b095edd9fa5b9467a"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/01-explorar.jpg",
+      "bytes": 74047,
+      "sha256": "96a6464151bef23a2fc64dddde66779aa99c6bdf51042e2ed7c94e6e5907b138"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/02-parceiro.jpg",
+      "bytes": 85503,
+      "sha256": "4d8ae019d29c03d7d79f33b69034967d2b04b9b05fad9151ecfc2d4925deead7"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/03-admin.jpg",
+      "bytes": 89201,
+      "sha256": "048c7df182726bb8ca4e2512769d1239f2907ee25b8088944234afa71e63ef7b"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/03-preview.jpg",
+      "bytes": 81945,
+      "sha256": "e98252289d60afe2bd00d2f95865429d634aef751d707feb34bb3e88197d8b87"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/04-roteiro.jpg",
+      "bytes": 79824,
+      "sha256": "719fe0e58f1b16f4eb74ac20ac64f979fadb49c5aff84d41217cad42d0a99173"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/05-calendario.jpg",
+      "bytes": 79012,
+      "sha256": "13846bc9878c818007fc7215be79a23ec449bd437d5ac74542919b3c79e03c01"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/06-passaporte-dark.jpg",
+      "bytes": 87884,
+      "sha256": "341d8b1154c48f99a14668b1a9f634f7b2dc6b6532ea64ac6c0290b18da794e9"
+    },
+    {
+      "path": "artifacts/visual-v2/home-dark.jpg",
+      "bytes": 777588,
+      "sha256": "6408065f17bed55273afd4401c7d558d119e819ed92b2f71f20742695b6c5fa9"
+    },
+    {
+      "path": "artifacts/visual-v2/home-desktop.jpg",
+      "bytes": 786068,
+      "sha256": "c8f4e47637901524235a594be9846d6ef16e26a48b20bc4e902d9a06d963e8ac"
+    },
+    {
+      "path": "artifacts/visual-v2/home-mobile.jpg",
+      "bytes": 442556,
+      "sha256": "fa2d12b82f09b0bdc8441abd33211cc463a828afcf761cbe9091cc200512bbfb"
+    },
+    {
+      "path": "artifacts/visual-v2/partner-desktop.jpg",
+      "bytes": 360488,
+      "sha256": "7565e85f9826fb2cb430c0ac2b768545c35dc9874d90a7c72c7ecf5fc637378e"
+    },
+    {
+      "path": "artifacts/visual-v2/partner-mobile.jpg",
+      "bytes": 229192,
+      "sha256": "0e393a87eee864c8746966935f951d959605277de60268009b8e5169276e6171"
+    },
+    {
+      "path": "assets/brand/logo-passaporte-serra-negra.png",
+      "bytes": 72272,
+      "sha256": "043e50d4ec49cbe254172d5cdc9339920856eda6ebd584f20c20c1f1bf846ae7"
+    },
+    {
+      "path": "assets/brand/logo-passaporte-serra-negra.svg",
+      "bytes": 5418,
+      "sha256": "a3de3eabe39a00463207c8ad0afc3bd76e382b710efc30aabc1bc98e6d68071e"
+    },
+    {
+      "path": "assets/icons/admin-arquivar.svg",
+      "bytes": 456,
+      "sha256": "61d0f3fe154a0d6ee3d52fafb85248b0dc79d4db98023285534107e0c0ff9d9c"
+    },
+    {
+      "path": "assets/icons/admin-auditoria.svg",
+      "bytes": 465,
+      "sha256": "a60fba7837d8d4ac9f4ff46a856540231dc742bc8baecb071b32ebfa9ea96cf9"
+    },
+    {
+      "path": "assets/icons/admin-circulacao-territorial.svg",
+      "bytes": 578,
+      "sha256": "131c8a6367c5bc25930417da93c7a9b2f328c9633017a276763c390d04d922bc"
+    },
+    {
+      "path": "assets/icons/admin-comparar-versoes.svg",
+      "bytes": 610,
+      "sha256": "27f14ebefc9440dc3533bd95feca61f3e56b6574b24dd828eb1b5d812a0fa968"
+    },
+    {
+      "path": "assets/icons/admin-configuracoes.svg",
+      "bytes": 928,
+      "sha256": "5547faf8ea9ba868a644312e9d095ad2abbd1b8e1b3f58a39e61475f9c03e4c9"
+    },
+    {
+      "path": "assets/icons/admin-conteudo-cms.svg",
+      "bytes": 397,
+      "sha256": "9b271a613369a300e80fd88103982129b8f81b29ecf32f49570231da00d6488a"
+    },
+    {
+      "path": "assets/icons/admin-dashboard.svg",
+      "bytes": 670,
+      "sha256": "ac0738d002d9edefcd3e79924b9d2b2697c419bcd36b3fc16ce9631d34669878"
+    },
+    {
+      "path": "assets/icons/admin-editar-localizacao.svg",
+      "bytes": 579,
+      "sha256": "978abb9bba66347c7cfb49b4f280f143a1c005e4ecd8b6a142e81e1823a5a7a8"
+    },
+    {
+      "path": "assets/icons/admin-exportar.svg",
+      "bytes": 411,
+      "sha256": "646dd976ffd0f7fc7435d2175179eb0efee7d42c3776722155f1b783ec36dcb5"
+    },
+    {
+      "path": "assets/icons/admin-fontes.svg",
+      "bytes": 344,
+      "sha256": "891f30a11e667ae960137881eb0c631d25e31d77e350ff017c83a075302a584d"
+    },
+    {
+      "path": "assets/icons/admin-publicar.svg",
+      "bytes": 401,
+      "sha256": "e97da4c0e44a420fcd31d5f8be6e00ad70dbba3ad512ce70152ff80202fecd54"
+    },
+    {
+      "path": "assets/icons/admin-rascunho.svg",
+      "bytes": 464,
+      "sha256": "eb6805119dcf714ad00f83eb896680d1039dbf82b941fa13dfb9e7b5ce033fb3"
+    },
+    {
+      "path": "assets/icons/admin-registro-de-secoes.svg",
+      "bytes": 669,
+      "sha256": "843b77010531433cb9a395170f2f4ab2202c77da742d75906850f0249b5f2d78"
+    },
+    {
+      "path": "assets/icons/admin-sankey-jornada.svg",
+      "bytes": 506,
+      "sha256": "ecf136e125a528e559ae268ea81562def519be863c9292028990e2e959b4e525"
+    },
+    {
+      "path": "assets/icons/admin-secoes.svg",
+      "bytes": 396,
+      "sha256": "94d1c160d19b5ff1998c0251c50fe7272855b014df23a7770900fb76e276ad14"
+    },
+    {
+      "path": "assets/icons/avancar.svg",
+      "bytes": 336,
+      "sha256": "703d68392555ea3d6058aeb1cba156f26b28fa277022790437f94abdf134ac63"
+    },
+    {
+      "path": "assets/icons/busca.svg",
+      "bytes": 345,
+      "sha256": "7be4664783b723c47c832590fded0f375279b917c4a476ae571057cd9332ffaa"
+    },
+    {
+      "path": "assets/icons/calendario-atividade-planejada.svg",
+      "bytes": 564,
+      "sha256": "db41e09553cbb532ae3cfc463089dbd60694844ea1d9840cd1555255374251ac"
+    },
+    {
+      "path": "assets/icons/calendario-dia.svg",
+      "bytes": 455,
+      "sha256": "4a5bb51f737472fdb514e3fd8766056996bd9e15d1174a4dd3e5bc9630050608"
+    },
+    {
+      "path": "assets/icons/calendario-espaco-livre.svg",
+      "bytes": 480,
+      "sha256": "b59e70e49de4cad1f7ac55f0ebb2812984b88c40a2796611b9e64d576a9d6658"
+    },
+    {
+      "path": "assets/icons/calendario-filtro.svg",
+      "bytes": 384,
+      "sha256": "6c9d9f9b504c8703cadba8a8977499a5de7add126caa535f6ec4adc60a12d05f"
+    },
+    {
+      "path": "assets/icons/calendario-hoje.svg",
+      "bytes": 482,
+      "sha256": "da8424b108721c0e2618a810f3dc2180d3ee4eb9364a21dffa366f7e2903d341"
+    },
+    {
+      "path": "assets/icons/calendario-mes.svg",
+      "bytes": 1058,
+      "sha256": "3c3db762c42a4b29115af654d6c01dd1358cae83e3ffc9c46817e65e0bd6dc2c"
+    },
+    {
+      "path": "assets/icons/calendario-presenca-registrada.svg",
+      "bytes": 553,
+      "sha256": "4c1a3f2b42bdf14aa10d69499f97af944ecc9a844db1a4c1c940e253382b762f"
+    },
+    {
+      "path": "assets/icons/calendario-semana.svg",
+      "bytes": 729,
+      "sha256": "1153517165b0f8e7ddf0ccbf144e4812fae9f7199b4a925cf4e3219a53e8633b"
+    },
+    {
+      "path": "assets/icons/calendario.svg",
+      "bytes": 933,
+      "sha256": "d14ed314082faab86d733fb2923c4f51e7c41716a65be6809b588bb8d2068def"
+    },
+    {
+      "path": "assets/icons/chevron-baixo.svg",
+      "bytes": 343,
+      "sha256": "496101a2181182b27d5c41b9197f782b7ee70c960fda80ee09ae1b3537a4b478"
+    },
+    {
+      "path": "assets/icons/chevron-cima.svg",
+      "bytes": 340,
+      "sha256": "865c5dec5c228cca37eedfb629bc515a71ac31b06c8e033236fb4d2f32d9819b"
+    },
+    {
+      "path": "assets/icons/chevron-direita.svg",
+      "bytes": 349,
+      "sha256": "ce442dff4870f68043cc9be18595d15f1f7f83ee36e768fcefe97d64a81e83cb"
+    },
+    {
+      "path": "assets/icons/chevron-esquerda.svg",
+      "bytes": 352,
+      "sha256": "207cf51a62fe821854a85e515eb2e064ba52c6c193d6ac2b6ba250a71308f75a"
+    },
+    {
+      "path": "assets/icons/clima-chuva-intensa.svg",
+      "bytes": 570,
+      "sha256": "7ea658624689480cc58a016b2b94f559034899ae6fcf46b99e3b7f899c6fbc3d"
+    },
+    {
+      "path": "assets/icons/clima-chuva.svg",
+      "bytes": 488,
+      "sha256": "b59704c029daaf5f97dad397e4981aa6d785521731a5475cdb6d280ec3ed7b49"
+    },
+    {
+      "path": "assets/icons/clima-frio.svg",
+      "bytes": 454,
+      "sha256": "2526b78012d29532ae73f363ebbe8e8b695a2e2e10ecff7478a0fd5fbe2bf62b"
+    },
+    {
+      "path": "assets/icons/clima-guarda-chuva.svg",
+      "bytes": 422,
+      "sha256": "c91beb5dc9c04db5a216c5abb496d67566acfd33958b66a99502df88bdcf397a"
+    },
+    {
+      "path": "assets/icons/clima-nublado.svg",
+      "bytes": 374,
+      "sha256": "2016593a52c8dc992928b09ec2eba706ac1470178bae62233aa88c96c958b882"
+    },
+    {
+      "path": "assets/icons/clima-parcialmente-nublado.svg",
+      "bytes": 496,
+      "sha256": "b54e1a5d3f50f084a43930ba6b4a5bfe87bcb434b1ea0e483b927bd4cb8a53e1"
+    },
+    {
+      "path": "assets/icons/clima-sensacao-termica.svg",
+      "bytes": 548,
+      "sha256": "86e3f35a7f47d22c514f3fbadac56ec33ef834eebed62c635fd8dd2e1afd937a"
+    },
+    {
+      "path": "assets/icons/clima-temperatura.svg",
+      "bytes": 407,
+      "sha256": "dc715802b7a5e4d93d7f9ec6276bdfc84e83469f9fd0a49d8ef75ea3653ea346"
+    },
+    {
+      "path": "assets/icons/clima-tempestade.svg",
+      "bytes": 415,
+      "sha256": "2b712c5ac641062bff8caecf0a6cd203c4aaf94d9f423ec17ee9760ca3d17347"
+    },
+    {
+      "path": "assets/icons/clima-umidade.svg",
+      "bytes": 391,
+      "sha256": "47e6a49865784311e83ec938315ae1bd6e58c42106ce685ce1c1354104cf7d3d"
+    },
+    {
+      "path": "assets/icons/clima-vento.svg",
+      "bytes": 414,
+      "sha256": "39f810285412c84c5385b77b2fb6c351b681cc96ed1df240e3f80158cb9915b4"
+    },
+    {
+      "path": "assets/icons/compartilhamento-copiar-link.svg",
+      "bytes": 429,
+      "sha256": "f145fbba26c6c7ece17cc23d92e0b741adf5d89cfc76c1d4297111349af44cbe"
+    },
+    {
+      "path": "assets/icons/compartilhamento-dobra.svg",
+      "bytes": 353,
+      "sha256": "a025216af30950062caa8d0e445d8b8c65cef3420164ff051040a52d950b6449"
+    },
+    {
+      "path": "assets/icons/compartilhamento-feed-vertical.svg",
+      "bytes": 519,
+      "sha256": "ea3ce994d9d4666ef4f1050c3c78306b0179d36581758969e5630bf826c80943"
+    },
+    {
+      "path": "assets/icons/compartilhamento-ocultar.svg",
+      "bytes": 434,
+      "sha256": "3e2670b43eca737701212df892dbded1e82c548685df7c4cfff02ae2acd104da"
+    },
+    {
+      "path": "assets/icons/compartilhamento-quadrado.svg",
+      "bytes": 363,
+      "sha256": "27cae1b8af18290a3876d23097d3fc4312640f6b05968295669f27bf97967e44"
+    },
+    {
+      "path": "assets/icons/compartilhamento-salvar-imagem-exportar.svg",
+      "bytes": 511,
+      "sha256": "9e222055fddd153e6ebb585bf0fb62a49dbeeba49345c807b418c864643737c9"
+    },
+    {
+      "path": "assets/icons/compartilhamento-story.svg",
+      "bytes": 418,
+      "sha256": "b2da25315c6318bb30fe56b95eb54fa658b927d28157df52f29fd25029c3d887"
+    },
+    {
+      "path": "assets/icons/compartilhar.svg",
+      "bytes": 443,
+      "sha256": "21266e77daf53b73542d40bd127db9f570936238e93ab6420ceef4c84c51f348"
+    },
+    {
+      "path": "assets/icons/conta.svg",
+      "bytes": 379,
+      "sha256": "3bc1324c065d0f01ed9329fbbfbd32db44e3f0b9258fa8961553cae298375b32"
+    },
+    {
+      "path": "assets/icons/explorar.svg",
+      "bytes": 367,
+      "sha256": "950ab148530e6a326ff74375691ea5bcd492cfb7a3b47a1f9b503119bd254638"
+    },
+    {
+      "path": "assets/icons/fechar.svg",
+      "bytes": 329,
+      "sha256": "b084120182d2f20353dbe727a54cd074b5a71a106b789249eaf52e3fb922294c"
+    },
+    {
+      "path": "assets/icons/home.svg",
+      "bytes": 422,
+      "sha256": "1dc2ebc06539166750edec292d5fa5f806ae2f7da98178aa6d020f9fbcd66f69"
+    },
+    {
+      "path": "assets/icons/idioma.svg",
+      "bytes": 397,
+      "sha256": "71f313fcacff90074cd260448ccd4a241203a3587aed485eb157af7f393f312d"
+    },
+    {
+      "path": "assets/icons/link-externo.svg",
+      "bytes": 402,
+      "sha256": "4f055a9a7aace4de9a09888d9fb0fef7f1ea189033d80d4cecf677396dc21162"
+    },
+    {
+      "path": "assets/icons/lua.svg",
+      "bytes": 395,
+      "sha256": "89057ec6dd432f1186ccaccfc91add564c192b267296ebc48a59fa60c76abd93"
+    },
+    {
+      "path": "assets/icons/lugar-animais.svg",
+      "bytes": 554,
+      "sha256": "8996dea45e10e92ebbb09bc5e7af1c69e7847b94d8a71c4120c10992d33764c4"
+    },
+    {
+      "path": "assets/icons/lugar-direcoes.svg",
+      "bytes": 393,
+      "sha256": "bcaeab05df608996de4be173898fcf544b20ccd2b29de98ca3edf10363c90b85"
+    },
+    {
+      "path": "assets/icons/lugar-distancia.svg",
+      "bytes": 706,
+      "sha256": "b254a1e2e6ad4fd3d5978ac9a4d99d8744c90d8f6e6c7037499b7d8cdaeced8b"
+    },
+    {
+      "path": "assets/icons/lugar-duracao-sugerida.svg",
+      "bytes": 437,
+      "sha256": "dbba58065ec37bc560b1bd1324031beb799b542eaf643eae3523774a34d51635"
+    },
+    {
+      "path": "assets/icons/lugar-estacionamento.svg",
+      "bytes": 409,
+      "sha256": "84c32ff65891edb2dd664e74a9b5c0258d0274d87895c62f94f33c3768b3b7c0"
+    },
+    {
+      "path": "assets/icons/lugar-galeria.svg",
+      "bytes": 520,
+      "sha256": "9183888e247ab40f2e3cf8b3a28968e05b1371aee2eeba9f4a206a7ccdb65c8b"
+    },
+    {
+      "path": "assets/icons/lugar-horario.svg",
+      "bytes": 358,
+      "sha256": "cbaa0fa0c5fecc4a707b94f48b3d558a5718d5bf23d037f04c515278dc5dd631"
+    },
+    {
+      "path": "assets/icons/lugar-informacao.svg",
+      "bytes": 436,
+      "sha256": "b91df23b3a47c930f2cd1b89c1f435f7f3c1f86ac2ead8ebe8655b2470dfeef7"
+    },
+    {
+      "path": "assets/icons/lugar-instagram.svg",
+      "bytes": 452,
+      "sha256": "f8aa0336e883021a75405eaa443cb58f8629a5ff03d425598f31fa77b39ddc1f"
+    },
+    {
+      "path": "assets/icons/lugar-localizacao.svg",
+      "bytes": 412,
+      "sha256": "9d458d447f317082aa2bf2cb7b66cd60322e5da47cf683e74c5675045cdd5559"
+    },
+    {
+      "path": "assets/icons/lugar-outdoor.svg",
+      "bytes": 407,
+      "sha256": "32147d5548c417c4b24c2596f154c33a9f61732f71b36769ac1beb31e9fd0fa3"
+    },
+    {
+      "path": "assets/icons/lugar-reserva-externa.svg",
+      "bytes": 452,
+      "sha256": "35ee1cc5bbd4edd8846a5c354d86e1573d0d30419e7ec5e95be569388cd3b593"
+    },
+    {
+      "path": "assets/icons/lugar-restricao.svg",
+      "bytes": 359,
+      "sha256": "c846904febb77c6846e7bf167a813e67097ea92909c3b4387b945fb6a9da914d"
+    },
+    {
+      "path": "assets/icons/lugar-sem-custo.svg",
+      "bytes": 359,
+      "sha256": "fd3487608b985ea33994b494c604f63731903d588e06644c0942a52c3df31931"
+    },
+    {
+      "path": "assets/icons/lugar-telefone.svg",
+      "bytes": 415,
+      "sha256": "abdd93ac706bc834ef3fdadb8b8bc1efd4d2cfb699c89aac62dbca66973df369"
+    },
+    {
+      "path": "assets/icons/lugar-tempo-de-resposta.svg",
+      "bytes": 520,
+      "sha256": "d1b6051e5fbd4fc9f32d19292fcc6f671be1dad85d17a7b2ead86ceaa389c110"
+    },
+    {
+      "path": "assets/icons/lugar-ver-fotos.svg",
+      "bytes": 378,
+      "sha256": "954b217e6519340d37aff372f905e6a000c82c1ae7298a283abf2f933f88129e"
+    },
+    {
+      "path": "assets/icons/lugar-whatsapp.svg",
+      "bytes": 529,
+      "sha256": "175320c882dd3277895ed4ee22f9cdac030e0d7bb9f828e1c1ddc0728559ee5f"
+    },
+    {
+      "path": "assets/icons/mais-opcoes.svg",
+      "bytes": 510,
+      "sha256": "3791294036d76ba1807738f1598585fb20911ef8064d15b4684e2aa9eab27e35"
+    },
+    {
+      "path": "assets/icons/mapa-abrir-navegacao.svg",
+      "bytes": 351,
+      "sha256": "c46a25917dcdd4937fc9a433eee31e97b3230028d215fd6972d1b51cccbc1dc4"
+    },
+    {
+      "path": "assets/icons/mapa-adicionar-ao-roteiro.svg",
+      "bytes": 387,
+      "sha256": "8a0f74f66c846eabfeef9cfe70a7831f94c8bca129d8aa262feb1534c4f69f05"
+    },
+    {
+      "path": "assets/icons/mapa-buscar-nesta-area.svg",
+      "bytes": 449,
+      "sha256": "ba589f02e91dbba898fc8594d83ebf754d23becd4b1d08cb2c376cd62b5dcd53"
+    },
+    {
+      "path": "assets/icons/mapa-centralizar.svg",
+      "bytes": 418,
+      "sha256": "fc05536e821843d7ccce45bd67bcb8713edfa74ae9503fe18e1cdb55798cf402"
+    },
+    {
+      "path": "assets/icons/mapa-destino.svg",
+      "bytes": 526,
+      "sha256": "3c7647eac5a716768556eebbe7fcb5ca359c4ae17bbfbef7a1936b609534761b"
+    },
+    {
+      "path": "assets/icons/mapa-experiencia-autonoma.svg",
+      "bytes": 535,
+      "sha256": "cd674937f032991d944c571538f25c9dccf3dfce836037f79b259886fc15f070"
+    },
+    {
+      "path": "assets/icons/mapa-lista.svg",
+      "bytes": 552,
+      "sha256": "efe1c8ad0e4c2839c1454f323b904bcdb95a5aa30ac174e0e9cddbfa715a7ffd"
+    },
+    {
+      "path": "assets/icons/mapa-localizacao-usuario.svg",
+      "bytes": 450,
+      "sha256": "c81210cf3dfbf505b6fda1c70b7463c389c59955f8ecc379efd4fab7de5d0e35"
+    },
+    {
+      "path": "assets/icons/mapa-origem.svg",
+      "bytes": 523,
+      "sha256": "44684af85a5d18ed8e13d0bab68b571efb7219719a3c17b338f4cd3b0112267e"
+    },
+    {
+      "path": "assets/icons/mapa-outro-lugar-listado.svg",
+      "bytes": 562,
+      "sha256": "2c6e4b4c4c5c767eb348c10852f7374c6af4f52133d9fd209d5898e24640547a"
+    },
+    {
+      "path": "assets/icons/mapa-ponto-turistico.svg",
+      "bytes": 387,
+      "sha256": "4f93673579fcf6be1d6145bb747c9d09688fab2e2dd1b0d637ecc07b19e9aa46"
+    },
+    {
+      "path": "assets/icons/mapa.svg",
+      "bytes": 415,
+      "sha256": "c37b04b7be47c96e11f2fce1a274449ccb71c1335bd0c7f2197e8c8269593d28"
+    },
+    {
+      "path": "assets/icons/menu.svg",
+      "bytes": 327,
+      "sha256": "1cd54c0732fdf81a8642c0ee0a43df259f2247d78b84dd35560e7d03a129a2e5"
+    },
+    {
+      "path": "assets/icons/parceiro-ajustado.svg",
+      "bytes": 469,
+      "sha256": "1af09a80bc538be9cb57de69717cee03bfba6c042a0da3d12a3a0d339016f8c8"
+    },
+    {
+      "path": "assets/icons/parceiro-cancelado.svg",
+      "bytes": 376,
+      "sha256": "d6ada3cd446e31f95a32f93b97592b99f2444520262b75dc75374c21441425b2"
+    },
+    {
+      "path": "assets/icons/parceiro-desempenho.svg",
+      "bytes": 462,
+      "sha256": "96baf94e6479ab69e755f6fe8663b3cd043cfd8caf42101a3b7848e88971138a"
+    },
+    {
+      "path": "assets/icons/parceiro-requer-solicitacao.svg",
+      "bytes": 775,
+      "sha256": "045a2a99a21d9c72e842178dab17f1cb48c8dd8b9ea2a86fbcd40bf276580fd2"
+    },
+    {
+      "path": "assets/icons/parceiro-solicitacoes.svg",
+      "bytes": 401,
+      "sha256": "5ab6042a287e4b5b6c0b435a2bdd721196fb91d0cad7250bbe2951956ffaf55b"
+    },
+    {
+      "path": "assets/icons/parceiro-visita-registrada.svg",
+      "bytes": 517,
+      "sha256": "7cb7ecbdbb1a589816fc73c07dfafd141395dc62f5d114ccc9a21e243df5318f"
+    },
+    {
+      "path": "assets/icons/parceiro-visitantes.svg",
+      "bytes": 519,
+      "sha256": "b3ff94b133e91d96a943f48eba0766cd424aea343db146cab65ba0d622227356"
+    },
+    {
+      "path": "assets/icons/parceiros.svg",
+      "bytes": 535,
+      "sha256": "902513e3e93b4d4675bf961a57b669d5b7b27f9db5096a1a3ebdc6dae8f2fe8b"
+    },
+    {
+      "path": "assets/icons/passaporte-categorias.svg",
+      "bytes": 515,
+      "sha256": "c4ce6a0cc8925f736f8fa92745d920fa0f73b253bdb731bbd1032332d4ee04ca"
+    },
+    {
+      "path": "assets/icons/passaporte-compartilhar-ticket.svg",
+      "bytes": 547,
+      "sha256": "1c48782490ff5a9c958a618456aee99993a88c221ccb4e91de29fdbab78b4aac"
+    },
+    {
+      "path": "assets/icons/passaporte-expandir-pagina.svg",
+      "bytes": 487,
+      "sha256": "56c053d12fb9442d2261d3f58399e082ba8243f5d22ff899510370e70d42f2b8"
+    },
+    {
+      "path": "assets/icons/passaporte-historico.svg",
+      "bytes": 379,
+      "sha256": "2e39dfcd57578f7ba4f36b9ec8b1083d400ae863658096f84030f426a6c83718"
+    },
+    {
+      "path": "assets/icons/passaporte-indice.svg",
+      "bytes": 459,
+      "sha256": "ed4b86a635d70e828f9aab7d0fb95454b0aca1fe58d4e80e57b35a2dcea50f0b"
+    },
+    {
+      "path": "assets/icons/passaporte-ticket.svg",
+      "bytes": 403,
+      "sha256": "9586bcfa91f1e803a3c948d075a0b3161ed15bca3e8b9f059f9037a683382f2c"
+    },
+    {
+      "path": "assets/icons/passaporte-viagem.svg",
+      "bytes": 429,
+      "sha256": "2cb9819cb11c97ababcadebaeb1feb212035ccf26baae0363ad63717e88d2281"
+    },
+    {
+      "path": "assets/icons/passaporte.svg",
+      "bytes": 513,
+      "sha256": "ec307826dcaec2cc1a90e9fade6719bc386bcd6c5129a1d5483248e330e73c1e"
+    },
+    {
+      "path": "assets/icons/perfil-a-pe.svg",
+      "bytes": 524,
+      "sha256": "1111de9ad5bb76c0d8b5195f53b8d677d334363dbc4a1a918dad24cac4da40cb"
+    },
+    {
+      "path": "assets/icons/perfil-acessibilidade.svg",
+      "bytes": 431,
+      "sha256": "8519376bfc062ad378ea5f819b4e43839a91871ea3e57f852467cb36fed28df0"
+    },
+    {
+      "path": "assets/icons/perfil-amigos.svg",
+      "bytes": 491,
+      "sha256": "2788833d57ee361ff300ba37b6f0703a97114fe56decf75b7e7688d45812ebb0"
+    },
+    {
+      "path": "assets/icons/perfil-carro.svg",
+      "bytes": 447,
+      "sha256": "7a2d549e8002cdf33f8a03447293d79606bc3bf8095c9fcc37deb8c2f37ff225"
+    },
+    {
+      "path": "assets/icons/perfil-casal.svg",
+      "bytes": 499,
+      "sha256": "8360c50e4ae06826cbd8c10056a5f0cb22b79d431762389a7c3737a2e52ac4ce"
+    },
+    {
+      "path": "assets/icons/perfil-criancas.svg",
+      "bytes": 467,
+      "sha256": "98857e3993693bfe7b28ef7835eb5106bda50076b36d06568718769dfb7a5cc6"
+    },
+    {
+      "path": "assets/icons/perfil-familia.svg",
+      "bytes": 573,
+      "sha256": "348edaac9e9b4c29b6584a2c0c91e2c2c3c9dcbaed78f5cdce2e651e11f3d93a"
+    },
+    {
+      "path": "assets/icons/perfil-gastar-menos.svg",
+      "bytes": 579,
+      "sha256": "757b869821f48145b4a93341c7c045329311e01a938399dfa3e7f87e4651c3b0"
+    },
+    {
+      "path": "assets/icons/perfil-nao-sei.svg",
+      "bytes": 451,
+      "sha256": "93cc01b451bbe77e489ccf55fc702814edf03b968940d938498de40a287306af"
+    },
+    {
+      "path": "assets/icons/perfil-nenhuma-necessidade.svg",
+      "bytes": 449,
+      "sha256": "4978b500de7243a620794cb6c036ac7813b1f8c11683aef367cda49a20b1c0a0"
+    },
+    {
+      "path": "assets/icons/perfil-preferir-sem-custo.svg",
+      "bytes": 497,
+      "sha256": "0704927878c8909fbc67809ff6caccedbb90978acca6727bb03de09284f68332"
+    },
+    {
+      "path": "assets/icons/perfil-relaxar.svg",
+      "bytes": 472,
+      "sha256": "fec993789da54eab0d4bcc032e104af26f7874bb58ca62f9a4891470e3a18f87"
+    },
+    {
+      "path": "assets/icons/perfil-restricao-alimentar.svg",
+      "bytes": 491,
+      "sha256": "fc79d927f7adb79cad3ac343c768b7e863d99adb79857ab846ab51af20463b1d"
+    },
+    {
+      "path": "assets/icons/perfil-ritmo-ativo.svg",
+      "bytes": 587,
+      "sha256": "c01d47e6ebcc6997403e82b38bfb89bb2351e660d77ac4684ae335d083f25b47"
+    },
+    {
+      "path": "assets/icons/perfil-ritmo-equilibrado.svg",
+      "bytes": 442,
+      "sha256": "f3ef4d64e92757f9af293029bf29530c0a2fc228e998677a0366316193e18834"
+    },
+    {
+      "path": "assets/icons/perfil-ritmo-tranquilo.svg",
+      "bytes": 529,
+      "sha256": "75e409905aeb1cd995d08a7423319450b637b852884408fa0be63a9cb0a13e97"
+    },
+    {
+      "path": "assets/icons/perfil-taxi-app.svg",
+      "bytes": 480,
+      "sha256": "ba3e8d5bc9dbd251021bf0cd49eaf14ff8725abd75d9017e992cb456e3bc9b23"
+    },
+    {
+      "path": "assets/icons/qr-camera.svg",
+      "bytes": 485,
+      "sha256": "2c0e4feb1ee4010d7086aa25332e376974e0f5ddc7afe8f72b5ed3955010bf09"
+    },
+    {
+      "path": "assets/icons/qr-escanear.svg",
+      "bytes": 409,
+      "sha256": "0b6610a31848e652597f3067d9742aecba6f5907b5ddf78b2e458dab47224f9b"
+    },
+    {
+      "path": "assets/icons/qr-offline.svg",
+      "bytes": 466,
+      "sha256": "28af94da8032801a057f6eae26c65f3ae1255288521f13410cc4a4a007488c88"
+    },
+    {
+      "path": "assets/icons/qr-qr-code.svg",
+      "bytes": 914,
+      "sha256": "7e1eb1611279482995ddb5ca6d1668a68d502f16401085ecd744eeff3770df48"
+    },
+    {
+      "path": "assets/icons/qr-qr-desativado.svg",
+      "bytes": 1191,
+      "sha256": "bb03f0b6e790be6bc603ecffc6e1f79c8f321f7e0fb8fd8553858d29b0b44b1f"
+    },
+    {
+      "path": "assets/icons/qr-retorno.svg",
+      "bytes": 354,
+      "sha256": "01d259597b19f57eaa6efa9e97618eec8ea96f15143300e116514eef2b6fbb3f"
+    },
+    {
+      "path": "assets/icons/qr-visita-ja-registrada.svg",
+      "bytes": 835,
+      "sha256": "ac46dee74de3b322f134b63de149f1ba62b1999d37bbe7781ab9d3b6e3067711"
+    },
+    {
+      "path": "assets/icons/roteiro-adicionar-parada.svg",
+      "bytes": 423,
+      "sha256": "cfbc96d08d6c584aa770cfbbb3151c495d6666d1dbb1be66f6193b1cdea14750"
+    },
+    {
+      "path": "assets/icons/roteiro-alternativa.svg",
+      "bytes": 458,
+      "sha256": "6606bcea92f64ae6494238ffcabac088ce50d15db3994c515e7b2ab25608e983"
+    },
+    {
+      "path": "assets/icons/roteiro-arrastar.svg",
+      "bytes": 484,
+      "sha256": "8f4882f97d67030efbd33eba7c001e4988b1b797dba39ab157b2722616793e8b"
+    },
+    {
+      "path": "assets/icons/roteiro-autosave.svg",
+      "bytes": 449,
+      "sha256": "5943ee9f078229234f141c399378ce92fe4d58277554ac49c0d9dee5866e06d8"
+    },
+    {
+      "path": "assets/icons/roteiro-desbloquear.svg",
+      "bytes": 449,
+      "sha256": "5a2866b7a9c53cf95a04633327bae32524cd6456b6506179cf75430045006220"
+    },
+    {
+      "path": "assets/icons/roteiro-editar.svg",
+      "bytes": 378,
+      "sha256": "f74934d3f52e6000641cbf2c20d6dabeff7ef1ceb35ccb9b530b2834445abe7c"
+    },
+    {
+      "path": "assets/icons/roteiro-fechado-no-horario.svg",
+      "bytes": 978,
+      "sha256": "f7917aca7d04e43dac77e8abcfc0a0524b8691a601908f86fa4e191293497a40"
+    },
+    {
+      "path": "assets/icons/roteiro-fixar-parada.svg",
+      "bytes": 439,
+      "sha256": "0f782f076f2faf5d6d45636f4b23b9518188edeeb0385748cf5c73745edd5740"
+    },
+    {
+      "path": "assets/icons/roteiro-mover.svg",
+      "bytes": 424,
+      "sha256": "0b26b75df53d79f7499919e56839dd530137103cbee2d4bdd1615cbb699017df"
+    },
+    {
+      "path": "assets/icons/roteiro-remover.svg",
+      "bytes": 354,
+      "sha256": "cc75b3ff0634a775892b65df3daa68b60a07b18991f4a2cb878a8b5402d1ddb6"
+    },
+    {
+      "path": "assets/icons/roteiro-reorganizar.svg",
+      "bytes": 408,
+      "sha256": "cd4d4d889a17653672e8231caca18f67458f4d81c4433d0fee703ef11024fd65"
+    },
+    {
+      "path": "assets/icons/roteiro-salvar.svg",
+      "bytes": 380,
+      "sha256": "57d584fbc8a209b227568438b9ff7c26c3b8b11f9757684023777d853cabdcbe"
+    },
+    {
+      "path": "assets/icons/roteiro-trocar.svg",
+      "bytes": 392,
+      "sha256": "73a3a918c50024a335c3b2284f3544a79ab294d59d6364b270f07428feadee4b"
+    },
+    {
+      "path": "assets/icons/roteiro.svg",
+      "bytes": 568,
+      "sha256": "6954efb70bcd5625dd6bbf2c7beda008993e235818bb2b65c02d2fa19ffcaf9e"
+    },
+    {
+      "path": "assets/icons/sistema.svg",
+      "bytes": 501,
+      "sha256": "031617b8edd53eeca0a0e25311d542c2c42e4a084b3c20667e6af9148463fdae"
+    },
+    {
+      "path": "assets/icons/sol.svg",
+      "bytes": 420,
+      "sha256": "d0fa32b830e472df2e8a4edbfc74202b38f68fd9cfc99d470d77a6ff6d534a09"
+    },
+    {
+      "path": "assets/icons/voltar.svg",
+      "bytes": 332,
+      "sha256": "48485dc4eacfb9c7298516a99649397616e816f9e36d7a0d5b1c78d2c07f471c"
+    },
+    {
+      "path": "assets/placeholders/avatar.svg",
+      "bytes": 401,
+      "sha256": "718811d866f370412882fe27c578e4abfd6d57c1dc0c358fe260683d3c8f5633"
+    },
+    {
+      "path": "assets/placeholders/card.svg",
+      "bytes": 402,
+      "sha256": "09cab1982916778730f588735eba40b985222a9f63ef68fdc6da3f9bf3440753"
+    },
+    {
+      "path": "assets/placeholders/gallery.svg",
+      "bytes": 405,
+      "sha256": "896886f3a34b1993b7ada8a5e4dd0abc9d0e836d2fbf3a094f6ecf742967920a"
+    },
+    {
+      "path": "assets/placeholders/hero.svg",
+      "bytes": 403,
+      "sha256": "f0d8c8866165de6322b577423671f118cb71422565440bd3331229dfef9a0a79"
+    },
+    {
+      "path": "assets/stock/01-mirante-vale-araucarias.jpg",
+      "bytes": 124439,
+      "sha256": "753cae8d83f6457bed34a339971fe6b190f6e8abb966b87856a5ca52bc84a44d"
+    },
+    {
+      "path": "assets/stock/02-jardim-nascentes.jpg",
+      "bytes": 338477,
+      "sha256": "8d489385671b697dc6511dcaa464e455f064d03a5a7edff103190e0a3229f5cd"
+    },
+    {
+      "path": "assets/stock/03-centro-cultural.jpg",
+      "bytes": 135433,
+      "sha256": "5b61dc98f503b514fbb165f5177c819bd3593a97345fc60fea65e31f59d12b01"
+    },
+    {
+      "path": "assets/stock/04-cafe-neblina-alta.jpg",
+      "bytes": 183517,
+      "sha256": "b8d0b2c1dc0655b755a5357ed8e05000fb846c547ffe02a42c190daa005fef6a"
+    },
+    {
+      "path": "assets/stock/05-bistro-estacao-verde.jpg",
+      "bytes": 134648,
+      "sha256": "54b8469c1f54637cd910e4ea1561eacb15b744d4804f6073064a692ce1795d48"
+    },
+    {
+      "path": "assets/stock/06-atelie-pedra-folha.jpg",
+      "bytes": 192242,
+      "sha256": "9ec9cab1d0335074e7a6e0be727d6f065ce602b4cd774dcb6912faae7f6bcfbb"
+    },
+    {
+      "path": "assets/stock/07-casa-mel-serra.jpg",
+      "bytes": 144857,
+      "sha256": "a96133816e7427b9113a8fa4ccef41904e05820c15e33da59179c237b68bf187"
+    },
+    {
+      "path": "assets/stock/08-bem-estar-aguas-claras.jpg",
+      "bytes": 224786,
+      "sha256": "2205ad7ab98dc53706d110bc2fbc3bbafb46ab45c97058f40acc91eacec46258"
+    },
+    {
+      "path": "assets/stock/README.md",
+      "bytes": 403,
+      "sha256": "80d6ef86597fdd727e6632167d4fc4d1662563f18356ce1b18a123ced95b140a"
+    },
+    {
+      "path": "assets/stock/SOURCES.json",
+      "bytes": 2265,
+      "sha256": "6c843f0da44e7337b382c147e70fbaf9371b73dd9a5215dd2ac9808387c4f450"
+    },
+    {
+      "path": "assets/tourism/README.md",
+      "bytes": 587,
+      "sha256": "bff4f09700dae5e9cbfa2f8bedc6bda5b63486b685764717a863db2afc0c2b03"
+    },
+    {
+      "path": "assets/tourism/SOURCES.json",
+      "bytes": 3802,
+      "sha256": "dda6caf3d2b93c6fa601da3bda59e15ad39a36036b5861402b8de0bd7f31a5f4"
+    },
+    {
+      "path": "assets/tourism/feira-artesanato.jpg",
+      "bytes": 192242,
+      "sha256": "9ec9cab1d0335074e7a6e0be727d6f065ce602b4cd774dcb6912faae7f6bcfbb"
+    },
+    {
+      "path": "assets/tourism/fontana-di-trevi.jpg",
+      "bytes": 135433,
+      "sha256": "5b61dc98f503b514fbb165f5177c819bd3593a97345fc60fea65e31f59d12b01"
+    },
+    {
+      "path": "assets/tourism/igreja-nossa-senhora-rosario.jpg",
+      "bytes": 135433,
+      "sha256": "5b61dc98f503b514fbb165f5177c819bd3593a97345fc60fea65e31f59d12b01"
+    },
+    {
+      "path": "assets/tourism/mirante-alto-da-serra.jpg",
+      "bytes": 124439,
+      "sha256": "753cae8d83f6457bed34a339971fe6b190f6e8abb966b87856a5ca52bc84a44d"
+    },
+    {
+      "path": "assets/tourism/mirante-cristo-redentor.jpg",
+      "bytes": 124439,
+      "sha256": "753cae8d83f6457bed34a339971fe6b190f6e8abb966b87856a5ca52bc84a44d"
+    },
+    {
+      "path": "assets/tourism/parque-adib-joao-dib.jpg",
+      "bytes": 338477,
+      "sha256": "8d489385671b697dc6511dcaa464e455f064d03a5a7edff103190e0a3229f5cd"
+    },
+    {
+      "path": "assets/tourism/parque-aquatico.jpg",
+      "bytes": 224786,
+      "sha256": "2205ad7ab98dc53706d110bc2fbc3bbafb46ab45c97058f40acc91eacec46258"
+    },
+    {
+      "path": "assets/tourism/parque-das-fontes.jpg",
+      "bytes": 338477,
+      "sha256": "8d489385671b697dc6511dcaa464e455f064d03a5a7edff103190e0a3229f5cd"
+    },
+    {
+      "path": "assets/tourism/parque-fonte-santo-agostinho.jpg",
+      "bytes": 338477,
+      "sha256": "8d489385671b697dc6511dcaa464e455f064d03a5a7edff103190e0a3229f5cd"
+    },
+    {
+      "path": "assets/tourism/parque-jovino-silveira.jpg",
+      "bytes": 338477,
+      "sha256": "8d489385671b697dc6511dcaa464e455f064d03a5a7edff103190e0a3229f5cd"
+    },
+    {
+      "path": "assets/tourism/praca-rotas-turisticas.jpg",
+      "bytes": 124439,
+      "sha256": "753cae8d83f6457bed34a339971fe6b190f6e8abb966b87856a5ca52bc84a44d"
+    },
+    {
+      "path": "assets/tourism/teleferico-serra-negra.jpg",
+      "bytes": 124439,
+      "sha256": "753cae8d83f6457bed34a339971fe6b190f6e8abb966b87856a5ca52bc84a44d"
+    },
+    {
+      "path": "data.js",
+      "bytes": 23426,
+      "sha256": "4e0d5a5b5d3a4b3513fb635c1adac08cd4ad6c9ec27cb738c5d3ddfdb4b0a4fe"
+    },
+    {
+      "path": "docker-compose.yml",
+      "bytes": 432,
+      "sha256": "10edd648c310a10ab44f5a931310ffb7a89affd4294840040bc24657703738db"
+    },
+    {
+      "path": "docs/ADMIN_VALIDATION_RULES.md",
+      "bytes": 1720,
+      "sha256": "ed574db2cad80e359e6584d83e9724ee2154822d954b2e7ddd28c35811ec79ca"
+    },
+    {
+      "path": "docs/GITHUB_VALIDATION_GUIDE.md",
+      "bytes": 2662,
+      "sha256": "d5852b3273a9a1dc39b12e9310392c96bd6559a93334da04d967c8cb5c8cdbff"
+    },
+    {
+      "path": "docs/MISSING_REFERENCE_ASSETS.md",
+      "bytes": 1001,
+      "sha256": "678c54e07c3f0a40b1932f3e112ed77bdc3b1646a36bceb90da98605be8746d8"
+    },
+    {
+      "path": "docs/NO_BRAND_DECISIONS.md",
+      "bytes": 1275,
+      "sha256": "41ab8c475204f8dbe99c3822628254da12e2256c6317333f6fcc6c0821cd6fb1"
+    },
+    {
+      "path": "docs/REPO_BLUEPRINT.md",
+      "bytes": 2028,
+      "sha256": "79ae39d89159e714ec3bbe4b96947a15b5fd830dc0e989e4415dd40abb0441ac"
+    },
+    {
+      "path": "docs/VALIDATION_ARCHITECTURE.md",
+      "bytes": 2795,
+      "sha256": "518a1144d7be995b371493a55a36fe8b38e8a73b01c7a40c464b1c3e01da2039"
+    },
+    {
+      "path": "docs/VALIDATION_SCOPE.md",
+      "bytes": 2907,
+      "sha256": "49a184b017630f863836afefc011895f0faebd550eec7547dea790975ce5d10c"
+    },
+    {
+      "path": "docs/decisions/ADR-001-modular-monolith.md",
+      "bytes": 888,
+      "sha256": "c4273817abc8130a9c0488357858cc84fc4f5f560894c6760ca7132d708ec8e3"
+    },
+    {
+      "path": "docs/decisions/ADR-002-admin-operational-control-plane.md",
+      "bytes": 1004,
+      "sha256": "f1829212dfcd96603d9b15d5a979263a618a898d4ce7d4e59593e5499a38605a"
+    },
+    {
+      "path": "docs/decisions/ADR-003-validation-providers.md",
+      "bytes": 774,
+      "sha256": "bb98f736891ff296ecc76f4864a95db0b610e4e15420574d5ce0b53cf259325e"
+    },
+    {
+      "path": "docs/decisions/ADR-004-environment-fallback.md",
+      "bytes": 1178,
+      "sha256": "0ba75a01ad65d28c06fbd631bfbe90e91aef64fb82ce113b629bc504fba9e1f6"
+    },
+    {
+      "path": "docs/implementation/CONSTRUCTION_RULES_STATUS.md",
+      "bytes": 2318,
+      "sha256": "ea848c85530016a5e5d4fc7b0388779f462edd8d342c4f289667036697f40275"
+    },
+    {
+      "path": "docs/validation/BLOCK-03.md",
+      "bytes": 1024,
+      "sha256": "7187a974ec3495035a39a46fa1222999f6bdd84cfb02814412e613f430c5ee1f"
+    },
+    {
+      "path": "docs/validation/BLOCK-04.md",
+      "bytes": 1034,
+      "sha256": "76685d510fdc61f1f335f6ff8356facb5bb07a5124e4d697484b4b886e8d9120"
+    },
+    {
+      "path": "docs/validation/BLOCK-05.md",
+      "bytes": 927,
+      "sha256": "27dcc205cf8177fee140ea7e09aaec879f1fc2d459e6f5f4557544a54ef84c32"
+    },
+    {
+      "path": "docs/validation/BLOCK-06.md",
+      "bytes": 2775,
+      "sha256": "02c8b87facb66490d6ef59725f2341951613b524586219790be3dd4a83b9084b"
+    },
+    {
+      "path": "docs/validation/BLOCK-07.md",
+      "bytes": 2671,
+      "sha256": "0560096e8480e8b4c9171e6240c14b2050f7037e37bcc8eb2b20d5e5ca211ef4"
+    },
+    {
+      "path": "docs/validation/BLOCK-08.md",
+      "bytes": 4121,
+      "sha256": "dc18fea1c1444a8bbbb43cabbdb7d9e17ccaf6992d3203fd7adc71c544c010f3"
+    },
+    {
+      "path": "docs/validation/GITHUB_REPOSITORY_AUDIT.md",
+      "bytes": 3104,
+      "sha256": "89c1fafe78a31ba75d629e0cf7d6742534975e7fd90807af5e7f2d01a6a25086"
+    },
+    {
+      "path": "docs/validation/IMPLEMENTATION_INVENTORY.md",
+      "bytes": 2327,
+      "sha256": "cb8c715c2612adb7fba0b5f838c6f8d4f1ceb511e6c5780825d50478a1481898"
+    },
+    {
+      "path": "docs/validation/VISUAL-V2.md",
+      "bytes": 3430,
+      "sha256": "7f7187e6c19341edfe3457f83a22474233b03dd18130d2f821890defdd3b4a67"
+    },
+    {
+      "path": "docs/validation/screenshots-overview.jpg",
+      "bytes": 239984,
+      "sha256": "741af9084e43729d9af96e6a6ca0c4f5fd1830c9cacf6e9e2f8c946cae2e8584"
+    },
+    {
+      "path": "docs/visual/PALETA_OFICIAL.md",
+      "bytes": 1563,
+      "sha256": "86324c2f2c4e3ad080e153bf8b1476cc8073a837c7d6338e72c91c18664f1cc8"
+    },
+    {
+      "path": "drizzle/0000_validation.sql",
+      "bytes": 965,
+      "sha256": "2a83a7bcf1779d8f2ea883175152faed9dfa16ceb4f52fc8ac5259c9eb81ff97"
+    },
+    {
+      "path": "drizzle.config.ts",
+      "bytes": 253,
+      "sha256": "15ef17a6cb3b9ceec1bc2b73cbf3b3a17f80984ffa03e7e24cd05a366c2970ca"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "bytes": 346,
+      "sha256": "2898617f56d88a51a932d1afe79e026b6d0b82734730c481ce3d8512c2f61174"
+    },
+    {
+      "path": "index.html",
+      "bytes": 4159,
+      "sha256": "ec80bcdeb25cc33978950086b4880beb9f9c542093c3cba02396966ffc71dab6"
+    },
+    {
+      "path": "lugares/feira-de-artesanato-serra-negra/index.html",
+      "bytes": 457,
+      "sha256": "e3d688630c3a771dd2c60edfda8f7d3b498726b2d9ce7dc028c49b690c593c90"
+    },
+    {
+      "path": "lugares/fontana-di-trevi-serra-negra/index.html",
+      "bytes": 451,
+      "sha256": "0db274cb71a363b14d01d2dba4b445d2d310d7d53b217ac105ffa256ae89faa0"
+    },
+    {
+      "path": "lugares/igreja-matriz-nossa-senhora-do-rosario/index.html",
+      "bytes": 471,
+      "sha256": "92612b331cd161549cc1fd96c865d975414d91250e372f43c4ca2c498a33d20b"
+    },
+    {
+      "path": "lugares/index.html",
+      "bytes": 433,
+      "sha256": "9a23a3c7cba2786b0e8940a2c3971f10c5fff1a680410291921cca2acbf5010b"
+    },
+    {
+      "path": "lugares/mirante-alto-da-serra/index.html",
+      "bytes": 437,
+      "sha256": "2acfc04578e352af3e63b1d0f132cb15fbb397a6ca03c1655859b5f0c3702031"
+    },
+    {
+      "path": "lugares/mirante-cristo-redentor/index.html",
+      "bytes": 441,
+      "sha256": "88a0d9d1995887d2d41abaa2050bfeae5056ca08a99b18f53ca9b40bdd1a449f"
+    },
+    {
+      "path": "lugares/parque-aquatico-municipal/index.html",
+      "bytes": 445,
+      "sha256": "478537a5b59093a1b4341ade7f5e044db3339fa8fc4a3613549ce557c57b3f47"
+    },
+    {
+      "path": "lugares/parque-das-fontes/index.html",
+      "bytes": 429,
+      "sha256": "70eb01f51d5f4ee91881e3cecd7f4b461266619e2373d6b80d318cf8471043fa"
+    },
+    {
+      "path": "lugares/parque-ecologico-adib-joao-dib/index.html",
+      "bytes": 455,
+      "sha256": "80ced504b787427e5f87dbde6b7c49fe0a7a2622e7ecdb820c5c37d76bcde47c"
+    },
+    {
+      "path": "lugares/parque-ecologico-dr-jovino-silveira/index.html",
+      "bytes": 465,
+      "sha256": "12e0aa99c2624acf5ce3f64aca71a33b203bc95727f9188b701d8cb3ea0ec570"
+    },
+    {
+      "path": "lugares/parque-fonte-santo-agostinho/index.html",
+      "bytes": 451,
+      "sha256": "491547dfb8f1f4842af3f3ac153c16f64d4d81de713053126227b55110cad114"
+    },
+    {
+      "path": "lugares/praca-das-rotas-turisticas/index.html",
+      "bytes": 447,
+      "sha256": "76bc8500943859c2dc13deb2c9e03629a0b6905866cfefccd3405061b283d498"
+    },
+    {
+      "path": "lugares/teleferico-serra-negra/index.html",
+      "bytes": 439,
+      "sha256": "7e59983d03e1dc6507ebd72a331cc9d2a66771dd5e00fa53bd2c024a6bcfea8d"
+    },
+    {
+      "path": "next-env.d.ts",
+      "bytes": 296,
+      "sha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc"
+    },
+    {
+      "path": "next.config.ts",
+      "bytes": 280,
+      "sha256": "85addfd584e0a5ba30427909955cabba1eeb0e6c24070e578d449561d52d6a1f"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 272861,
+      "sha256": "338799f012a1778e07719279c06b25cccfcd4b70b8706cb7ad060c30e909d706"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1143,
+      "sha256": "6609bb24d169b24c740a7bc6a20719ba14ae95449d71a6cf558a1288a86facdc"
+    },
+    {
+      "path": "para-parceiros/index.html",
+      "bytes": 327,
+      "sha256": "eaf3b1828b3f6827ea657ed528d89d8f62722bab6c0e3edefce5680010955dc9"
+    },
+    {
+      "path": "parceiros/index.html",
+      "bytes": 374,
+      "sha256": "6f3aa159e5be5bc740088a960f112baa3ffe70363fc53b2aa89206e1052d52f7"
+    },
+    {
+      "path": "partners-page.css",
+      "bytes": 16942,
+      "sha256": "cf1ad925f41c43905364ad6a3e6f5f8b71808d3353ac86b939aa224dde2f7bd2"
+    },
+    {
+      "path": "partners-page.js",
+      "bytes": 14351,
+      "sha256": "ee258948ae981862d2f040527a0a8ef3fb28e23756c41231df0601cfa9419658"
+    },
+    {
+      "path": "playwright.config.ts",
+      "bytes": 643,
+      "sha256": "b6d232dbb96f507eb969ac8ff44960cc89a0affa629bc24cd040247e738ebcca"
+    },
+    {
+      "path": "public/icons/admin-arquivar.svg",
+      "bytes": 456,
+      "sha256": "61d0f3fe154a0d6ee3d52fafb85248b0dc79d4db98023285534107e0c0ff9d9c"
+    },
+    {
+      "path": "public/icons/admin-auditoria.svg",
+      "bytes": 465,
+      "sha256": "a60fba7837d8d4ac9f4ff46a856540231dc742bc8baecb071b32ebfa9ea96cf9"
+    },
+    {
+      "path": "public/icons/admin-circulacao-territorial.svg",
+      "bytes": 578,
+      "sha256": "131c8a6367c5bc25930417da93c7a9b2f328c9633017a276763c390d04d922bc"
+    },
+    {
+      "path": "public/icons/admin-comparar-versoes.svg",
+      "bytes": 610,
+      "sha256": "27f14ebefc9440dc3533bd95feca61f3e56b6574b24dd828eb1b5d812a0fa968"
+    },
+    {
+      "path": "public/icons/admin-configuracoes.svg",
+      "bytes": 928,
+      "sha256": "5547faf8ea9ba868a644312e9d095ad2abbd1b8e1b3f58a39e61475f9c03e4c9"
+    },
+    {
+      "path": "public/icons/admin-conteudo-cms.svg",
+      "bytes": 397,
+      "sha256": "9b271a613369a300e80fd88103982129b8f81b29ecf32f49570231da00d6488a"
+    },
+    {
+      "path": "public/icons/admin-dashboard.svg",
+      "bytes": 670,
+      "sha256": "ac0738d002d9edefcd3e79924b9d2b2697c419bcd36b3fc16ce9631d34669878"
+    },
+    {
+      "path": "public/icons/admin-editar-localizacao.svg",
+      "bytes": 579,
+      "sha256": "978abb9bba66347c7cfb49b4f280f143a1c005e4ecd8b6a142e81e1823a5a7a8"
+    },
+    {
+      "path": "public/icons/admin-exportar.svg",
+      "bytes": 411,
+      "sha256": "646dd976ffd0f7fc7435d2175179eb0efee7d42c3776722155f1b783ec36dcb5"
+    },
+    {
+      "path": "public/icons/admin-fontes.svg",
+      "bytes": 344,
+      "sha256": "891f30a11e667ae960137881eb0c631d25e31d77e350ff017c83a075302a584d"
+    },
+    {
+      "path": "public/icons/admin-publicar.svg",
+      "bytes": 401,
+      "sha256": "e97da4c0e44a420fcd31d5f8be6e00ad70dbba3ad512ce70152ff80202fecd54"
+    },
+    {
+      "path": "public/icons/admin-rascunho.svg",
+      "bytes": 464,
+      "sha256": "eb6805119dcf714ad00f83eb896680d1039dbf82b941fa13dfb9e7b5ce033fb3"
+    },
+    {
+      "path": "public/icons/admin-registro-de-secoes.svg",
+      "bytes": 669,
+      "sha256": "843b77010531433cb9a395170f2f4ab2202c77da742d75906850f0249b5f2d78"
+    },
+    {
+      "path": "public/icons/admin-sankey-jornada.svg",
+      "bytes": 506,
+      "sha256": "ecf136e125a528e559ae268ea81562def519be863c9292028990e2e959b4e525"
+    },
+    {
+      "path": "public/icons/admin-secoes.svg",
+      "bytes": 396,
+      "sha256": "94d1c160d19b5ff1998c0251c50fe7272855b014df23a7770900fb76e276ad14"
+    },
+    {
+      "path": "public/icons/avancar.svg",
+      "bytes": 336,
+      "sha256": "703d68392555ea3d6058aeb1cba156f26b28fa277022790437f94abdf134ac63"
+    },
+    {
+      "path": "public/icons/busca.svg",
+      "bytes": 345,
+      "sha256": "7be4664783b723c47c832590fded0f375279b917c4a476ae571057cd9332ffaa"
+    },
+    {
+      "path": "public/icons/calendario-atividade-planejada.svg",
+      "bytes": 564,
+      "sha256": "db41e09553cbb532ae3cfc463089dbd60694844ea1d9840cd1555255374251ac"
+    },
+    {
+      "path": "public/icons/calendario-dia.svg",
+      "bytes": 455,
+      "sha256": "4a5bb51f737472fdb514e3fd8766056996bd9e15d1174a4dd3e5bc9630050608"
+    },
+    {
+      "path": "public/icons/calendario-espaco-livre.svg",
+      "bytes": 480,
+      "sha256": "b59e70e49de4cad1f7ac55f0ebb2812984b88c40a2796611b9e64d576a9d6658"
+    },
+    {
+      "path": "public/icons/calendario-filtro.svg",
+      "bytes": 384,
+      "sha256": "6c9d9f9b504c8703cadba8a8977499a5de7add126caa535f6ec4adc60a12d05f"
+    },
+    {
+      "path": "public/icons/calendario-hoje.svg",
+      "bytes": 482,
+      "sha256": "da8424b108721c0e2618a810f3dc2180d3ee4eb9364a21dffa366f7e2903d341"
+    },
+    {
+      "path": "public/icons/calendario-mes.svg",
+      "bytes": 1058,
+      "sha256": "3c3db762c42a4b29115af654d6c01dd1358cae83e3ffc9c46817e65e0bd6dc2c"
+    },
+    {
+      "path": "public/icons/calendario-presenca-registrada.svg",
+      "bytes": 553,
+      "sha256": "4c1a3f2b42bdf14aa10d69499f97af944ecc9a844db1a4c1c940e253382b762f"
+    },
+    {
+      "path": "public/icons/calendario-semana.svg",
+      "bytes": 729,
+      "sha256": "1153517165b0f8e7ddf0ccbf144e4812fae9f7199b4a925cf4e3219a53e8633b"
+    },
+    {
+      "path": "public/icons/calendario.svg",
+      "bytes": 933,
+      "sha256": "d14ed314082faab86d733fb2923c4f51e7c41716a65be6809b588bb8d2068def"
+    },
+    {
+      "path": "public/icons/chevron-baixo.svg",
+      "bytes": 343,
+      "sha256": "496101a2181182b27d5c41b9197f782b7ee70c960fda80ee09ae1b3537a4b478"
+    },
+    {
+      "path": "public/icons/chevron-cima.svg",
+      "bytes": 340,
+      "sha256": "865c5dec5c228cca37eedfb629bc515a71ac31b06c8e033236fb4d2f32d9819b"
+    },
+    {
+      "path": "public/icons/chevron-direita.svg",
+      "bytes": 349,
+      "sha256": "ce442dff4870f68043cc9be18595d15f1f7f83ee36e768fcefe97d64a81e83cb"
+    },
+    {
+      "path": "public/icons/chevron-esquerda.svg",
+      "bytes": 352,
+      "sha256": "207cf51a62fe821854a85e515eb2e064ba52c6c193d6ac2b6ba250a71308f75a"
+    },
+    {
+      "path": "public/icons/clima-chuva-intensa.svg",
+      "bytes": 570,
+      "sha256": "7ea658624689480cc58a016b2b94f559034899ae6fcf46b99e3b7f899c6fbc3d"
+    },
+    {
+      "path": "public/icons/clima-chuva.svg",
+      "bytes": 488,
+      "sha256": "b59704c029daaf5f97dad397e4981aa6d785521731a5475cdb6d280ec3ed7b49"
+    },
+    {
+      "path": "public/icons/clima-frio.svg",
+      "bytes": 454,
+      "sha256": "2526b78012d29532ae73f363ebbe8e8b695a2e2e10ecff7478a0fd5fbe2bf62b"
+    },
+    {
+      "path": "public/icons/clima-guarda-chuva.svg",
+      "bytes": 422,
+      "sha256": "c91beb5dc9c04db5a216c5abb496d67566acfd33958b66a99502df88bdcf397a"
+    },
+    {
+      "path": "public/icons/clima-nublado.svg",
+      "bytes": 374,
+      "sha256": "2016593a52c8dc992928b09ec2eba706ac1470178bae62233aa88c96c958b882"
+    },
+    {
+      "path": "public/icons/clima-parcialmente-nublado.svg",
+      "bytes": 496,
+      "sha256": "b54e1a5d3f50f084a43930ba6b4a5bfe87bcb434b1ea0e483b927bd4cb8a53e1"
+    },
+    {
+      "path": "public/icons/clima-sensacao-termica.svg",
+      "bytes": 548,
+      "sha256": "86e3f35a7f47d22c514f3fbadac56ec33ef834eebed62c635fd8dd2e1afd937a"
+    },
+    {
+      "path": "public/icons/clima-temperatura.svg",
+      "bytes": 407,
+      "sha256": "dc715802b7a5e4d93d7f9ec6276bdfc84e83469f9fd0a49d8ef75ea3653ea346"
+    },
+    {
+      "path": "public/icons/clima-tempestade.svg",
+      "bytes": 415,
+      "sha256": "2b712c5ac641062bff8caecf0a6cd203c4aaf94d9f423ec17ee9760ca3d17347"
+    },
+    {
+      "path": "public/icons/clima-umidade.svg",
+      "bytes": 391,
+      "sha256": "47e6a49865784311e83ec938315ae1bd6e58c42106ce685ce1c1354104cf7d3d"
+    },
+    {
+      "path": "public/icons/clima-vento.svg",
+      "bytes": 414,
+      "sha256": "39f810285412c84c5385b77b2fb6c351b681cc96ed1df240e3f80158cb9915b4"
+    },
+    {
+      "path": "public/icons/compartilhamento-copiar-link.svg",
+      "bytes": 429,
+      "sha256": "f145fbba26c6c7ece17cc23d92e0b741adf5d89cfc76c1d4297111349af44cbe"
+    },
+    {
+      "path": "public/icons/compartilhamento-dobra.svg",
+      "bytes": 353,
+      "sha256": "a025216af30950062caa8d0e445d8b8c65cef3420164ff051040a52d950b6449"
+    },
+    {
+      "path": "public/icons/compartilhamento-feed-vertical.svg",
+      "bytes": 519,
+      "sha256": "ea3ce994d9d4666ef4f1050c3c78306b0179d36581758969e5630bf826c80943"
+    },
+    {
+      "path": "public/icons/compartilhamento-ocultar.svg",
+      "bytes": 434,
+      "sha256": "3e2670b43eca737701212df892dbded1e82c548685df7c4cfff02ae2acd104da"
+    },
+    {
+      "path": "public/icons/compartilhamento-quadrado.svg",
+      "bytes": 363,
+      "sha256": "27cae1b8af18290a3876d23097d3fc4312640f6b05968295669f27bf97967e44"
+    },
+    {
+      "path": "public/icons/compartilhamento-salvar-imagem-exportar.svg",
+      "bytes": 511,
+      "sha256": "9e222055fddd153e6ebb585bf0fb62a49dbeeba49345c807b418c864643737c9"
+    },
+    {
+      "path": "public/icons/compartilhamento-story.svg",
+      "bytes": 418,
+      "sha256": "b2da25315c6318bb30fe56b95eb54fa658b927d28157df52f29fd25029c3d887"
+    },
+    {
+      "path": "public/icons/compartilhar.svg",
+      "bytes": 443,
+      "sha256": "21266e77daf53b73542d40bd127db9f570936238e93ab6420ceef4c84c51f348"
+    },
+    {
+      "path": "public/icons/conta.svg",
+      "bytes": 379,
+      "sha256": "3bc1324c065d0f01ed9329fbbfbd32db44e3f0b9258fa8961553cae298375b32"
+    },
+    {
+      "path": "public/icons/explorar.svg",
+      "bytes": 367,
+      "sha256": "950ab148530e6a326ff74375691ea5bcd492cfb7a3b47a1f9b503119bd254638"
+    },
+    {
+      "path": "public/icons/fechar.svg",
+      "bytes": 329,
+      "sha256": "b084120182d2f20353dbe727a54cd074b5a71a106b789249eaf52e3fb922294c"
+    },
+    {
+      "path": "public/icons/home.svg",
+      "bytes": 422,
+      "sha256": "1dc2ebc06539166750edec292d5fa5f806ae2f7da98178aa6d020f9fbcd66f69"
+    },
+    {
+      "path": "public/icons/idioma.svg",
+      "bytes": 397,
+      "sha256": "71f313fcacff90074cd260448ccd4a241203a3587aed485eb157af7f393f312d"
+    },
+    {
+      "path": "public/icons/link-externo.svg",
+      "bytes": 402,
+      "sha256": "4f055a9a7aace4de9a09888d9fb0fef7f1ea189033d80d4cecf677396dc21162"
+    },
+    {
+      "path": "public/icons/lua.svg",
+      "bytes": 395,
+      "sha256": "89057ec6dd432f1186ccaccfc91add564c192b267296ebc48a59fa60c76abd93"
+    },
+    {
+      "path": "public/icons/lugar-animais.svg",
+      "bytes": 554,
+      "sha256": "8996dea45e10e92ebbb09bc5e7af1c69e7847b94d8a71c4120c10992d33764c4"
+    },
+    {
+      "path": "public/icons/lugar-direcoes.svg",
+      "bytes": 393,
+      "sha256": "bcaeab05df608996de4be173898fcf544b20ccd2b29de98ca3edf10363c90b85"
+    },
+    {
+      "path": "public/icons/lugar-distancia.svg",
+      "bytes": 706,
+      "sha256": "b254a1e2e6ad4fd3d5978ac9a4d99d8744c90d8f6e6c7037499b7d8cdaeced8b"
+    },
+    {
+      "path": "public/icons/lugar-duracao-sugerida.svg",
+      "bytes": 437,
+      "sha256": "dbba58065ec37bc560b1bd1324031beb799b542eaf643eae3523774a34d51635"
+    },
+    {
+      "path": "public/icons/lugar-estacionamento.svg",
+      "bytes": 409,
+      "sha256": "84c32ff65891edb2dd664e74a9b5c0258d0274d87895c62f94f33c3768b3b7c0"
+    },
+    {
+      "path": "public/icons/lugar-galeria.svg",
+      "bytes": 520,
+      "sha256": "9183888e247ab40f2e3cf8b3a28968e05b1371aee2eeba9f4a206a7ccdb65c8b"
+    },
+    {
+      "path": "public/icons/lugar-horario.svg",
+      "bytes": 358,
+      "sha256": "cbaa0fa0c5fecc4a707b94f48b3d558a5718d5bf23d037f04c515278dc5dd631"
+    },
+    {
+      "path": "public/icons/lugar-informacao.svg",
+      "bytes": 436,
+      "sha256": "b91df23b3a47c930f2cd1b89c1f435f7f3c1f86ac2ead8ebe8655b2470dfeef7"
+    },
+    {
+      "path": "public/icons/lugar-instagram.svg",
+      "bytes": 452,
+      "sha256": "f8aa0336e883021a75405eaa443cb58f8629a5ff03d425598f31fa77b39ddc1f"
+    },
+    {
+      "path": "public/icons/lugar-localizacao.svg",
+      "bytes": 412,
+      "sha256": "9d458d447f317082aa2bf2cb7b66cd60322e5da47cf683e74c5675045cdd5559"
+    },
+    {
+      "path": "public/icons/lugar-outdoor.svg",
+      "bytes": 407,
+      "sha256": "32147d5548c417c4b24c2596f154c33a9f61732f71b36769ac1beb31e9fd0fa3"
+    },
+    {
+      "path": "public/icons/lugar-reserva-externa.svg",
+      "bytes": 452,
+      "sha256": "35ee1cc5bbd4edd8846a5c354d86e1573d0d30419e7ec5e95be569388cd3b593"
+    },
+    {
+      "path": "public/icons/lugar-restricao.svg",
+      "bytes": 359,
+      "sha256": "c846904febb77c6846e7bf167a813e67097ea92909c3b4387b945fb6a9da914d"
+    },
+    {
+      "path": "public/icons/lugar-sem-custo.svg",
+      "bytes": 359,
+      "sha256": "fd3487608b985ea33994b494c604f63731903d588e06644c0942a52c3df31931"
+    },
+    {
+      "path": "public/icons/lugar-telefone.svg",
+      "bytes": 415,
+      "sha256": "abdd93ac706bc834ef3fdadb8b8bc1efd4d2cfb699c89aac62dbca66973df369"
+    },
+    {
+      "path": "public/icons/lugar-tempo-de-resposta.svg",
+      "bytes": 520,
+      "sha256": "d1b6051e5fbd4fc9f32d19292fcc6f671be1dad85d17a7b2ead86ceaa389c110"
+    },
+    {
+      "path": "public/icons/lugar-ver-fotos.svg",
+      "bytes": 378,
+      "sha256": "954b217e6519340d37aff372f905e6a000c82c1ae7298a283abf2f933f88129e"
+    },
+    {
+      "path": "public/icons/lugar-whatsapp.svg",
+      "bytes": 529,
+      "sha256": "175320c882dd3277895ed4ee22f9cdac030e0d7bb9f828e1c1ddc0728559ee5f"
+    },
+    {
+      "path": "public/icons/mais-opcoes.svg",
+      "bytes": 510,
+      "sha256": "3791294036d76ba1807738f1598585fb20911ef8064d15b4684e2aa9eab27e35"
+    },
+    {
+      "path": "public/icons/mapa-abrir-navegacao.svg",
+      "bytes": 351,
+      "sha256": "c46a25917dcdd4937fc9a433eee31e97b3230028d215fd6972d1b51cccbc1dc4"
+    },
+    {
+      "path": "public/icons/mapa-adicionar-ao-roteiro.svg",
+      "bytes": 387,
+      "sha256": "8a0f74f66c846eabfeef9cfe70a7831f94c8bca129d8aa262feb1534c4f69f05"
+    },
+    {
+      "path": "public/icons/mapa-buscar-nesta-area.svg",
+      "bytes": 449,
+      "sha256": "ba589f02e91dbba898fc8594d83ebf754d23becd4b1d08cb2c376cd62b5dcd53"
+    },
+    {
+      "path": "public/icons/mapa-centralizar.svg",
+      "bytes": 418,
+      "sha256": "fc05536e821843d7ccce45bd67bcb8713edfa74ae9503fe18e1cdb55798cf402"
+    },
+    {
+      "path": "public/icons/mapa-destino.svg",
+      "bytes": 526,
+      "sha256": "3c7647eac5a716768556eebbe7fcb5ca359c4ae17bbfbef7a1936b609534761b"
+    },
+    {
+      "path": "public/icons/mapa-experiencia-autonoma.svg",
+      "bytes": 535,
+      "sha256": "cd674937f032991d944c571538f25c9dccf3dfce836037f79b259886fc15f070"
+    },
+    {
+      "path": "public/icons/mapa-lista.svg",
+      "bytes": 552,
+      "sha256": "efe1c8ad0e4c2839c1454f323b904bcdb95a5aa30ac174e0e9cddbfa715a7ffd"
+    },
+    {
+      "path": "public/icons/mapa-localizacao-usuario.svg",
+      "bytes": 450,
+      "sha256": "c81210cf3dfbf505b6fda1c70b7463c389c59955f8ecc379efd4fab7de5d0e35"
+    },
+    {
+      "path": "public/icons/mapa-origem.svg",
+      "bytes": 523,
+      "sha256": "44684af85a5d18ed8e13d0bab68b571efb7219719a3c17b338f4cd3b0112267e"
+    },
+    {
+      "path": "public/icons/mapa-outro-lugar-listado.svg",
+      "bytes": 562,
+      "sha256": "2c6e4b4c4c5c767eb348c10852f7374c6af4f52133d9fd209d5898e24640547a"
+    },
+    {
+      "path": "public/icons/mapa-ponto-turistico.svg",
+      "bytes": 387,
+      "sha256": "4f93673579fcf6be1d6145bb747c9d09688fab2e2dd1b0d637ecc07b19e9aa46"
+    },
+    {
+      "path": "public/icons/mapa.svg",
+      "bytes": 415,
+      "sha256": "c37b04b7be47c96e11f2fce1a274449ccb71c1335bd0c7f2197e8c8269593d28"
+    },
+    {
+      "path": "public/icons/menu.svg",
+      "bytes": 327,
+      "sha256": "1cd54c0732fdf81a8642c0ee0a43df259f2247d78b84dd35560e7d03a129a2e5"
+    },
+    {
+      "path": "public/icons/parceiro-ajustado.svg",
+      "bytes": 469,
+      "sha256": "1af09a80bc538be9cb57de69717cee03bfba6c042a0da3d12a3a0d339016f8c8"
+    },
+    {
+      "path": "public/icons/parceiro-cancelado.svg",
+      "bytes": 376,
+      "sha256": "d6ada3cd446e31f95a32f93b97592b99f2444520262b75dc75374c21441425b2"
+    },
+    {
+      "path": "public/icons/parceiro-desempenho.svg",
+      "bytes": 462,
+      "sha256": "96baf94e6479ab69e755f6fe8663b3cd043cfd8caf42101a3b7848e88971138a"
+    },
+    {
+      "path": "public/icons/parceiro-requer-solicitacao.svg",
+      "bytes": 775,
+      "sha256": "045a2a99a21d9c72e842178dab17f1cb48c8dd8b9ea2a86fbcd40bf276580fd2"
+    },
+    {
+      "path": "public/icons/parceiro-solicitacoes.svg",
+      "bytes": 401,
+      "sha256": "5ab6042a287e4b5b6c0b435a2bdd721196fb91d0cad7250bbe2951956ffaf55b"
+    },
+    {
+      "path": "public/icons/parceiro-visita-registrada.svg",
+      "bytes": 517,
+      "sha256": "7cb7ecbdbb1a589816fc73c07dfafd141395dc62f5d114ccc9a21e243df5318f"
+    },
+    {
+      "path": "public/icons/parceiro-visitantes.svg",
+      "bytes": 519,
+      "sha256": "b3ff94b133e91d96a943f48eba0766cd424aea343db146cab65ba0d622227356"
+    },
+    {
+      "path": "public/icons/parceiros.svg",
+      "bytes": 535,
+      "sha256": "902513e3e93b4d4675bf961a57b669d5b7b27f9db5096a1a3ebdc6dae8f2fe8b"
+    },
+    {
+      "path": "public/icons/passaporte-categorias.svg",
+      "bytes": 515,
+      "sha256": "c4ce6a0cc8925f736f8fa92745d920fa0f73b253bdb731bbd1032332d4ee04ca"
+    },
+    {
+      "path": "public/icons/passaporte-compartilhar-ticket.svg",
+      "bytes": 547,
+      "sha256": "1c48782490ff5a9c958a618456aee99993a88c221ccb4e91de29fdbab78b4aac"
+    },
+    {
+      "path": "public/icons/passaporte-expandir-pagina.svg",
+      "bytes": 487,
+      "sha256": "56c053d12fb9442d2261d3f58399e082ba8243f5d22ff899510370e70d42f2b8"
+    },
+    {
+      "path": "public/icons/passaporte-historico.svg",
+      "bytes": 379,
+      "sha256": "2e39dfcd57578f7ba4f36b9ec8b1083d400ae863658096f84030f426a6c83718"
+    },
+    {
+      "path": "public/icons/passaporte-indice.svg",
+      "bytes": 459,
+      "sha256": "ed4b86a635d70e828f9aab7d0fb95454b0aca1fe58d4e80e57b35a2dcea50f0b"
+    },
+    {
+      "path": "public/icons/passaporte-ticket.svg",
+      "bytes": 403,
+      "sha256": "9586bcfa91f1e803a3c948d075a0b3161ed15bca3e8b9f059f9037a683382f2c"
+    },
+    {
+      "path": "public/icons/passaporte-viagem.svg",
+      "bytes": 429,
+      "sha256": "2cb9819cb11c97ababcadebaeb1feb212035ccf26baae0363ad63717e88d2281"
+    },
+    {
+      "path": "public/icons/passaporte.svg",
+      "bytes": 513,
+      "sha256": "ec307826dcaec2cc1a90e9fade6719bc386bcd6c5129a1d5483248e330e73c1e"
+    },
+    {
+      "path": "public/icons/perfil-a-pe.svg",
+      "bytes": 524,
+      "sha256": "1111de9ad5bb76c0d8b5195f53b8d677d334363dbc4a1a918dad24cac4da40cb"
+    },
+    {
+      "path": "public/icons/perfil-acessibilidade.svg",
+      "bytes": 431,
+      "sha256": "8519376bfc062ad378ea5f819b4e43839a91871ea3e57f852467cb36fed28df0"
+    },
+    {
+      "path": "public/icons/perfil-amigos.svg",
+      "bytes": 491,
+      "sha256": "2788833d57ee361ff300ba37b6f0703a97114fe56decf75b7e7688d45812ebb0"
+    },
+    {
+      "path": "public/icons/perfil-carro.svg",
+      "bytes": 447,
+      "sha256": "7a2d549e8002cdf33f8a03447293d79606bc3bf8095c9fcc37deb8c2f37ff225"
+    },
+    {
+      "path": "public/icons/perfil-casal.svg",
+      "bytes": 499,
+      "sha256": "8360c50e4ae06826cbd8c10056a5f0cb22b79d431762389a7c3737a2e52ac4ce"
+    },
+    {
+      "path": "public/icons/perfil-criancas.svg",
+      "bytes": 467,
+      "sha256": "98857e3993693bfe7b28ef7835eb5106bda50076b36d06568718769dfb7a5cc6"
+    },
+    {
+      "path": "public/icons/perfil-familia.svg",
+      "bytes": 573,
+      "sha256": "348edaac9e9b4c29b6584a2c0c91e2c2c3c9dcbaed78f5cdce2e651e11f3d93a"
+    },
+    {
+      "path": "public/icons/perfil-gastar-menos.svg",
+      "bytes": 579,
+      "sha256": "757b869821f48145b4a93341c7c045329311e01a938399dfa3e7f87e4651c3b0"
+    },
+    {
+      "path": "public/icons/perfil-nao-sei.svg",
+      "bytes": 451,
+      "sha256": "93cc01b451bbe77e489ccf55fc702814edf03b968940d938498de40a287306af"
+    },
+    {
+      "path": "public/icons/perfil-nenhuma-necessidade.svg",
+      "bytes": 449,
+      "sha256": "4978b500de7243a620794cb6c036ac7813b1f8c11683aef367cda49a20b1c0a0"
+    },
+    {
+      "path": "public/icons/perfil-preferir-sem-custo.svg",
+      "bytes": 497,
+      "sha256": "0704927878c8909fbc67809ff6caccedbb90978acca6727bb03de09284f68332"
+    },
+    {
+      "path": "public/icons/perfil-relaxar.svg",
+      "bytes": 472,
+      "sha256": "fec993789da54eab0d4bcc032e104af26f7874bb58ca62f9a4891470e3a18f87"
+    },
+    {
+      "path": "public/icons/perfil-restricao-alimentar.svg",
+      "bytes": 491,
+      "sha256": "fc79d927f7adb79cad3ac343c768b7e863d99adb79857ab846ab51af20463b1d"
+    },
+    {
+      "path": "public/icons/perfil-ritmo-ativo.svg",
+      "bytes": 587,
+      "sha256": "c01d47e6ebcc6997403e82b38bfb89bb2351e660d77ac4684ae335d083f25b47"
+    },
+    {
+      "path": "public/icons/perfil-ritmo-equilibrado.svg",
+      "bytes": 442,
+      "sha256": "f3ef4d64e92757f9af293029bf29530c0a2fc228e998677a0366316193e18834"
+    },
+    {
+      "path": "public/icons/perfil-ritmo-tranquilo.svg",
+      "bytes": 529,
+      "sha256": "75e409905aeb1cd995d08a7423319450b637b852884408fa0be63a9cb0a13e97"
+    },
+    {
+      "path": "public/icons/perfil-taxi-app.svg",
+      "bytes": 480,
+      "sha256": "ba3e8d5bc9dbd251021bf0cd49eaf14ff8725abd75d9017e992cb456e3bc9b23"
+    },
+    {
+      "path": "public/icons/qr-camera.svg",
+      "bytes": 485,
+      "sha256": "2c0e4feb1ee4010d7086aa25332e376974e0f5ddc7afe8f72b5ed3955010bf09"
+    },
+    {
+      "path": "public/icons/qr-escanear.svg",
+      "bytes": 409,
+      "sha256": "0b6610a31848e652597f3067d9742aecba6f5907b5ddf78b2e458dab47224f9b"
+    },
+    {
+      "path": "public/icons/qr-offline.svg",
+      "bytes": 466,
+      "sha256": "28af94da8032801a057f6eae26c65f3ae1255288521f13410cc4a4a007488c88"
+    },
+    {
+      "path": "public/icons/qr-qr-code.svg",
+      "bytes": 914,
+      "sha256": "7e1eb1611279482995ddb5ca6d1668a68d502f16401085ecd744eeff3770df48"
+    },
+    {
+      "path": "public/icons/qr-qr-desativado.svg",
+      "bytes": 1191,
+      "sha256": "bb03f0b6e790be6bc603ecffc6e1f79c8f321f7e0fb8fd8553858d29b0b44b1f"
+    },
+    {
+      "path": "public/icons/qr-retorno.svg",
+      "bytes": 354,
+      "sha256": "01d259597b19f57eaa6efa9e97618eec8ea96f15143300e116514eef2b6fbb3f"
+    },
+    {
+      "path": "public/icons/qr-visita-ja-registrada.svg",
+      "bytes": 835,
+      "sha256": "ac46dee74de3b322f134b63de149f1ba62b1999d37bbe7781ab9d3b6e3067711"
+    },
+    {
+      "path": "public/icons/roteiro-adicionar-parada.svg",
+      "bytes": 423,
+      "sha256": "cfbc96d08d6c584aa770cfbbb3151c495d6666d1dbb1be66f6193b1cdea14750"
+    },
+    {
+      "path": "public/icons/roteiro-alternativa.svg",
+      "bytes": 458,
+      "sha256": "6606bcea92f64ae6494238ffcabac088ce50d15db3994c515e7b2ab25608e983"
+    },
+    {
+      "path": "public/icons/roteiro-arrastar.svg",
+      "bytes": 484,
+      "sha256": "8f4882f97d67030efbd33eba7c001e4988b1b797dba39ab157b2722616793e8b"
+    },
+    {
+      "path": "public/icons/roteiro-autosave.svg",
+      "bytes": 449,
+      "sha256": "5943ee9f078229234f141c399378ce92fe4d58277554ac49c0d9dee5866e06d8"
+    },
+    {
+      "path": "public/icons/roteiro-desbloquear.svg",
+      "bytes": 449,
+      "sha256": "5a2866b7a9c53cf95a04633327bae32524cd6456b6506179cf75430045006220"
+    },
+    {
+      "path": "public/icons/roteiro-editar.svg",
+      "bytes": 378,
+      "sha256": "f74934d3f52e6000641cbf2c20d6dabeff7ef1ceb35ccb9b530b2834445abe7c"
+    },
+    {
+      "path": "public/icons/roteiro-fechado-no-horario.svg",
+      "bytes": 978,
+      "sha256": "f7917aca7d04e43dac77e8abcfc0a0524b8691a601908f86fa4e191293497a40"
+    },
+    {
+      "path": "public/icons/roteiro-fixar-parada.svg",
+      "bytes": 439,
+      "sha256": "0f782f076f2faf5d6d45636f4b23b9518188edeeb0385748cf5c73745edd5740"
+    },
+    {
+      "path": "public/icons/roteiro-mover.svg",
+      "bytes": 424,
+      "sha256": "0b26b75df53d79f7499919e56839dd530137103cbee2d4bdd1615cbb699017df"
+    },
+    {
+      "path": "public/icons/roteiro-remover.svg",
+      "bytes": 354,
+      "sha256": "cc75b3ff0634a775892b65df3daa68b60a07b18991f4a2cb878a8b5402d1ddb6"
+    },
+    {
+      "path": "public/icons/roteiro-reorganizar.svg",
+      "bytes": 408,
+      "sha256": "cd4d4d889a17653672e8231caca18f67458f4d81c4433d0fee703ef11024fd65"
+    },
+    {
+      "path": "public/icons/roteiro-salvar.svg",
+      "bytes": 380,
+      "sha256": "57d584fbc8a209b227568438b9ff7c26c3b8b11f9757684023777d853cabdcbe"
+    },
+    {
+      "path": "public/icons/roteiro-trocar.svg",
+      "bytes": 392,
+      "sha256": "73a3a918c50024a335c3b2284f3544a79ab294d59d6364b270f07428feadee4b"
+    },
+    {
+      "path": "public/icons/roteiro.svg",
+      "bytes": 568,
+      "sha256": "6954efb70bcd5625dd6bbf2c7beda008993e235818bb2b65c02d2fa19ffcaf9e"
+    },
+    {
+      "path": "public/icons/sistema.svg",
+      "bytes": 501,
+      "sha256": "031617b8edd53eeca0a0e25311d542c2c42e4a084b3c20667e6af9148463fdae"
+    },
+    {
+      "path": "public/icons/sol.svg",
+      "bytes": 420,
+      "sha256": "d0fa32b830e472df2e8a4edbfc74202b38f68fd9cfc99d470d77a6ff6d534a09"
+    },
+    {
+      "path": "public/icons/voltar.svg",
+      "bytes": 332,
+      "sha256": "48485dc4eacfb9c7298516a99649397616e816f9e36d7a0d5b1c78d2c07f471c"
+    },
+    {
+      "path": "public/placeholders/avatar.svg",
+      "bytes": 401,
+      "sha256": "718811d866f370412882fe27c578e4abfd6d57c1dc0c358fe260683d3c8f5633"
+    },
+    {
+      "path": "public/placeholders/card.svg",
+      "bytes": 402,
+      "sha256": "09cab1982916778730f588735eba40b985222a9f63ef68fdc6da3f9bf3440753"
+    },
+    {
+      "path": "public/placeholders/gallery.svg",
+      "bytes": 405,
+      "sha256": "896886f3a34b1993b7ada8a5e4dd0abc9d0e836d2fbf3a094f6ecf742967920a"
+    },
+    {
+      "path": "public/placeholders/hero.svg",
+      "bytes": 403,
+      "sha256": "f0d8c8866165de6322b577423671f118cb71422565440bd3331229dfef9a0a79"
+    },
+    {
+      "path": "references/CONSTRUCTION_RULES_2026-09-10.md",
+      "bytes": 20179,
+      "sha256": "483c60938ecc2af79dde1758e540dcd90d08e1e9276c41d584af1b3ff81e4fd6"
+    },
+    {
+      "path": "references/Passaporte_Serra_Negra_Documentacao_Mestra_v4_2026-09-09.md",
+      "bytes": 66139,
+      "sha256": "cebe62dd63b70147609bc20be3815068446a10c9ea7f2ab82d3fe6cc3a4382fb"
+    },
+    {
+      "path": "references/brand/Ativo 2logo passaporte.svg",
+      "bytes": 5418,
+      "sha256": "a3de3eabe39a00463207c8ad0afc3bd76e382b710efc30aabc1bc98e6d68071e"
+    },
+    {
+      "path": "references/icon-system-v2/ASSET_LICENSES.md",
+      "bytes": 746,
+      "sha256": "f2eeba9f4e1dde1b7fdae5a7c88d201de43ca76b559d92f7536cd80832de3f35"
+    },
+    {
+      "path": "references/icon-system-v2/README.md",
+      "bytes": 1078,
+      "sha256": "e9a0c094986b0b3a588b14a176f5bd36230f784fc45c93c99d86bb69912864ed"
+    },
+    {
+      "path": "references/icon-system-v2/docs/ICON_ALIASES.md",
+      "bytes": 1163,
+      "sha256": "ea82c04d49a1a91ac4b2916c582dbad47f0910dcfa5b6fe555fd7882281d7d58"
+    },
+    {
+      "path": "references/icon-system-v2/docs/ICON_AUDIT_V2.md",
+      "bytes": 1069,
+      "sha256": "bd6e6d2e56922e8222d6ea308e3633d938a01e952bc281f8190ec3ede650682d"
+    },
+    {
+      "path": "references/icon-system-v2/docs/ICON_CATALOG.md",
+      "bytes": 11994,
+      "sha256": "13c6937ccd5158fbae5b31281100bbd35b935adf585b800857aaa26f1d1e82ff"
+    },
+    {
+      "path": "references/icon-system-v2/docs/ICON_SYSTEM.md",
+      "bytes": 2082,
+      "sha256": "7a8a22a559218d21b8ba543d937e9bb4efcf1f9c4899aed18808673e06e627a3"
+    },
+    {
+      "path": "references/icon-system-v2/docs/MASTER_DOCUMENTATION_PATCH_V2.md",
+      "bytes": 1379,
+      "sha256": "9bf5fdf3723f8df333e68ed3351261e59aab0b249b31a1975e6c55d1bc6fb0ce"
+    },
+    {
+      "path": "references/icon-system-v2/docs/build-summary.json",
+      "bytes": 410,
+      "sha256": "007bb02a66e58b6d82a93c021e61a1a15a82a90507dfcf05d877282b884e58ea"
+    },
+    {
+      "path": "references/icon-system-v2/docs/contact-sheet-v2.png",
+      "bytes": 376334,
+      "sha256": "032505bdf52eef220cd13a8817446acce11d7d6f199fcf70d8e0885741540957"
+    },
+    {
+      "path": "references/icon-system-v2/docs/preview.html",
+      "bytes": 44430,
+      "sha256": "565fb581b0733898f003d91eec2f0c928803148d21c8401af377ee15dd6842d7"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-01-perfil-viagem.png",
+      "bytes": 65859,
+      "sha256": "494b8fafd5d2ea7dd8e4644f906b6b3f08a396e92b828b45b757dccde18d6f64"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-02-lugares-parceiros.png",
+      "bytes": 70606,
+      "sha256": "dba6ba48ae31d15b402e44bc97f61528a62a0dca91e771bd19c2991994a4e040"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-03-clima.png",
+      "bytes": 39678,
+      "sha256": "3e16dea0d69c8576a0e3b30f4ea420e41ffaf446bdc946e158c2a7f64eb54f93"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-04-roteiro.png",
+      "bytes": 51669,
+      "sha256": "200b91c35be8c50651717bb034ac7a620e7678cc116361cc41875139cadf416e"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-05-calendario-viagem.png",
+      "bytes": 22537,
+      "sha256": "83d3df5b3612832f95638fb7690cfccf9e1971bbe1c98179d7bc93a7bcaf931d"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-06-qr-visita.png",
+      "bytes": 28582,
+      "sha256": "19eca80c0b5bd09cf98b0828f571e2b3451e0bfeea3f2fb8bbbdbf32158223d3"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-07-passaporte.png",
+      "bytes": 25746,
+      "sha256": "86e00824a93e226156d700fa63417b69972ead7770390fef4ce4dba288bdaff7"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-08-mapa.png",
+      "bytes": 50330,
+      "sha256": "caeae41c33e68359179656ba59b9a88692760ad0a8286a40a51f216ae142e556"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-09-compartilhamento.png",
+      "bytes": 29650,
+      "sha256": "f4972c502c3db3455a8413d0ecfcd7e7bcb18f9fb1402d814f2ec3e53d1769e8"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-10-parceiro-minha-pagina.png",
+      "bytes": 28179,
+      "sha256": "9424199b3cdda4b7487518afffa7b18b47fe5b4bcac9d02a8f48895d4e2f44e6"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-admin-cms.png",
+      "bytes": 53031,
+      "sha256": "9ccd980ed532567f3888f9965b3067be738886cc22544d142dcb9fc703fdf46b"
+    },
+    {
+      "path": "references/icon-system-v2/icon-manifest.json",
+      "bytes": 88520,
+      "sha256": "4c71a78da3b3491a0dfc1725f099889d2d3ee2049d514748404d10769d3d848f"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-arquivar.svg",
+      "bytes": 456,
+      "sha256": "61d0f3fe154a0d6ee3d52fafb85248b0dc79d4db98023285534107e0c0ff9d9c"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-auditoria.svg",
+      "bytes": 465,
+      "sha256": "a60fba7837d8d4ac9f4ff46a856540231dc742bc8baecb071b32ebfa9ea96cf9"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-circulacao-territorial.svg",
+      "bytes": 578,
+      "sha256": "131c8a6367c5bc25930417da93c7a9b2f328c9633017a276763c390d04d922bc"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-comparar-versoes.svg",
+      "bytes": 610,
+      "sha256": "27f14ebefc9440dc3533bd95feca61f3e56b6574b24dd828eb1b5d812a0fa968"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-configuracoes.svg",
+      "bytes": 928,
+      "sha256": "5547faf8ea9ba868a644312e9d095ad2abbd1b8e1b3f58a39e61475f9c03e4c9"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-conteudo-cms.svg",
+      "bytes": 397,
+      "sha256": "9b271a613369a300e80fd88103982129b8f81b29ecf32f49570231da00d6488a"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-dashboard.svg",
+      "bytes": 670,
+      "sha256": "ac0738d002d9edefcd3e79924b9d2b2697c419bcd36b3fc16ce9631d34669878"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-editar-localizacao.svg",
+      "bytes": 579,
+      "sha256": "978abb9bba66347c7cfb49b4f280f143a1c005e4ecd8b6a142e81e1823a5a7a8"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-exportar.svg",
+      "bytes": 411,
+      "sha256": "646dd976ffd0f7fc7435d2175179eb0efee7d42c3776722155f1b783ec36dcb5"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-fontes.svg",
+      "bytes": 344,
+      "sha256": "891f30a11e667ae960137881eb0c631d25e31d77e350ff017c83a075302a584d"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-publicar.svg",
+      "bytes": 401,
+      "sha256": "e97da4c0e44a420fcd31d5f8be6e00ad70dbba3ad512ce70152ff80202fecd54"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-rascunho.svg",
+      "bytes": 464,
+      "sha256": "eb6805119dcf714ad00f83eb896680d1039dbf82b941fa13dfb9e7b5ce033fb3"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-registro-de-secoes.svg",
+      "bytes": 669,
+      "sha256": "843b77010531433cb9a395170f2f4ab2202c77da742d75906850f0249b5f2d78"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-sankey-jornada.svg",
+      "bytes": 506,
+      "sha256": "ecf136e125a528e559ae268ea81562def519be863c9292028990e2e959b4e525"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-secoes.svg",
+      "bytes": 396,
+      "sha256": "94d1c160d19b5ff1998c0251c50fe7272855b014df23a7770900fb76e276ad14"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/avancar.svg",
+      "bytes": 336,
+      "sha256": "703d68392555ea3d6058aeb1cba156f26b28fa277022790437f94abdf134ac63"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/busca.svg",
+      "bytes": 345,
+      "sha256": "7be4664783b723c47c832590fded0f375279b917c4a476ae571057cd9332ffaa"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-atividade-planejada.svg",
+      "bytes": 564,
+      "sha256": "db41e09553cbb532ae3cfc463089dbd60694844ea1d9840cd1555255374251ac"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-dia.svg",
+      "bytes": 455,
+      "sha256": "4a5bb51f737472fdb514e3fd8766056996bd9e15d1174a4dd3e5bc9630050608"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-espaco-livre.svg",
+      "bytes": 480,
+      "sha256": "b59e70e49de4cad1f7ac55f0ebb2812984b88c40a2796611b9e64d576a9d6658"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-filtro.svg",
+      "bytes": 384,
+      "sha256": "6c9d9f9b504c8703cadba8a8977499a5de7add126caa535f6ec4adc60a12d05f"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-hoje.svg",
+      "bytes": 482,
+      "sha256": "da8424b108721c0e2618a810f3dc2180d3ee4eb9364a21dffa366f7e2903d341"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-mes.svg",
+      "bytes": 1058,
+      "sha256": "3c3db762c42a4b29115af654d6c01dd1358cae83e3ffc9c46817e65e0bd6dc2c"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-presenca-registrada.svg",
+      "bytes": 553,
+      "sha256": "4c1a3f2b42bdf14aa10d69499f97af944ecc9a844db1a4c1c940e253382b762f"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-semana.svg",
+      "bytes": 729,
+      "sha256": "1153517165b0f8e7ddf0ccbf144e4812fae9f7199b4a925cf4e3219a53e8633b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario.svg",
+      "bytes": 933,
+      "sha256": "d14ed314082faab86d733fb2923c4f51e7c41716a65be6809b588bb8d2068def"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/chevron-baixo.svg",
+      "bytes": 343,
+      "sha256": "496101a2181182b27d5c41b9197f782b7ee70c960fda80ee09ae1b3537a4b478"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/chevron-cima.svg",
+      "bytes": 340,
+      "sha256": "865c5dec5c228cca37eedfb629bc515a71ac31b06c8e033236fb4d2f32d9819b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/chevron-direita.svg",
+      "bytes": 349,
+      "sha256": "ce442dff4870f68043cc9be18595d15f1f7f83ee36e768fcefe97d64a81e83cb"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/chevron-esquerda.svg",
+      "bytes": 352,
+      "sha256": "207cf51a62fe821854a85e515eb2e064ba52c6c193d6ac2b6ba250a71308f75a"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-chuva-intensa.svg",
+      "bytes": 570,
+      "sha256": "7ea658624689480cc58a016b2b94f559034899ae6fcf46b99e3b7f899c6fbc3d"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-chuva.svg",
+      "bytes": 488,
+      "sha256": "b59704c029daaf5f97dad397e4981aa6d785521731a5475cdb6d280ec3ed7b49"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-frio.svg",
+      "bytes": 454,
+      "sha256": "2526b78012d29532ae73f363ebbe8e8b695a2e2e10ecff7478a0fd5fbe2bf62b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-guarda-chuva.svg",
+      "bytes": 422,
+      "sha256": "c91beb5dc9c04db5a216c5abb496d67566acfd33958b66a99502df88bdcf397a"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-nublado.svg",
+      "bytes": 374,
+      "sha256": "2016593a52c8dc992928b09ec2eba706ac1470178bae62233aa88c96c958b882"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-parcialmente-nublado.svg",
+      "bytes": 496,
+      "sha256": "b54e1a5d3f50f084a43930ba6b4a5bfe87bcb434b1ea0e483b927bd4cb8a53e1"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-sensacao-termica.svg",
+      "bytes": 548,
+      "sha256": "86e3f35a7f47d22c514f3fbadac56ec33ef834eebed62c635fd8dd2e1afd937a"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-temperatura.svg",
+      "bytes": 407,
+      "sha256": "dc715802b7a5e4d93d7f9ec6276bdfc84e83469f9fd0a49d8ef75ea3653ea346"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-tempestade.svg",
+      "bytes": 415,
+      "sha256": "2b712c5ac641062bff8caecf0a6cd203c4aaf94d9f423ec17ee9760ca3d17347"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-umidade.svg",
+      "bytes": 391,
+      "sha256": "47e6a49865784311e83ec938315ae1bd6e58c42106ce685ce1c1354104cf7d3d"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-vento.svg",
+      "bytes": 414,
+      "sha256": "39f810285412c84c5385b77b2fb6c351b681cc96ed1df240e3f80158cb9915b4"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-copiar-link.svg",
+      "bytes": 429,
+      "sha256": "f145fbba26c6c7ece17cc23d92e0b741adf5d89cfc76c1d4297111349af44cbe"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-dobra.svg",
+      "bytes": 353,
+      "sha256": "a025216af30950062caa8d0e445d8b8c65cef3420164ff051040a52d950b6449"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-feed-vertical.svg",
+      "bytes": 519,
+      "sha256": "ea3ce994d9d4666ef4f1050c3c78306b0179d36581758969e5630bf826c80943"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-ocultar.svg",
+      "bytes": 434,
+      "sha256": "3e2670b43eca737701212df892dbded1e82c548685df7c4cfff02ae2acd104da"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-quadrado.svg",
+      "bytes": 363,
+      "sha256": "27cae1b8af18290a3876d23097d3fc4312640f6b05968295669f27bf97967e44"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-salvar-imagem-exportar.svg",
+      "bytes": 511,
+      "sha256": "9e222055fddd153e6ebb585bf0fb62a49dbeeba49345c807b418c864643737c9"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-story.svg",
+      "bytes": 418,
+      "sha256": "b2da25315c6318bb30fe56b95eb54fa658b927d28157df52f29fd25029c3d887"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhar.svg",
+      "bytes": 443,
+      "sha256": "21266e77daf53b73542d40bd127db9f570936238e93ab6420ceef4c84c51f348"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/conta.svg",
+      "bytes": 379,
+      "sha256": "3bc1324c065d0f01ed9329fbbfbd32db44e3f0b9258fa8961553cae298375b32"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/explorar.svg",
+      "bytes": 367,
+      "sha256": "950ab148530e6a326ff74375691ea5bcd492cfb7a3b47a1f9b503119bd254638"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/fechar.svg",
+      "bytes": 329,
+      "sha256": "b084120182d2f20353dbe727a54cd074b5a71a106b789249eaf52e3fb922294c"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/home.svg",
+      "bytes": 422,
+      "sha256": "1dc2ebc06539166750edec292d5fa5f806ae2f7da98178aa6d020f9fbcd66f69"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/idioma.svg",
+      "bytes": 397,
+      "sha256": "71f313fcacff90074cd260448ccd4a241203a3587aed485eb157af7f393f312d"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/link-externo.svg",
+      "bytes": 402,
+      "sha256": "4f055a9a7aace4de9a09888d9fb0fef7f1ea189033d80d4cecf677396dc21162"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lua.svg",
+      "bytes": 395,
+      "sha256": "89057ec6dd432f1186ccaccfc91add564c192b267296ebc48a59fa60c76abd93"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-animais.svg",
+      "bytes": 554,
+      "sha256": "8996dea45e10e92ebbb09bc5e7af1c69e7847b94d8a71c4120c10992d33764c4"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-direcoes.svg",
+      "bytes": 393,
+      "sha256": "bcaeab05df608996de4be173898fcf544b20ccd2b29de98ca3edf10363c90b85"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-distancia.svg",
+      "bytes": 706,
+      "sha256": "b254a1e2e6ad4fd3d5978ac9a4d99d8744c90d8f6e6c7037499b7d8cdaeced8b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-duracao-sugerida.svg",
+      "bytes": 437,
+      "sha256": "dbba58065ec37bc560b1bd1324031beb799b542eaf643eae3523774a34d51635"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-estacionamento.svg",
+      "bytes": 409,
+      "sha256": "84c32ff65891edb2dd664e74a9b5c0258d0274d87895c62f94f33c3768b3b7c0"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-galeria.svg",
+      "bytes": 520,
+      "sha256": "9183888e247ab40f2e3cf8b3a28968e05b1371aee2eeba9f4a206a7ccdb65c8b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-horario.svg",
+      "bytes": 358,
+      "sha256": "cbaa0fa0c5fecc4a707b94f48b3d558a5718d5bf23d037f04c515278dc5dd631"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-informacao.svg",
+      "bytes": 436,
+      "sha256": "b91df23b3a47c930f2cd1b89c1f435f7f3c1f86ac2ead8ebe8655b2470dfeef7"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-instagram.svg",
+      "bytes": 452,
+      "sha256": "f8aa0336e883021a75405eaa443cb58f8629a5ff03d425598f31fa77b39ddc1f"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-localizacao.svg",
+      "bytes": 412,
+      "sha256": "9d458d447f317082aa2bf2cb7b66cd60322e5da47cf683e74c5675045cdd5559"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-outdoor.svg",
+      "bytes": 407,
+      "sha256": "32147d5548c417c4b24c2596f154c33a9f61732f71b36769ac1beb31e9fd0fa3"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-reserva-externa.svg",
+      "bytes": 452,
+      "sha256": "35ee1cc5bbd4edd8846a5c354d86e1573d0d30419e7ec5e95be569388cd3b593"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-restricao.svg",
+      "bytes": 359,
+      "sha256": "c846904febb77c6846e7bf167a813e67097ea92909c3b4387b945fb6a9da914d"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-sem-custo.svg",
+      "bytes": 359,
+      "sha256": "fd3487608b985ea33994b494c604f63731903d588e06644c0942a52c3df31931"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-telefone.svg",
+      "bytes": 415,
+      "sha256": "abdd93ac706bc834ef3fdadb8b8bc1efd4d2cfb699c89aac62dbca66973df369"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-tempo-de-resposta.svg",
+      "bytes": 520,
+      "sha256": "d1b6051e5fbd4fc9f32d19292fcc6f671be1dad85d17a7b2ead86ceaa389c110"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-ver-fotos.svg",
+      "bytes": 378,
+      "sha256": "954b217e6519340d37aff372f905e6a000c82c1ae7298a283abf2f933f88129e"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-whatsapp.svg",
+      "bytes": 529,
+      "sha256": "175320c882dd3277895ed4ee22f9cdac030e0d7bb9f828e1c1ddc0728559ee5f"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mais-opcoes.svg",
+      "bytes": 510,
+      "sha256": "3791294036d76ba1807738f1598585fb20911ef8064d15b4684e2aa9eab27e35"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-abrir-navegacao.svg",
+      "bytes": 351,
+      "sha256": "c46a25917dcdd4937fc9a433eee31e97b3230028d215fd6972d1b51cccbc1dc4"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-adicionar-ao-roteiro.svg",
+      "bytes": 387,
+      "sha256": "8a0f74f66c846eabfeef9cfe70a7831f94c8bca129d8aa262feb1534c4f69f05"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-buscar-nesta-area.svg",
+      "bytes": 449,
+      "sha256": "ba589f02e91dbba898fc8594d83ebf754d23becd4b1d08cb2c376cd62b5dcd53"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-centralizar.svg",
+      "bytes": 418,
+      "sha256": "fc05536e821843d7ccce45bd67bcb8713edfa74ae9503fe18e1cdb55798cf402"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-destino.svg",
+      "bytes": 526,
+      "sha256": "3c7647eac5a716768556eebbe7fcb5ca359c4ae17bbfbef7a1936b609534761b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-experiencia-autonoma.svg",
+      "bytes": 535,
+      "sha256": "cd674937f032991d944c571538f25c9dccf3dfce836037f79b259886fc15f070"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-lista.svg",
+      "bytes": 552,
+      "sha256": "efe1c8ad0e4c2839c1454f323b904bcdb95a5aa30ac174e0e9cddbfa715a7ffd"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-localizacao-usuario.svg",
+      "bytes": 450,
+      "sha256": "c81210cf3dfbf505b6fda1c70b7463c389c59955f8ecc379efd4fab7de5d0e35"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-origem.svg",
+      "bytes": 523,
+      "sha256": "44684af85a5d18ed8e13d0bab68b571efb7219719a3c17b338f4cd3b0112267e"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-outro-lugar-listado.svg",
+      "bytes": 562,
+      "sha256": "2c6e4b4c4c5c767eb348c10852f7374c6af4f52133d9fd209d5898e24640547a"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-ponto-turistico.svg",
+      "bytes": 387,
+      "sha256": "4f93673579fcf6be1d6145bb747c9d09688fab2e2dd1b0d637ecc07b19e9aa46"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa.svg",
+      "bytes": 415,
+      "sha256": "c37b04b7be47c96e11f2fce1a274449ccb71c1335bd0c7f2197e8c8269593d28"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/menu.svg",
+      "bytes": 327,
+      "sha256": "1cd54c0732fdf81a8642c0ee0a43df259f2247d78b84dd35560e7d03a129a2e5"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-ajustado.svg",
+      "bytes": 469,
+      "sha256": "1af09a80bc538be9cb57de69717cee03bfba6c042a0da3d12a3a0d339016f8c8"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-cancelado.svg",
+      "bytes": 376,
+      "sha256": "d6ada3cd446e31f95a32f93b97592b99f2444520262b75dc75374c21441425b2"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-desempenho.svg",
+      "bytes": 462,
+      "sha256": "96baf94e6479ab69e755f6fe8663b3cd043cfd8caf42101a3b7848e88971138a"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-requer-solicitacao.svg",
+      "bytes": 775,
+      "sha256": "045a2a99a21d9c72e842178dab17f1cb48c8dd8b9ea2a86fbcd40bf276580fd2"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-solicitacoes.svg",
+      "bytes": 401,
+      "sha256": "5ab6042a287e4b5b6c0b435a2bdd721196fb91d0cad7250bbe2951956ffaf55b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-visita-registrada.svg",
+      "bytes": 517,
+      "sha256": "7cb7ecbdbb1a589816fc73c07dfafd141395dc62f5d114ccc9a21e243df5318f"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-visitantes.svg",
+      "bytes": 519,
+      "sha256": "b3ff94b133e91d96a943f48eba0766cd424aea343db146cab65ba0d622227356"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiros.svg",
+      "bytes": 535,
+      "sha256": "902513e3e93b4d4675bf961a57b669d5b7b27f9db5096a1a3ebdc6dae8f2fe8b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-categorias.svg",
+      "bytes": 515,
+      "sha256": "c4ce6a0cc8925f736f8fa92745d920fa0f73b253bdb731bbd1032332d4ee04ca"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-compartilhar-ticket.svg",
+      "bytes": 547,
+      "sha256": "1c48782490ff5a9c958a618456aee99993a88c221ccb4e91de29fdbab78b4aac"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-expandir-pagina.svg",
+      "bytes": 487,
+      "sha256": "56c053d12fb9442d2261d3f58399e082ba8243f5d22ff899510370e70d42f2b8"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-historico.svg",
+      "bytes": 379,
+      "sha256": "2e39dfcd57578f7ba4f36b9ec8b1083d400ae863658096f84030f426a6c83718"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-indice.svg",
+      "bytes": 459,
+      "sha256": "ed4b86a635d70e828f9aab7d0fb95454b0aca1fe58d4e80e57b35a2dcea50f0b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-ticket.svg",
+      "bytes": 403,
+      "sha256": "9586bcfa91f1e803a3c948d075a0b3161ed15bca3e8b9f059f9037a683382f2c"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-viagem.svg",
+      "bytes": 429,
+      "sha256": "2cb9819cb11c97ababcadebaeb1feb212035ccf26baae0363ad63717e88d2281"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte.svg",
+      "bytes": 513,
+      "sha256": "ec307826dcaec2cc1a90e9fade6719bc386bcd6c5129a1d5483248e330e73c1e"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-a-pe.svg",
+      "bytes": 524,
+      "sha256": "1111de9ad5bb76c0d8b5195f53b8d677d334363dbc4a1a918dad24cac4da40cb"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-acessibilidade.svg",
+      "bytes": 431,
+      "sha256": "8519376bfc062ad378ea5f819b4e43839a91871ea3e57f852467cb36fed28df0"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-amigos.svg",
+      "bytes": 491,
+      "sha256": "2788833d57ee361ff300ba37b6f0703a97114fe56decf75b7e7688d45812ebb0"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-carro.svg",
+      "bytes": 447,
+      "sha256": "7a2d549e8002cdf33f8a03447293d79606bc3bf8095c9fcc37deb8c2f37ff225"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-casal.svg",
+      "bytes": 499,
+      "sha256": "8360c50e4ae06826cbd8c10056a5f0cb22b79d431762389a7c3737a2e52ac4ce"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-criancas.svg",
+      "bytes": 467,
+      "sha256": "98857e3993693bfe7b28ef7835eb5106bda50076b36d06568718769dfb7a5cc6"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-familia.svg",
+      "bytes": 573,
+      "sha256": "348edaac9e9b4c29b6584a2c0c91e2c2c3c9dcbaed78f5cdce2e651e11f3d93a"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-gastar-menos.svg",
+      "bytes": 579,
+      "sha256": "757b869821f48145b4a93341c7c045329311e01a938399dfa3e7f87e4651c3b0"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-nao-sei.svg",
+      "bytes": 451,
+      "sha256": "93cc01b451bbe77e489ccf55fc702814edf03b968940d938498de40a287306af"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-nenhuma-necessidade.svg",
+      "bytes": 449,
+      "sha256": "4978b500de7243a620794cb6c036ac7813b1f8c11683aef367cda49a20b1c0a0"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-preferir-sem-custo.svg",
+      "bytes": 497,
+      "sha256": "0704927878c8909fbc67809ff6caccedbb90978acca6727bb03de09284f68332"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-relaxar.svg",
+      "bytes": 472,
+      "sha256": "fec993789da54eab0d4bcc032e104af26f7874bb58ca62f9a4891470e3a18f87"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-restricao-alimentar.svg",
+      "bytes": 491,
+      "sha256": "fc79d927f7adb79cad3ac343c768b7e863d99adb79857ab846ab51af20463b1d"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-ritmo-ativo.svg",
+      "bytes": 587,
+      "sha256": "c01d47e6ebcc6997403e82b38bfb89bb2351e660d77ac4684ae335d083f25b47"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-ritmo-equilibrado.svg",
+      "bytes": 442,
+      "sha256": "f3ef4d64e92757f9af293029bf29530c0a2fc228e998677a0366316193e18834"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-ritmo-tranquilo.svg",
+      "bytes": 529,
+      "sha256": "75e409905aeb1cd995d08a7423319450b637b852884408fa0be63a9cb0a13e97"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-taxi-app.svg",
+      "bytes": 480,
+      "sha256": "ba3e8d5bc9dbd251021bf0cd49eaf14ff8725abd75d9017e992cb456e3bc9b23"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-camera.svg",
+      "bytes": 485,
+      "sha256": "2c0e4feb1ee4010d7086aa25332e376974e0f5ddc7afe8f72b5ed3955010bf09"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-escanear.svg",
+      "bytes": 409,
+      "sha256": "0b6610a31848e652597f3067d9742aecba6f5907b5ddf78b2e458dab47224f9b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-offline.svg",
+      "bytes": 466,
+      "sha256": "28af94da8032801a057f6eae26c65f3ae1255288521f13410cc4a4a007488c88"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-qr-code.svg",
+      "bytes": 914,
+      "sha256": "7e1eb1611279482995ddb5ca6d1668a68d502f16401085ecd744eeff3770df48"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-qr-desativado.svg",
+      "bytes": 1191,
+      "sha256": "bb03f0b6e790be6bc603ecffc6e1f79c8f321f7e0fb8fd8553858d29b0b44b1f"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-retorno.svg",
+      "bytes": 354,
+      "sha256": "01d259597b19f57eaa6efa9e97618eec8ea96f15143300e116514eef2b6fbb3f"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-visita-ja-registrada.svg",
+      "bytes": 835,
+      "sha256": "ac46dee74de3b322f134b63de149f1ba62b1999d37bbe7781ab9d3b6e3067711"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-adicionar-parada.svg",
+      "bytes": 423,
+      "sha256": "cfbc96d08d6c584aa770cfbbb3151c495d6666d1dbb1be66f6193b1cdea14750"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-alternativa.svg",
+      "bytes": 458,
+      "sha256": "6606bcea92f64ae6494238ffcabac088ce50d15db3994c515e7b2ab25608e983"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-arrastar.svg",
+      "bytes": 484,
+      "sha256": "8f4882f97d67030efbd33eba7c001e4988b1b797dba39ab157b2722616793e8b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-autosave.svg",
+      "bytes": 449,
+      "sha256": "5943ee9f078229234f141c399378ce92fe4d58277554ac49c0d9dee5866e06d8"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-desbloquear.svg",
+      "bytes": 449,
+      "sha256": "5a2866b7a9c53cf95a04633327bae32524cd6456b6506179cf75430045006220"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-editar.svg",
+      "bytes": 378,
+      "sha256": "f74934d3f52e6000641cbf2c20d6dabeff7ef1ceb35ccb9b530b2834445abe7c"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-fechado-no-horario.svg",
+      "bytes": 978,
+      "sha256": "f7917aca7d04e43dac77e8abcfc0a0524b8691a601908f86fa4e191293497a40"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-fixar-parada.svg",
+      "bytes": 439,
+      "sha256": "0f782f076f2faf5d6d45636f4b23b9518188edeeb0385748cf5c73745edd5740"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-mover.svg",
+      "bytes": 424,
+      "sha256": "0b26b75df53d79f7499919e56839dd530137103cbee2d4bdd1615cbb699017df"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-remover.svg",
+      "bytes": 354,
+      "sha256": "cc75b3ff0634a775892b65df3daa68b60a07b18991f4a2cb878a8b5402d1ddb6"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-reorganizar.svg",
+      "bytes": 408,
+      "sha256": "cd4d4d889a17653672e8231caca18f67458f4d81c4433d0fee703ef11024fd65"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-salvar.svg",
+      "bytes": 380,
+      "sha256": "57d584fbc8a209b227568438b9ff7c26c3b8b11f9757684023777d853cabdcbe"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-trocar.svg",
+      "bytes": 392,
+      "sha256": "73a3a918c50024a335c3b2284f3544a79ab294d59d6364b270f07428feadee4b"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro.svg",
+      "bytes": 568,
+      "sha256": "6954efb70bcd5625dd6bbf2c7beda008993e235818bb2b65c02d2fa19ffcaf9e"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/sistema.svg",
+      "bytes": 501,
+      "sha256": "031617b8edd53eeca0a0e25311d542c2c42e4a084b3c20667e6af9148463fdae"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/sol.svg",
+      "bytes": 420,
+      "sha256": "d0fa32b830e472df2e8a4edbfc74202b38f68fd9cfc99d470d77a6ff6d534a09"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/voltar.svg",
+      "bytes": 332,
+      "sha256": "48485dc4eacfb9c7298516a99649397616e816f9e36d7a0d5b1c78d2c07f471c"
+    },
+    {
+      "path": "references/icon-system-v2/scripts/validate-icons.mjs",
+      "bytes": 1200,
+      "sha256": "3bdab8857c4816d354b85a5287bf3bc5110f197f524845a407ec68f6a03f3b73"
+    },
+    {
+      "path": "references/icon-system-v2/sources/LEIA-ME-admin-cms.txt",
+      "bytes": 396,
+      "sha256": "3ba696b2da1778ce328aecf51083674b7aa95417f46255aa7bbf673625745361"
+    },
+    {
+      "path": "references/icon-system-v2/sources/LEIA-ME-novos-icones.txt",
+      "bytes": 840,
+      "sha256": "ba94f7f18736497667ceae0c144c7741163a54c7e7756937ed55ba8900c3acff"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/Icon.tsx",
+      "bytes": 1107,
+      "sha256": "c26c5cda20d77b8ab136b7c11c6d2f721f78f524d69408951a318b7fcceefb8b"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminArquivarIcon.tsx",
+      "bytes": 515,
+      "sha256": "4fcab82018f47b9b8adc89a8de0e22b4e4e691f1a275c18e9388013ba7c5836a"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminAuditoriaIcon.tsx",
+      "bytes": 524,
+      "sha256": "9d54bc45931455ab7515fb506b8f58d99281c14afdac8b65d85f7965bc3234d2"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminCirculacaoTerritorialIcon.tsx",
+      "bytes": 635,
+      "sha256": "17872cecfb1aae33242784c1b10a2267bf121a1ca515ea17f1960b964ca56cd4"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminCompararVersoesIcon.tsx",
+      "bytes": 667,
+      "sha256": "868dc38d0727a53b69a92a5b663b79452d89046e116fc4082cc101b1c5823bb6"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminConfiguracoesIcon.tsx",
+      "bytes": 987,
+      "sha256": "e4fa12ca0ec1f7c29b302f832fcbe52b27376809bc01c0b26f3c093a57052929"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminConteudoCmsIcon.tsx",
+      "bytes": 455,
+      "sha256": "5b2d6ee3aef923c273b179a7122804fe3732588f71f2d1eeb1289d34bdaa28d1"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminDashboardIcon.tsx",
+      "bytes": 729,
+      "sha256": "64f2ef3657b16547b550f4fb322d4f35e4c3ba8da443ad21336eb6795eb45690"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminEditarLocalizacaoIcon.tsx",
+      "bytes": 636,
+      "sha256": "2a78b7f3b913620820021910da867ec76d0099bd7d862804688e810197b8fb51"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminExportarIcon.tsx",
+      "bytes": 470,
+      "sha256": "b5a909d967b67151628d8bdd923f2027dff454f585729c11d6fe247228b0d4a9"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminFontesIcon.tsx",
+      "bytes": 403,
+      "sha256": "3a840b07e2fd90b7f11a2210dce478926ebe225ede554951c416dc882759e62d"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminPublicarIcon.tsx",
+      "bytes": 460,
+      "sha256": "eb64ff36bdc4ff3669d0d4daa8376cb8743edf289b42eabbeb0a54ae225d7a1a"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminRascunhoIcon.tsx",
+      "bytes": 523,
+      "sha256": "e41a6f445d56d10f8e3e641f7d57d215a6d9581a4eb7765f854fb23d4ea5d4ac"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminRegistroDeSecoesIcon.tsx",
+      "bytes": 726,
+      "sha256": "e81833d3521ce8de0ce14e002e62e323688746c565aa4f636e9690e7696ee0c1"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminSankeyJornadaIcon.tsx",
+      "bytes": 564,
+      "sha256": "4853c5d1ab843fb1d6bb7a91c4d0c43816a9196c8ed3cbaa576d110573de5d41"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminSecoesIcon.tsx",
+      "bytes": 455,
+      "sha256": "29cafec68460f4991927f6d91ca90c5eef021a60935672fa64649968fd2778c7"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AvancarIcon.tsx",
+      "bytes": 389,
+      "sha256": "5947affb27320b78fc9c3e6a81b725ff30a8d161608cb5fb9dbb7cd797f2eb7f"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/BuscaIcon.tsx",
+      "bytes": 399,
+      "sha256": "de97d869e92cce374549500c1d019178159fbb7595f816ea6f5adf72986297a6"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioAtividadePlanejadaIcon.tsx",
+      "bytes": 626,
+      "sha256": "31c515a0a86c534ac49a4d585b2c97dce0be1a042fef1b992a81ff5e934e7de3"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioDiaIcon.tsx",
+      "bytes": 519,
+      "sha256": "d043241574f1f873117b24bce948d83332d2f3432203a06188b1b03552b54ab5"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioEspacoLivreIcon.tsx",
+      "bytes": 542,
+      "sha256": "f63d7a6235d54964804073c01fb1bad1b4c9143ff66b50f6acffed0d2d8cef61"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioFiltroIcon.tsx",
+      "bytes": 448,
+      "sha256": "2131f3506679381a69f1179b4c008759dd2d158f3a04206c3613fe0bfdbc685e"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioHojeIcon.tsx",
+      "bytes": 546,
+      "sha256": "319c816d5592171b7f8ebb9d9a4bec40a7dac5125cf508b660c214708ff2e4ee"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioIcon.tsx",
+      "bytes": 986,
+      "sha256": "e4a2d327d2fad506cca88d1d1ac270c6ea8bbcd82a1bd3313320322035ad0c4f"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioMesIcon.tsx",
+      "bytes": 1122,
+      "sha256": "42d60b284e7fc794b8811337c467ac62b16c23c344270a146bbc5f9890bfcc38"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioPresencaRegistradaIcon.tsx",
+      "bytes": 615,
+      "sha256": "0580c9510d3126203b30307dfb058ecb364234caff6170be3498d0ee9e68fc5f"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioSemanaIcon.tsx",
+      "bytes": 793,
+      "sha256": "4d301559508a4988d6866c8bc0dfa451110977d3a6d667c94979ca3349a36dfc"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ChevronBaixoIcon.tsx",
+      "bytes": 396,
+      "sha256": "8476c2773b31f71db81fb0c1e7f3fb9e39d69c2a753e9af21126604e71913703"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ChevronCimaIcon.tsx",
+      "bytes": 393,
+      "sha256": "35e37d84cb3597bf88b5739e6f124163ea4433b1c1eeb17c1e86fa31007944ce"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ChevronDireitaIcon.tsx",
+      "bytes": 402,
+      "sha256": "f3f24e0e3457dc15b2073906d451ccc8def5a71b42d95e7bd56d0be74d4eea4d"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ChevronEsquerdaIcon.tsx",
+      "bytes": 405,
+      "sha256": "7047a000a08b58a1b83a33c432afecf5e894f6b95d33e3b1ecd9f04788bb84e0"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaChuvaIcon.tsx",
+      "bytes": 546,
+      "sha256": "83bf444c5c15e47653b91ee523bbf3ed0a9b4c0113189109fd4ab883473c64f2"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaChuvaIntensaIcon.tsx",
+      "bytes": 627,
+      "sha256": "c4d39d08dd407c3b844dbe2fabdc1140308d9e75505d9a757971e237f3962d60"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaFrioIcon.tsx",
+      "bytes": 513,
+      "sha256": "81acdc1ae7f4452fecb54f63b68ce5166ef000207105b8a610dcc16aa9b7cc91"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaGuardaChuvaIcon.tsx",
+      "bytes": 480,
+      "sha256": "3e14ada66ca4aeeb64b5fcd7bcd20d81ad4989140b0bb6226bb98f4a9990c00f"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaNubladoIcon.tsx",
+      "bytes": 433,
+      "sha256": "1e62de2a8256e57c8dde394125682770a20cb7e871b4c5a1d9dd1b16e08b9915"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaParcialmenteNubladoIcon.tsx",
+      "bytes": 554,
+      "sha256": "c813524052137027a3cf512be2d5da209fdf6071c7d79b63c8fbda118fece4b7"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaSensacaoTermicaIcon.tsx",
+      "bytes": 605,
+      "sha256": "bd96042b3750204ad185761e5287c9aded655357159a84ad1b1ab4ea09163351"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaTemperaturaIcon.tsx",
+      "bytes": 466,
+      "sha256": "093f38e101af8e20345a5d35a33815ccdb222456795824836dbc07edcdebd6c4"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaTempestadeIcon.tsx",
+      "bytes": 474,
+      "sha256": "c38500cd78bff920432ee1cf81a7b437bf3ebd4d44f3e74d416716802cfad9d6"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaUmidadeIcon.tsx",
+      "bytes": 450,
+      "sha256": "22803fff24f65c0618d6aed45ccc96e54a6b9d96a3306f23d86ee37de1ab276e"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaVentoIcon.tsx",
+      "bytes": 473,
+      "sha256": "d7ed7d2cd8e56fab7e8818fffc6f28769bf10d2cd5a2cd3a3307304d510aef93"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoCopiarLinkIcon.tsx",
+      "bytes": 498,
+      "sha256": "9e98b0755c3001d9c2f0cedca2ef563af0cfe0fded49313fc308927d9744c80b"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoDobraIcon.tsx",
+      "bytes": 423,
+      "sha256": "3a1af5a7ddeb6639e24bd572a419c26e44fc9693e5d58441dbcadff963e7befa"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoFeedVerticalIcon.tsx",
+      "bytes": 588,
+      "sha256": "3e78e82868d0b62ccae249c9f9b82431be3f2c18270081c481b59114c4250215"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoOcultarIcon.tsx",
+      "bytes": 504,
+      "sha256": "bb8df9d2b70fad3c8d21f5b24664510a492aef9a110820b96da350b408ae92e1"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoQuadradoIcon.tsx",
+      "bytes": 433,
+      "sha256": "5f4ff2d7df81e552b1223462c99387ca4654ba8ecab3f3d7a4ec8c9b1602b81e"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoSalvarImagemExportarIcon.tsx",
+      "bytes": 579,
+      "sha256": "daadad008538e8288c83d0143db7300e7994d1bf5b8a9356bad68258d7f46369"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoStoryIcon.tsx",
+      "bytes": 487,
+      "sha256": "599d5e565256e55850d5642c7583513e646ede5e76474c02dbf7ce7951f50d34"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilharIcon.tsx",
+      "bytes": 497,
+      "sha256": "71ec01acf499c82c20d594519d8b4fab53d8d4e72a97e888ce6645c7d3b204a6"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ContaIcon.tsx",
+      "bytes": 433,
+      "sha256": "182d278c872db2f41e9ed1794cb5c1067f6e638002ac549cf99deaa057e142a1"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ExplorarIcon.tsx",
+      "bytes": 421,
+      "sha256": "4aa2bc04066f2102c9095cef2b0ac0f179ae7de407f27324557d2490ad5d8206"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/FecharIcon.tsx",
+      "bytes": 383,
+      "sha256": "ace302c574997fa9e5183565c645fdb82d384e847fc66120d1a7ab455d63d2f9"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/HomeIcon.tsx",
+      "bytes": 476,
+      "sha256": "640293ba3b069a912447f9f99e39ba98bf63ae6db48379fd0057bc0915cc1d2b"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/IdiomaIcon.tsx",
+      "bytes": 451,
+      "sha256": "214b73d3bfaa6d91b4b880377526a2de19724b17f3288c434a31c78add75bfc3"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LinkExternoIcon.tsx",
+      "bytes": 455,
+      "sha256": "1846f88007a737e064b7ecdf206f953430d5eac83217268c2d59890a5bc7d1be"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LuaIcon.tsx",
+      "bytes": 446,
+      "sha256": "7c16729d49fc6ccd824f07f459b8968d4dead2ea83c19b0c40040d8c0e48c5f5"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarAnimaisIcon.tsx",
+      "bytes": 613,
+      "sha256": "1d0f6361a595d5f6e4d0f8ce833d04735e417e773c0ad919a2a300087da88622"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarDirecoesIcon.tsx",
+      "bytes": 452,
+      "sha256": "767e18957a8d6917b915f42a45af043752cb82036abfe6001c94089aa62f6d7a"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarDistanciaIcon.tsx",
+      "bytes": 762,
+      "sha256": "9438273077f2a4895c92bede311bb0a688e9ffdb317029e0ee2e394feceea06e"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarDuracaoSugeridaIcon.tsx",
+      "bytes": 495,
+      "sha256": "2da65e080f3b56fcdacbe50961ca029e5c21621278a537e7f6792c3098500125"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarEstacionamentoIcon.tsx",
+      "bytes": 468,
+      "sha256": "118abc6c354a4ef4f2a6fda6630f986a44157fdbb7c909856edd7445341f9d5b"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarGaleriaIcon.tsx",
+      "bytes": 578,
+      "sha256": "860003ec22d9135d3205ce0e9224c7c19e9423c1b79aa1e0f37eed618a5dc7cd"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarHorarioIcon.tsx",
+      "bytes": 417,
+      "sha256": "ac92e6433ecf1008179c7ab73cf4ab2a72503763b71e13b61c98064661f350fc"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarInformacaoIcon.tsx",
+      "bytes": 495,
+      "sha256": "a2970a79763bf9738ac2a6af79119c6bf4aeb6ef76de5e4a4c09245790792571"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarInstagramIcon.tsx",
+      "bytes": 511,
+      "sha256": "aa0dea893eda3703fb8eb38dcc04fdcdbcff10a1194d5f906ac35a57f43c7cc3"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarLocalizacaoIcon.tsx",
+      "bytes": 471,
+      "sha256": "40e4166db0ea23fa82cb671213bcb3188c4f60d36c804ecc8d338d390f4c8f0f"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarOutdoorIcon.tsx",
+      "bytes": 466,
+      "sha256": "367ca2fd367be96e46df1f489ea58e197db08524351b1e05a19944882febcdb1"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarReservaExternaIcon.tsx",
+      "bytes": 510,
+      "sha256": "69a6e92946c8578f2681283783b9e4efeafa1568db276951218ddf7bc41d7e2d"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarRestricaoIcon.tsx",
+      "bytes": 418,
+      "sha256": "2437464f453f414001052226cc0f3bc7e31f294d77c00190503f753098121b10"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarSemCustoIcon.tsx",
+      "bytes": 417,
+      "sha256": "bb03a679d25e164190ce27ca820698bed73bf0fd2ac3810bf9011cc0eb741f9e"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarTelefoneIcon.tsx",
+      "bytes": 474,
+      "sha256": "1ec64c8c748f8bfb3c393dfc01b2ed2eee5ceb44f194b2bfc89c4c1379046e59"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarTempoDeRespostaIcon.tsx",
+      "bytes": 576,
+      "sha256": "b0958727e07ebbfbf27e6076507c9f31a0c18b18ca796281d44ae85f9a3a2cee"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarVerFotosIcon.tsx",
+      "bytes": 436,
+      "sha256": "c18feb1424fbd575b01be8c7a69f60258c98043710c88b14eef94c467df19448"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarWhatsappIcon.tsx",
+      "bytes": 587,
+      "sha256": "b9971802ad09de29a457425ab26df19c91650ce6371bce3f8c1fdd8ee38ed8aa"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MaisOpcoesIcon.tsx",
+      "bytes": 561,
+      "sha256": "1a99446202548fcceaf754de88718735190d61411b7471a2092634debeaf8b94"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaAbrirNavegacaoIcon.tsx",
+      "bytes": 408,
+      "sha256": "001b65e13b3a27934aef29c096263e18630c488df4854e9544ac44bd5795eae3"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaAdicionarAoRoteiroIcon.tsx",
+      "bytes": 443,
+      "sha256": "c971575b352e1c35572c921a2d350a6ce28fc2c9ac3c4ffbba652d2d000a3647"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaBuscarNestaAreaIcon.tsx",
+      "bytes": 504,
+      "sha256": "298ec65278ac30a1ce11f3e6f24ea33a5df146654e4f41477f1be783cf2ff6df"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaCentralizarIcon.tsx",
+      "bytes": 476,
+      "sha256": "a8fbc76551b23e4feb218d35363a0d74b91f0801bb469b28eff65cdd3f26f505"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaDestinoIcon.tsx",
+      "bytes": 582,
+      "sha256": "4b2a2d503f3e4ba61d68f92479282c73e80e3b9942ce13266a9fb02538860eb9"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaExperienciaAutonomaIcon.tsx",
+      "bytes": 592,
+      "sha256": "6b60adbecfdcfcd3bb684fe0970ac0c9d5d51697865f609d25c3222a10c0f5b7"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaIcon.tsx",
+      "bytes": 469,
+      "sha256": "b1c477c06b59450c99ffa80c0947408966654b81f7df84de8adb8290c276e540"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaListaIcon.tsx",
+      "bytes": 610,
+      "sha256": "37def88863fa3b4d240292ae1929cafe647a0a3c4e5b5d69fc43a76a40090bc2"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaLocalizacaoUsuarioIcon.tsx",
+      "bytes": 507,
+      "sha256": "cbc4cc143461b29ff1c4d2851ca61cb960eafb1dc6acb97ca06430d4de676002"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaOrigemIcon.tsx",
+      "bytes": 579,
+      "sha256": "cdbc8b927538da1076f586146c6347865dc058d3025f65f40db87cd0f4651ca0"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaOutroLugarListadoIcon.tsx",
+      "bytes": 617,
+      "sha256": "c056a87a06e21ccfa28366e486e11b7ef8a23e1e07ff39e3c1115261ed3c83a6"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaPontoTuristicoIcon.tsx",
+      "bytes": 444,
+      "sha256": "eff0ba6b423208b1c4bca4fd6121ad09310fe6231283a50484fd9ce997001019"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MenuIcon.tsx",
+      "bytes": 381,
+      "sha256": "16fa6a708c12948ce60fc778a802a668f862c1acd772753e4fb5fee60e813d65"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroAjustadoIcon.tsx",
+      "bytes": 531,
+      "sha256": "b502bf097b74910a12dc68b8bbe174121503703ef03f4732649ab81776b17dd2"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroCanceladoIcon.tsx",
+      "bytes": 438,
+      "sha256": "fde244df4ccf808d11f398890e93f953dc1db766bcd594e304690010ea188d6f"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroDesempenhoIcon.tsx",
+      "bytes": 524,
+      "sha256": "03a2f8a9fdff932678f982368958ece0e8d1e10d3aacc0dc17ac27e0c4c39483"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroRequerSolicitacaoIcon.tsx",
+      "bytes": 835,
+      "sha256": "0ed2109d8baff2193e51afb0eaa233a2d0503a73c98643631b10790c0acda263"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroSolicitacoesIcon.tsx",
+      "bytes": 463,
+      "sha256": "d68bc1618dbfa2d9d6fc2e2da7a9f0110e480039c3af4e12899118c261bacd3d"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroVisitaRegistradaIcon.tsx",
+      "bytes": 577,
+      "sha256": "5e1d7e74472f24421b3feae08f44b183072e0558c4cc67a0aa7564dad10cae2e"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroVisitantesIcon.tsx",
+      "bytes": 580,
+      "sha256": "083d2d873b0a25b0a7328ac6d560f96f72cf6ad71d418175488a642b284fa6e8"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceirosIcon.tsx",
+      "bytes": 589,
+      "sha256": "ff78514d12319f553e4b417fa6dfce82e7226ccc0c1d5a56f84b3d7a0c289e5c"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteCategoriasIcon.tsx",
+      "bytes": 579,
+      "sha256": "f5e6e27d64b4b401a9637f8354b315ba18fb9b532c954f6e7e91e3ce05910d09"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteCompartilharTicketIcon.tsx",
+      "bytes": 610,
+      "sha256": "8fcef05eff51ad6ee91dd36210f8f9ff20b823433ac88475f02251cb9d452855"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteExpandirPaginaIcon.tsx",
+      "bytes": 550,
+      "sha256": "ff17a5d83fbef9fa645a7357b6628f7ff66ca9ccb027348bfe12e2aabbeec03c"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteHistoricoIcon.tsx",
+      "bytes": 443,
+      "sha256": "51c992e347dc1e308ec100acf8d6435773861cccb216bada4bef01a1cd664c42"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteIcon.tsx",
+      "bytes": 567,
+      "sha256": "eda6f58b0c4146a3b123f0df677703beb5e0c29fe664105de8f668616a7aeeab"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteIndiceIcon.tsx",
+      "bytes": 523,
+      "sha256": "313d6cf4a3594131e6bed83809f9cc9fd20b82b30417c24be3a02f9024c6ee59"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteTicketIcon.tsx",
+      "bytes": 467,
+      "sha256": "a31e54cb849a4bbf93f631c164bb16aa3a8fbc7d111b40dbedaf4241b9c68ced"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteViagemIcon.tsx",
+      "bytes": 493,
+      "sha256": "aefad08e73dee40b6c4c7617dfa448dfe88289c31c21bc57c4391b2d54b7509e"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilAPeIcon.tsx",
+      "bytes": 583,
+      "sha256": "24a411633d15da32d1c3a04f92ab7c982e9bc021605ba4e547c61d7ad354920d"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilAcessibilidadeIcon.tsx",
+      "bytes": 491,
+      "sha256": "0e992ffc8c4f58cf3dd64942fd370ad2ec9c1a68a27bfecdba78bc2f056e7b78"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilAmigosIcon.tsx",
+      "bytes": 551,
+      "sha256": "d0913b67baed2efab4437410cda5afecf24009c76f48bd377cf9d39a54523a24"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilCarroIcon.tsx",
+      "bytes": 507,
+      "sha256": "b98efc44b6248158eed3c3faa2ed1ceee3fdd56273730647c6b4b24ba406c4fe"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilCasalIcon.tsx",
+      "bytes": 558,
+      "sha256": "8df7855e3efbaabafa2d2e2fe9772f94aa05a858e16321b5cf6f1383967fbeec"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilCriancasIcon.tsx",
+      "bytes": 527,
+      "sha256": "06f72579be19523f41a9890ef25b817730a1c1e2b8bce083135cd514c8ddcce8"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilFamiliaIcon.tsx",
+      "bytes": 632,
+      "sha256": "af1bab1963896b821f6c4afb05a4134eb87dcadfc44f4ce579d0c7075bb61c02"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilGastarMenosIcon.tsx",
+      "bytes": 638,
+      "sha256": "ff9ea29e7bf99a72d15c525cdca1978e8901451800a3139e49e236760d983eb3"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilNaoSeiIcon.tsx",
+      "bytes": 510,
+      "sha256": "232901d024c513b2f815cc6c0943945ea7a242a79f00fc3213f2ce15da162100"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilNenhumaNecessidadeIcon.tsx",
+      "bytes": 507,
+      "sha256": "3d9f3f265150c1dfcd160fd17bc2b7b579081223ba850d351ebbf41af50ab695"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilPreferirSemCustoIcon.tsx",
+      "bytes": 555,
+      "sha256": "d39e0a73667885231e4514a48b54c4006147cd0d4edda1208856dc75101db7a1"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRelaxarIcon.tsx",
+      "bytes": 532,
+      "sha256": "c7d22b4683b681824f6e9f2c60bc74909618af55eb4b9278ee74db678ea2d3e3"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRestricaoAlimentarIcon.tsx",
+      "bytes": 550,
+      "sha256": "233907d8777f0c96983edf088cb35f52b958f4780e1f1538bb951267b8cae9df"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRitmoAtivoIcon.tsx",
+      "bytes": 646,
+      "sha256": "3ee171209691b05be2883c8a6013704305e1d9b4f88f6cba344fa2e73a1a3266"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRitmoEquilibradoIcon.tsx",
+      "bytes": 501,
+      "sha256": "629877153209b59d3d71109ef437a671061397f821df229ef36d3bf2e7fe93c0"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRitmoTranquiloIcon.tsx",
+      "bytes": 588,
+      "sha256": "7421bf39a8682ae209bc5e0c1c17e2b03be3b3ca01c7b611b39bc3c5a3bb9e80"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilTaxiAppIcon.tsx",
+      "bytes": 539,
+      "sha256": "5f44bc17963d87d3c972f9266cbbc971e80a5a58c9fadbd993160d86c46c8213"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrCameraIcon.tsx",
+      "bytes": 541,
+      "sha256": "dc90da94db73237904c01ccc7189358e692df2eb0749753388cd46f3008fb13f"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrEscanearIcon.tsx",
+      "bytes": 465,
+      "sha256": "817097815efb354262e3da46fd24914458e82edc1fb7d1f92c3190ce080674cc"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrOfflineIcon.tsx",
+      "bytes": 522,
+      "sha256": "ad1641a756c153f27ca801f59a9a49eb79f00297d6bdf8da213352a3cce6bc39"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrQrCodeIcon.tsx",
+      "bytes": 969,
+      "sha256": "4179e9938d63928e5b6b9e5a21cb3450ea8f8ea96e740d1acbd787725f581879"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrQrDesativadoIcon.tsx",
+      "bytes": 1245,
+      "sha256": "5abf2afeeebd94510e7f8b94ce52b0016229914a1019daff3ec1cb812ef1943c"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrRetornoIcon.tsx",
+      "bytes": 410,
+      "sha256": "d3d26406cfe7aaf1bda7afb0d0ad5ea5f1750bd1aa10263df7783fa5bb68d746"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrVisitaJaRegistradaIcon.tsx",
+      "bytes": 887,
+      "sha256": "e1a47b115d1b71464430cbbdfb12a373c261c9e4901a8d46686d42b028c64f8b"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroAdicionarParadaIcon.tsx",
+      "bytes": 483,
+      "sha256": "04529e372f9c02946a7ce7b7920cec42b26d83af41a3c66e10dee335a71f5edf"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroAlternativaIcon.tsx",
+      "bytes": 518,
+      "sha256": "cfdab8eb9326585f3305728fd4f2dd2348ceb6c547e67bce7f727968f9be06bc"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroArrastarIcon.tsx",
+      "bytes": 545,
+      "sha256": "4a86a6cf139489d69fdd452aaa03206f6e790243ae912c91173336f9c6632322"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroAutosaveIcon.tsx",
+      "bytes": 510,
+      "sha256": "324ac745db72cf817d211962709d2eea8e1ad371a6b774b508b8a053114dee22"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroDesbloquearIcon.tsx",
+      "bytes": 510,
+      "sha256": "aefc8c8d8f19127cca53eff1904004b922c20d33ceb486813dc7783010e07fc1"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroEditarIcon.tsx",
+      "bytes": 439,
+      "sha256": "e24e0438f542194d7f7d4229ff6691c852a531ceb05ae9790ef6db76df10caac"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroFechadoNoHorarioIcon.tsx",
+      "bytes": 1035,
+      "sha256": "3c22037290866cadf05ddef7410eb0e5a915ee85ea4a58af557a9c4ba6be78ab"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroFixarParadaIcon.tsx",
+      "bytes": 499,
+      "sha256": "e3624df0e063f60359260428948947fbc77bdf46966ee7c41b27c2277c48f184"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroIcon.tsx",
+      "bytes": 622,
+      "sha256": "7544eaa83bb25d203d2afdb2454346aa0f81cad830f52379a2a1a67a71907c31"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroMoverIcon.tsx",
+      "bytes": 485,
+      "sha256": "e37b70846f2cdb3c18c2d2876fe34af9dcd0735f8c97ceed853ca61b6557db51"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroRemoverIcon.tsx",
+      "bytes": 415,
+      "sha256": "1cb3b12a30eedb6967aaffcac6377d381e9f7b3d035f57ca50967b803c7a1256"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroReorganizarIcon.tsx",
+      "bytes": 469,
+      "sha256": "48354c8eb2453c7c0835d193afdfaea18363c56c2df05d1a518253e519659790"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroSalvarIcon.tsx",
+      "bytes": 441,
+      "sha256": "535c4996ec9c5a9c9a34afdcf21c731c8aa68f65b1c3796673548d07fbe04b6a"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroTrocarIcon.tsx",
+      "bytes": 453,
+      "sha256": "f2a6b3cffc3a94964ed9f996e505597405f1f79fdc89d4c89b66d5bad08e7148"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/SistemaIcon.tsx",
+      "bytes": 555,
+      "sha256": "fda46ed4bafb8a7c5f46cb07f2f8d25c556ea70c36da609ca068bb6cbfd56bbd"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/SolIcon.tsx",
+      "bytes": 472,
+      "sha256": "52a1c02d2d2a46d0f7a2939b6dd30ac53091545153a3b5f0ccbb38af7d283e1c"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/VoltarIcon.tsx",
+      "bytes": 386,
+      "sha256": "3100342d566074d63bf64aea851001e4bff2f7225e1d82c6dd9a071a63af3737"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/icon-aliases.ts",
+      "bytes": 946,
+      "sha256": "d8ec4b8061232bf14166812ea173e357bf52e18ab002e0af48d079f8a4170fe8"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/icon-registry.ts",
+      "bytes": 17771,
+      "sha256": "cd9e9e9b0ce5ff5c09c280e12dd84f1f36632abbcc24a8c75bbef08f85d3e3a8"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/icon.types.ts",
+      "bytes": 4195,
+      "sha256": "f4dd238ba7e2e71baffe900b7a404a85f887f60ba2ac5d6039989493f6d383f9"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/index.ts",
+      "bytes": 197,
+      "sha256": "b302a739eec1cad7ffa0e4d6e4fceab0d3287f1eb5c20ecd3fe8f7a7af3577b6"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/tokens/icons.css",
+      "bytes": 281,
+      "sha256": "29a733dd3b6d57a2e355bfefe8683b87d7eb232dacd2f75689d93e6722f94538"
+    },
+    {
+      "path": "references/landing-reconstruction-v3/PROMPT_RECONSTRUCAO_LANDING_V3.md",
+      "bytes": 41102,
+      "sha256": "fbc216495a21126ce38504969f365dabd16d7ab7ed6f37bc025924d1ba91e5d5"
+    },
+    {
+      "path": "references/landing-reconstruction-v3/PSD_LAYER_METADATA.json",
+      "bytes": 2956,
+      "sha256": "cb5c7393000be1997e6806316f27721795d8cdad1a7b8a2bb7a0c165098d962f"
+    },
+    {
+      "path": "references/visual-v2/Passaporte_Serra_Negra_Guia_de_Construcao_v2.md",
+      "bytes": 38233,
+      "sha256": "fb8d2b51b11fd8b0762afc74add28eff6c8ddc01e545fabc7ca9b014135d01d0"
+    },
+    {
+      "path": "references/visual-v2/source-manifest.json",
+      "bytes": 2877,
+      "sha256": "340fddb3429342dc0390d2353a0104ed07a4a45f47be8c8ab6e18cece0573ab0"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 26,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "screenshots/_test-partners.png",
+      "bytes": 880833,
+      "sha256": "3360f79f009b2fdba45c4ceb93f9b566595158af3972341822d5ef7ac74d0e6f"
+    },
+    {
+      "path": "screenshots/asset-reference-check.json",
+      "bytes": 52,
+      "sha256": "685d6df39b6d58b404ca2bdd22f8e7f5fc3828f463027389c5ce25febbf55bed"
+    },
+    {
+      "path": "screenshots/home-1024.png",
+      "bytes": 246789,
+      "sha256": "4bfd152e2a80b0ed97db6ec9e29e1d20604e02f7de98f5bb0351034e8b817ea9"
+    },
+    {
+      "path": "screenshots/home-1440.png",
+      "bytes": 345160,
+      "sha256": "f7839ed289727ffc1dffd5c25b1ccc429437d929ec9445a11978a2baef5c91dd"
+    },
+    {
+      "path": "screenshots/home-1920.png",
+      "bytes": 477600,
+      "sha256": "48a3273c1eaad0cef41227c5855cde72c0583068b4a5175463c470e8e89a39be"
+    },
+    {
+      "path": "screenshots/home-390.png",
+      "bytes": 164356,
+      "sha256": "b0a5939a4ae0b16004552d59a5b722eabed4e3e09390c4f8529763705c7be12d"
+    },
+    {
+      "path": "screenshots/home-fullpage-1440-thumb.jpg",
+      "bytes": 190307,
+      "sha256": "bccecd418f457670c5ee928a4408fe1f0c7efad87c9c8343d192b7f5e35cd38c"
+    },
+    {
+      "path": "screenshots/home-fullpage-1440.png",
+      "bytes": 2294902,
+      "sha256": "5786177e3893420567aa5fbb0f6e8cc1e24f25aa73f2e134179a4f3042178331"
+    },
+    {
+      "path": "screenshots/partners-1024.png",
+      "bytes": 643534,
+      "sha256": "ea1b8fd08e5d4661ad4be3dc0e87d339052c1f781dd4a939dd96fb1f20a794ec"
+    },
+    {
+      "path": "screenshots/partners-1440.png",
+      "bytes": 958391,
+      "sha256": "383835762556b7ff32f4a0c9fcfc559d583088ff369fc17c817a50a57bb86357"
+    },
+    {
+      "path": "screenshots/partners-390.png",
+      "bytes": 246807,
+      "sha256": "6551cf4baba67abdb2382ea6fabbd214e8f1852d8a6a757a69dcf0190cf2131c"
+    },
+    {
+      "path": "screenshots/partners-768.png",
+      "bytes": 472154,
+      "sha256": "0fc5503e96fb7187a5dd869af8fb2fd5df35808180ff88c931afc991657a0987"
+    },
+    {
+      "path": "screenshots/partners-fullpage-1440-thumb.jpg",
+      "bytes": 271999,
+      "sha256": "395626a95462cdc46ef774f4d9959df7b9c7ac13fb9f754e17ae3a7a6a5b7640"
+    },
+    {
+      "path": "screenshots/partners-fullpage-1440.png",
+      "bytes": 4155569,
+      "sha256": "1060603d5c2e845eb06f53e0c8acbf56524064499494e69be8fd9316cc197ccd"
+    },
+    {
+      "path": "screenshots/partners-psd-vs-implementation.jpg",
+      "bytes": 518603,
+      "sha256": "fd04967c796415a7eae6de645fc59a45774183aae65d02afcc21eea30afeb89c"
+    },
+    {
+      "path": "screenshots/partners-validation.json",
+      "bytes": 1613,
+      "sha256": "5847e7e82fb3ec37ffc0237dec75ec3dcc6a65e26b00d06a89dc9249b1e817e1"
+    },
+    {
+      "path": "screenshots/psd-geometry-comparison.json",
+      "bytes": 3452,
+      "sha256": "72bdd64c00a26171c407226d4f69601f15aabb4ee7f9e84b852d38c9d677c496"
+    },
+    {
+      "path": "screenshots/validation/implementation-720.jpg",
+      "bytes": 421425,
+      "sha256": "c98c48effe6c0c83288b5bc8ab2a4abe8be06db4cd885c04b8f1d0472788bce2"
+    },
+    {
+      "path": "screenshots/validation/psd-reference-720.jpg",
+      "bytes": 650104,
+      "sha256": "c4bfbba8569bf6335fc37d9d4af054ecd032a1f9fc39e3fda468857993904339"
+    },
+    {
+      "path": "screenshots/validation/psd-vs-implementation-thumb.jpg",
+      "bytes": 270524,
+      "sha256": "940bf24885e197b6f9f94b9c2684e2af850d8a54d9fb257a00e07f524b825304"
+    },
+    {
+      "path": "screenshots/validation/psd-vs-implementation.jpg",
+      "bytes": 924571,
+      "sha256": "71e57f1a44b11154f24c4a1c5feb3f37d298bb40ac0b8413be82ebb6e3de5255"
+    },
+    {
+      "path": "screenshots/validation-report.json",
+      "bytes": 9674,
+      "sha256": "abccc65f7f52e504cf81de0a81178b7208235c9a2428915b81bcb07604b9735b"
+    },
+    {
+      "path": "screenshots/validation-run.txt",
+      "bytes": 9681,
+      "sha256": "d98626840c235c2e3d1129b7664007c12f2f9e2499a7f59756781d54c18113f8"
+    },
+    {
+      "path": "scripts/deliver-block.py",
+      "bytes": 2760,
+      "sha256": "917994feb1a015234c7945c0f596253d49fde32b944ab8a5f5fe0c3d48aa9d79"
+    },
+    {
+      "path": "scripts/dev.mjs",
+      "bytes": 419,
+      "sha256": "c071c0bfa68087685ab24a6f1072a4b2839aeb8a0e64093be15bdb3ac0a3a35b"
+    },
+    {
+      "path": "scripts/migrate.ts",
+      "bytes": 569,
+      "sha256": "ea896e01600b4657a0ad30e447802ede7cf38d68b465bda8d236a9a2f50787ad"
+    },
+    {
+      "path": "scripts/package-block.py",
+      "bytes": 1112,
+      "sha256": "0e41c95298733759d47a4f77091acaec7596df54898505f8bfee7c8036d7ef24"
+    },
+    {
+      "path": "scripts/package-checkpoint.py",
+      "bytes": 4222,
+      "sha256": "0669425d2720599808efcc1bcf4e5c58e9759e5f1bf92316330027aa29015202"
+    },
+    {
+      "path": "scripts/seed.ts",
+      "bytes": 977,
+      "sha256": "9bbcfa4e070e747c1029f6711e372d75cb48705a59a6ad87734623155ae7e30b"
+    },
+    {
+      "path": "scripts/static-demo-smoke.cjs",
+      "bytes": 1941,
+      "sha256": "508753fdfa2c624a50c51a1276cf8da8cfb255d75ae335d70c5d9b986ccb6782"
+    },
+    {
+      "path": "scripts/verify-persistence.ts",
+      "bytes": 1857,
+      "sha256": "1e4fb5daf445106abf4d3ba28cafd94cd0459a443a30d8dd2315f4808daf5d8d"
+    },
+    {
+      "path": "scripts/visual-v2-browser-smoke.py",
+      "bytes": 5241,
+      "sha256": "e06fb7c381e9f8eb2fa66254267ff0765dad58dac0de2cbca77a52de905a44af"
+    },
+    {
+      "path": "seed/validation-content.json",
+      "bytes": 11617,
+      "sha256": "b58df173094c92a1d782e4ac4ba79c481ca343aee9dd5152ffeeb4dead71f14a"
+    },
+    {
+      "path": "seed/validation-trip.json",
+      "bytes": 2691,
+      "sha256": "b2a1baa09080c8c15a1c4b83194c8c4ad59218d7bec2bb3e0a2c259b328949c2"
+    },
+    {
+      "path": "site.webmanifest",
+      "bytes": 327,
+      "sha256": "e150cbe17c5ab34407e8f9f9ba8b2ba65636d5251d37b94d2b3726fd3117b24b"
+    },
+    {
+      "path": "src/app/admin/[kind]/[id]/page.tsx",
+      "bytes": 2149,
+      "sha256": "e76d7a8018afbf0bcc75affe3cc59b3efb200b71d3442e8c7efc2741bfbd46c7"
+    },
+    {
+      "path": "src/app/admin/[kind]/[id]/preview/page.tsx",
+      "bytes": 1646,
+      "sha256": "95d6ed8adb07744606234ad19d660e0e07c2822ffcf54e725babaface1bfebbe"
+    },
+    {
+      "path": "src/app/admin/[kind]/page.tsx",
+      "bytes": 1252,
+      "sha256": "5b0740d704582a3348ec999da1a5a04a2f6e61de1c1bc2f8c80c5cfbdd218405"
+    },
+    {
+      "path": "src/app/admin/layout.tsx",
+      "bytes": 560,
+      "sha256": "1cd9f47ea077eb83ffcc44ac85f1bddae4847a04857a57dc866dfb9fff8fa662"
+    },
+    {
+      "path": "src/app/admin/page.tsx",
+      "bytes": 1726,
+      "sha256": "64cdb6be50dde874089fa9c0f2fc6bf57662e44fd6b84698e0813c9ccc06d4f4"
+    },
+    {
+      "path": "src/app/api/tracking/route.ts",
+      "bytes": 602,
+      "sha256": "f87248c44b5fbcfd79acd50a29db8c04f69c70999cc518f24f282c08d0e7b5a9"
+    },
+    {
+      "path": "src/app/error.tsx",
+      "bytes": 233,
+      "sha256": "155349e8bd04dab23d26231c0262c8ab3992004339e7350474fd86d58d4f8617"
+    },
+    {
+      "path": "src/app/explorar/page.tsx",
+      "bytes": 3124,
+      "sha256": "550b05bfadd7ee60dfb606b213460aeb70d9c8507408ef7f408324f4bd5e464c"
+    },
+    {
+      "path": "src/app/explorar/tracking.tsx",
+      "bytes": 438,
+      "sha256": "d0e0ede9309c619ebe8865e5d7a0205ae89a7f6b2d6b97c4aa9606fa30b99eed"
+    },
+    {
+      "path": "src/app/globals.css",
+      "bytes": 10089,
+      "sha256": "660f1371cb63d77b69b5684bb694b552b114f15b76902cbbcf7b47086b92b261"
+    },
+    {
+      "path": "src/app/health/route.ts",
+      "bytes": 473,
+      "sha256": "fb44cbc9ca49aa0849e684d91c95505e7caf5190d88759f69b8383d806960502"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "bytes": 1801,
+      "sha256": "a835b88f546731beac692cdcd98f6851e7903916c9df80c4dabec6e03a74416c"
+    },
+    {
+      "path": "src/app/loading.tsx",
+      "bytes": 110,
+      "sha256": "00cbff10e8562af89bc6204c84e3ecdeb7185884e12edbd6262cf0bf86c046b7"
+    },
+    {
+      "path": "src/app/lugares/[slug]/page.tsx",
+      "bytes": 824,
+      "sha256": "303f5c82ac7fa1e2d4da3d94f473c177e5fa240dd5e778e9edfd58bf5e8ae01e"
+    },
+    {
+      "path": "src/app/meu-passaporte/page.tsx",
+      "bytes": 4760,
+      "sha256": "6c420ca898c3351be155047cf2d3a29b4f5c4bfe69b6d6c59b42b0ad6377bbb7"
+    },
+    {
+      "path": "src/app/not-found.tsx",
+      "bytes": 217,
+      "sha256": "fe0bda0a8fca468c1657e9a6995f8ed734deab05eacb47b346444261f750a8c8"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "bytes": 3528,
+      "sha256": "ce78a4a0f93d2f1e9c22598af0ea5f92ad0b5128c73fd730901d5f23b1117692"
+    },
+    {
+      "path": "src/app/parceiros/[slug]/page.tsx",
+      "bytes": 864,
+      "sha256": "3a1036f507220bb280f9c7a035fff733f0f165e4f3b5d0e33134d05a4d094faa"
+    },
+    {
+      "path": "src/app/roteiro/page.tsx",
+      "bytes": 505,
+      "sha256": "df8d1718add85c07580411dbd2817328fd8263be33a84ecfb3f9a91f95f52bbc"
+    },
+    {
+      "path": "src/app/viagens/[tripId]/calendario/page.tsx",
+      "bytes": 4423,
+      "sha256": "8ef26dfd0c01e58a306d7c85e2cefc07a8649919343ded492f908a4f8dc5315b"
+    },
+    {
+      "path": "src/app/viagens/[tripId]/roteiro/page.tsx",
+      "bytes": 4112,
+      "sha256": "811c4f8640124938850e1257e6495f1494ea80774e31a022b61d84ff72fa6683"
+    },
+    {
+      "path": "src/components/EntityPage.tsx",
+      "bytes": 5179,
+      "sha256": "ab5856f8fd14d247247a3e3d46f8163d89d4bb947382101f4b8123237017266d"
+    },
+    {
+      "path": "src/components/PlaceActions.tsx",
+      "bytes": 729,
+      "sha256": "60e405ae3f8fc301c5cefc7631c0f874acfd4baac86c809e6cb25d8f7306f40c"
+    },
+    {
+      "path": "src/components/ThemePicker.tsx",
+      "bytes": 531,
+      "sha256": "f298b49965991b275f3379fc9ef478e594eb00ebe5fd3733622f9f49a15e8994"
+    },
+    {
+      "path": "src/components/content.tsx",
+      "bytes": 3174,
+      "sha256": "259eee8de18814e37be804b7ee806655d6a650d99e24557fecab865f582eecae"
+    },
+    {
+      "path": "src/core/auth/admin.ts",
+      "bytes": 627,
+      "sha256": "3e66dfbad09eb86190ba124e08c9ff7d39dcbad143a5681799a1c3f98cc7b86f"
+    },
+    {
+      "path": "src/core/auth/token.ts",
+      "bytes": 694,
+      "sha256": "6b3b2f854b17bd31d88d223321f38ad22161a60f93b4f6c8150d85eec8fc6bb2"
+    },
+    {
+      "path": "src/core/db/index.ts",
+      "bytes": 665,
+      "sha256": "d07eac75521ea49f6fa8914e807f75a3306a814a6a03c9aa385c48656ebd5a3d"
+    },
+    {
+      "path": "src/core/db/pglite.ts",
+      "bytes": 386,
+      "sha256": "f17e33c32b791ce4f3d3a31e38f944a124284119fc82bfc797f251be0aa4b2a8"
+    },
+    {
+      "path": "src/core/db/schema.ts",
+      "bytes": 2137,
+      "sha256": "c25a4d7fc5673051e3c9adb94dcd9876865e041c7c160fde2c4469fde1677beb"
+    },
+    {
+      "path": "src/core/i18n/index.ts",
+      "bytes": 668,
+      "sha256": "8116311b0cb970f171123b5cb89a5759d839850d87f8de50c111894d1165ba22"
+    },
+    {
+      "path": "src/design-system/icons/Icon.tsx",
+      "bytes": 1107,
+      "sha256": "c26c5cda20d77b8ab136b7c11c6d2f721f78f524d69408951a318b7fcceefb8b"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminArquivarIcon.tsx",
+      "bytes": 515,
+      "sha256": "4fcab82018f47b9b8adc89a8de0e22b4e4e691f1a275c18e9388013ba7c5836a"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminAuditoriaIcon.tsx",
+      "bytes": 524,
+      "sha256": "9d54bc45931455ab7515fb506b8f58d99281c14afdac8b65d85f7965bc3234d2"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminCirculacaoTerritorialIcon.tsx",
+      "bytes": 635,
+      "sha256": "17872cecfb1aae33242784c1b10a2267bf121a1ca515ea17f1960b964ca56cd4"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminCompararVersoesIcon.tsx",
+      "bytes": 667,
+      "sha256": "868dc38d0727a53b69a92a5b663b79452d89046e116fc4082cc101b1c5823bb6"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminConfiguracoesIcon.tsx",
+      "bytes": 987,
+      "sha256": "e4fa12ca0ec1f7c29b302f832fcbe52b27376809bc01c0b26f3c093a57052929"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminConteudoCmsIcon.tsx",
+      "bytes": 455,
+      "sha256": "5b2d6ee3aef923c273b179a7122804fe3732588f71f2d1eeb1289d34bdaa28d1"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminDashboardIcon.tsx",
+      "bytes": 729,
+      "sha256": "64f2ef3657b16547b550f4fb322d4f35e4c3ba8da443ad21336eb6795eb45690"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminEditarLocalizacaoIcon.tsx",
+      "bytes": 636,
+      "sha256": "2a78b7f3b913620820021910da867ec76d0099bd7d862804688e810197b8fb51"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminExportarIcon.tsx",
+      "bytes": 470,
+      "sha256": "b5a909d967b67151628d8bdd923f2027dff454f585729c11d6fe247228b0d4a9"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminFontesIcon.tsx",
+      "bytes": 403,
+      "sha256": "3a840b07e2fd90b7f11a2210dce478926ebe225ede554951c416dc882759e62d"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminPublicarIcon.tsx",
+      "bytes": 460,
+      "sha256": "eb64ff36bdc4ff3669d0d4daa8376cb8743edf289b42eabbeb0a54ae225d7a1a"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminRascunhoIcon.tsx",
+      "bytes": 523,
+      "sha256": "e41a6f445d56d10f8e3e641f7d57d215a6d9581a4eb7765f854fb23d4ea5d4ac"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminRegistroDeSecoesIcon.tsx",
+      "bytes": 726,
+      "sha256": "e81833d3521ce8de0ce14e002e62e323688746c565aa4f636e9690e7696ee0c1"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminSankeyJornadaIcon.tsx",
+      "bytes": 564,
+      "sha256": "4853c5d1ab843fb1d6bb7a91c4d0c43816a9196c8ed3cbaa576d110573de5d41"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminSecoesIcon.tsx",
+      "bytes": 455,
+      "sha256": "29cafec68460f4991927f6d91ca90c5eef021a60935672fa64649968fd2778c7"
+    },
+    {
+      "path": "src/design-system/icons/generated/AvancarIcon.tsx",
+      "bytes": 389,
+      "sha256": "5947affb27320b78fc9c3e6a81b725ff30a8d161608cb5fb9dbb7cd797f2eb7f"
+    },
+    {
+      "path": "src/design-system/icons/generated/BuscaIcon.tsx",
+      "bytes": 399,
+      "sha256": "de97d869e92cce374549500c1d019178159fbb7595f816ea6f5adf72986297a6"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioAtividadePlanejadaIcon.tsx",
+      "bytes": 626,
+      "sha256": "31c515a0a86c534ac49a4d585b2c97dce0be1a042fef1b992a81ff5e934e7de3"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioDiaIcon.tsx",
+      "bytes": 519,
+      "sha256": "d043241574f1f873117b24bce948d83332d2f3432203a06188b1b03552b54ab5"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioEspacoLivreIcon.tsx",
+      "bytes": 542,
+      "sha256": "f63d7a6235d54964804073c01fb1bad1b4c9143ff66b50f6acffed0d2d8cef61"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioFiltroIcon.tsx",
+      "bytes": 448,
+      "sha256": "2131f3506679381a69f1179b4c008759dd2d158f3a04206c3613fe0bfdbc685e"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioHojeIcon.tsx",
+      "bytes": 546,
+      "sha256": "319c816d5592171b7f8ebb9d9a4bec40a7dac5125cf508b660c214708ff2e4ee"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioIcon.tsx",
+      "bytes": 986,
+      "sha256": "e4a2d327d2fad506cca88d1d1ac270c6ea8bbcd82a1bd3313320322035ad0c4f"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioMesIcon.tsx",
+      "bytes": 1122,
+      "sha256": "42d60b284e7fc794b8811337c467ac62b16c23c344270a146bbc5f9890bfcc38"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioPresencaRegistradaIcon.tsx",
+      "bytes": 615,
+      "sha256": "0580c9510d3126203b30307dfb058ecb364234caff6170be3498d0ee9e68fc5f"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioSemanaIcon.tsx",
+      "bytes": 793,
+      "sha256": "4d301559508a4988d6866c8bc0dfa451110977d3a6d667c94979ca3349a36dfc"
+    },
+    {
+      "path": "src/design-system/icons/generated/ChevronBaixoIcon.tsx",
+      "bytes": 396,
+      "sha256": "8476c2773b31f71db81fb0c1e7f3fb9e39d69c2a753e9af21126604e71913703"
+    },
+    {
+      "path": "src/design-system/icons/generated/ChevronCimaIcon.tsx",
+      "bytes": 393,
+      "sha256": "35e37d84cb3597bf88b5739e6f124163ea4433b1c1eeb17c1e86fa31007944ce"
+    },
+    {
+      "path": "src/design-system/icons/generated/ChevronDireitaIcon.tsx",
+      "bytes": 402,
+      "sha256": "f3f24e0e3457dc15b2073906d451ccc8def5a71b42d95e7bd56d0be74d4eea4d"
+    },
+    {
+      "path": "src/design-system/icons/generated/ChevronEsquerdaIcon.tsx",
+      "bytes": 405,
+      "sha256": "7047a000a08b58a1b83a33c432afecf5e894f6b95d33e3b1ecd9f04788bb84e0"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaChuvaIcon.tsx",
+      "bytes": 546,
+      "sha256": "83bf444c5c15e47653b91ee523bbf3ed0a9b4c0113189109fd4ab883473c64f2"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaChuvaIntensaIcon.tsx",
+      "bytes": 627,
+      "sha256": "c4d39d08dd407c3b844dbe2fabdc1140308d9e75505d9a757971e237f3962d60"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaFrioIcon.tsx",
+      "bytes": 513,
+      "sha256": "81acdc1ae7f4452fecb54f63b68ce5166ef000207105b8a610dcc16aa9b7cc91"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaGuardaChuvaIcon.tsx",
+      "bytes": 480,
+      "sha256": "3e14ada66ca4aeeb64b5fcd7bcd20d81ad4989140b0bb6226bb98f4a9990c00f"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaNubladoIcon.tsx",
+      "bytes": 433,
+      "sha256": "1e62de2a8256e57c8dde394125682770a20cb7e871b4c5a1d9dd1b16e08b9915"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaParcialmenteNubladoIcon.tsx",
+      "bytes": 554,
+      "sha256": "c813524052137027a3cf512be2d5da209fdf6071c7d79b63c8fbda118fece4b7"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaSensacaoTermicaIcon.tsx",
+      "bytes": 605,
+      "sha256": "bd96042b3750204ad185761e5287c9aded655357159a84ad1b1ab4ea09163351"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaTemperaturaIcon.tsx",
+      "bytes": 466,
+      "sha256": "093f38e101af8e20345a5d35a33815ccdb222456795824836dbc07edcdebd6c4"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaTempestadeIcon.tsx",
+      "bytes": 474,
+      "sha256": "c38500cd78bff920432ee1cf81a7b437bf3ebd4d44f3e74d416716802cfad9d6"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaUmidadeIcon.tsx",
+      "bytes": 450,
+      "sha256": "22803fff24f65c0618d6aed45ccc96e54a6b9d96a3306f23d86ee37de1ab276e"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaVentoIcon.tsx",
+      "bytes": 473,
+      "sha256": "d7ed7d2cd8e56fab7e8818fffc6f28769bf10d2cd5a2cd3a3307304d510aef93"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoCopiarLinkIcon.tsx",
+      "bytes": 498,
+      "sha256": "9e98b0755c3001d9c2f0cedca2ef563af0cfe0fded49313fc308927d9744c80b"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoDobraIcon.tsx",
+      "bytes": 423,
+      "sha256": "3a1af5a7ddeb6639e24bd572a419c26e44fc9693e5d58441dbcadff963e7befa"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoFeedVerticalIcon.tsx",
+      "bytes": 588,
+      "sha256": "3e78e82868d0b62ccae249c9f9b82431be3f2c18270081c481b59114c4250215"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoOcultarIcon.tsx",
+      "bytes": 504,
+      "sha256": "bb8df9d2b70fad3c8d21f5b24664510a492aef9a110820b96da350b408ae92e1"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoQuadradoIcon.tsx",
+      "bytes": 433,
+      "sha256": "5f4ff2d7df81e552b1223462c99387ca4654ba8ecab3f3d7a4ec8c9b1602b81e"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoSalvarImagemExportarIcon.tsx",
+      "bytes": 579,
+      "sha256": "daadad008538e8288c83d0143db7300e7994d1bf5b8a9356bad68258d7f46369"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoStoryIcon.tsx",
+      "bytes": 487,
+      "sha256": "599d5e565256e55850d5642c7583513e646ede5e76474c02dbf7ce7951f50d34"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilharIcon.tsx",
+      "bytes": 497,
+      "sha256": "71ec01acf499c82c20d594519d8b4fab53d8d4e72a97e888ce6645c7d3b204a6"
+    },
+    {
+      "path": "src/design-system/icons/generated/ContaIcon.tsx",
+      "bytes": 433,
+      "sha256": "182d278c872db2f41e9ed1794cb5c1067f6e638002ac549cf99deaa057e142a1"
+    },
+    {
+      "path": "src/design-system/icons/generated/ExplorarIcon.tsx",
+      "bytes": 421,
+      "sha256": "4aa2bc04066f2102c9095cef2b0ac0f179ae7de407f27324557d2490ad5d8206"
+    },
+    {
+      "path": "src/design-system/icons/generated/FecharIcon.tsx",
+      "bytes": 383,
+      "sha256": "ace302c574997fa9e5183565c645fdb82d384e847fc66120d1a7ab455d63d2f9"
+    },
+    {
+      "path": "src/design-system/icons/generated/HomeIcon.tsx",
+      "bytes": 476,
+      "sha256": "640293ba3b069a912447f9f99e39ba98bf63ae6db48379fd0057bc0915cc1d2b"
+    },
+    {
+      "path": "src/design-system/icons/generated/IdiomaIcon.tsx",
+      "bytes": 451,
+      "sha256": "214b73d3bfaa6d91b4b880377526a2de19724b17f3288c434a31c78add75bfc3"
+    },
+    {
+      "path": "src/design-system/icons/generated/LinkExternoIcon.tsx",
+      "bytes": 455,
+      "sha256": "1846f88007a737e064b7ecdf206f953430d5eac83217268c2d59890a5bc7d1be"
+    },
+    {
+      "path": "src/design-system/icons/generated/LuaIcon.tsx",
+      "bytes": 446,
+      "sha256": "7c16729d49fc6ccd824f07f459b8968d4dead2ea83c19b0c40040d8c0e48c5f5"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarAnimaisIcon.tsx",
+      "bytes": 613,
+      "sha256": "1d0f6361a595d5f6e4d0f8ce833d04735e417e773c0ad919a2a300087da88622"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarDirecoesIcon.tsx",
+      "bytes": 452,
+      "sha256": "767e18957a8d6917b915f42a45af043752cb82036abfe6001c94089aa62f6d7a"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarDistanciaIcon.tsx",
+      "bytes": 762,
+      "sha256": "9438273077f2a4895c92bede311bb0a688e9ffdb317029e0ee2e394feceea06e"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarDuracaoSugeridaIcon.tsx",
+      "bytes": 495,
+      "sha256": "2da65e080f3b56fcdacbe50961ca029e5c21621278a537e7f6792c3098500125"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarEstacionamentoIcon.tsx",
+      "bytes": 468,
+      "sha256": "118abc6c354a4ef4f2a6fda6630f986a44157fdbb7c909856edd7445341f9d5b"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarGaleriaIcon.tsx",
+      "bytes": 578,
+      "sha256": "860003ec22d9135d3205ce0e9224c7c19e9423c1b79aa1e0f37eed618a5dc7cd"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarHorarioIcon.tsx",
+      "bytes": 417,
+      "sha256": "ac92e6433ecf1008179c7ab73cf4ab2a72503763b71e13b61c98064661f350fc"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarInformacaoIcon.tsx",
+      "bytes": 495,
+      "sha256": "a2970a79763bf9738ac2a6af79119c6bf4aeb6ef76de5e4a4c09245790792571"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarInstagramIcon.tsx",
+      "bytes": 511,
+      "sha256": "aa0dea893eda3703fb8eb38dcc04fdcdbcff10a1194d5f906ac35a57f43c7cc3"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarLocalizacaoIcon.tsx",
+      "bytes": 471,
+      "sha256": "40e4166db0ea23fa82cb671213bcb3188c4f60d36c804ecc8d338d390f4c8f0f"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarOutdoorIcon.tsx",
+      "bytes": 466,
+      "sha256": "367ca2fd367be96e46df1f489ea58e197db08524351b1e05a19944882febcdb1"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarReservaExternaIcon.tsx",
+      "bytes": 510,
+      "sha256": "69a6e92946c8578f2681283783b9e4efeafa1568db276951218ddf7bc41d7e2d"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarRestricaoIcon.tsx",
+      "bytes": 418,
+      "sha256": "2437464f453f414001052226cc0f3bc7e31f294d77c00190503f753098121b10"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarSemCustoIcon.tsx",
+      "bytes": 417,
+      "sha256": "bb03a679d25e164190ce27ca820698bed73bf0fd2ac3810bf9011cc0eb741f9e"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarTelefoneIcon.tsx",
+      "bytes": 474,
+      "sha256": "1ec64c8c748f8bfb3c393dfc01b2ed2eee5ceb44f194b2bfc89c4c1379046e59"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarTempoDeRespostaIcon.tsx",
+      "bytes": 576,
+      "sha256": "b0958727e07ebbfbf27e6076507c9f31a0c18b18ca796281d44ae85f9a3a2cee"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarVerFotosIcon.tsx",
+      "bytes": 436,
+      "sha256": "c18feb1424fbd575b01be8c7a69f60258c98043710c88b14eef94c467df19448"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarWhatsappIcon.tsx",
+      "bytes": 587,
+      "sha256": "b9971802ad09de29a457425ab26df19c91650ce6371bce3f8c1fdd8ee38ed8aa"
+    },
+    {
+      "path": "src/design-system/icons/generated/MaisOpcoesIcon.tsx",
+      "bytes": 561,
+      "sha256": "1a99446202548fcceaf754de88718735190d61411b7471a2092634debeaf8b94"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaAbrirNavegacaoIcon.tsx",
+      "bytes": 408,
+      "sha256": "001b65e13b3a27934aef29c096263e18630c488df4854e9544ac44bd5795eae3"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaAdicionarAoRoteiroIcon.tsx",
+      "bytes": 443,
+      "sha256": "c971575b352e1c35572c921a2d350a6ce28fc2c9ac3c4ffbba652d2d000a3647"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaBuscarNestaAreaIcon.tsx",
+      "bytes": 504,
+      "sha256": "298ec65278ac30a1ce11f3e6f24ea33a5df146654e4f41477f1be783cf2ff6df"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaCentralizarIcon.tsx",
+      "bytes": 476,
+      "sha256": "a8fbc76551b23e4feb218d35363a0d74b91f0801bb469b28eff65cdd3f26f505"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaDestinoIcon.tsx",
+      "bytes": 582,
+      "sha256": "4b2a2d503f3e4ba61d68f92479282c73e80e3b9942ce13266a9fb02538860eb9"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaExperienciaAutonomaIcon.tsx",
+      "bytes": 592,
+      "sha256": "6b60adbecfdcfcd3bb684fe0970ac0c9d5d51697865f609d25c3222a10c0f5b7"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaIcon.tsx",
+      "bytes": 469,
+      "sha256": "b1c477c06b59450c99ffa80c0947408966654b81f7df84de8adb8290c276e540"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaListaIcon.tsx",
+      "bytes": 610,
+      "sha256": "37def88863fa3b4d240292ae1929cafe647a0a3c4e5b5d69fc43a76a40090bc2"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaLocalizacaoUsuarioIcon.tsx",
+      "bytes": 507,
+      "sha256": "cbc4cc143461b29ff1c4d2851ca61cb960eafb1dc6acb97ca06430d4de676002"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaOrigemIcon.tsx",
+      "bytes": 579,
+      "sha256": "cdbc8b927538da1076f586146c6347865dc058d3025f65f40db87cd0f4651ca0"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaOutroLugarListadoIcon.tsx",
+      "bytes": 617,
+      "sha256": "c056a87a06e21ccfa28366e486e11b7ef8a23e1e07ff39e3c1115261ed3c83a6"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaPontoTuristicoIcon.tsx",
+      "bytes": 444,
+      "sha256": "eff0ba6b423208b1c4bca4fd6121ad09310fe6231283a50484fd9ce997001019"
+    },
+    {
+      "path": "src/design-system/icons/generated/MenuIcon.tsx",
+      "bytes": 381,
+      "sha256": "16fa6a708c12948ce60fc778a802a668f862c1acd772753e4fb5fee60e813d65"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroAjustadoIcon.tsx",
+      "bytes": 531,
+      "sha256": "b502bf097b74910a12dc68b8bbe174121503703ef03f4732649ab81776b17dd2"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroCanceladoIcon.tsx",
+      "bytes": 438,
+      "sha256": "fde244df4ccf808d11f398890e93f953dc1db766bcd594e304690010ea188d6f"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroDesempenhoIcon.tsx",
+      "bytes": 524,
+      "sha256": "03a2f8a9fdff932678f982368958ece0e8d1e10d3aacc0dc17ac27e0c4c39483"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroRequerSolicitacaoIcon.tsx",
+      "bytes": 835,
+      "sha256": "0ed2109d8baff2193e51afb0eaa233a2d0503a73c98643631b10790c0acda263"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroSolicitacoesIcon.tsx",
+      "bytes": 463,
+      "sha256": "d68bc1618dbfa2d9d6fc2e2da7a9f0110e480039c3af4e12899118c261bacd3d"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroVisitaRegistradaIcon.tsx",
+      "bytes": 577,
+      "sha256": "5e1d7e74472f24421b3feae08f44b183072e0558c4cc67a0aa7564dad10cae2e"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroVisitantesIcon.tsx",
+      "bytes": 580,
+      "sha256": "083d2d873b0a25b0a7328ac6d560f96f72cf6ad71d418175488a642b284fa6e8"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceirosIcon.tsx",
+      "bytes": 589,
+      "sha256": "ff78514d12319f553e4b417fa6dfce82e7226ccc0c1d5a56f84b3d7a0c289e5c"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteCategoriasIcon.tsx",
+      "bytes": 579,
+      "sha256": "f5e6e27d64b4b401a9637f8354b315ba18fb9b532c954f6e7e91e3ce05910d09"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteCompartilharTicketIcon.tsx",
+      "bytes": 610,
+      "sha256": "8fcef05eff51ad6ee91dd36210f8f9ff20b823433ac88475f02251cb9d452855"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteExpandirPaginaIcon.tsx",
+      "bytes": 550,
+      "sha256": "ff17a5d83fbef9fa645a7357b6628f7ff66ca9ccb027348bfe12e2aabbeec03c"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteHistoricoIcon.tsx",
+      "bytes": 443,
+      "sha256": "51c992e347dc1e308ec100acf8d6435773861cccb216bada4bef01a1cd664c42"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteIcon.tsx",
+      "bytes": 567,
+      "sha256": "eda6f58b0c4146a3b123f0df677703beb5e0c29fe664105de8f668616a7aeeab"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteIndiceIcon.tsx",
+      "bytes": 523,
+      "sha256": "313d6cf4a3594131e6bed83809f9cc9fd20b82b30417c24be3a02f9024c6ee59"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteTicketIcon.tsx",
+      "bytes": 467,
+      "sha256": "a31e54cb849a4bbf93f631c164bb16aa3a8fbc7d111b40dbedaf4241b9c68ced"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteViagemIcon.tsx",
+      "bytes": 493,
+      "sha256": "aefad08e73dee40b6c4c7617dfa448dfe88289c31c21bc57c4391b2d54b7509e"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilAPeIcon.tsx",
+      "bytes": 583,
+      "sha256": "24a411633d15da32d1c3a04f92ab7c982e9bc021605ba4e547c61d7ad354920d"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilAcessibilidadeIcon.tsx",
+      "bytes": 491,
+      "sha256": "0e992ffc8c4f58cf3dd64942fd370ad2ec9c1a68a27bfecdba78bc2f056e7b78"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilAmigosIcon.tsx",
+      "bytes": 551,
+      "sha256": "d0913b67baed2efab4437410cda5afecf24009c76f48bd377cf9d39a54523a24"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilCarroIcon.tsx",
+      "bytes": 507,
+      "sha256": "b98efc44b6248158eed3c3faa2ed1ceee3fdd56273730647c6b4b24ba406c4fe"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilCasalIcon.tsx",
+      "bytes": 558,
+      "sha256": "8df7855e3efbaabafa2d2e2fe9772f94aa05a858e16321b5cf6f1383967fbeec"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilCriancasIcon.tsx",
+      "bytes": 527,
+      "sha256": "06f72579be19523f41a9890ef25b817730a1c1e2b8bce083135cd514c8ddcce8"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilFamiliaIcon.tsx",
+      "bytes": 632,
+      "sha256": "af1bab1963896b821f6c4afb05a4134eb87dcadfc44f4ce579d0c7075bb61c02"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilGastarMenosIcon.tsx",
+      "bytes": 638,
+      "sha256": "ff9ea29e7bf99a72d15c525cdca1978e8901451800a3139e49e236760d983eb3"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilNaoSeiIcon.tsx",
+      "bytes": 510,
+      "sha256": "232901d024c513b2f815cc6c0943945ea7a242a79f00fc3213f2ce15da162100"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilNenhumaNecessidadeIcon.tsx",
+      "bytes": 507,
+      "sha256": "3d9f3f265150c1dfcd160fd17bc2b7b579081223ba850d351ebbf41af50ab695"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilPreferirSemCustoIcon.tsx",
+      "bytes": 555,
+      "sha256": "d39e0a73667885231e4514a48b54c4006147cd0d4edda1208856dc75101db7a1"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRelaxarIcon.tsx",
+      "bytes": 532,
+      "sha256": "c7d22b4683b681824f6e9f2c60bc74909618af55eb4b9278ee74db678ea2d3e3"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRestricaoAlimentarIcon.tsx",
+      "bytes": 550,
+      "sha256": "233907d8777f0c96983edf088cb35f52b958f4780e1f1538bb951267b8cae9df"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRitmoAtivoIcon.tsx",
+      "bytes": 646,
+      "sha256": "3ee171209691b05be2883c8a6013704305e1d9b4f88f6cba344fa2e73a1a3266"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRitmoEquilibradoIcon.tsx",
+      "bytes": 501,
+      "sha256": "629877153209b59d3d71109ef437a671061397f821df229ef36d3bf2e7fe93c0"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRitmoTranquiloIcon.tsx",
+      "bytes": 588,
+      "sha256": "7421bf39a8682ae209bc5e0c1c17e2b03be3b3ca01c7b611b39bc3c5a3bb9e80"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilTaxiAppIcon.tsx",
+      "bytes": 539,
+      "sha256": "5f44bc17963d87d3c972f9266cbbc971e80a5a58c9fadbd993160d86c46c8213"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrCameraIcon.tsx",
+      "bytes": 541,
+      "sha256": "dc90da94db73237904c01ccc7189358e692df2eb0749753388cd46f3008fb13f"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrEscanearIcon.tsx",
+      "bytes": 465,
+      "sha256": "817097815efb354262e3da46fd24914458e82edc1fb7d1f92c3190ce080674cc"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrOfflineIcon.tsx",
+      "bytes": 522,
+      "sha256": "ad1641a756c153f27ca801f59a9a49eb79f00297d6bdf8da213352a3cce6bc39"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrQrCodeIcon.tsx",
+      "bytes": 969,
+      "sha256": "4179e9938d63928e5b6b9e5a21cb3450ea8f8ea96e740d1acbd787725f581879"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrQrDesativadoIcon.tsx",
+      "bytes": 1245,
+      "sha256": "5abf2afeeebd94510e7f8b94ce52b0016229914a1019daff3ec1cb812ef1943c"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrRetornoIcon.tsx",
+      "bytes": 410,
+      "sha256": "d3d26406cfe7aaf1bda7afb0d0ad5ea5f1750bd1aa10263df7783fa5bb68d746"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrVisitaJaRegistradaIcon.tsx",
+      "bytes": 887,
+      "sha256": "e1a47b115d1b71464430cbbdfb12a373c261c9e4901a8d46686d42b028c64f8b"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroAdicionarParadaIcon.tsx",
+      "bytes": 483,
+      "sha256": "04529e372f9c02946a7ce7b7920cec42b26d83af41a3c66e10dee335a71f5edf"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroAlternativaIcon.tsx",
+      "bytes": 518,
+      "sha256": "cfdab8eb9326585f3305728fd4f2dd2348ceb6c547e67bce7f727968f9be06bc"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroArrastarIcon.tsx",
+      "bytes": 545,
+      "sha256": "4a86a6cf139489d69fdd452aaa03206f6e790243ae912c91173336f9c6632322"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroAutosaveIcon.tsx",
+      "bytes": 510,
+      "sha256": "324ac745db72cf817d211962709d2eea8e1ad371a6b774b508b8a053114dee22"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroDesbloquearIcon.tsx",
+      "bytes": 510,
+      "sha256": "aefc8c8d8f19127cca53eff1904004b922c20d33ceb486813dc7783010e07fc1"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroEditarIcon.tsx",
+      "bytes": 439,
+      "sha256": "e24e0438f542194d7f7d4229ff6691c852a531ceb05ae9790ef6db76df10caac"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroFechadoNoHorarioIcon.tsx",
+      "bytes": 1035,
+      "sha256": "3c22037290866cadf05ddef7410eb0e5a915ee85ea4a58af557a9c4ba6be78ab"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroFixarParadaIcon.tsx",
+      "bytes": 499,
+      "sha256": "e3624df0e063f60359260428948947fbc77bdf46966ee7c41b27c2277c48f184"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroIcon.tsx",
+      "bytes": 622,
+      "sha256": "7544eaa83bb25d203d2afdb2454346aa0f81cad830f52379a2a1a67a71907c31"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroMoverIcon.tsx",
+      "bytes": 485,
+      "sha256": "e37b70846f2cdb3c18c2d2876fe34af9dcd0735f8c97ceed853ca61b6557db51"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroRemoverIcon.tsx",
+      "bytes": 415,
+      "sha256": "1cb3b12a30eedb6967aaffcac6377d381e9f7b3d035f57ca50967b803c7a1256"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroReorganizarIcon.tsx",
+      "bytes": 469,
+      "sha256": "48354c8eb2453c7c0835d193afdfaea18363c56c2df05d1a518253e519659790"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroSalvarIcon.tsx",
+      "bytes": 441,
+      "sha256": "535c4996ec9c5a9c9a34afdcf21c731c8aa68f65b1c3796673548d07fbe04b6a"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroTrocarIcon.tsx",
+      "bytes": 453,
+      "sha256": "f2a6b3cffc3a94964ed9f996e505597405f1f79fdc89d4c89b66d5bad08e7148"
+    },
+    {
+      "path": "src/design-system/icons/generated/SistemaIcon.tsx",
+      "bytes": 555,
+      "sha256": "fda46ed4bafb8a7c5f46cb07f2f8d25c556ea70c36da609ca068bb6cbfd56bbd"
+    },
+    {
+      "path": "src/design-system/icons/generated/SolIcon.tsx",
+      "bytes": 472,
+      "sha256": "52a1c02d2d2a46d0f7a2939b6dd30ac53091545153a3b5f0ccbb38af7d283e1c"
+    },
+    {
+      "path": "src/design-system/icons/generated/VoltarIcon.tsx",
+      "bytes": 386,
+      "sha256": "3100342d566074d63bf64aea851001e4bff2f7225e1d82c6dd9a071a63af3737"
+    },
+    {
+      "path": "src/design-system/icons/icon-aliases.ts",
+      "bytes": 946,
+      "sha256": "d8ec4b8061232bf14166812ea173e357bf52e18ab002e0af48d079f8a4170fe8"
+    },
+    {
+      "path": "src/design-system/icons/icon-registry.ts",
+      "bytes": 17771,
+      "sha256": "cd9e9e9b0ce5ff5c09c280e12dd84f1f36632abbcc24a8c75bbef08f85d3e3a8"
+    },
+    {
+      "path": "src/design-system/icons/icon.types.ts",
+      "bytes": 4195,
+      "sha256": "f4dd238ba7e2e71baffe900b7a404a85f887f60ba2ac5d6039989493f6d383f9"
+    },
+    {
+      "path": "src/design-system/icons/index.ts",
+      "bytes": 197,
+      "sha256": "b302a739eec1cad7ffa0e4d6e4fceab0d3287f1eb5c20ecd3fe8f7a7af3577b6"
+    },
+    {
+      "path": "src/design-system/tokens/icons.css",
+      "bytes": 281,
+      "sha256": "29a733dd3b6d57a2e355bfefe8683b87d7eb232dacd2f75689d93e6722f94538"
+    },
+    {
+      "path": "src/modules/admin/Editor.tsx",
+      "bytes": 3998,
+      "sha256": "36150a05ede59ae1f54185dbe95fa676b8c85faa601ce3eaad83761b20b080f4"
+    },
+    {
+      "path": "src/modules/admin/actions.ts",
+      "bytes": 4322,
+      "sha256": "fb93402e33afbf708b25db6c493f833b9979250c49a19345ae194224bb8587fa"
+    },
+    {
+      "path": "src/modules/admin/fields.ts",
+      "bytes": 5709,
+      "sha256": "8cb1a93a131fe0aeb3bf8472e700f1bb8f1b3901128a8e335577e6953667ed0f"
+    },
+    {
+      "path": "src/modules/admin/validation.ts",
+      "bytes": 2225,
+      "sha256": "4b45436bf37ca991476d4ca94cf50abbb9303e93de0055d36b953586e4338f18"
+    },
+    {
+      "path": "src/modules/content/repository.ts",
+      "bytes": 1822,
+      "sha256": "b3bb393c1a7bb0f3f88c20a2fe7370328b8bb8e7717ca77e9a2254ccebc3d7a2"
+    },
+    {
+      "path": "src/modules/passport/Book.tsx",
+      "bytes": 1797,
+      "sha256": "dd49bef723debfa51a1377fd8d4f6f392342d647e68689aa2f3c0a5ee87f1d34"
+    },
+    {
+      "path": "src/modules/passport/StampRenderer.tsx",
+      "bytes": 878,
+      "sha256": "72d24bf4d38ad2e748c2e20a7644b80c46f6a1001d7d30a53a8b4769bf95be3a"
+    },
+    {
+      "path": "src/modules/passport/VisitDemoControl.tsx",
+      "bytes": 1308,
+      "sha256": "8e17dd2ee14f3b9a553b5c0e82a31203c0f776b540f1e2f5948699da448dad09"
+    },
+    {
+      "path": "src/modules/passport/actions.ts",
+      "bytes": 1542,
+      "sha256": "70ae96e854d0a835cf2a77f396537153a2edd02d16bb9b125ef0aae39effff96"
+    },
+    {
+      "path": "src/modules/passport/model.ts",
+      "bytes": 1302,
+      "sha256": "58ec7456450d3a8d6b9d03b82c5175aa0eec632451e9c9d47f134cbae5ccc813"
+    },
+    {
+      "path": "src/modules/tracking/client.tsx",
+      "bytes": 439,
+      "sha256": "78d77dfed09a6f3914fac598c96cf96e757f43746ad2f23518518054c05c478a"
+    },
+    {
+      "path": "src/modules/tracking/service.ts",
+      "bytes": 648,
+      "sha256": "76854f9c847ee85578f7090e7c8bf980f7e0603ad38626d34d9cd98ec65ca581"
+    },
+    {
+      "path": "src/modules/trips/ItemControls.tsx",
+      "bytes": 2130,
+      "sha256": "f03641c79ff8fe5966ea236e5f54ad69c9e73a290a1c868ed857941b61f04e44"
+    },
+    {
+      "path": "src/modules/trips/Onboarding.tsx",
+      "bytes": 5525,
+      "sha256": "5d7830bce1de8f9b469428b3d28389a3021cb2a711dc10fd767e1da875f73a2f"
+    },
+    {
+      "path": "src/modules/trips/actions.ts",
+      "bytes": 1635,
+      "sha256": "65f8887a5206f7c30f2254d9eae58d7c03fd350dd3b534f9809627b9001b3538"
+    },
+    {
+      "path": "src/modules/trips/edit-actions.ts",
+      "bytes": 2711,
+      "sha256": "3a080a853b856ea606a3f87629300ac27895abcc9f9035c52f28361093e66144"
+    },
+    {
+      "path": "src/modules/trips/engine.ts",
+      "bytes": 4989,
+      "sha256": "f80641c7228e204aa09439bf23583acceebf4f134c7a1ac24998bdd116a0df19"
+    },
+    {
+      "path": "src/modules/trips/evidence.ts",
+      "bytes": 262,
+      "sha256": "815514f9fcfaf1c6eea26fb3f0e86eedc6796bf3dae5d0ba107005641b8a5dea"
+    },
+    {
+      "path": "src/modules/trips/repository.ts",
+      "bytes": 466,
+      "sha256": "c19f815298c2c383da2bbbe7ecf805829decdddbc4d9bb87a2050d4fbff50c7d"
+    },
+    {
+      "path": "src/modules/trips/types.ts",
+      "bytes": 661,
+      "sha256": "189d8681deacf60ffcacaca5fd4458ee03bf61eb83246eccc84ac2c4ece412f3"
+    },
+    {
+      "path": "src/providers/index.ts",
+      "bytes": 1777,
+      "sha256": "3b90e4117c7614ff06f53c601eeaa41e304fef906eff3f1d722e16c8d2185e04"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 16163,
+      "sha256": "64eb056bd63725f7e883ccfba355d887840fdc2161a8492fd06d26fdbac1feb9"
+    },
+    {
+      "path": "tests/e2e/00-bootstrap.spec.ts",
+      "bytes": 651,
+      "sha256": "1d00947ec0f83cb0664f00bde957435c1b26f94ac97161f071fe0a2ac78ce303"
+    },
+    {
+      "path": "tests/e2e/01-discovery.spec.ts",
+      "bytes": 1414,
+      "sha256": "ec809123e8b06d2cc2d170547045ffab522fee43ca74485d97fed4ebb01656ed"
+    },
+    {
+      "path": "tests/e2e/02-entities.spec.ts",
+      "bytes": 937,
+      "sha256": "4c8470560a6e754613fa07147bc8a1c92edcd8d712a11ef925315b01c204b165"
+    },
+    {
+      "path": "tests/e2e/03-admin.spec.ts",
+      "bytes": 2855,
+      "sha256": "868cf2a39b4ba11edd4f55c03495e1cf1c962a6e6201a2c8dac243f5aecf9f86"
+    },
+    {
+      "path": "tests/e2e/04-trip.spec.ts",
+      "bytes": 938,
+      "sha256": "c7cb3f3818382146644b2a34076eefbc3fd6ebef4eb2d872115293285f6c76e0"
+    },
+    {
+      "path": "tests/e2e/05-calendar.spec.ts",
+      "bytes": 1215,
+      "sha256": "f057e9de0cc8bfd4d8ec5e5785f979ec0067b35c0f7c1ca93ed2bd44e3e744bd"
+    },
+    {
+      "path": "tests/e2e/06-passport.spec.ts",
+      "bytes": 1297,
+      "sha256": "61e1557dc913d4f661f6719662e46ff96a5d9dac5a3102884f142368808c5aab"
+    },
+    {
+      "path": "tests/unit/admin.test.ts",
+      "bytes": 877,
+      "sha256": "61a951795edb586b0bae80e68ca2cc352316a0513bd8108e625a03683e903ee9"
+    },
+    {
+      "path": "tests/unit/evidence.test.ts",
+      "bytes": 573,
+      "sha256": "9e1aacd674bd99a0b664d9cfd5800938d1b559ba646b898bb412f50587828c32"
+    },
+    {
+      "path": "tests/unit/passport.test.ts",
+      "bytes": 865,
+      "sha256": "82698bbb745064592190876ecc077590f08c5a500a39f97add6ba84c812c1c98"
+    },
+    {
+      "path": "tests/unit/providers.test.ts",
+      "bytes": 386,
+      "sha256": "8daf66ec8361daebe957b4b4757ab090814baeedfee0d6e296cc753b4015ccb1"
+    },
+    {
+      "path": "tests/unit/rendering.test.ts",
+      "bytes": 605,
+      "sha256": "f764a8cc85106dccf8bc44105a7873425db436d8bcb037300573d38c031a4028"
+    },
+    {
+      "path": "tests/unit/trips.test.ts",
+      "bytes": 2165,
+      "sha256": "613058b4472fdbd329b2405da8c108115c721b05c60a95a15d5f171d99da73d7"
+    },
+    {
+      "path": "tourism-data.js",
+      "bytes": 32102,
+      "sha256": "4201e2aea19adbd126e4caf20a192b062acdec886252fd3faa502b1f0998abc2"
+    },
+    {
+      "path": "tourism-pages.css",
+      "bytes": 7061,
+      "sha256": "874c13d8b7c80e5ca758de4f9312c6deb11edad7af8fb369b6f7ff4493bdd2ab"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 854,
+      "sha256": "4e749640a0ad4645e98c8650d4a6170f6440cf3c1326440d18abc45f181cd4a4"
+    },
+    {
+      "path": "visual-v2.css",
+      "bytes": 38465,
+      "sha256": "b156cf756b3c72b99e62b963a810b60f880a1ceaf1f4ae8fdfd766f7bfc22473"
+    },
+    {
+      "path": "visual.css",
+      "bytes": 38628,
+      "sha256": "0b01d1d9bd89dfecc7ef3e4fcaea30b14737b354840309bca5544cee7735138e"
+    }
+  ]
+}

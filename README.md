@@ -1,114 +1,74 @@
-# Passaporte Serra Negra — Validation V1
+# Passaporte Serra Negra — Landing V3 reconstruída do PSD
 
-Repositório de validação incremental do Passaporte Serra Negra. Esta build **não é o MVP final**: ela valida arquitetura, fluxos públicos, Admin operacional, roteiro, calendário, Passaporte e integração do motor de carimbos com conteúdo exclusivamente sintético.
+A entrada principal deste repositório é a **landing funcional do Passaporte Serra Negra em `index.html`**, reconstruída diretamente a partir do comando `PROMPT_RECONSTRUCAO_LANDING_V3.md` e do PSD `landing page(2).psd`.
 
+A regra da reconstrução é simples: o **index define o que cada parte faz** e o **PSD define posição, proporção, composição e ritmo visual**. As 12 camadas do PSD foram mapeadas 1:1 para as 12 seções originais da Home. A busca continua dentro do Hero e a última camada, embora também esteja nomeada `Visão territorial`, foi corretamente tratada como CTA final.
 
+## Abrir como site
 
-## Protótipo visual de destino
-
-A interface apresentada no GitHub Pages **não deve ser o README**. O repositório inclui `showcase/`, um modelo visual navegável reconstruído a partir das referências RV-01 a RV-49. A pasta contém HTMLs explícitos para Home, Explorar, Lugar, Parceiro, criação de roteiro, roteiro gerado, Calendário, Passaporte, Admin e 404. Veja `showcase/PAGES.md` e `showcase/VISUAL_REFERENCE_IMPLEMENTATION.md`.
-
-A matriz de implementação indica quais referências orientam cada superfície. As imagens originais de referência permanecem em `docs/source/visual-reference-v4/` somente como material de desenvolvimento e não são servidas pelo GitHub Pages.
-
-O workflow `.github/workflows/showcase-pages.yml` publica essa pasta no GitHub Pages e executa validação visual responsiva antes do deploy. Em **Settings → Pages**, use **Source: GitHub Actions**.
-
-Veja `docs/FINAL_VISUAL_MODEL.md` para a direção de design e a diferença entre o showcase e a build técnica de validação.
-
-## O que existe
-
-- Next.js App Router + TypeScript strict.
-- Monólito modular com contratos de providers e repository.
-- Persistência `local` determinística por padrão e adapter PostgreSQL/PostGIS.
-- Drizzle schema + migration SQL + seed idempotente.
-- Home, Explorar, Lugar, Parceiro, onboarding, roteiro, calendário e Passaporte.
-- Admin com `draft → preview → publish → history`.
-- Icon System v2 fornecido como fonte oficial de ícones.
-- Motor procedural de carimbos fornecido, integrado via `StampRenderer`.
-- Tracking local de eventos de validação.
-- Playwright desktop/tablet/mobile, incluindo reduced motion e axe.
-- GitHub Actions para qualidade e E2E com PostGIS.
-
-## Requisitos
-
-- Node.js >= 22.13 (CI usa 22.16).
-- npm compatível com o lockfile.
-- Para Postgres real: Docker + Docker Compose, ou PostgreSQL com PostGIS acessível.
-
-## Execução rápida sem credenciais
+Não há build obrigatória para a landing estática. Na raiz do repositório:
 
 ```bash
-cp .env.example .env.local
-npm ci
-npm run db:reset-local
-npm run dev
+python -m http.server 4173
 ```
 
-Abra `http://localhost:3000`. O modo padrão usa `PERSISTENCE_MODE=local` e providers mock. O banner `Modo de validação — conteúdo fictício` deve permanecer visível.
+Abra `http://localhost:4173/`.
 
-## PostgreSQL/PostGIS
+No GitHub Pages, publique a raiz do repositório. `index.html`, CSS, JavaScript e assets necessários estão no nível raiz.
 
-```bash
-docker compose up -d
-npm run db:migrate
-npm run db:seed
-PERSISTENCE_MODE=postgres npm run dev
-```
+## O que está funcional
 
-A migration habilita PostGIS e cria o schema **v0 de validação**, que não deve ser tratado como modelo definitivo.
+- Header sticky, navegação, menu mobile e tema Sistema/Claro/Escuro;
+- Hero com busca e sugestões rápidas;
+- seletor editorial de pontos turísticos;
+- carrossel de parceiros, sem ranking;
+- rota demonstrativa construída em SVG/CSS;
+- tabs de tipos de roteiro com ARIA e teclado;
+- cards de roteiro;
+- descoberta contextual com clima/evento sintéticos;
+- categorias;
+- FAQ interativo;
+- introdução visual ao Passaporte;
+- mapa demonstrativo com lista e pins vinculados;
+- CTA final;
+- demais páginas funcionais da demo anterior continuam disponíveis pelas rotas hash.
+
+## Identidade
+
+A paleta principal usa os tokens neutros oficiais: creme, carvão, grafite e cinzas quentes. Cores complementares aparecem apenas como identidade contextual de nichos. O SVG oficial fornecido pelo proprietário é usado diretamente em `assets/brand/logo-passaporte-serra-negra.svg`.
 
 ## Validação
 
-```bash
-npm run validate:repo
-npm run lint
-npm run typecheck
-npm test
-npm run build
-npm run test:e2e
-```
+Foram exercitados `1920×1080`, `1440×900`, `1280×800`, `1024×768`, `768×1024`, `390×844` e `360×800`, todos sem overflow horizontal no harness de Chromium. Screenshots e comparação com o PSD estão em `screenshots/`.
 
-Para usar Chromium já instalado:
+Leia `IMPLEMENTATION_NOTES.md` para o mapeamento camada a camada, geometria, decisões, interações, limitações do ambiente e pendências reais.
 
-```bash
-PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm run test:e2e
-```
+## Fontes preservadas
 
-## Fallback visual offline
+- `references/landing-reconstruction-v3/PROMPT_RECONSTRUCAO_LANDING_V3.md`
+- `references/landing-reconstruction-v3/PSD_LAYER_METADATA.json`
 
-Se a instalação npm não estiver disponível, os scripts abaixo geram uma prévia estática a partir dos mesmos seeds/tokens e executam Chromium em três viewports. Isso **não substitui** a suíte Next/Playwright.
+O PSD binário não é duplicado dentro do ZIP para evitar inflar o repositório; sua estrutura e evidências de comparação estão documentadas.
 
-```bash
-python3 scripts/static_preview.py
-python3 scripts/run_static_visuals.py
-```
+## Natureza desta versão
 
-## Arquitetura
+Todos os lugares, parceiros, clima, evento e visitas desta build continuam sendo **dados sintéticos de validação**. Fotografias finais, geografia real, QR, autenticação de produção e providers externos permanecem fora desta reconstrução.
 
-Veja `docs/VALIDATION_ARCHITECTURE.md` e os ADRs em `docs/decisions/`.
+## Imagens ilustrativas de validação
 
-## Dados e limites
-
-Todos os lugares, parceiros, experiências, eventos, contatos, clima, visitas e métricas desta build são fictícios. O mapa territorial definitivo e integrações externas não são implementados. Nenhuma conclusão jurídica de LGPD é feita. A showcase aplica a direção visual atual por tokens e referências; assets fotográficos licenciados, símbolo definitivo e webfonts comerciais ainda devem ser fechados antes de produção.
-
-## Relatório
-
-`VALIDATION_REPORT.md` registra o que foi implementado, o que foi realmente executado no ambiente de montagem, os gates e as pendências de infraestrutura.
-
-## GitHub + Chromium + Playwright
-
-O repositório inclui um laboratório de validação no GitHub Actions e uma configuração de Codespaces para acompanhar o Playwright visualmente. Consulte `docs/PLAYWRIGHT_GITHUB_GUIDE.md`.
-
-Atalhos locais/Codespaces:
-
-```bash
-npm run pw:ui
-npm run pw:headed
-npm run pw:debug
-npm run pw:visual
-npm run pw:report
-```
+Os cards usam temporariamente fotografias gratuitas do Pexels para melhorar a leitura visual da demonstração. Elas não representam os lugares fictícios do dataset. O diretório `assets/stock/` agora contém oito JPGs locais reais usados automaticamente como fallback se a imagem remota falhar. Autores e páginas-fonte das fotografias remotas estão em `ASSET_SOURCES_STOCK_IMAGES.md`.
 
 
-## Design System V1
+## Atualização de mídia
 
-O patch V8 integra os tokens oficiais de marca à aplicação e à showcase. Consulte `docs/DESIGN_SYSTEM_INTEGRATION.md`. O CI executa `npm run design:check` e o Playwright inclui uma verificação no navegador.
+Esta versão substitui os placeholders vetoriais dos cards por **fotografias reais de banco salvas localmente** em `assets/stock/`.
+
+
+## Páginas internas de pontos turísticos pesquisados
+
+A descoberta pública agora prioriza atrativos reais de Serra Negra pesquisados em fontes municipais. Cada página possui informações práticas, fonte oficial, fotografia temporária com crédito e continuidade para roteiro. Os parceiros e a jornada demonstrativa continuam identificados como conteúdo de validação.
+
+
+## Páginas internas de lugares
+
+As páginas de pontos turísticos pesquisados agora seguem o mesmo template visual das páginas individuais de parceiros, mantendo diferenças de conteúdo e ações conforme o tipo de lugar. Veja `PLACE_DETAIL_TEMPLATE.md`.

@@ -1,4 +1,4 @@
-import {NextResponse} from "next/server";import {getRepository} from "@/core/repository";import type {TrackingEventName} from "@/core/domain/types";
-const allowed=new Set<TrackingEventName>(['PAGE_VIEWED','PLACE_VIEWED','SEARCH_PERFORMED','FILTER_APPLIED','PARTNER_CARD_CLICK','ROUTE_STARTED','TRIP_CREATED','PLACE_ADDED','PLACE_REMOVED','PLACE_SWAPPED','VISIT_CONFIRMED','PASSPORT_SHARED']);
-export async function POST(req:Request){const body=await req.json();if(!allowed.has(body.name))return NextResponse.json({error:'Evento não permitido'},{status:400});const event=await getRepository().track(body.name,body.payload||{});return NextResponse.json(event,{status:201})}
-export async function GET(){return NextResponse.json(await getRepository().recentTracking(100))}
+import {analyticsProvider,events} from '@/modules/tracking/service';
+import {z} from 'zod';
+const schema=z.object({event:z.enum(events),payload:z.record(z.string(),z.union([z.string().max(200),z.number(),z.boolean()])).default({})});
+export async function POST(req:Request){if(req.headers.get('origin')!==new URL(req.url).origin)return Response.json({error:'Origin denied'},{status:403});try{const data=schema.parse(await req.json());await analyticsProvider.record(data.event,data.payload);return Response.json({ok:true});}catch{return Response.json({error:'Invalid validation event'},{status:400});}}

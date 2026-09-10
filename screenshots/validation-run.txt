@@ -1,0 +1,508 @@
+{
+  "harness": "set_content because managed Chromium blocks all URL navigation",
+  "viewports": {
+    "1920": {
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "height": 11964,
+      "sections": [
+        {
+          "layer": "01",
+          "top": 39,
+          "height": 1080
+        },
+        {
+          "layer": "02",
+          "top": 1119,
+          "height": 802
+        },
+        {
+          "layer": "03",
+          "top": 1921,
+          "height": 899
+        },
+        {
+          "layer": "04",
+          "top": 2984,
+          "height": 750
+        },
+        {
+          "layer": "05",
+          "top": 3734,
+          "height": 884
+        },
+        {
+          "layer": "06",
+          "top": 4618,
+          "height": 1298
+        },
+        {
+          "layer": "07",
+          "top": 5753,
+          "height": 1019
+        },
+        {
+          "layer": "08",
+          "top": 6772,
+          "height": 1704
+        },
+        {
+          "layer": "09",
+          "top": 8476,
+          "height": 1029
+        },
+        {
+          "layer": "10",
+          "top": 9505,
+          "height": 792
+        },
+        {
+          "layer": "11",
+          "top": 10297,
+          "height": 808
+        },
+        {
+          "layer": "12",
+          "top": 11105,
+          "height": 597
+        }
+      ],
+      "overflow": false,
+      "console_errors": [],
+      "request_failures": []
+    },
+    "1440": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "height": 9760,
+      "sections": [
+        {
+          "layer": "01",
+          "top": 39,
+          "height": 814
+        },
+        {
+          "layer": "02",
+          "top": 853,
+          "height": 696
+        },
+        {
+          "layer": "03",
+          "top": 1548,
+          "height": 715
+        },
+        {
+          "layer": "04",
+          "top": 2386,
+          "height": 600
+        },
+        {
+          "layer": "05",
+          "top": 2986,
+          "height": 687
+        },
+        {
+          "layer": "06",
+          "top": 3674,
+          "height": 1016
+        },
+        {
+          "layer": "07",
+          "top": 4567,
+          "height": 926
+        },
+        {
+          "layer": "08",
+          "top": 5493,
+          "height": 1330
+        },
+        {
+          "layer": "09",
+          "top": 6823,
+          "height": 895
+        },
+        {
+          "layer": "10",
+          "top": 7718,
+          "height": 650
+        },
+        {
+          "layer": "11",
+          "top": 8368,
+          "height": 650
+        },
+        {
+          "layer": "12",
+          "top": 9018,
+          "height": 480
+        }
+      ],
+      "overflow": false,
+      "console_errors": [],
+      "request_failures": []
+    },
+    "1280": {
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "height": 9360,
+      "sections": [
+        {
+          "layer": "01",
+          "top": 39,
+          "height": 782
+        },
+        {
+          "layer": "02",
+          "top": 821,
+          "height": 657
+        },
+        {
+          "layer": "03",
+          "top": 1478,
+          "height": 669
+        },
+        {
+          "layer": "04",
+          "top": 2256,
+          "height": 600
+        },
+        {
+          "layer": "05",
+          "top": 2856,
+          "height": 640
+        },
+        {
+          "layer": "06",
+          "top": 3497,
+          "height": 961
+        },
+        {
+          "layer": "07",
+          "top": 4348,
+          "height": 896
+        },
+        {
+          "layer": "08",
+          "top": 5244,
+          "height": 1217
+        },
+        {
+          "layer": "09",
+          "top": 6461,
+          "height": 857
+        },
+        {
+          "layer": "10",
+          "top": 7318,
+          "height": 650
+        },
+        {
+          "layer": "11",
+          "top": 7968,
+          "height": 650
+        },
+        {
+          "layer": "12",
+          "top": 8618,
+          "height": 480
+        }
+      ],
+      "overflow": false,
+      "console_errors": [],
+      "request_failures": []
+    },
+    "1024": {
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "height": 10030,
+      "sections": [
+        {
+          "layer": "01",
+          "top": 39,
+          "height": 760
+        },
+        {
+          "layer": "02",
+          "top": 799,
+          "height": 684
+        },
+        {
+          "layer": "03",
+          "top": 1483,
+          "height": 650
+        },
+        {
+          "layer": "04",
+          "top": 2229,
+          "height": 600
+        },
+        {
+          "layer": "05",
+          "top": 2829,
+          "height": 892
+        },
+        {
+          "layer": "06",
+          "top": 3721,
+          "height": 910
+        },
+        {
+          "layer": "07",
+          "top": 4543,
+          "height": 1122
+        },
+        {
+          "layer": "08",
+          "top": 5665,
+          "height": 1431
+        },
+        {
+          "layer": "09",
+          "top": 7097,
+          "height": 763
+        },
+        {
+          "layer": "10",
+          "top": 7859,
+          "height": 650
+        },
+        {
+          "layer": "11",
+          "top": 8509,
+          "height": 778
+        },
+        {
+          "layer": "12",
+          "top": 9287,
+          "height": 480
+        }
+      ],
+      "overflow": false,
+      "console_errors": [],
+      "request_failures": []
+    },
+    "768": {
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "height": 10268,
+      "sections": [
+        {
+          "layer": "01",
+          "top": 39,
+          "height": 760
+        },
+        {
+          "layer": "02",
+          "top": 799,
+          "height": 684
+        },
+        {
+          "layer": "03",
+          "top": 1483,
+          "height": 650
+        },
+        {
+          "layer": "04",
+          "top": 2229,
+          "height": 600
+        },
+        {
+          "layer": "05",
+          "top": 2829,
+          "height": 941
+        },
+        {
+          "layer": "06",
+          "top": 3770,
+          "height": 898
+        },
+        {
+          "layer": "07",
+          "top": 4602,
+          "height": 1122
+        },
+        {
+          "layer": "08",
+          "top": 5724,
+          "height": 1419
+        },
+        {
+          "layer": "09",
+          "top": 7144,
+          "height": 861
+        },
+        {
+          "layer": "10",
+          "top": 8005,
+          "height": 709
+        },
+        {
+          "layer": "11",
+          "top": 8713,
+          "height": 792
+        },
+        {
+          "layer": "12",
+          "top": 9506,
+          "height": 480
+        }
+      ],
+      "overflow": false,
+      "console_errors": [],
+      "request_failures": []
+    },
+    "390": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "height": 14074,
+      "sections": [
+        {
+          "layer": "01",
+          "top": 31,
+          "height": 828
+        },
+        {
+          "layer": "02",
+          "top": 859,
+          "height": 1189
+        },
+        {
+          "layer": "03",
+          "top": 2048,
+          "height": 858
+        },
+        {
+          "layer": "04",
+          "top": 2907,
+          "height": 749
+        },
+        {
+          "layer": "05",
+          "top": 3656,
+          "height": 1307
+        },
+        {
+          "layer": "06",
+          "top": 4963,
+          "height": 1022
+        },
+        {
+          "layer": "07",
+          "top": 5985,
+          "height": 891
+        },
+        {
+          "layer": "08",
+          "top": 6876,
+          "height": 2452
+        },
+        {
+          "layer": "09",
+          "top": 9328,
+          "height": 1357
+        },
+        {
+          "layer": "10",
+          "top": 10684,
+          "height": 1148
+        },
+        {
+          "layer": "11",
+          "top": 11832,
+          "height": 1022
+        },
+        {
+          "layer": "12",
+          "top": 12854,
+          "height": 570
+        }
+      ],
+      "overflow": false,
+      "console_errors": [],
+      "request_failures": []
+    },
+    "360": {
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "height": 14245,
+      "sections": [
+        {
+          "layer": "01",
+          "top": 31,
+          "height": 815
+        },
+        {
+          "layer": "02",
+          "top": 846,
+          "height": 1189
+        },
+        {
+          "layer": "03",
+          "top": 2035,
+          "height": 940
+        },
+        {
+          "layer": "04",
+          "top": 2975,
+          "height": 749
+        },
+        {
+          "layer": "05",
+          "top": 3725,
+          "height": 1332
+        },
+        {
+          "layer": "06",
+          "top": 5056,
+          "height": 1012
+        },
+        {
+          "layer": "07",
+          "top": 6068,
+          "height": 947
+        },
+        {
+          "layer": "08",
+          "top": 7016,
+          "height": 2441
+        },
+        {
+          "layer": "09",
+          "top": 9457,
+          "height": 1359
+        },
+        {
+          "layer": "10",
+          "top": 10816,
+          "height": 1148
+        },
+        {
+          "layer": "11",
+          "top": 11964,
+          "height": 1079
+        },
+        {
+          "layer": "12",
+          "top": 13042,
+          "height": 553
+        }
+      ],
+      "overflow": false,
+      "console_errors": [],
+      "request_failures": []
+    }
+  },
+  "interactions": {
+    "spot_selection": true,
+    "partner_carousel": true,
+    "route_tabs_keyboard": true,
+    "faq": true,
+    "map_linked": true,
+    "theme": true,
+    "mobile_menu": true,
+    "reduced_motion": true,
+    "hero_suggestion": true
+  },
+  "console_errors": [],
+  "request_failures": []
+}
