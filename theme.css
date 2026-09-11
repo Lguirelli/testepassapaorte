@@ -995,3 +995,167 @@ body[data-page="para-parceiros"] .mobile-menu{
     scale:none!important;
   }
 }
+
+/* ------------------------------------------------------------
+   Header scenic background, responsive + optimized assets
+   ------------------------------------------------------------ */
+:root{
+  --header-ink:#F3F1EC;
+  --header-muted:rgba(243,241,236,.8);
+  --header-border:rgba(240,237,229,.18);
+  --header-control-bg:rgba(14,18,28,.34);
+  --header-control-bg-hover:rgba(14,18,28,.52);
+  --header-control-border:rgba(243,241,236,.22);
+  --header-shadow:0 14px 34px rgba(0,0,0,.18);
+}
+
+.site-header{
+  position:sticky;
+  top:0;
+  isolation:isolate;
+  overflow:hidden;
+  background:transparent !important;
+  color:var(--header-ink) !important;
+  border-bottom-color:var(--header-border) !important;
+  box-shadow:var(--header-shadow);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+.site-header::before,
+.site-header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.site-header::before{
+  z-index:-2;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center 46%;
+  background-image:
+    linear-gradient(180deg, rgba(8,12,22,.22) 0%, rgba(8,12,22,.28) 100%),
+    url('./assets/brand/header/serra-negra-header-640.jpg');
+}
+.site-header::after{
+  z-index:-1;
+  background:
+    linear-gradient(180deg, rgba(6,10,18,.28) 0%, rgba(6,10,18,.56) 100%),
+    linear-gradient(90deg, rgba(4,7,14,.12) 0%, rgba(4,7,14,.06) 38%, rgba(4,7,14,.18) 100%);
+}
+@supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-640.webp') type('image/webp') 1x)){
+  .site-header::before{
+    background-image:
+      linear-gradient(180deg, rgba(8,12,22,.22) 0%, rgba(8,12,22,.28) 100%),
+      image-set(
+        url('./assets/brand/header/serra-negra-header-640.webp') type('image/webp') 1x,
+        url('./assets/brand/header/serra-negra-header-640.jpg') type('image/jpeg') 1x
+      );
+  }
+}
+@media (min-width: 700px){
+  .site-header::before{
+    background-image:
+      linear-gradient(180deg, rgba(8,12,22,.22) 0%, rgba(8,12,22,.28) 100%),
+      url('./assets/brand/header/serra-negra-header-960.jpg');
+  }
+  @supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-960.webp') type('image/webp') 1x)){
+    .site-header::before{
+      background-image:
+        linear-gradient(180deg, rgba(8,12,22,.22) 0%, rgba(8,12,22,.28) 100%),
+        image-set(
+          url('./assets/brand/header/serra-negra-header-960.webp') type('image/webp') 1x,
+          url('./assets/brand/header/serra-negra-header-960.jpg') type('image/jpeg') 1x
+        );
+    }
+  }
+}
+@media (min-width: 1024px){
+  .site-header::before{
+    background-image:
+      linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
+      url('./assets/brand/header/serra-negra-header-1280.jpg');
+  }
+  @supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-1280.webp') type('image/webp') 1x)){
+    .site-header::before{
+      background-image:
+        linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
+        image-set(
+          url('./assets/brand/header/serra-negra-header-1280.webp') type('image/webp') 1x,
+          url('./assets/brand/header/serra-negra-header-1280.jpg') type('image/jpeg') 1x
+        );
+    }
+  }
+}
+@media (min-width: 1360px){
+  .site-header::before{
+    background-image:
+      linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
+      url('./assets/brand/header/serra-negra-header-1600.jpg');
+  }
+  @supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-1600.webp') type('image/webp') 1x)){
+    .site-header::before{
+      background-image:
+        linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
+        image-set(
+          url('./assets/brand/header/serra-negra-header-1600.webp') type('image/webp') 1x,
+          url('./assets/brand/header/serra-negra-header-1600.jpg') type('image/jpeg') 1x
+        );
+    }
+  }
+}
+@media (min-width: 1800px){
+  .site-header::before{
+    background-image:
+      linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
+      url('./assets/brand/header/serra-negra-header-2048.jpg');
+  }
+  @supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-2048.webp') type('image/webp') 1x)){
+    .site-header::before{
+      background-image:
+        linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
+        image-set(
+          url('./assets/brand/header/serra-negra-header-2048.webp') type('image/webp') 1x,
+          url('./assets/brand/header/serra-negra-header-2048.jpg') type('image/jpeg') 1x
+        );
+    }
+  }
+}
+.site-header > *{position:relative;z-index:1}
+.site-header .brand strong,
+.site-header .brand small,
+.site-header .main-nav>a:not(.button),
+.site-header .theme-picker,
+.site-header .theme-picker-label,
+.site-header .mobile-menu{color:var(--header-ink) !important;text-shadow:0 1px 2px rgba(0,0,0,.28)}
+.site-header .brand small{color:var(--header-muted) !important}
+.site-header .main-nav>a:not(.button){opacity:.95}
+.site-header .main-nav>a:not(.button):hover{opacity:1}
+.site-header .theme-picker select,
+.site-header .mobile-menu,
+.site-header .nav-cta{
+  background:var(--header-control-bg) !important;
+  color:var(--header-ink) !important;
+  border-color:var(--header-control-border) !important;
+  box-shadow:none;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.site-header .theme-picker select:hover,
+.site-header .mobile-menu:hover,
+.site-header .nav-cta:hover{background:var(--header-control-bg-hover) !important}
+.site-header .nav-cta{font-weight:600}
+.site-header .nav-cta .ui-icon,
+.site-header .mobile-menu .ui-icon,
+.site-header .theme-picker-label .ui-icon,
+.site-header .main-nav .ui-icon{color:currentColor !important}
+@media (max-width: 980px){
+  .site-header .main-nav{
+    background:rgba(11,15,24,.88) !important;
+    border-color:rgba(243,241,236,.16) !important;
+    box-shadow:0 22px 44px rgba(0,0,0,.3);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+  .site-header .main-nav>a:not(.button){color:var(--header-ink) !important}
+}
