@@ -153,10 +153,10 @@ body[data-page="home"] .mobile-menu,body[data-page="parceiros"] .mobile-menu,bod
 
 
 /* Brand asset supplied by the project owner. The SVG is never recolored by CSS. */
-.brand .brand-logo{width:42px;height:42px;object-fit:contain;filter:none!important;flex:0 0 auto;background:var(--surface-primary);border-radius:12px;padding:3px;border:1px solid color-mix(in srgb,var(--border-primary) 55%,transparent)}
+.brand .brand-logo{width:42px;height:42px;object-fit:contain;filter:none!important;flex:0 0 auto;background:transparent;border:0;border-radius:0;padding:0}
 body[data-page="home"] .site-header .brand .brand-logo,
 body[data-page="parceiros"] .site-header .brand .brand-logo,
-body[data-page="para-parceiros"] .site-header .brand .brand-logo{filter:none!important;background:var(--surface-primary)}
+body[data-page="para-parceiros"] .site-header .brand .brand-logo{filter:none!important;background:transparent}
 .footer-brand .brand-logo{width:48px;height:48px}
 .footer-cols{grid-template-columns:repeat(3,minmax(140px,1fr));gap:clamp(1.2rem,3vw,4rem)}
 

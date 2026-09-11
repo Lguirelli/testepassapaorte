@@ -32,7 +32,7 @@ body[data-page="home"] .site-header .main-nav>a:not(.button){color:var(--surface
 body[data-page="home"] .site-header .nav-cta{background:var(--surface-primary);color:var(--text-primary);border-color:var(--surface-primary)}
 body[data-page="home"] .site-header .theme-picker{color:var(--surface-primary)}
 body[data-page="home"] .site-header .theme-picker select{background:rgba(22,22,24,.45);color:var(--surface-primary);border-color:rgba(243,241,236,.28)}
-body[data-page="home"] .site-header .brand-logo{background:var(--surface-primary);border-color:rgba(243,241,236,.45)}
+body[data-page="home"] .site-header .brand-logo{background:transparent;border-color:transparent}
 body[data-page="home"] .mobile-menu{color:var(--surface-primary);border-color:rgba(243,241,236,.3);background:transparent}
 body[data-page="home"] .mobile-menu img{filter:brightness(0) invert(1)}
 

@@ -279,13 +279,16 @@ button:disabled,.button[aria-disabled="true"]{opacity:.5}
   color-scheme:dark;
 }
 
-/* Keep the brand mark on a stable light chip; the logo contains dark details. */
+/* Brand mark: transparent SVG, without a colored container/chip. */
 .brand .brand-logo,
 body[data-page="home"] .site-header .brand-logo,
 body[data-page="parceiros"] .site-header .brand-logo,
 body[data-page="para-parceiros"] .site-header .brand-logo{
-  background:var(--fixed-paper)!important;
-  border-color:var(--fixed-paper-border)!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  padding:0!important;
+  box-shadow:none!important;
 }
 
 /* ----- Fixed dark editorial surfaces ----- */
@@ -760,4 +763,173 @@ body[data-page="para-parceiros"] .mobile-menu{
 [data-resolved-theme="dark"] .tourism-source-box,
 [data-resolved-theme="dark"] .tourism-location-copy{
   border-color:var(--color-border-control);
+}
+
+
+/* ==========================================================================
+   Motion & interaction layer v5
+   Smooth route transitions + consistent feedback for clickable elements.
+   ========================================================================== */
+:root{
+  --motion-ease:ease-in-out;
+  --motion-fast:160ms;
+  --motion-base:240ms;
+  --motion-slow:320ms;
+  --hover-lift:-2px;
+  --hover-ring:color-mix(in srgb,var(--color-text) 22%,transparent);
+  --hover-shadow:0 12px 28px color-mix(in srgb,#000 13%,transparent);
+  --hover-shadow-strong:0 18px 38px color-mix(in srgb,#000 18%,transparent);
+}
+
+/* The SPA root is animated by app.js on hash-route changes. */
+#app{
+  transform-origin:50% 0;
+  will-change:opacity,transform;
+}
+#app.is-route-transitioning{pointer-events:none}
+
+/* Base feedback: every real interactive element gets a smooth state change. */
+:where(
+  a[href],
+  button:not(:disabled),
+  [role="button"],
+  [role="tab"],
+  [data-action],
+  [data-filter-category],
+  [data-day],
+  [data-day-calendar],
+  [data-calendar-mode],
+  [data-passport-page],
+  [data-admin-kind],
+  [data-admin-edit],
+  [data-route-action],
+  [data-onboard-key],
+  [data-home-spot],
+  [data-home-partner],
+  [data-route-type],
+  [data-home-faq],
+  [data-participation-tab],
+  [data-partner-scroll]
+){
+  transition:
+    color var(--motion-base) var(--motion-ease),
+    background-color var(--motion-base) var(--motion-ease),
+    border-color var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease),
+    opacity var(--motion-base) var(--motion-ease),
+    transform var(--motion-base) var(--motion-ease),
+    filter var(--motion-base) var(--motion-ease);
+  cursor:pointer;
+}
+
+/* Buttons / compact controls: visible highlight without changing layout. */
+:where(button:not(:disabled),.button,[role="button"],[role="tab"]):hover{
+  border-color:color-mix(in srgb,var(--color-border-control) 72%,var(--color-text));
+  box-shadow:0 0 0 1px var(--hover-ring),0 8px 20px color-mix(in srgb,#000 10%,transparent);
+  transform:translateY(-1px);
+}
+:where(button:not(:disabled),.button,[role="button"],[role="tab"]):active{
+  transform:translateY(0) scale(.985);
+  transition-duration:var(--motion-fast);
+}
+
+/* Text navigation should read as interactive without becoming a pill. */
+:where(.main-nav>a:not(.button),.breadcrumbs a,.text-link,.footer-cols a,.footer-brand .brand):hover{
+  opacity:1;
+  text-decoration-color:currentColor;
+  text-underline-offset:.24em;
+}
+.main-nav>a:not(.button):hover,
+.text-link:hover{
+  transform:translateY(-1px);
+}
+
+/* Larger clickable surfaces receive a lift + edge highlight. */
+:where(
+  .place-card-media,
+  .spot-reference-card,
+  .category-reference-tile,
+  .partners-category-chip,
+  .partners-mosaic-grid a,
+  .partners-mosaic-grid button,
+  .map-reference-list a,
+  .route-visual-stop,
+  .calendar-day,
+  .choice,
+  .chip
+):hover{
+  transform:translateY(var(--hover-lift));
+  border-color:var(--color-border-control);
+  box-shadow:var(--hover-shadow);
+}
+
+/* Composite cards highlight only when one of their actual actions is hovered/focused. */
+:where(.place-card,.partner-reference-card,.route-reference-card,.route-type-card,.partners-mosaic-grid article):has(a:hover,button:hover,a:focus-visible,button:focus-visible){
+  transform:translateY(var(--hover-lift));
+  border-color:var(--color-border-control);
+  box-shadow:var(--hover-shadow);
+}
+
+:where(
+  .place-card-media,
+  .spot-reference-card,
+  .category-reference-tile,
+  .partners-category-chip,
+  .map-reference-list a,
+  .route-visual-stop,
+  .choice,
+  .chip
+):active{
+  transform:translateY(0) scale(.992);
+  box-shadow:0 5px 14px color-mix(in srgb,#000 10%,transparent);
+}
+
+/* Images on clickable cards subtly respond together with the surface. */
+:where(
+  .place-card-media,
+  .spot-reference-card,
+  .partner-reference-card,
+  .route-reference-card,
+  .category-reference-tile
+) :where(img,.scenic-media,.route-card-media){
+  transition:transform var(--motion-slow) var(--motion-ease),filter var(--motion-slow) var(--motion-ease);
+}
+:where(
+  .place-card-media,
+  .spot-reference-card,
+  .partner-reference-card,
+  .route-reference-card,
+  .category-reference-tile
+):hover :where(img,.scenic-media,.route-card-media){
+  transform:scale(1.018);
+}
+
+/* Icon motion follows the interaction but stays restrained. */
+:where(a[href],button:not(:disabled),[role="button"],[role="tab"]):hover>.ui-icon,
+:where(a[href],button:not(:disabled),[role="button"],[role="tab"]):hover .ui-icon{
+  transform:translateY(-1px);
+}
+.ui-icon{
+  transition:color var(--motion-base) var(--motion-ease),transform var(--motion-base) var(--motion-ease),opacity var(--motion-base) var(--motion-ease);
+}
+
+/* Keyboard feedback is intentionally stronger than hover. */
+:where(a[href],button:not(:disabled),[role="button"],[role="tab"]):focus-visible{
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--color-focus) 28%,transparent);
+}
+
+/* No motion when the user asks the OS/browser to reduce it. */
+@media(prefers-reduced-motion:reduce){
+  #app,
+  :where(a[href],button,[role="button"],[role="tab"],[data-action]),
+  .ui-icon,
+  :where(.place-card-media,.spot-reference-card,.partner-reference-card,.route-reference-card,.category-reference-tile) :where(img,.scenic-media,.route-card-media){
+    transition:none!important;
+    animation:none!important;
+    scroll-behavior:auto!important;
+  }
+  :where(a[href],button,[role="button"],[role="tab"]):hover,
+  :where(.place-card,.spot-reference-card,.partner-reference-card,.route-reference-card,.category-reference-tile,.choice,.chip):hover{
+    transform:none!important;
+  }
 }

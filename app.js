@@ -641,6 +641,51 @@
     app.focus({preventScroll:true});
   }
 
+  let routeTransitionSequence=0;
+  const reducedMotion=()=>window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  function closeMobileNavigation(){
+    const nav=$('#main-nav');
+    nav?.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    const menu=$('.mobile-menu');
+    menu?.setAttribute('aria-expanded','false');
+    if(menu) menu.innerHTML=`${icon('nav.menu','',{size:20})}<span>Menu</span>`;
+  }
+  async function renderWithRouteTransition(){
+    closeMobileNavigation();
+    const sequence=++routeTransitionSequence;
+    if(reducedMotion() || typeof app.animate!=='function'){ render(); return; }
+
+    app.classList.add('is-route-transitioning');
+    for(const animation of app.getAnimations()) animation.cancel();
+
+    try{
+      await app.animate(
+        [
+          {opacity:1,transform:'translateY(0) scale(1)'},
+          {opacity:0,transform:'translateY(8px) scale(.997)'}
+        ],
+        {duration:150,easing:'ease-in-out',fill:'forwards'}
+      ).finished;
+    }catch{}
+
+    if(sequence!==routeTransitionSequence) return;
+    render();
+    for(const animation of app.getAnimations()) animation.cancel();
+
+    try{
+      await app.animate(
+        [
+          {opacity:0,transform:'translateY(-8px) scale(.997)'},
+          {opacity:1,transform:'translateY(0) scale(1)'}
+        ],
+        {duration:230,easing:'ease-in-out',fill:'both'}
+      ).finished;
+    }catch{}
+
+    if(sequence===routeTransitionSequence) app.classList.remove('is-route-transitioning');
+  }
+
 
   document.addEventListener('click',e=>{
     const t=e.target.closest('button,[data-action],[data-filter-category],[data-day],[data-day-calendar],[data-calendar-mode],[data-passport-page],[data-admin-kind],[data-admin-edit],[data-route-action],[data-onboard-key],[data-home-spot],[data-home-partner],[data-route-type],[data-home-faq],[data-participation-tab],[data-partner-scroll]'); if(!t)return;
@@ -684,7 +729,7 @@
     if(a==='admin-publish'){adminPublish();return}
     if(a==='admin-archive'){adminArchive();return}
     if(a==='reset-demo'){if(confirm('Restaurar todos os dados locais da demonstração?')){state=defaultState();save();ui.activeDay=state.trip.days[0].date;ui.passportPage=0;toast('Demonstração restaurada.');render()}return}
-    if(a==='clear-local-data'){if(confirm('Apagar estado e preferências locais desta demonstração?')){localStorage.removeItem(STORE);localStorage.removeItem(THEME_STORE);state=defaultState();document.documentElement.dataset.theme='system';themeSelect.value='system';syncThemeMeta('system');window.PSN_SHELL?.syncThemeIcon?.('system');toast('Dados locais apagados.');location.hash='#/';render()}return}
+    if(a==='clear-local-data'){if(confirm('Apagar estado e preferências locais desta demonstração?')){localStorage.removeItem(STORE);localStorage.removeItem(THEME_STORE);state=defaultState();document.documentElement.dataset.theme='system';themeSelect.value='system';syncThemeMeta('system');window.PSN_SHELL?.syncThemeIcon?.('system');toast('Dados locais apagados.');if(location.hash==='#/'||!location.hash)render();else location.hash='#/'}return}
   });
 
 
@@ -720,7 +765,7 @@
     tabs[i].focus(); tabs[i].click();
   });
 
-  window.addEventListener('hashchange',()=>{const nav=$('#main-nav');nav?.classList.remove('open');document.body.classList.remove('menu-open');const menu=$('.mobile-menu');menu?.setAttribute('aria-expanded','false');if(menu)menu.innerHTML=`${icon('nav.menu','',{size:20})}<span>Menu</span>`;render()});
+  window.addEventListener('hashchange',()=>{void renderWithRouteTransition()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){const nav=$('#main-nav');if(nav?.classList.contains('open')){nav.classList.remove('open');document.body.classList.remove('menu-open');const menu=$('.mobile-menu');menu?.setAttribute('aria-expanded','false');if(menu)menu.innerHTML=`${icon('nav.menu','',{size:20})}<span>Menu</span>`;menu?.focus();}}});
   const themeSelect=$('#theme-select');
   const themeMeta=document.querySelector('meta[name="theme-color"]');
