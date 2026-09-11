@@ -230,3 +230,534 @@ button:disabled,.button[aria-disabled="true"]{opacity:.5}
 .admin-nav button.active,.choice.selected,.chip.active{background:var(--color-action);color:var(--color-action-text);border-color:var(--color-action)}
 .admin-nav button.active .ui-icon,.choice.selected .ui-icon{color:currentColor}
 .partners-text-button,.partners-text-button:hover,.linklike,.linklike:hover,.faq-reference-item>button:hover{background:transparent}
+
+
+/* === Contrast architecture v4: contextual surfaces, resolved theme and legacy normalization === */
+:root{
+  /* Fixed editorial contexts must not invert when the global theme changes. */
+  --fixed-dark:#161618;
+  --fixed-dark-2:#262425;
+  --fixed-dark-3:#403D3F;
+  --fixed-light:#F3F1EC;
+  --fixed-light-2:#E8E8E0;
+  --fixed-light-muted:#D4D1C7;
+  --fixed-paper:#F0EDE5;
+  --fixed-paper-text:#161618;
+  --fixed-paper-secondary:#403D3F;
+  --fixed-paper-muted:#5E5A50;
+  --fixed-paper-border:#AAA397;
+  --map-text:#F3F1EC;
+  --map-secondary:#E8E8E0;
+}
+
+/* A resolved theme attribute makes explicit Dark and System/Dark behave identically. */
+[data-resolved-theme="dark"]{
+  --color-canvas:#141416;
+  --color-section:#1D1D20;
+  --color-surface:#27272A;
+  --color-surface-raised:#323236;
+  --color-surface-inset:#3B3B40;
+  --color-text:#F4F2ED;
+  --color-text-secondary:#D9D5CE;
+  --color-text-muted:#B9B2AA;
+  --color-text-inverse:#161618;
+  --color-icon:#F0EDE7;
+  --color-icon-muted:#B9B2AA;
+  --color-border-subtle:#505057;
+  --color-border-control:#85858D;
+  --color-divider:#5A5A61;
+  --color-action:#ECEAE5;
+  --color-action-hover:#FFFFFF;
+  --color-action-text:#161618;
+  --color-focus:#F2E8D1;
+  --color-success:#CBD7BE;
+  --color-success-bg:#293226;
+  --color-warning:#F1D7A4;
+  --color-warning-bg:#3F3424;
+  --color-danger:#F4B6B6;
+  --color-danger-bg:#482727;
+  color-scheme:dark;
+}
+
+/* Keep the brand mark on a stable light chip; the logo contains dark details. */
+.brand .brand-logo,
+body[data-page="home"] .site-header .brand-logo,
+body[data-page="parceiros"] .site-header .brand-logo,
+body[data-page="para-parceiros"] .site-header .brand-logo{
+  background:var(--fixed-paper)!important;
+  border-color:var(--fixed-paper-border)!important;
+}
+
+/* ----- Fixed dark editorial surfaces ----- */
+.home-hero,
+.home-spots,
+.home-partners,
+.home-faq,
+.home-passport-intro,
+.v2-hero,
+.partner-loop-section,
+.faq-section,
+.final-cta,
+.partner-features,
+.acquisition-hero,
+.tourism-media-story,
+.partners-b2b-hero,
+.partners-story,
+.partners-manifesto,
+.partners-final{
+  color:var(--on-dark-text);
+}
+
+.home-hero{background:var(--fixed-dark)}
+.home-hero h1,
+.home-spots .spots-copy h2,
+.home-partners .partners-heading h2,
+.home-faq .faq-reference-copy h2,
+.home-passport-intro .passport-reference-copy h2{color:var(--on-dark-text)}
+.home-hero .psd-kicker,
+.home-hero-lead,
+.home-search>label,
+.home-scroll-note,
+.spots-copy .psd-kicker,
+.spots-copy>p,
+.partners-heading p,
+.partner-card-overlay small,
+.home-faq .faq-reference-copy>p,
+.home-faq .faq-reference-answer,
+.home-faq .faq-reference-preview>small,
+.home-faq .faq-reference-preview p,
+.home-passport-intro .passport-reference-copy>p,
+.home-passport-intro .passport-reference-copy li strong{
+  color:var(--on-dark-secondary);
+}
+.home-quick-search button,
+.home-spots .spot-reference-card,
+.home-partners .partner-card-overlay button,
+.home-faq .faq-reference-item>button{
+  color:var(--on-dark-text);
+}
+.home-quick-search button{border-color:var(--on-dark-border)}
+.home-spots{background:var(--fixed-dark)}
+.spot-reference-card{background:var(--fixed-dark-2);border-color:var(--on-dark-border)}
+.home-partners{background:#111214}
+
+/* Image overlays must use a stable light foreground, not --surface-primary. */
+.route-types-number,
+.route-card-number,
+.category-reference-tile:not(.category-reference-all)>strong,
+.category-reference-tile:not(.category-reference-all)>small,
+.category-tile:not(.category-all),
+.spot-feature-copy,
+.partner-hero-v2,
+.partner-hero-copy .breadcrumbs,
+.scenic-caption,
+.scenic-media.has-stock-photo .scenic-caption{
+  color:var(--on-dark-text);
+}
+.category-reference-tile:not(.category-reference-all) .category-reference-icon{
+  background:var(--fixed-light);
+  color:var(--fixed-paper-text);
+}
+.category-reference-tile:not(.category-reference-all) .category-reference-icon .ui-icon{
+  color:var(--fixed-paper-text);
+}
+
+/* Dark visual tiles that used text tokens as backgrounds must remain dark. */
+.editorial-route-tile{
+  background:var(--fixed-dark-2);
+  color:var(--on-dark-text);
+}
+.editorial-route-tile .ui-icon{color:currentColor}
+.partner-feature{
+  background:var(--fixed-dark-3);
+  color:var(--on-dark-text);
+}
+.partner-feature h3{color:var(--on-dark-text)}
+.partner-feature p,
+.partner-loop-card p,
+.partner-loop-card span,
+.faq-grid>div:first-child>p:last-child,
+.faq-answer,
+.final-cta-copy .v2-kicker,
+.partner-hero-copy .v2-kicker,
+.acquisition-hero p,
+.route-card-copy>div{
+  color:var(--on-dark-secondary);
+}
+
+/* Action-colored controls always use a paired foreground. */
+.spot-mini.active,
+.route-type-tabs button.active,
+.route-stop>span,
+.category-all{
+  background:var(--color-action);
+  color:var(--color-action-text);
+  border-color:var(--color-action);
+}
+.category-all>span{
+  background:var(--color-action-text);
+  color:var(--color-action);
+}
+.category-all .ui-icon{color:currentColor}
+
+/* Route type cards are editorial dark cards, regardless of the selected theme. */
+.route-type-card{
+  background:var(--fixed-dark-2);
+  color:var(--on-dark-text);
+}
+.route-type-card .route-card-copy>div{color:var(--on-dark-secondary)}
+.route-type-card .route-card-copy button{
+  color:var(--on-dark-text);
+  border-color:var(--on-dark-border);
+}
+
+/* ----- Fixed paper/light surfaces ----- */
+.v2-search-row,
+.editorial-weather-tile,
+.editorial-tag,
+.passport-page-demo,
+.partner-quick-info,
+.book,
+.book-page,
+.passport-book>div,
+.stamp,
+.ticket{
+  color:var(--fixed-paper-text);
+}
+.v2-search-row,
+.editorial-weather-tile,
+.passport-page-demo,
+.partner-quick-info,
+.book,
+.book-page,
+.passport-book>div{
+  background:var(--fixed-paper);
+}
+.v2-search-row input,
+.v2-search-row input::placeholder{
+  color:var(--fixed-paper-text);
+}
+.v2-search-row input::placeholder{opacity:.68}
+.v2-search-row .primary,
+.home-search-row .primary{
+  background:var(--fixed-dark-3);
+  color:var(--fixed-light);
+  border-color:var(--fixed-dark-3);
+}
+.editorial-tag{
+  background:var(--fixed-paper);
+  color:var(--fixed-paper-text);
+}
+.editorial-weather-tile>small,
+.editorial-weather-tile span,
+.passport-page-demo p,
+.partner-quick-info small,
+.book-page p,
+.book-page small,
+.book-page .muted,
+.ticket .muted{
+  color:var(--fixed-paper-muted);
+}
+.editorial-weather-tile strong,
+.partner-quick-info strong,
+.book-page h2,
+.book-page h3,
+.book-page strong{
+  color:var(--fixed-paper-text);
+}
+.editorial-weather-tile>div,
+.partner-quick-info>div,
+.book,
+.book-page,
+.passport-book-page{
+  border-color:var(--fixed-paper-border);
+}
+.partner-quick-info .ui-icon,
+.book-page .ui-icon,
+.passport-book-page .ui-icon,
+.ticket .ui-icon,
+.stamp .ui-icon{
+  color:var(--fixed-paper-text);
+}
+
+/* The side summary is intentionally dark in both themes. */
+.sticky-summary{
+  background:var(--fixed-dark-3);
+  color:var(--on-dark-text);
+}
+.sticky-summary h3{color:var(--on-dark-text)}
+.sticky-summary .v2-kicker,
+.sticky-summary p{color:var(--on-dark-secondary)}
+.sticky-summary .primary{
+  background:var(--fixed-light);
+  color:var(--fixed-paper-text);
+  border-color:var(--fixed-light);
+}
+.sticky-summary button:not(.primary){
+  background:transparent;
+  color:var(--on-dark-text);
+  border-color:var(--on-dark-border);
+}
+
+/* Passport cover is a fixed dark surface, pages are fixed paper surfaces. */
+.passport-cover,
+.passport-book-cover{
+  background:var(--fixed-dark-3)!important;
+  color:var(--on-dark-text)!important;
+}
+.passport-cover *,
+.passport-book-cover *{color:inherit}
+.passport-book-cover img{background:var(--fixed-paper)!important}
+.passport-book-page em{color:var(--fixed-paper-muted)}
+.passport-book-page span{border-color:var(--fixed-paper-text)}
+
+/* ----- Home map: its mid-gray art needs a stronger foreground than regular muted text. ----- */
+.home-map{color:var(--map-text)}
+.home-map .map-reference-title h2,
+.home-map .map-reference-title p,
+.home-map .map-reference-title small{
+  color:var(--map-text);
+}
+.home-map .map-reference-panel .psd-kicker,
+.home-map .map-reference-list a>span,
+.home-map .map-reference-list small{
+  color:var(--map-secondary);
+}
+.home-map .map-reference-panel{
+  background:rgba(22,22,24,.78);
+  border-color:rgba(243,241,236,.42);
+}
+.home-map .map-reference-list a{border-color:rgba(243,241,236,.34)}
+
+/* ----- Header on image/dark editorial pages ----- */
+body[data-page="home"] .site-header,
+body[data-page="parceiros"] .site-header,
+body[data-page="para-parceiros"] .site-header{
+  background:rgba(22,22,24,.94);
+  color:var(--on-dark-text);
+  border-bottom-color:var(--on-dark-border);
+}
+body[data-page="home"] .site-header .brand strong,
+body[data-page="home"] .site-header .brand small,
+body[data-page="home"] .site-header .main-nav>a:not(.button),
+body[data-page="home"] .site-header .theme-picker,
+body[data-page="parceiros"] .site-header .brand strong,
+body[data-page="parceiros"] .site-header .brand small,
+body[data-page="parceiros"] .site-header .main-nav>a:not(.button),
+body[data-page="parceiros"] .site-header .theme-picker,
+body[data-page="para-parceiros"] .site-header .brand strong,
+body[data-page="para-parceiros"] .site-header .brand small,
+body[data-page="para-parceiros"] .site-header .main-nav>a:not(.button),
+body[data-page="para-parceiros"] .site-header .theme-picker{
+  color:var(--on-dark-text);
+}
+body[data-page="home"] .site-header .theme-picker select,
+body[data-page="parceiros"] .site-header .theme-picker select,
+body[data-page="para-parceiros"] .site-header .theme-picker select{
+  background:var(--fixed-dark-2);
+  color:var(--on-dark-text);
+  border-color:var(--on-dark-border);
+}
+body[data-page="home"] .site-header .nav-cta,
+body[data-page="parceiros"] .site-header .nav-cta,
+body[data-page="para-parceiros"] .site-header .nav-cta{
+  background:var(--fixed-light);
+  color:var(--fixed-paper-text);
+  border-color:var(--fixed-light);
+}
+body[data-page="home"] .mobile-menu,
+body[data-page="parceiros"] .mobile-menu,
+body[data-page="para-parceiros"] .mobile-menu{
+  color:var(--on-dark-text);
+  border-color:var(--on-dark-border);
+}
+@media(max-width:980px){
+  body[data-page="home"] .main-nav,
+  body[data-page="parceiros"] .main-nav,
+  body[data-page="para-parceiros"] .main-nav{
+    background:var(--fixed-dark-2);
+    color:var(--on-dark-text);
+    border-color:var(--on-dark-border);
+  }
+  body[data-page="home"] .main-nav>a:not(.button),
+  body[data-page="parceiros"] .main-nav>a:not(.button),
+  body[data-page="para-parceiros"] .main-nav>a:not(.button){color:var(--on-dark-text)}
+  body[data-page="home"] .main-nav .button,
+  body[data-page="parceiros"] .main-nav .button,
+  body[data-page="para-parceiros"] .main-nav .button{
+    background:var(--fixed-light);
+    color:var(--fixed-paper-text);
+    border-color:var(--fixed-light);
+  }
+}
+
+/* ----- Explicit resolved-dark component corrections ----- */
+[data-resolved-theme="dark"] body,
+[data-resolved-theme="dark"] .home-v3,
+[data-resolved-theme="dark"] .partners-b2b-page,
+[data-resolved-theme="dark"] .tourism-page{
+  background:var(--color-canvas);
+  color:var(--color-text);
+}
+[data-resolved-theme="dark"] .home-route-visual,
+[data-resolved-theme="dark"] .home-route-cards,
+[data-resolved-theme="dark"] .home-editorial,
+[data-resolved-theme="dark"] .home-route-types,
+[data-resolved-theme="dark"] .home-final-cta{
+  background:var(--color-canvas);
+}
+[data-resolved-theme="dark"] .home-categories{background:var(--color-section)}
+[data-resolved-theme="dark"] .route-types-main,
+[data-resolved-theme="dark"] .route-reference-card,
+[data-resolved-theme="dark"] .category-reference-tile,
+[data-resolved-theme="dark"] .partners-category-chip,
+[data-resolved-theme="dark"] .partners-mosaic-grid article,
+[data-resolved-theme="dark"] .partners-benefits,
+[data-resolved-theme="dark"] .partners-tab-visual,
+[data-resolved-theme="dark"] .partners-features,
+[data-resolved-theme="dark"] .tourism-highlight,
+[data-resolved-theme="dark"] .tourism-note,
+[data-resolved-theme="dark"] .tourism-source-box,
+[data-resolved-theme="dark"] .tourism-location-copy{
+  background:var(--color-surface);
+  color:var(--color-text);
+}
+[data-resolved-theme="dark"] .route-types-tabs button{
+  background:transparent;
+  color:var(--color-text-muted);
+  border-color:var(--color-border-control);
+}
+[data-resolved-theme="dark"] .route-types-tabs button.active{
+  background:var(--color-action);
+  color:var(--color-action-text);
+  border-color:var(--color-action);
+}
+[data-resolved-theme="dark"] .partners-feature-card:not(.tone-gold):not(.tone-blue){
+  background:var(--color-section);
+  color:var(--color-text);
+}
+[data-resolved-theme="dark"] .partners-feature-card:not(.tone-gold):not(.tone-blue) p{color:var(--color-text-secondary)}
+[data-resolved-theme="dark"] .partners-benefit-cards article,
+[data-resolved-theme="dark"] .partners-practical-row,
+[data-resolved-theme="dark"] .tourism-practical-row{
+  border-color:var(--color-border-subtle);
+}
+
+/* Avoid low-contrast disabled states: reduce chroma/weight, not visibility to near-zero. */
+[data-resolved-theme="dark"] button:disabled,
+[data-resolved-theme="dark"] .button[aria-disabled="true"]{
+  opacity:.68;
+  color:var(--color-text-muted);
+  border-color:var(--color-border-subtle);
+}
+
+/* Strong focus indication on both adaptive and fixed contexts. */
+[data-resolved-theme="dark"] :focus-visible{outline:3px solid var(--color-focus);outline-offset:3px}
+.home-hero :focus-visible,
+.home-spots :focus-visible,
+.home-partners :focus-visible,
+.home-faq :focus-visible,
+.home-passport-intro :focus-visible,
+.home-map :focus-visible,
+.partner-features :focus-visible,
+.partners-final :focus-visible{
+  outline-color:#F2E8D1;
+}
+
+/* v4.1 — remaining local contrast contexts */
+.v2-section-heading.light .v2-kicker,
+.partner-features .v2-section-heading.light .v2-kicker,
+.partner-loop-section .v2-section-heading.light .v2-kicker{
+  color:var(--on-dark-secondary);
+}
+.category-tile:not(.category-all) .category-icon .ui-icon{
+  color:var(--fixed-paper-text);
+}
+.partners-contact{
+  color:var(--on-dark-text);
+}
+.partners-contact h2{color:var(--on-dark-text)}
+.partners-contact p{color:var(--on-dark-secondary)}
+.partners-contact small{color:var(--on-dark-muted)!important}
+.partners-feature-card.tone-gold .ui-icon,
+.partners-feature-card.tone-blue .ui-icon,
+.partners-tone-sand .ui-icon{
+  color:var(--fixed-paper-text);
+}
+.partners-tone-cocoa .ui-icon{color:var(--on-dark-text)}
+
+/* Keep icon-only circular controls legible over fixed dark/image contexts. */
+.home-partners .carousel-arrow,
+.partner-loop-section .round-control{
+  background:rgba(22,22,24,.52);
+  color:var(--on-dark-text);
+  border-color:var(--on-dark-border);
+}
+.home-partners .carousel-arrow:hover,
+.partner-loop-section .round-control:hover{
+  background:rgba(243,241,236,.14);
+}
+
+/* Labels rendered over photographs use opaque-enough backing or full-strength foreground. */
+.partner-card-overlay small,
+.spot-reference-card small,
+.spot-reference-card em,
+.scenic-caption,
+.tourism-photo-credit,
+.partners-photo figcaption{
+  color:var(--fixed-light);
+}
+
+/* Dark mode selection/hover states must not collapse into the surrounding surface. */
+[data-resolved-theme="dark"] .card:hover,
+[data-resolved-theme="dark"] .route-reference-card:hover,
+[data-resolved-theme="dark"] .partners-category-chip:hover,
+[data-resolved-theme="dark"] .partners-tabs button:hover,
+[data-resolved-theme="dark"] .choice:hover{
+  border-color:var(--color-border-control);
+}
+[data-resolved-theme="dark"] .chip:not(.active),
+[data-resolved-theme="dark"] .badge:not(.ok):not(.warn){
+  color:var(--color-text-secondary);
+  border-color:var(--color-border-control);
+}
+
+/* v4.2 — decorative art must not invert with semantic text tokens. */
+.scenic-media{
+  background:linear-gradient(150deg,#8F9394 0%,#626164 50%,#353438 100%);
+}
+.scenic-ridge,.hero-mountain{background:var(--fixed-dark-3)}
+.scenic-ridge.ridge-b,.hero-mountain-b,.final-cta-art:after{background:var(--fixed-dark)}
+.v2-hero-art{
+  background:linear-gradient(115deg,rgba(22,22,24,.34),rgba(22,22,24,.04) 65%),linear-gradient(180deg,#94B2C4 0%,#696B6D 38%,#36363A 100%);
+}
+.scenic-caption{
+  background:rgba(22,22,24,.74);
+  color:var(--fixed-light);
+  padding:.28rem .46rem;
+  border-radius:6px;
+}
+
+/* Fixed light icon wells need fixed dark icon paint. */
+.category-icon,
+.category-reference-tile:not(.category-reference-all) .category-reference-icon{
+  color:var(--fixed-paper-text);
+}
+.category-icon .ui-icon,
+.category-reference-tile:not(.category-reference-all) .category-reference-icon .ui-icon{
+  color:var(--fixed-paper-text);
+}
+
+/* Clear separation between adjacent dark surfaces. */
+[data-resolved-theme="dark"] .card,
+[data-resolved-theme="dark"] .panel,
+[data-resolved-theme="dark"] .route-reference-card,
+[data-resolved-theme="dark"] .partners-category-chip,
+[data-resolved-theme="dark"] .partners-mosaic-grid article,
+[data-resolved-theme="dark"] .partners-tab-visual,
+[data-resolved-theme="dark"] .tourism-highlight,
+[data-resolved-theme="dark"] .tourism-note,
+[data-resolved-theme="dark"] .tourism-source-box,
+[data-resolved-theme="dark"] .tourism-location-copy{
+  border-color:var(--color-border-control);
+}

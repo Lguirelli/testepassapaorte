@@ -724,10 +724,20 @@
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){const nav=$('#main-nav');if(nav?.classList.contains('open')){nav.classList.remove('open');document.body.classList.remove('menu-open');const menu=$('.mobile-menu');menu?.setAttribute('aria-expanded','false');if(menu)menu.innerHTML=`${icon('nav.menu','',{size:20})}<span>Menu</span>`;menu?.focus();}}});
   const themeSelect=$('#theme-select');
   const themeMeta=document.querySelector('meta[name="theme-color"]');
-  const syncThemeMeta=(theme)=>{if(!themeMeta)return;const dark=theme==='dark'||(theme==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);themeMeta.setAttribute('content',dark?'#161618':'#E8E8E0')};
-  const savedTheme=localStorage.getItem(THEME_STORE)||'system'; document.documentElement.dataset.theme=savedTheme; themeSelect.value=savedTheme; syncThemeMeta(savedTheme); window.PSN_SHELL?.syncThemeIcon?.(savedTheme);
-  themeSelect.addEventListener('change',()=>{document.documentElement.dataset.theme=themeSelect.value;localStorage.setItem(THEME_STORE,themeSelect.value);syncThemeMeta(themeSelect.value);window.PSN_SHELL?.syncThemeIcon?.(themeSelect.value)});
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(themeSelect.value==='system'){syncThemeMeta('system');window.PSN_SHELL?.syncThemeIcon?.('system')}});
+  const resolveTheme=(theme)=>theme==='dark'||(theme==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+  const applyTheme=(theme,{persist=false}={})=>{
+    const resolved=resolveTheme(theme);
+    document.documentElement.dataset.theme=theme;
+    document.documentElement.dataset.resolvedTheme=resolved;
+    if(themeMeta)themeMeta.setAttribute('content',resolved==='dark'?'#161618':'#E8E8E0');
+    if(themeSelect)themeSelect.value=theme;
+    if(persist)localStorage.setItem(THEME_STORE,theme);
+    window.PSN_SHELL?.syncThemeIcon?.(theme);
+  };
+  const syncThemeMeta=(theme)=>applyTheme(theme);
+  const savedTheme=localStorage.getItem(THEME_STORE)||'system'; applyTheme(savedTheme);
+  themeSelect.addEventListener('change',()=>applyTheme(themeSelect.value,{persist:true}));
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{if(themeSelect.value==='system')applyTheme('system')});
 
   render();
 })();

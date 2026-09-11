@@ -77,3 +77,8 @@ A cópia antiga `demo/`, o conjunto antigo `assets/icons/` e o backup intermedi�
 ## Limitação da validação visual
 
 O Chromium instalado no ambiente recusou navegação local e `file://` com `ERR_BLOCKED_BY_ADMINISTRATOR`. Portanto não foi possível gerar uma bateria real de screenshots aqui. Foram executados: `node --check` nos JavaScript, validação de todas as chaves/caminhos do icon registry, montagem do artefato de Pages, verificação das dependências do `index.html`, auditoria de hardcodes e cálculo WCAG dos tokens principais.
+
+
+## Correção v4 de contraste
+
+A camada de tema foi refeita para distinguir superfícies adaptativas, contextos editoriais sempre escuros e superfícies de papel sempre claras. Foi adicionado `data-resolved-theme` para unificar Dark e Sistema/Dark. Consulte `DARK_MODE_CONTRAST_FIX_V4.md`.
