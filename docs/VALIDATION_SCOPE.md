@@ -41,7 +41,7 @@ Validar a arquitetura, navegação, componentes reutilizáveis, responsividade, 
 - roteiro demo coerente por dia;
 - calendário demo usando os mesmos itens do roteiro;
 - Passaporte demo distinguindo planejado de presença registrada;
-- ícones do Icon System v2;
+- registry de ícones com Material Symbols Outlined via Google Fonts, preservando os nomes internos do Icon System v2;
 - Light/Dark/System tecnicamente suportados por tokens, sem definir paleta final;
 - textos preparados para i18n, com pt-BR como conteúdo inicial; en/es podem usar chaves ou conteúdo mínimo de validação, sem exigir tradução editorial completa nesta etapa;
 - estados loading, empty, error e success nos componentes principais.

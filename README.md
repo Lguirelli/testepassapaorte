@@ -67,7 +67,7 @@ Monólito modular em `src/modules`. Drizzle concentra a persistência. Conteúdo
 
 Providers de autenticação, mapa, rotas, clima, armazenamento e analytics são substituíveis. Adapters demo são determinísticos. Produção exige ALLOW_DEMO=true explicitamente; adapters reais ainda não estão implementados. A página pública impede abrir contatos example.invalid como reais.
 
-Icon System v2 é fornecido pelo kit e mantido em `src/design-system` e `public/icons`. Não há ícones de outras bibliotecas. Fontes e cores são temporárias, marcadas VALIDATION_ONLY. Claro/Escuro/Sistema usam tokens. O helper de i18n oferece pt-BR e chaves para en/es; extração completa e traduções ainda são pendências.
+O contrato de nomes do Icon System v2 é preservado em `src/design-system`, enquanto os ícones de interface são renderizados com Material Symbols Outlined via Google Fonts. Os SVGs legados em `public/icons` e `assets/icons-v3` permanecem como referência e compatibilidade, mas não são a fonte ativa dos ícones de interface. Fontes e cores de validação continuam marcadas VALIDATION_ONLY. Claro/Escuro/Sistema usam tokens. O helper de i18n oferece pt-BR e chaves para en/es; extração completa e traduções ainda são pendências.
 
 O schema é v0 de validação, com JSONB tipado e relações validadas pela aplicação. Não é o Data Model definitivo. Consulte `docs/decisions/` e `docs/validation/`.
 

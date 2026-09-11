@@ -1,6 +1,6 @@
 # Arquitetura de validação
 
-Monólito modular Next.js App Router, React e TypeScript strict. Rotas server renderizam conteúdo persistido e componentes client tratam interações locais. Módulos: content, admin, trips, calendar, passport e tracking. Design system usa exclusivamente o Icon System v2 fornecido e tokens neutros temporários.
+Monólito modular Next.js App Router, React e TypeScript strict. Rotas server renderizam conteúdo persistido e componentes client tratam interações locais. Módulos: content, admin, trips, calendar, passport e tracking. Design system preserva o contrato de nomes do Icon System v2 e renderiza os ícones de interface com Material Symbols Outlined via Google Fonts, mantendo tokens neutros temporários.
 
 ## Persistência
 Drizzle sobre PostgreSQL; Compose fornece PostGIS. PGlite é fallback explícito para o ambiente sem Docker, não valida extensão nem consultas geográficas. Migration inicial transacional e idempotente, sem ledger de evolução ainda. Seed cria 30 registros de conteúdo e uma viagem e preserva IDs existentes.

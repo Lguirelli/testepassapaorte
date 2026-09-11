@@ -4,5 +4,5 @@
 .summary :global(.eyebrow) { color:var(--bg-secondary); }
 .summary ol { margin:1.25rem 0 0; padding-left:1.25rem; }
 .summary li+li { margin-top:.8rem; }
-.benefit svg { width:2rem; height:2rem; margin-bottom:.75rem; }
+.benefit :global([data-ui-icon]) { width:2rem!important; height:2rem!important; font-size:2rem!important; margin-bottom:.75rem; }
 @media (max-width:1100px) { .hero { grid-template-columns:1fr; } }

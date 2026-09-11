@@ -20,20 +20,29 @@ type IconProps = {
 };
 
 export function Icon({ name, size = "md", title, className, style, strokeWidth }: IconProps) {
-  const Glyph = iconRegistry[name];
+  const symbol = iconRegistry[name];
   const resolvedSize = typeof size === "number" ? `${size}px` : tokenSize[size];
+  const resolvedWeight = strokeWidth
+    ? Math.min(700, Math.max(100, Math.round(strokeWidth * 180)))
+    : 400;
 
   return (
-    <Glyph
-      className={className}
-      width={resolvedSize}
-      height={resolvedSize}
+    <span
+      className={["material-symbols-outlined", "psn-material-icon", className].filter(Boolean).join(" ")}
+      data-ui-icon="true"
       role={title ? "img" : undefined}
       aria-hidden={title ? undefined : true}
       aria-label={title}
-      focusable="false"
-      strokeWidth={strokeWidth}
-      style={{ display: "inline-block", flex: "0 0 auto", color: "currentColor", ...style }}
-    />
+      title={title}
+      style={{
+        width: resolvedSize,
+        height: resolvedSize,
+        fontSize: resolvedSize,
+        fontVariationSettings: `'FILL' 0, 'wght' ${resolvedWeight}, 'GRAD' 0, 'opsz' 24`,
+        ...style,
+      }}
+    >
+      {symbol}
+    </span>
   );
 }
