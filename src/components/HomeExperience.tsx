@@ -104,14 +104,17 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
   const [active,setActive]=useState(0);
   const [centerHover,setCenterHover]=useState(false);
   const dragStart=useRef<number|null>(null);
+  const dragged=useRef(false);
   const wheelLock=useRef(false);
   const move=(delta:number)=>setActive(value=>(value+delta+items.length)%items.length);
   if(!items.length)return <p className="empty">Nenhum parceiro publicado nesta seleção.</p>;
-  const onPointerDown=(event:ReactPointerEvent<HTMLDivElement>)=>{dragStart.current=event.clientX;event.currentTarget.setPointerCapture(event.pointerId);};
+  const onPointerDown=(event:ReactPointerEvent<HTMLDivElement>)=>{dragStart.current=event.clientX;dragged.current=false;event.currentTarget.setPointerCapture(event.pointerId);};
+  const onPointerMove=(event:ReactPointerEvent<HTMLDivElement>)=>{if(dragStart.current!==null&&Math.abs(event.clientX-dragStart.current)>10)dragged.current=true;};
   const onPointerUp=(event:ReactPointerEvent<HTMLDivElement>)=>{
     if(dragStart.current===null)return;
     const delta=event.clientX-dragStart.current;
     dragStart.current=null;
+    if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);
     if(Math.abs(delta)>45)move(delta<0?1:-1);
   };
   const onWheel=(event:ReactWheelEvent<HTMLDivElement>)=>{
@@ -122,7 +125,7 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
   };
   return <>
     <div className={styles.galleryViewport}>
-      <div className={styles.galleryStage} data-testid="home-partner-gallery" data-center-hover={centerHover?'true':'false'} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={()=>{dragStart.current=null;}} onWheel={onWheel}>
+      <div className={styles.galleryStage} data-testid="home-partner-gallery" data-center-hover={centerHover?'true':'false'} tabIndex={0} aria-label="Galeria de parceiros. Arraste, role ou use as setas do teclado." onKeyDown={event=>{if(event.key==='ArrowLeft'){event.preventDefault();move(-1);}if(event.key==='ArrowRight'){event.preventDefault();move(1);}}} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={()=>{dragStart.current=null;dragged.current=false;}} onWheel={onWheel} onClickCapture={event=>{if(dragged.current){event.preventDefault();event.stopPropagation();dragged.current=false;}}}>
         {items.map((place,index)=>{
           const offset=circularOffset(index,active,items.length);
           const visible=Math.abs(offset)<=2;
@@ -198,7 +201,7 @@ export default function HomeExperience({featured,partners,categories,routePlaces
 
     <section className={`${styles.section} ${styles.routeLine}`} aria-labelledby="route-line-title">
       <div className={styles.centerHead}><p className="eyebrow">A linha conecta a experiência</p><h2 id="route-line-title">Veja como as escolhas se encontram</h2><p>Cada parada continua no mesmo lugar; a interação apenas destaca o ponto e ajuda a ler o percurso.</p></div>
-      <div className={styles.routeTrack}>{routePlaces.slice(0,4).map((place,index)=><div className={styles.routeStop} key={place.id}>
+      <div className={styles.routeTrack} data-testid="home-route-track">{routePlaces.slice(0,4).map((place,index)=><div className={styles.routeStop} key={place.id}>
         <span className={styles.routeDot}>{index+1}</span><strong>{place.name}</strong><small>{place.durationMinutes||60} min</small>
       </div>)}</div>
     </section>
@@ -229,7 +232,7 @@ export default function HomeExperience({featured,partners,categories,routePlaces
       <div className={styles.mapWrap}><MockMap places={routePlaces.slice(0,4)}/></div>
     </section>
 
-    <section className={`${styles.section} ${styles.finalCta}`} aria-labelledby="next-path-title">
+    <section className={`${styles.section} ${styles.finalCta}`} aria-labelledby="next-path-title" data-testid="home-final-cta">
       <p className="eyebrow">Seu próximo caminho</p>
       <h2 id="next-path-title"><span>Comece pela curiosidade.</span><span>O roteiro vem depois.</span></h2>
       <p>Explore primeiro, organize quando fizer sentido e guarde o que realmente entrou para a sua viagem.</p>
