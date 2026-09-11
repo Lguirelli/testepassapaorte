@@ -838,21 +838,33 @@
     }
     app.classList.add('is-route-transitioning');
     const sign=direction<0?-1:1;
+    const easing='cubic-bezier(.16,1,.3,1)';
     for(const animation of app.getAnimations()) animation.cancel();
+
+    /* Fallback stays softer by using a shorter departure and a long landing.
+       The incoming screen begins close to the edge rather than performing a
+       second abrupt full-width sweep. */
     app.animate(
-      [{transform:'translateX(0)'},{transform:`translateX(${-sign*100}vw)`}],
-      {duration:260,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'}
+      [
+        {transform:'translate3d(0,0,0)',offset:0},
+        {transform:`translate3d(${-sign*18}vw,0,0)`,offset:1}
+      ],
+      {duration:260,easing,fill:'forwards'}
     ).finished.catch(()=>{}).then(()=>{
       if(sequence!==routeTransitionSequence) return;
       render();
       for(const animation of app.getAnimations()) animation.cancel();
       return app.animate(
-        [{transform:`translateX(${sign*100}vw)`},{transform:'translateX(0)'}],
-        {duration:320,easing:'cubic-bezier(.4,0,.2,1)',fill:'both'}
+        [
+          {transform:`translate3d(${sign*32}vw,0,0)`,offset:0},
+          {transform:'translate3d(0,0,0)',offset:1}
+        ],
+        {duration:520,easing,fill:'both'}
       ).finished.catch(()=>{});
     }).finally(()=>{
       if(sequence===routeTransitionSequence){
         app.classList.remove('is-route-transitioning');
+        app.style.transform='';
         delete root.dataset.routeSlide;
         clearSharedTransition();
       }
