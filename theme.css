@@ -1325,3 +1325,185 @@ body[data-page="para-parceiros"] .site-header.is-scrolled{
   animation-duration:600ms;
   animation-timing-function:cubic-bezier(.16,1,.3,1);
 }
+
+/* ============================================================
+   v12 · Encontros pelo caminho
+   Circular editorial carousel inspired by the supplied technical
+   reference. Visual language remains Passaporte Serra Negra, not social.
+   ============================================================ */
+.encounter-section{
+  min-height:clamp(720px,52vw,900px);
+  padding:clamp(4.5rem,6vw,7.5rem) 0 clamp(3.5rem,5vw,6rem)!important;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 40%,rgba(148,178,196,.075),transparent 32%),
+    linear-gradient(180deg,#111214 0%,#171719 55%,#111214 100%)!important;
+}
+.encounter-shell{width:min(1500px,calc(100% - 40px));max-width:none}
+.encounter-heading{width:min(820px,100%);margin-inline:auto;margin-bottom:1rem}
+.encounter-heading>p:last-child{max-width:650px;margin-inline:auto;color:rgba(243,241,236,.68)}
+.encounter-carousel-shell{
+  position:relative;
+  width:100%;
+  min-height:590px;
+  display:grid;
+  grid-template-columns:56px minmax(0,1fr) 56px;
+  align-items:center;
+  gap:.65rem;
+  isolation:isolate;
+}
+.encounter-carousel{
+  position:relative;
+  isolation:isolate;
+  min-height:570px;
+  perspective:1500px;
+  overflow:visible;
+  touch-action:pan-y;
+  user-select:none;
+  cursor:grab;
+  outline:none;
+}
+.encounter-carousel.is-dragging{cursor:grabbing}
+.encounter-carousel::before,
+.encounter-carousel::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  z-index:60;
+  width:min(14vw,190px);
+  pointer-events:none;
+}
+.encounter-carousel::before{left:-2px;background:linear-gradient(90deg,#111214 0%,rgba(17,18,20,.86) 35%,rgba(17,18,20,0) 100%)}
+.encounter-carousel::after{right:-2px;background:linear-gradient(270deg,#111214 0%,rgba(17,18,20,.86) 35%,rgba(17,18,20,0) 100%)}
+.encounter-card{
+  --enc-x:0px;
+  --enc-y:0px;
+  --enc-r:0deg;
+  --enc-s:.86;
+  --enc-o:0;
+  --enc-blur:0px;
+  --enc-shade:0;
+  --enc-z:1;
+  --enc-hover-y:0px;
+  position:absolute;
+  top:12px;
+  left:50%;
+  z-index:var(--enc-z);
+  width:clamp(300px,25vw,378px);
+  height:clamp(485px,35vw,535px);
+  opacity:var(--enc-o);
+  transform:
+    translate3d(calc(-50% + var(--enc-x)),calc(var(--enc-y) + var(--enc-hover-y)),0)
+    rotateZ(var(--enc-r))
+    scale(var(--enc-s));
+  transform-origin:50% 116%;
+  filter:blur(var(--enc-blur)) saturate(calc(1 - var(--enc-shade))) brightness(calc(1 - var(--enc-shade)));
+  backface-visibility:hidden;
+  will-change:transform,opacity,filter;
+  transition:border-color .28s ease,box-shadow .28s ease,filter .18s ease,opacity .18s ease;
+}
+.encounter-card-link{
+  display:grid;
+  grid-template-rows:minmax(0,1.35fr) minmax(210px,.85fr);
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  text-decoration:none;
+  color:#161618;
+  background:#F0EDE5;
+  border:1px solid rgba(240,237,229,.2);
+  border-radius:26px;
+  box-shadow:0 12px 34px rgba(0,0,0,.23);
+  transition:border-color .28s ease,box-shadow .28s ease,background .28s ease;
+}
+.encounter-card.is-center .encounter-card-link{
+  border-color:rgba(240,237,229,.46);
+  box-shadow:0 30px 72px rgba(0,0,0,.42),0 0 0 1px rgba(240,237,229,.06);
+}
+.encounter-card.is-center:hover{--enc-hover-y:-7px}
+.encounter-card.is-center:active{--enc-hover-y:-2px}
+.encounter-card-media{position:relative;min-height:0;overflow:hidden;background:#262425}
+.encounter-card-media .scenic-media{position:absolute;inset:0;min-height:100%;border-radius:0!important}
+.encounter-card-media .scenic-photo{width:100%;height:100%;object-fit:cover;transform:none!important;transition:none!important}
+.encounter-card-media .scenic-caption{font-size:.54rem;opacity:.58}
+.encounter-card-body{
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+  padding:1.25rem 1.3rem 1.2rem;
+  color:#161618;
+  background:linear-gradient(180deg,#F3F1EC 0%,#E8E8E0 100%);
+}
+.encounter-card-kicker{display:flex;justify-content:space-between;gap:1rem;align-items:center;color:#5E5A50;font-size:.61rem;letter-spacing:.12em;text-transform:uppercase}
+.encounter-card-kicker span:first-child{font-variant-numeric:tabular-nums;color:#7A7372}
+.encounter-card h3{margin:.65rem 0 .48rem;color:#161618;font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(1.55rem,2.1vw,2rem);line-height:1.02;letter-spacing:-.035em}
+.encounter-card-body>p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:#4E4B43;font-size:.82rem;line-height:1.52}
+.encounter-card-meta{display:flex;flex-wrap:wrap;gap:.55rem 1rem;margin-top:auto;padding-top:.95rem;border-top:1px solid rgba(22,22,24,.12);color:#5E5A50;font-size:.67rem}
+.encounter-card-meta span{display:inline-flex;align-items:center;gap:.32rem;min-width:0}
+.encounter-card-meta span:last-child{max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.encounter-card-meta .ui-icon{color:#45454A}
+.encounter-card-cta{display:inline-flex;align-items:center;justify-content:space-between;gap:.55rem;margin-top:.8rem;color:#161618;font-size:.72rem;font-weight:720;letter-spacing:.02em}
+.encounter-card-cta .ui-icon{transition:translate .25s cubic-bezier(.22,1,.36,1)}
+.encounter-card.is-center:hover .encounter-card-cta .ui-icon{translate:4px 0}
+.encounter-arrow{
+  position:relative;
+  z-index:70;
+  width:52px;
+  height:52px;
+  min-height:52px;
+  padding:0;
+  border-radius:50%;
+  color:#F3F1EC!important;
+  background:rgba(243,241,236,.055)!important;
+  border-color:rgba(243,241,236,.26)!important;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.encounter-arrow:hover{background:rgba(243,241,236,.12)!important;border-color:rgba(243,241,236,.48)!important;translate:0 -2px}
+.encounter-footer{
+  width:min(940px,calc(100% - 96px));
+  margin:-.2rem auto 0;
+  display:grid;
+  grid-template-columns:auto minmax(70px,1fr) auto;
+  gap:1rem;
+  align-items:center;
+  color:rgba(243,241,236,.52);
+  font-size:.59rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.encounter-footer [data-encounter-counter]{font-variant-numeric:tabular-nums;color:rgba(243,241,236,.82)}
+.encounter-line{height:1px;background:linear-gradient(90deg,rgba(243,241,236,.38),rgba(243,241,236,.08))}
+.encounter-carousel:focus-visible{outline:2px solid rgba(148,178,196,.9);outline-offset:10px;border-radius:18px}
+
+@media(max-width:980px){
+  .encounter-section{min-height:760px}
+  .encounter-shell{width:min(100% - 24px,960px)}
+  .encounter-carousel-shell{grid-template-columns:46px minmax(0,1fr) 46px;min-height:570px}
+  .encounter-carousel{min-height:550px}
+  .encounter-card{width:clamp(292px,38vw,350px);height:500px}
+  .encounter-arrow{width:44px;height:44px;min-height:44px}
+}
+@media(max-width:700px){
+  .encounter-section{min-height:720px;padding:4.2rem 0 3rem!important}
+  .encounter-heading{margin-bottom:.35rem;text-align:left;justify-items:start}
+  .encounter-heading h2{font-size:clamp(2.8rem,12vw,4rem);text-align:left}
+  .encounter-heading>p:last-child{text-align:left;margin-inline:0}
+  .encounter-carousel-shell{display:block;min-height:525px;margin-inline:-12px;width:calc(100% + 24px)}
+  .encounter-carousel{min-height:510px}
+  .encounter-card{top:8px;width:min(82vw,330px);height:475px}
+  .encounter-card-link{grid-template-rows:minmax(0,1.25fr) minmax(210px,.95fr);border-radius:22px}
+  .encounter-card h3{font-size:1.65rem}
+  .encounter-card-body{padding:1.1rem 1.15rem 1.05rem}
+  .encounter-arrow{position:absolute;bottom:6px;z-index:80}
+  .encounter-arrow-prev{left:calc(50% - 58px)}
+  .encounter-arrow-next{right:calc(50% - 58px)}
+  .encounter-footer{width:100%;margin:.35rem 0 0;grid-template-columns:auto 1fr;font-size:.54rem}
+  .encounter-footer>span:last-child{display:none}
+  .encounter-carousel::before,.encounter-carousel::after{width:12%}
+}
+@media(prefers-reduced-motion:reduce){
+  .encounter-card,.encounter-card-link,.encounter-card-cta .ui-icon,.encounter-arrow{transition:none!important}
+  .encounter-card.is-center:hover{--enc-hover-y:0px}
+}

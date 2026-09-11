@@ -303,12 +303,29 @@
     </section>`;
   }
   function homePartnerLoopSection(){
-    const partners=rankPlacesForTrip(publicPlaces().filter(p=>p.commercialRelation==='partner')).slice(0,6); if(!partners.length)return '';
-    const idx=ui.homePartnerIndex%partners.length;
-    const ordered=[-2,-1,0,1,2].map(offset=>{const originalIndex=(idx+offset+partners.length)%partners.length;return {p:partners[originalIndex],originalIndex,offset}});
-    return `<section class="home-section home-partners" data-psd-layer="03" aria-labelledby="partners-title"><div class="psd-container">
-      <div class="partners-heading"><p class="psd-kicker">Encontros pelo caminho</p><h2 id="partners-title">Parceiros que entram na viagem</h2><p>Nenhuma posição indica ranking. O destaque muda para validar o comportamento do índice.</p></div>
-      <div class="partners-carousel"><button class="carousel-arrow" data-action="partner-prev" aria-label="Parceiro anterior">${icon('chevron-esquerda')}</button><div class="partners-track">${ordered.map(({p,originalIndex,offset})=>`<article class="partner-reference-card depth-${Math.abs(offset)} ${offset===0?'is-center':''}" data-shared-place="${esc(p.id)}">${scenicMedia(p,'partner-card')}<div class="partner-card-overlay"><small>${esc((p.categoryIds||[]).map(categoryName).join(' · '))}</small><h3>${esc(p.name)}</h3>${offset===0?`<a class="button light-button" href="#/parceiros/${p.slug}">Abrir página</a>`:`<button data-home-partner="${originalIndex}">Centralizar</button>`}</div></article>`).join('')}</div><button class="carousel-arrow" data-action="partner-next" aria-label="Próximo parceiro">${icon('chevron-direita')}</button></div>
+    const partners=rankPlacesForTrip(publicPlaces().filter(p=>p.commercialRelation==='partner')).slice(0,8); if(!partners.length)return '';
+    const active=((ui.homePartnerIndex%partners.length)+partners.length)%partners.length;
+    return `<section class="home-section home-partners encounter-section" data-psd-layer="03" aria-labelledby="partners-title"><div class="psd-container encounter-shell">
+      <div class="partners-heading encounter-heading"><p class="psd-kicker">Encontros pelo caminho</p><h2 id="partners-title">Parceiros que entram na viagem</h2><p>Arraste para percorrer a seleção. O card central ganha contexto e abre a experiência completa, sem indicar ranking.</p></div>
+      <div class="encounter-carousel-shell">
+        <button class="carousel-arrow encounter-arrow encounter-arrow-prev" data-action="partner-prev" aria-label="Parceiro anterior">${icon('chevron-esquerda')}</button>
+        <div class="encounter-carousel" data-encounter-carousel data-initial-index="${active}" aria-label="Parceiros pelo caminho. Arraste, role ou use as setas esquerda e direita.">
+          ${partners.map((p,i)=>{const cats=(p.categoryIds||[]).map(categoryName).join(' · ');const href=`#/parceiros/${p.slug}`;return `<article class="encounter-card" data-encounter-card data-encounter-index="${i}" data-shared-place="${esc(p.id)}">
+            <a class="encounter-card-link" href="${href}" aria-label="Conhecer ${esc(p.name)}">
+              <div class="encounter-card-media">${scenicMedia(p,'encounter-card')}</div>
+              <div class="encounter-card-body">
+                <div class="encounter-card-kicker"><span>0${i+1}</span><span>${esc(cats||'Parceiro')}</span></div>
+                <h3>${esc(p.name)}</h3>
+                <p>${esc(p.shortDescription)}</p>
+                <div class="encounter-card-meta"><span>${icon('place.duration','',{size:15})}${esc(p.durationMinutes)} min</span><span>${icon('place.location','',{size:15})}${esc((p.location?.display||'Serra Negra').replace(/,\s*SP$/i,''))}</span></div>
+                <span class="encounter-card-cta">Conhecer experiência ${icon('avancar','',{size:16})}</span>
+              </div>
+            </a>
+          </article>`}).join('')}
+        </div>
+        <button class="carousel-arrow encounter-arrow encounter-arrow-next" data-action="partner-next" aria-label="Próximo parceiro">${icon('chevron-direita')}</button>
+      </div>
+      <div class="encounter-footer" aria-hidden="true"><span data-encounter-counter>${String(active+1).padStart(2,'0')} / ${String(partners.length).padStart(2,'0')}</span><span class="encounter-line"></span><span>ARRASTE · ROLE · USE AS SETAS</span></div>
     </div></section>`;
   }
   function homeRouteVisualSection(){
@@ -356,13 +373,153 @@
     homeHero:homeHeroSection,touristSpots:homeTouristSpotsSection,partnerLoop:homePartnerLoopSection,routeVisual:homeRouteVisualSection,routeTypesShowcase:homeRouteTypesSection,routeTypeCards:homeRouteCardsSection,editorialDiscovery:homeEditorialSection,partnerCategories:homeCategoriesSection,homeFaq:homeFaqSection,passportIntro:homePassportIntroSection,mapExplore:homeMapSection,finalCta:homeFinalCtaSection
   };
   const HOME_SECTIONS=CONFIG.home.sections;
+  let encounterCarouselCleanup=null;
+  let encounterCarouselApi=null;
+  function destroyEncounterCarousel(){
+    if(encounterCarouselCleanup){encounterCarouselCleanup();encounterCarouselCleanup=null;}
+    encounterCarouselApi=null;
+  }
+  function initEncounterCarousel(){
+    destroyEncounterCarousel();
+    const carousel=document.querySelector('[data-encounter-carousel]');
+    if(!carousel)return;
+    const cards=[...carousel.querySelectorAll('[data-encounter-card]')];
+    const section=carousel.closest('.encounter-section');
+    const prev=section?.querySelector('[data-action="partner-prev"]');
+    const next=section?.querySelector('[data-action="partner-next"]');
+    const counter=section?.querySelector('[data-encounter-counter]');
+    const count=cards.length; if(!count)return;
+    const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const clamp=(n,min,max)=>Math.min(Math.max(n,min),max);
+    const lerp=(a,b,t)=>a+(b-a)*t;
+    const normalize=i=>((i%count)+count)%count;
+    let currentIndex=normalize(Number(carousel.dataset.initialIndex)||0);
+    let rafId=0, autoplayId=0, snapId=0;
+    let pointerDown=false,startX=0,lastX=0,lastT=0,startTarget=currentIndex,velocity=0;
+    const scroll={current:currentIndex,target:currentIndex,ease:reduced?1:.105};
+
+    function spacing(){
+      const cardWidth=cards[0]?.getBoundingClientRect().width||360;
+      const width=carousel.getBoundingClientRect().width||1200;
+      return Math.max(220,Math.min(width*.315,cardWidth*1.04));
+    }
+    function apply(){
+      const gap=spacing(); let closest=0,closestDistance=Infinity;
+      cards.forEach((card,index)=>{
+        let offset=index-scroll.current;
+        while(offset>count/2)offset-=count;
+        while(offset<-count/2)offset+=count;
+        const abs=Math.abs(offset), limited=clamp(offset,-3.15,3.15);
+        const arc=Math.min(abs*abs*17,94);
+        const scale=1-Math.min(abs*.09,.285);
+        const opacity=abs>3.05?0:1-Math.min(abs*.245,.76);
+        const blur=Math.min(abs*.82,2.6);
+        const rotation=clamp(-limited*7.2,-20,20);
+        const shade=Math.min(abs*.105,.30);
+        if(abs<closestDistance){closestDistance=abs;closest=index;}
+        const active=abs<.42;
+        card.classList.toggle('is-center',active);
+        card.style.setProperty('--enc-x',`${limited*gap}px`);
+        card.style.setProperty('--enc-y',`${arc}px`);
+        card.style.setProperty('--enc-r',`${rotation}deg`);
+        card.style.setProperty('--enc-s',String(scale));
+        card.style.setProperty('--enc-o',String(opacity));
+        card.style.setProperty('--enc-blur',`${blur}px`);
+        card.style.setProperty('--enc-shade',String(shade));
+        card.style.setProperty('--enc-z',String(40-Math.round(abs*6)));
+        card.style.pointerEvents=abs<2.45?'auto':'none';
+        card.setAttribute('aria-hidden',String(!active));
+        const link=card.querySelector('.encounter-card-link');
+        if(link){link.tabIndex=active?0:-1;link.style.pointerEvents=active?'auto':'none';}
+      });
+      if(currentIndex!==closest){currentIndex=closest;ui.homePartnerIndex=closest;}
+      if(counter)counter.textContent=`${String(currentIndex+1).padStart(2,'0')} / ${String(count).padStart(2,'0')}`;
+    }
+    function animate(){
+      scroll.current=lerp(scroll.current,scroll.target,scroll.ease);
+      if(Math.abs(scroll.current-scroll.target)<.001)scroll.current=scroll.target;
+      apply(); rafId=requestAnimationFrame(animate);
+    }
+    function stopAutoplay(){if(autoplayId){clearInterval(autoplayId);autoplayId=0;}}
+    function goTo(index,{restart=true}={}){
+      const target=normalize(index); let delta=target-scroll.target;
+      while(delta>count/2)delta-=count;
+      while(delta<-count/2)delta+=count;
+      scroll.target+=delta; currentIndex=target; ui.homePartnerIndex=target;
+      if(restart)startAutoplay();
+    }
+    function startAutoplay(){
+      stopAutoplay(); if(reduced||count<2)return;
+      autoplayId=setInterval(()=>goTo(currentIndex+1,{restart:false}),5600);
+    }
+    function snap(){clearTimeout(snapId);snapId=setTimeout(()=>goTo(Math.round(scroll.target)),130);}
+    function onClick(event){
+      const card=event.target.closest('[data-encounter-card]'); if(!card)return;
+      const index=cards.indexOf(card); if(index<0)return;
+      if(index!==currentIndex){event.preventDefault();goTo(index);}
+    }
+    function onKey(event){
+      if(event.key==='ArrowLeft'){event.preventDefault();goTo(currentIndex-1);}
+      if(event.key==='ArrowRight'){event.preventDefault();goTo(currentIndex+1);}
+      if(event.key==='Home'){event.preventDefault();goTo(0);}
+      if(event.key==='End'){event.preventDefault();goTo(count-1);}
+    }
+    function onWheel(event){
+      if(Math.abs(event.deltaX)<1&&Math.abs(event.deltaY)<1)return;
+      event.preventDefault();stopAutoplay();
+      const delta=Math.abs(event.deltaX)>Math.abs(event.deltaY)?event.deltaX:event.deltaY;
+      scroll.target+=clamp(delta,-90,90)*.00265;snap();
+    }
+    function onPointerDown(event){
+      if(event.button!==undefined&&event.button!==0)return;
+      pointerDown=true;startX=lastX=event.clientX;lastT=performance.now();startTarget=scroll.target;velocity=0;
+      stopAutoplay();carousel.classList.add('is-dragging');carousel.setPointerCapture?.(event.pointerId);
+    }
+    function onPointerMove(event){
+      if(!pointerDown)return;
+      const now=performance.now(),frameDx=event.clientX-lastX,frameDt=Math.max(now-lastT,16);
+      velocity=frameDx/frameDt;scroll.target=startTarget-(event.clientX-startX)/spacing();lastX=event.clientX;lastT=now;
+    }
+    function onRelease(event){
+      if(!pointerDown)return;pointerDown=false;carousel.classList.remove('is-dragging');carousel.releasePointerCapture?.(event.pointerId);
+      scroll.target-=velocity*4.2;goTo(Math.round(scroll.target));
+    }
+    function onPrev(event){event?.preventDefault();goTo(currentIndex-1);}
+    function onNext(event){event?.preventDefault();goTo(currentIndex+1);}
+    function pause(){stopAutoplay();}
+    function resume(){startAutoplay();}
+
+    carousel.tabIndex=0;
+    carousel.setAttribute('role','region');
+    carousel.addEventListener('click',onClick);
+    carousel.addEventListener('keydown',onKey);
+    carousel.addEventListener('wheel',onWheel,{passive:false});
+    carousel.addEventListener('pointerdown',onPointerDown);
+    carousel.addEventListener('pointermove',onPointerMove);
+    carousel.addEventListener('pointerup',onRelease);
+    carousel.addEventListener('pointercancel',onRelease);
+    carousel.addEventListener('mouseenter',pause);
+    carousel.addEventListener('mouseleave',resume);
+    carousel.addEventListener('focusin',pause);
+    carousel.addEventListener('focusout',resume);
+    apply();animate();startAutoplay();
+    encounterCarouselApi={prev:onPrev,next:onNext,goTo};
+    encounterCarouselCleanup=()=>{
+      stopAutoplay();cancelAnimationFrame(rafId);clearTimeout(snapId);
+      carousel.removeEventListener('click',onClick);carousel.removeEventListener('keydown',onKey);carousel.removeEventListener('wheel',onWheel);
+      carousel.removeEventListener('pointerdown',onPointerDown);carousel.removeEventListener('pointermove',onPointerMove);carousel.removeEventListener('pointerup',onRelease);carousel.removeEventListener('pointercancel',onRelease);
+      carousel.removeEventListener('mouseenter',pause);carousel.removeEventListener('mouseleave',resume);carousel.removeEventListener('focusin',pause);carousel.removeEventListener('focusout',resume);
+    };
+  }
   function renderHome(){
+    destroyEncounterCarousel();
     const sections=HOME_SECTIONS.filter(x=>x.enabled).map(x=>({...x}));
     if(isPersonalizedTrip()){
       const route=sections.find(x=>x.type==='routeVisual'); if(route) route.order=15;
       const spots=sections.find(x=>x.type==='touristSpots'); if(spots) spots.order=25;
     }
     app.innerHTML=`<div class="home-v3 ${isPersonalizedTrip()?'is-personalized':''}">${sections.sort((a,b)=>a.order-b.order).map(def=>sectionRegistry[def.type]?.(def)||'').join('')}</div>`;
+    requestAnimationFrame(initEncounterCarousel);
   }
 
   function parseQueryFromHash(){
@@ -750,7 +907,7 @@
   ];
   function render(){
     window.scrollTo(0,0); const hash=(location.hash||'#/').slice(1).split('?')[0]; const parts=hash.split('/').filter(Boolean);
-    const page=parts[0]||'home'; document.body.dataset.page=page; updateNavCurrent(page);
+    const page=parts[0]||'home'; if(page!=='home')destroyEncounterCarousel(); document.body.dataset.page=page; updateNavCurrent(page);
     const route=ROUTES.find(candidate=>candidate.match(parts));
     if(route?.redirect){location.replace(route.redirect);return;}
     if(route){if(!route.customMeta)setPageMeta(route.meta);route.run(parts);}
@@ -902,8 +1059,8 @@
     const a=t.dataset.action; if(!a)return;
     if(a==='toggle-menu'){const nav=$('#main-nav');const open=nav.classList.toggle('open');t.setAttribute('aria-expanded',String(open));t.innerHTML=`${icon(open?'nav.close':'nav.menu','',{size:20})}<span>${open?'Fechar':'Menu'}</span>`;document.body.classList.toggle('menu-open',open);return}
     if(a==='home-search-suggestion'){const q=t.dataset.query||'';location.hash=`#/explorar?q=${encodeURIComponent(q)}`;return}
-    if(a==='partner-prev'){const n=publicPlaces().filter(p=>p.commercialRelation==='partner').slice(0,6).length;ui.homePartnerIndex=(ui.homePartnerIndex-1+n)%n;renderHome();return}
-    if(a==='partner-next'){const n=publicPlaces().filter(p=>p.commercialRelation==='partner').slice(0,6).length;ui.homePartnerIndex=(ui.homePartnerIndex+1)%n;renderHome();return}
+    if(a==='partner-prev'){encounterCarouselApi?.prev?.(e);return}
+    if(a==='partner-next'){encounterCarouselApi?.next?.(e);return}
     if(a==='clear-filters'){ui.explore={...ui.explore,q:'',category:'',relation:'',environment:'',cost:''};renderExplore();return}
     if(a==='demo-contact'){toast('Contato fictício: nenhuma ação externa foi aberta.');return}
     if(a==='add-trip'){addToTrip(t.dataset.place);return}
