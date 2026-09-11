@@ -1,25 +1,24 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="noindex,nofollow" />
-  <meta name="dynamic-route" content="__CURRENT_PATH__" />
-  <title>Rota dinâmica · Passaporte Serra Negra</title>
-  <style>
-    :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#161618;background:#e8e8e0}
-    *{box-sizing:border-box}body{min-height:100vh;margin:0;display:grid;place-items:center;padding:24px}.bridge{width:min(620px,100%);padding:32px;border:1px solid #c8c3b8;border-radius:22px;background:#f3f1ec}.bridge h1{margin:0 0 12px;font-size:clamp(1.8rem,6vw,3rem);line-height:1.05}.bridge p{line-height:1.6;color:#403d3f}.bridge nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.bridge a{display:inline-flex;min-height:44px;align-items:center;padding:10px 14px;border:1px solid #403d3f;border-radius:10px;color:inherit;text-decoration:none}.bridge code{padding:.15em .35em;border-radius:4px;background:#d4d1c7}
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Passaporte Serra Negra</title>
+  <script>
+    (()=>{
+      const path=location.pathname.replace(/\/+$/,'');
+      const parts=path.split('/').filter(Boolean);
+      const known=['explorar','mapa','pontos-turisticos','roteiro','meu-passaporte','admin','parceiros','para-parceiros','privacidade','termos','cookies','acessibilidade','lugares','viagens'];
+      let index=parts.findIndex(part=>known.includes(part));
+      let route=index>=0?parts.slice(index).join('/') : '';
+      if(route==='mapa') route='explorar?view=map';
+      else if(route==='pontos-turisticos') route='explorar?relation=public_point';
+      else if(route==='para-parceiros') route='parceiros';
+      const root=index>=0?'../'.repeat(parts.length-index):'./';
+      location.replace(`${root}index.html#/${route}`);
+    })();
+  </script>
 </head>
-<body>
-  <main class="bridge">
-    <p>Entrada de compatibilidade</p>
-    <h1>Rota dinâmica</h1>
-    <p data-dynamic-status>Conectando à aplicação dinâmica…</p>
-    <p>Este arquivo não contém uma cópia estática da página. O conteúdo real continua sendo renderizado pelo Next.js.</p>
-    <nav data-dynamic-links aria-label="Conexões com a aplicação dinâmica"></nav>
-    <noscript>Ative JavaScript e abra a aplicação com <code>npm run dev</code>.</noscript>
-  </main>
-  <script src="./dynamic-entry.js" defer></script>
-</body>
+<body><p>Redirecionando para o Passaporte Serra Negra…</p></body>
 </html>
