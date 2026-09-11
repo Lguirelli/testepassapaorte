@@ -208,8 +208,19 @@
   function homeHeroSection(){
     return `<section class="home-section home-hero" data-psd-layer="01" aria-labelledby="home-title">
       <div class="home-hero-art" aria-hidden="true">
-        <span class="home-hero-sky"></span><span class="home-hero-sun"></span>
-        <span class="home-hero-ridge ridge-back"></span><span class="home-hero-ridge ridge-mid"></span><span class="home-hero-ridge ridge-front"></span>
+        <picture class="home-hero-photo">
+          <source type="image/webp" media="(min-width: 1800px)" srcset="./assets/brand/hero/serra-negra-header-2048.webp">
+          <source type="image/jpeg" media="(min-width: 1800px)" srcset="./assets/brand/hero/serra-negra-header-2048.jpg">
+          <source type="image/webp" media="(min-width: 1360px)" srcset="./assets/brand/hero/serra-negra-header-1600.webp">
+          <source type="image/jpeg" media="(min-width: 1360px)" srcset="./assets/brand/hero/serra-negra-header-1600.jpg">
+          <source type="image/webp" media="(min-width: 1024px)" srcset="./assets/brand/hero/serra-negra-header-1280.webp">
+          <source type="image/jpeg" media="(min-width: 1024px)" srcset="./assets/brand/hero/serra-negra-header-1280.jpg">
+          <source type="image/webp" media="(min-width: 700px)" srcset="./assets/brand/hero/serra-negra-header-960.webp">
+          <source type="image/jpeg" media="(min-width: 700px)" srcset="./assets/brand/hero/serra-negra-header-960.jpg">
+          <source type="image/webp" srcset="./assets/brand/hero/serra-negra-header-640.webp">
+          <img src="./assets/brand/hero/serra-negra-header-640.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+        <span class="home-hero-overlay"></span>
         <svg class="home-hero-route" viewBox="0 0 1000 420" preserveAspectRatio="none"><path d="M45 330 C210 205 315 290 455 188 S720 72 952 140"/><circle cx="455" cy="188" r="7"/></svg>
       </div>
       <div class="psd-container home-hero-content">
