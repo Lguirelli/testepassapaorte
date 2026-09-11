@@ -426,6 +426,7 @@
         card.style.setProperty('--enc-o',String(opacity));
         card.style.setProperty('--enc-blur',`${blur}px`);
         card.style.setProperty('--enc-shade',String(shade));
+        card.style.setProperty('--enc-side', String(limited===0?0:(limited>0?1:-1)));
         card.style.setProperty('--enc-z',String(40-Math.round(abs*6)));
         card.style.pointerEvents=abs<2.7?'auto':'none';
         card.setAttribute('aria-hidden',String(!active));
@@ -453,6 +454,12 @@
       autoplayId=setInterval(()=>goTo(currentIndex+1,{restart:false}),5600);
     }
     function snap(){clearTimeout(snapId);snapId=setTimeout(()=>goTo(Math.round(scroll.target)),130);}
+    function setCenterExpanded(force){
+      const shouldExpand = typeof force === 'boolean'
+        ? force
+        : !!carousel.querySelector('[data-encounter-card].is-center:hover, [data-encounter-card].is-center:focus-within');
+      carousel.classList.toggle('is-center-expanded', shouldExpand);
+    }
     function onClick(event){
       const card=event.target.closest('[data-encounter-card]'); if(!card)return;
       const index=cards.indexOf(card); if(index<0)return;
@@ -494,6 +501,10 @@
     carousel.addEventListener('click',onClick);
     carousel.addEventListener('keydown',onKey);
     carousel.addEventListener('wheel',onWheel,{passive:false});
+    carousel.addEventListener('pointermove',()=>setCenterExpanded());
+    carousel.addEventListener('pointerleave',()=>setCenterExpanded(false));
+    carousel.addEventListener('focusin',()=>setCenterExpanded());
+    carousel.addEventListener('focusout',()=>requestAnimationFrame(()=>setCenterExpanded()));
     carousel.addEventListener('pointerdown',onPointerDown);
     carousel.addEventListener('pointermove',onPointerMove);
     carousel.addEventListener('pointerup',onRelease);
