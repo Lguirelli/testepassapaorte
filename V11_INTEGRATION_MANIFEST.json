@@ -1,0 +1,5638 @@
+{
+  "version": "v11-consolidated",
+  "fileCount": 1125,
+  "byCategory": {
+    "repository": 683,
+    "runtime-asset": 197,
+    "psd-reference": 30,
+    "psd-validation": 11,
+    "next-source": 204
+  },
+  "files": [
+    {
+      "path": "PLACE_DETAIL_VALIDATION.md",
+      "size": 1370,
+      "category": "repository"
+    },
+    {
+      "path": "TOURISM_RESEARCH.md",
+      "size": 5584,
+      "category": "repository"
+    },
+    {
+      "path": "ASSET_SOURCES_STOCK_IMAGES.md",
+      "size": 2540,
+      "category": "repository"
+    },
+    {
+      "path": "IMPLEMENTATION_NOTES.md",
+      "size": 11249,
+      "category": "repository"
+    },
+    {
+      "path": "BLOCK_REPORT.md",
+      "size": 4121,
+      "category": "repository"
+    },
+    {
+      "path": "PARTNERS_IMPLEMENTATION_NOTES.md",
+      "size": 2861,
+      "category": "repository"
+    },
+    {
+      "path": "docker-compose.yml",
+      "size": 432,
+      "category": "repository"
+    },
+    {
+      "path": "index.html",
+      "size": 2876,
+      "category": "repository"
+    },
+    {
+      "path": "theme.css",
+      "size": 59259,
+      "category": "repository"
+    },
+    {
+      "path": "visual-v2.css",
+      "size": 38373,
+      "category": "repository"
+    },
+    {
+      "path": "site.webmanifest",
+      "size": 327,
+      "category": "repository"
+    },
+    {
+      "path": ".env.example",
+      "size": 454,
+      "category": "repository"
+    },
+    {
+      "path": "TOURISM_VALIDATION.md",
+      "size": 1607,
+      "category": "repository"
+    },
+    {
+      "path": "CORRECOES_REALIZADAS.md",
+      "size": 4563,
+      "category": "repository"
+    },
+    {
+      "path": ".nojekyll",
+      "size": 0,
+      "category": "repository"
+    },
+    {
+      "path": "icon-registry.js",
+      "size": 18835,
+      "category": "repository"
+    },
+    {
+      "path": "HERO_BG_CORRECTION_V8.md",
+      "size": 1424,
+      "category": "repository"
+    },
+    {
+      "path": "INTERACTION_MOTION_FIX_V5.md",
+      "size": 1873,
+      "category": "repository"
+    },
+    {
+      "path": "tourism-data.js",
+      "size": 32102,
+      "category": "repository"
+    },
+    {
+      "path": "ui-config.js",
+      "size": 18785,
+      "category": "repository"
+    },
+    {
+      "path": "Ativo 4paisagem.svg",
+      "size": 88695,
+      "category": "repository"
+    },
+    {
+      "path": "data.js",
+      "size": 23426,
+      "category": "repository"
+    },
+    {
+      "path": "WORK_COMMAND.md",
+      "size": 17055,
+      "category": "repository"
+    },
+    {
+      "path": "app.js",
+      "size": 113474,
+      "category": "repository"
+    },
+    {
+      "path": "VALIDATION.md",
+      "size": 8381,
+      "category": "repository"
+    },
+    {
+      "path": "REPOSITORY_V11.md",
+      "size": 933,
+      "category": "repository"
+    },
+    {
+      "path": "MANIFEST.json",
+      "size": 183533,
+      "category": "repository"
+    },
+    {
+      "path": "partners-page.css",
+      "size": 16942,
+      "category": "repository"
+    },
+    {
+      "path": "visual.css",
+      "size": 38033,
+      "category": "repository"
+    },
+    {
+      "path": "DARK_MODE_CONTRAST_FIX_V4.md",
+      "size": 3252,
+      "category": "repository"
+    },
+    {
+      "path": "premium-validation.json",
+      "size": 381,
+      "category": "repository"
+    },
+    {
+      "path": "README.md",
+      "size": 4152,
+      "category": "repository"
+    },
+    {
+      "path": ".gitignore",
+      "size": 104,
+      "category": "repository"
+    },
+    {
+      "path": "styles.css",
+      "size": 16163,
+      "category": "repository"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 272861,
+      "category": "repository"
+    },
+    {
+      "path": "package.json",
+      "size": 1208,
+      "category": "repository"
+    },
+    {
+      "path": "playwright.config.ts",
+      "size": 643,
+      "category": "repository"
+    },
+    {
+      "path": "next-env.d.ts",
+      "size": 296,
+      "category": "repository"
+    },
+    {
+      "path": ".nvmrc",
+      "size": 3,
+      "category": "repository"
+    },
+    {
+      "path": "WORK_STATE.md",
+      "size": 7322,
+      "category": "repository"
+    },
+    {
+      "path": "DELIVERY_INDEX.md",
+      "size": 471,
+      "category": "repository"
+    },
+    {
+      "path": "drizzle.config.ts",
+      "size": 253,
+      "category": "repository"
+    },
+    {
+      "path": "PACKAGE_MANIFEST.md",
+      "size": 729,
+      "category": "repository"
+    },
+    {
+      "path": "PREMIUM_EXPERIENCE_V9.md",
+      "size": 6170,
+      "category": "repository"
+    },
+    {
+      "path": "next.config.ts",
+      "size": 280,
+      "category": "repository"
+    },
+    {
+      "path": "partners-page.js",
+      "size": 16625,
+      "category": "repository"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "size": 346,
+      "category": "repository"
+    },
+    {
+      "path": "ROUTE_MOTION_V10.md",
+      "size": 1255,
+      "category": "repository"
+    },
+    {
+      "path": "INTERACTION_MOTION_FIX_V6.md",
+      "size": 760,
+      "category": "repository"
+    },
+    {
+      "path": "ui-shell.js",
+      "size": 2260,
+      "category": "repository"
+    },
+    {
+      "path": "404.html",
+      "size": 4625,
+      "category": "repository"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "size": 2733,
+      "category": "repository"
+    },
+    {
+      "path": "HEADER_BG_UPDATE_V7.md",
+      "size": 1460,
+      "category": "repository"
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "size": 8381,
+      "category": "repository"
+    },
+    {
+      "path": "tsconfig.json",
+      "size": 854,
+      "category": "repository"
+    },
+    {
+      "path": "PLACE_DETAIL_TEMPLATE.md",
+      "size": 977,
+      "category": "repository"
+    },
+    {
+      "path": "tourism-pages.css",
+      "size": 7061,
+      "category": "repository"
+    },
+    {
+      "path": "robots.txt",
+      "size": 26,
+      "category": "repository"
+    },
+    {
+      "path": "acceptance/DEFINITION_OF_DONE.md",
+      "size": 1086,
+      "category": "repository"
+    },
+    {
+      "path": "acceptance/PLAYWRIGHT_MATRIX.md",
+      "size": 2604,
+      "category": "repository"
+    },
+    {
+      "path": "para-parceiros/index.html",
+      "size": 327,
+      "category": "repository"
+    },
+    {
+      "path": "drizzle/0000_validation.sql",
+      "size": 965,
+      "category": "repository"
+    },
+    {
+      "path": ".devcontainer/post-create.sh",
+      "size": 322,
+      "category": "repository"
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "size": 413,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/verify-admin.ts",
+      "size": 6599,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/package-block.py",
+      "size": 1112,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/dev.mjs",
+      "size": 419,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/static-demo-smoke.cjs",
+      "size": 1941,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/visual-v2-browser-smoke.py",
+      "size": 5241,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/migrate.ts",
+      "size": 569,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/seed.ts",
+      "size": 977,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/verify-persistence.ts",
+      "size": 1857,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/deliver-block.py",
+      "size": 2760,
+      "category": "repository"
+    },
+    {
+      "path": "scripts/package-checkpoint.py",
+      "size": 4222,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/home-390.png",
+      "size": 164356,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/partners-768.png",
+      "size": 472154,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/partners-fullpage-1440.png",
+      "size": 4155569,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/partners-fullpage-1440-thumb.jpg",
+      "size": 271999,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/home-1024.png",
+      "size": 246789,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/partners-1440.png",
+      "size": 958391,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/home-1440.png",
+      "size": 345160,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/partners-psd-vs-implementation.jpg",
+      "size": 518603,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/asset-reference-check.json",
+      "size": 52,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/partners-1024.png",
+      "size": 643534,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/home-1920.png",
+      "size": 477600,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/partners-validation.json",
+      "size": 1613,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/validation-report.json",
+      "size": 9674,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/_test-partners.png",
+      "size": 880833,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/validation-run.txt",
+      "size": 9681,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/home-fullpage-1440-thumb.jpg",
+      "size": 190307,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/partners-390.png",
+      "size": 246807,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/psd-geometry-comparison.json",
+      "size": 3452,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/home-fullpage-1440.png",
+      "size": 2294902,
+      "category": "repository"
+    },
+    {
+      "path": "docs/GITHUB_VALIDATION_GUIDE.md",
+      "size": 2662,
+      "category": "repository"
+    },
+    {
+      "path": "docs/ADMIN_VALIDATION_RULES.md",
+      "size": 1720,
+      "category": "repository"
+    },
+    {
+      "path": "docs/VALIDATION_SCOPE.md",
+      "size": 2907,
+      "category": "repository"
+    },
+    {
+      "path": "docs/MISSING_REFERENCE_ASSETS.md",
+      "size": 1001,
+      "category": "repository"
+    },
+    {
+      "path": "docs/VALIDATION_ARCHITECTURE.md",
+      "size": 2795,
+      "category": "repository"
+    },
+    {
+      "path": "docs/REPO_BLUEPRINT.md",
+      "size": 2028,
+      "category": "repository"
+    },
+    {
+      "path": "docs/SOURCE_OF_TRUTH_V11.md",
+      "size": 2259,
+      "category": "repository"
+    },
+    {
+      "path": "docs/PAGE_CONSTRUCTION_V11.md",
+      "size": 1264,
+      "category": "repository"
+    },
+    {
+      "path": "docs/NO_BRAND_DECISIONS.md",
+      "size": 1275,
+      "category": "repository"
+    },
+    {
+      "path": "seed/validation-trip.json",
+      "size": 2691,
+      "category": "repository"
+    },
+    {
+      "path": "seed/validation-content.json",
+      "size": 11617,
+      "category": "repository"
+    },
+    {
+      "path": "references/Passaporte_Serra_Negra_Documentacao_Mestra_v4_2026-09-09.md",
+      "size": 66139,
+      "category": "repository"
+    },
+    {
+      "path": "references/CONSTRUCTION_RULES_2026-09-10.md",
+      "size": 20179,
+      "category": "repository"
+    },
+    {
+      "path": "parceiros/index.html",
+      "size": 374,
+      "category": "repository"
+    },
+    {
+      "path": "validation/dynamic-ui-audit.json",
+      "size": 562,
+      "category": "repository"
+    },
+    {
+      "path": "validation/contrast-audit.json",
+      "size": 2764,
+      "category": "repository"
+    },
+    {
+      "path": "validation/contrast-audit-v4.json",
+      "size": 1961,
+      "category": "repository"
+    },
+    {
+      "path": "validation/icon-catalog.html",
+      "size": 1690,
+      "category": "repository"
+    },
+    {
+      "path": "validation/CONTRAST_AUDIT.md",
+      "size": 1981,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/index.html",
+      "size": 433,
+      "category": "repository"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "size": 628,
+      "category": "repository"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "size": 1256,
+      "category": "repository"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "size": 2279,
+      "category": "repository"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/validation-feedback.yml",
+      "size": 950,
+      "category": "repository"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/validation-bug.yml",
+      "size": 1387,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/parque-ecologico-dr-jovino-silveira/index.html",
+      "size": 465,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/mirante-alto-da-serra/index.html",
+      "size": 437,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/fontana-di-trevi-serra-negra/index.html",
+      "size": 451,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/parque-fonte-santo-agostinho/index.html",
+      "size": 451,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/parque-das-fontes/index.html",
+      "size": 429,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/parque-ecologico-adib-joao-dib/index.html",
+      "size": 455,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/feira-de-artesanato-serra-negra/index.html",
+      "size": 457,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/praca-das-rotas-turisticas/index.html",
+      "size": 447,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/parque-aquatico-municipal/index.html",
+      "size": 445,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/mirante-cristo-redentor/index.html",
+      "size": 441,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/teleferico-serra-negra/index.html",
+      "size": 439,
+      "category": "repository"
+    },
+    {
+      "path": "lugares/igreja-matriz-nossa-senhora-do-rosario/index.html",
+      "size": 471,
+      "category": "repository"
+    },
+    {
+      "path": "assets/brand/logo-passaporte-serra-negra.svg",
+      "size": 84605,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/logo-passaporte-serra-negra.png",
+      "size": 72272,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/placeholders/card.svg",
+      "size": 402,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/placeholders/hero.svg",
+      "size": 403,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/placeholders/gallery.svg",
+      "size": 405,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/placeholders/avatar.svg",
+      "size": 401,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/07-casa-mel-serra.jpg",
+      "size": 144857,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/03-centro-cultural.jpg",
+      "size": 135433,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/README.md",
+      "size": 403,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/01-mirante-vale-araucarias.jpg",
+      "size": 124439,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/04-cafe-neblina-alta.jpg",
+      "size": 183517,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/SOURCES.json",
+      "size": 2265,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/06-atelie-pedra-folha.jpg",
+      "size": 192242,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/08-bem-estar-aguas-claras.jpg",
+      "size": 224786,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/05-bistro-estacao-verde.jpg",
+      "size": 134648,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/stock/02-jardim-nascentes.jpg",
+      "size": 338477,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/praca-rotas-turisticas.jpg",
+      "size": 124439,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/teleferico-serra-negra.jpg",
+      "size": 124439,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/fontana-di-trevi.jpg",
+      "size": 135433,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/README.md",
+      "size": 587,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/feira-artesanato.jpg",
+      "size": 192242,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/igreja-nossa-senhora-rosario.jpg",
+      "size": 135433,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/parque-aquatico.jpg",
+      "size": 224786,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/parque-das-fontes.jpg",
+      "size": 338477,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/parque-fonte-santo-agostinho.jpg",
+      "size": 338477,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/parque-adib-joao-dib.jpg",
+      "size": 338477,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/SOURCES.json",
+      "size": 3802,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/mirante-alto-da-serra.jpg",
+      "size": 124439,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/mirante-cristo-redentor.jpg",
+      "size": 124439,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/tourism/parque-jovino-silveira.jpg",
+      "size": 338477,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/partner/PA-010-solicitacoes.svg",
+      "size": 331,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/partner/PA-005-requer-solicitacao.svg",
+      "size": 635,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/partner/PA-022-visitantes.svg",
+      "size": 451,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/partner/PA-016-ajustado.svg",
+      "size": 403,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/partner/PA-024-visita-registrada.svg",
+      "size": 442,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/partner/PA-021-desempenho.svg",
+      "size": 394,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/partner/PA-012-proximos-passos.svg",
+      "size": 402,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/partner/PA-018-cancelado.svg",
+      "size": 309,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-017-carro.svg",
+      "size": 385,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-025-nenhuma-necessidade.svg",
+      "size": 373,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-004-amigos.svg",
+      "size": 428,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-019-taxi-app.svg",
+      "size": 415,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-020-nao-sei.svg",
+      "size": 379,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-015-ritmo-equilibrado.svg",
+      "size": 368,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-024-restricao-alimentar.svg",
+      "size": 415,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-021-acessibilidade.svg",
+      "size": 360,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-022-preferir-sem-custo.svg",
+      "size": 422,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-003-familia.svg",
+      "size": 509,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-005-criancas.svg",
+      "size": 402,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-006-relaxar.svg",
+      "size": 408,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-002-casal.svg",
+      "size": 437,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-014-ritmo-tranquilo.svg",
+      "size": 449,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-018-a-pe.svg",
+      "size": 463,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-016-ritmo-ativo.svg",
+      "size": 519,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/profile/O-012-gastar-menos.svg",
+      "size": 510,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/sharing/S-007-quadrado.svg",
+      "size": 288,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/sharing/S-006-feed-vertical.svg",
+      "size": 431,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/sharing/S-012-salvar-imagem-exportar.svg",
+      "size": 422,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/sharing/S-009-visibilidade.svg",
+      "size": 316,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/sharing/S-010-ocultar.svg",
+      "size": 360,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/sharing/S-005-story.svg",
+      "size": 346,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/sharing/S-002-copiar-link.svg",
+      "size": 351,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/sharing/S-004-dobra.svg",
+      "size": 281,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-009-vento.svg",
+      "size": 353,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-004-chuva.svg",
+      "size": 427,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-012-guarda-chuva.svg",
+      "size": 354,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-010-umidade.svg",
+      "size": 328,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-013-frio.svg",
+      "size": 394,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-002-parcialmente-nublado.svg",
+      "size": 420,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-006-tempestade.svg",
+      "size": 349,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-008-sensacao-termica.svg",
+      "size": 476,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-005-chuva-intensa.svg",
+      "size": 501,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-003-nublado.svg",
+      "size": 311,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/weather/W-007-temperatura.svg",
+      "size": 340,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/15-mapa.svg",
+      "size": 355,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/12-passaporte.svg",
+      "size": 447,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/17-parceiros.svg",
+      "size": 470,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/21-idioma.svg",
+      "size": 335,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/22-sol.svg",
+      "size": 359,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/23-lua.svg",
+      "size": 333,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/05-avancar.svg",
+      "size": 273,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/19-link-externo.svg",
+      "size": 334,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/06-chevron-baixo.svg",
+      "size": 274,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/02-fechar.svg",
+      "size": 267,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/04-voltar.svg",
+      "size": 270,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/16-conta.svg",
+      "size": 318,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/03-busca.svg",
+      "size": 284,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/13-roteiro.svg",
+      "size": 505,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/09-chevron-direita.svg",
+      "size": 278,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/08-chevron-esquerda.svg",
+      "size": 280,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/20-mais-opcoes.svg",
+      "size": 419,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/18-compartilhar.svg",
+      "size": 375,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/10-home.svg",
+      "size": 362,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/11-explorar.svg",
+      "size": 303,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/07-chevron-cima.svg",
+      "size": 272,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/24-sistema.svg",
+      "size": 430,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/01-menu.svg",
+      "size": 267,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/navigation/14-calendario.svg",
+      "size": 803,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/calendar/K-008-presenca-registrada.svg",
+      "size": 473,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/calendar/K-007-atividade-planejada.svg",
+      "size": 484,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/calendar/K-002-semana.svg",
+      "size": 622,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/calendar/K-011-espaco-livre.svg",
+      "size": 407,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/calendar/K-013-filtro.svg",
+      "size": 317,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/calendar/K-004-hoje.svg",
+      "size": 417,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/calendar/K-001-dia.svg",
+      "size": 383,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/calendar/K-003-mes.svg",
+      "size": 914,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/passport/PS-004-indice.svg",
+      "size": 393,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/passport/PS-015-expandir-pagina.svg",
+      "size": 412,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/passport/PS-005-ticket.svg",
+      "size": 337,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/passport/PS-010-categorias.svg",
+      "size": 445,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/passport/PS-009-historico.svg",
+      "size": 310,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/passport/PS-006-viagem.svg",
+      "size": 363,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/passport/PS-013-compartilhar-ticket.svg",
+      "size": 468,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-016-circulacao-territorial.svg",
+      "size": 500,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-010-secoes.svg",
+      "size": 334,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-009-registro-de-secoes.svg",
+      "size": 571,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-026-arquivar.svg",
+      "size": 392,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-025-rascunho.svg",
+      "size": 400,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-033-editar-localizacao.svg",
+      "size": 505,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-024-publicar.svg",
+      "size": 337,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-001-dashboard.svg",
+      "size": 581,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-008-conteudo-cms.svg",
+      "size": 329,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-015-sankey-jornada.svg",
+      "size": 436,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-028-comparar-versoes.svg",
+      "size": 538,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-022-exportar.svg",
+      "size": 347,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-019-configuracoes.svg",
+      "size": 859,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-013-fontes.svg",
+      "size": 282,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/admin/A-012-auditoria.svg",
+      "size": 400,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-002-ponto-turistico.svg",
+      "size": 317,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-001-pin-padrao.svg",
+      "size": 344,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-014-abrir-navegacao.svg",
+      "size": 281,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-009-centralizar.svg",
+      "size": 352,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-007-localizacao-usuario.svg",
+      "size": 376,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-012-lista.svg",
+      "size": 468,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-005-evento.svg",
+      "size": 471,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-015-adicionar-ao-roteiro.svg",
+      "size": 312,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-016-origem.svg",
+      "size": 462,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-006-experiencia-autonoma.svg",
+      "size": 460,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-017-destino.svg",
+      "size": 464,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-008-buscar-nesta-area.svg",
+      "size": 377,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/map/M-004-outro-lugar-listado.svg",
+      "size": 488,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/qr/Q-009-retorno.svg",
+      "size": 294,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/qr/Q-008-visita-ja-registrada.svg",
+      "size": 706,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/qr/Q-001-qr-code.svg",
+      "size": 814,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/qr/Q-006-qr-desativado.svg",
+      "size": 1043,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/qr/Q-002-escanear.svg",
+      "size": 348,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/qr/Q-003-camera.svg",
+      "size": 418,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/qr/Q-007-visita-registrada.svg",
+      "size": 371,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/qr/Q-011-offline.svg",
+      "size": 398,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-003-duracao-sugerida.svg",
+      "size": 365,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-004-custo.svg",
+      "size": 503,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-020-whatsapp.svg",
+      "size": 465,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-015-informacao.svg",
+      "size": 362,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-016-localizacao.svg",
+      "size": 345,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-013-animais.svg",
+      "size": 491,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-019-telefone.svg",
+      "size": 351,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-007-reserva-externa.svg",
+      "size": 381,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-023-tempo-de-resposta.svg",
+      "size": 447,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-010-estacionamento.svg",
+      "size": 339,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-017-distancia.svg",
+      "size": 641,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-014-restricao.svg",
+      "size": 294,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-018-direcoes.svg",
+      "size": 329,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-005-sem-custo.svg",
+      "size": 294,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-021-instagram.svg",
+      "size": 379,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-009-outdoor.svg",
+      "size": 344,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-024-galeria.svg",
+      "size": 457,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-025-ver-fotos.svg",
+      "size": 313,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/places/L-001-horario.svg",
+      "size": 295,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-006-reorganizar.svg",
+      "size": 339,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-024-clima-favoravel.svg",
+      "size": 415,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-003-trocar.svg",
+      "size": 328,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-013-alternativa.svg",
+      "size": 389,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-008-salvar.svg",
+      "size": 316,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-002-remover.svg",
+      "size": 289,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-001-adicionar-parada.svg",
+      "size": 349,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-011-fixar-parada.svg",
+      "size": 369,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-021-fechado-no-horario.svg",
+      "size": 840,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-012-desbloquear.svg",
+      "size": 380,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-022-tempo-livre.svg",
+      "size": 299,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-005-arrastar.svg",
+      "size": 418,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-010-autosave.svg",
+      "size": 383,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-004-mover.svg",
+      "size": 361,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-017-caminhada.svg",
+      "size": 468,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/icons-v3/route/R-007-editar.svg",
+      "size": 314,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/passport/folha-passaporte-original.svg",
+      "size": 53386,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/passport/folha-passaporte.svg",
+      "size": 14217,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-960.jpg",
+      "size": 34622,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-640.jpg",
+      "size": 16747,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-1280.jpg",
+      "size": 59667,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-2048.webp",
+      "size": 97692,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-1280.webp",
+      "size": 32406,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-original.jpg",
+      "size": 275292,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-1600.jpg",
+      "size": 92047,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-960.webp",
+      "size": 19606,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-2048.jpg",
+      "size": 182235,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-1600.webp",
+      "size": 50094,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "assets/brand/hero/serra-negra-header-640.webp",
+      "size": 10106,
+      "category": "runtime-asset"
+    },
+    {
+      "path": "public/placeholders/card.svg",
+      "size": 402,
+      "category": "repository"
+    },
+    {
+      "path": "public/placeholders/hero.svg",
+      "size": 403,
+      "category": "repository"
+    },
+    {
+      "path": "public/placeholders/gallery.svg",
+      "size": 405,
+      "category": "repository"
+    },
+    {
+      "path": "public/placeholders/avatar.svg",
+      "size": 401,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/compartilhamento-copiar-link.svg",
+      "size": 429,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/parceiro-visitantes.svg",
+      "size": 519,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-buscar-nesta-area.svg",
+      "size": 449,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/parceiro-requer-solicitacao.svg",
+      "size": 775,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario-espaco-livre.svg",
+      "size": 480,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/qr-qr-desativado.svg",
+      "size": 1191,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario-semana.svg",
+      "size": 729,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/compartilhamento-salvar-imagem-exportar.svg",
+      "size": 511,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-guarda-chuva.svg",
+      "size": 422,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-arquivar.svg",
+      "size": 456,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-localizacao.svg",
+      "size": 412,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-alternativa.svg",
+      "size": 458,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-abrir-navegacao.svg",
+      "size": 351,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-destino.svg",
+      "size": 526,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario.svg",
+      "size": 933,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-remover.svg",
+      "size": 354,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-informacao.svg",
+      "size": 436,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-ponto-turistico.svg",
+      "size": 387,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/parceiro-cancelado.svg",
+      "size": 376,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/passaporte-expandir-pagina.svg",
+      "size": 487,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/passaporte-ticket.svg",
+      "size": 403,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/chevron-cima.svg",
+      "size": 340,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/compartilhamento-quadrado.svg",
+      "size": 363,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-reorganizar.svg",
+      "size": 408,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/compartilhamento-feed-vertical.svg",
+      "size": 519,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/chevron-direita.svg",
+      "size": 349,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-salvar.svg",
+      "size": 380,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/passaporte.svg",
+      "size": 513,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-amigos.svg",
+      "size": 491,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-adicionar-ao-roteiro.svg",
+      "size": 387,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/menu.svg",
+      "size": 327,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/qr-camera.svg",
+      "size": 485,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-parcialmente-nublado.svg",
+      "size": 496,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-fechado-no-horario.svg",
+      "size": 978,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-reserva-externa.svg",
+      "size": 452,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/link-externo.svg",
+      "size": 402,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-mover.svg",
+      "size": 424,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-restricao.svg",
+      "size": 359,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/parceiro-solicitacoes.svg",
+      "size": 401,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-nao-sei.svg",
+      "size": 451,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-telefone.svg",
+      "size": 415,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-ver-fotos.svg",
+      "size": 378,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario-filtro.svg",
+      "size": 384,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/chevron-esquerda.svg",
+      "size": 352,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/passaporte-indice.svg",
+      "size": 459,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/fechar.svg",
+      "size": 329,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/parceiro-ajustado.svg",
+      "size": 469,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-instagram.svg",
+      "size": 452,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mais-opcoes.svg",
+      "size": 510,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-a-pe.svg",
+      "size": 524,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-tempo-de-resposta.svg",
+      "size": 520,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-gastar-menos.svg",
+      "size": 579,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-chuva.svg",
+      "size": 488,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lua.svg",
+      "size": 395,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-conteudo-cms.svg",
+      "size": 397,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-umidade.svg",
+      "size": 391,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-duracao-sugerida.svg",
+      "size": 437,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario-dia.svg",
+      "size": 455,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-origem.svg",
+      "size": 523,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-sensacao-termica.svg",
+      "size": 548,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-nenhuma-necessidade.svg",
+      "size": 449,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-lista.svg",
+      "size": 552,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-editar.svg",
+      "size": 378,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/compartilhamento-ocultar.svg",
+      "size": 434,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-casal.svg",
+      "size": 499,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-carro.svg",
+      "size": 447,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-auditoria.svg",
+      "size": 465,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/compartilhamento-story.svg",
+      "size": 418,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-restricao-alimentar.svg",
+      "size": 491,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-adicionar-parada.svg",
+      "size": 423,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/busca.svg",
+      "size": 345,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-outdoor.svg",
+      "size": 407,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-tempestade.svg",
+      "size": 415,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/chevron-baixo.svg",
+      "size": 343,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/voltar.svg",
+      "size": 332,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-experiencia-autonoma.svg",
+      "size": 535,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-trocar.svg",
+      "size": 392,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa.svg",
+      "size": 415,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-distancia.svg",
+      "size": 706,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-circulacao-territorial.svg",
+      "size": 578,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-direcoes.svg",
+      "size": 393,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-autosave.svg",
+      "size": 449,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/parceiro-desempenho.svg",
+      "size": 462,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-fixar-parada.svg",
+      "size": 439,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-animais.svg",
+      "size": 554,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-ritmo-tranquilo.svg",
+      "size": 529,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro.svg",
+      "size": 568,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario-presenca-registrada.svg",
+      "size": 553,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-configuracoes.svg",
+      "size": 928,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-comparar-versoes.svg",
+      "size": 610,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-sankey-jornada.svg",
+      "size": 506,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/passaporte-historico.svg",
+      "size": 379,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/conta.svg",
+      "size": 379,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/qr-visita-ja-registrada.svg",
+      "size": 835,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/qr-qr-code.svg",
+      "size": 914,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-frio.svg",
+      "size": 454,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/sistema.svg",
+      "size": 501,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-dashboard.svg",
+      "size": 670,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/passaporte-viagem.svg",
+      "size": 429,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-registro-de-secoes.svg",
+      "size": 669,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-rascunho.svg",
+      "size": 464,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-familia.svg",
+      "size": 573,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-ritmo-equilibrado.svg",
+      "size": 442,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-sem-custo.svg",
+      "size": 359,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-preferir-sem-custo.svg",
+      "size": 497,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-relaxar.svg",
+      "size": 472,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/qr-escanear.svg",
+      "size": 409,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/avancar.svg",
+      "size": 336,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-editar-localizacao.svg",
+      "size": 579,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/compartilhamento-dobra.svg",
+      "size": 353,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/qr-offline.svg",
+      "size": 466,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-desbloquear.svg",
+      "size": 449,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-ritmo-ativo.svg",
+      "size": 587,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/idioma.svg",
+      "size": 397,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-centralizar.svg",
+      "size": 418,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-chuva-intensa.svg",
+      "size": 570,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-criancas.svg",
+      "size": 467,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/compartilhar.svg",
+      "size": 443,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/explorar.svg",
+      "size": 367,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-estacionamento.svg",
+      "size": 409,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/sol.svg",
+      "size": 420,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario-atividade-planejada.svg",
+      "size": 564,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-secoes.svg",
+      "size": 396,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-galeria.svg",
+      "size": 520,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-acessibilidade.svg",
+      "size": 431,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-exportar.svg",
+      "size": 411,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/parceiros.svg",
+      "size": 535,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-fontes.svg",
+      "size": 344,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-localizacao-usuario.svg",
+      "size": 450,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/mapa-outro-lugar-listado.svg",
+      "size": 562,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-vento.svg",
+      "size": 414,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-nublado.svg",
+      "size": 374,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario-mes.svg",
+      "size": 1058,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/roteiro-arrastar.svg",
+      "size": 484,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-horario.svg",
+      "size": 358,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/passaporte-compartilhar-ticket.svg",
+      "size": 547,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/clima-temperatura.svg",
+      "size": 407,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/lugar-whatsapp.svg",
+      "size": 529,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/passaporte-categorias.svg",
+      "size": 515,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/qr-retorno.svg",
+      "size": 354,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/home.svg",
+      "size": 422,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/parceiro-visita-registrada.svg",
+      "size": 517,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/calendario-hoje.svg",
+      "size": 482,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/perfil-taxi-app.svg",
+      "size": 480,
+      "category": "repository"
+    },
+    {
+      "path": "public/icons/admin-publicar.svg",
+      "size": 401,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/README.md",
+      "size": 634,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/visual-v2/home-desktop.jpg",
+      "size": 786068,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/visual-v2/home-dark.jpg",
+      "size": 777588,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/visual-v2/partner-mobile.jpg",
+      "size": 229192,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/visual-v2/browser-smoke.log",
+      "size": 354,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/visual-v2/partner-desktop.jpg",
+      "size": 360488,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/visual-v2/static-render-smoke.log",
+      "size": 395,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/visual-v2/home-mobile.jpg",
+      "size": 442556,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/typecheck.log",
+      "size": 168,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/http-server.log",
+      "size": 344,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/http-smoke.json",
+      "size": 706,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/chromium-install.log",
+      "size": 4887,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/e2e.log",
+      "size": 118589,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/server.log",
+      "size": 344,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/unit.log",
+      "size": 1228,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/source-integrity.json",
+      "size": 187,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/npm-ci.log",
+      "size": 649,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/build.log",
+      "size": 1354,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/demo-setup.log",
+      "size": 745,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/postgis-environment.log",
+      "size": 1143,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/lint.log",
+      "size": 175,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/block_08/persistence.log",
+      "size": 349,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/validation/typecheck.log",
+      "size": 168,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/validation/unit.log",
+      "size": 1224,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/validation/e2e-list.log",
+      "size": 3581,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/validation/build.log",
+      "size": 1724,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/validation/lint.log",
+      "size": 175,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/validation/e2e-attempt.log",
+      "size": 2718,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/validation/persistence.log",
+      "size": 349,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/02-parceiro.jpg",
+      "size": 85503,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/06-passaporte-dark.jpg",
+      "size": 87884,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/04-roteiro.jpg",
+      "size": 79824,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/05-calendario.jpg",
+      "size": 79012,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/03-preview.jpg",
+      "size": 81945,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/00-home.jpg",
+      "size": 71477,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/01-explorar.jpg",
+      "size": 74047,
+      "category": "repository"
+    },
+    {
+      "path": "artifacts/playwright/cloud-1363x936/03-admin.jpg",
+      "size": 89201,
+      "category": "repository"
+    },
+    {
+      "path": "references/brand/Ativo 2logo passaporte.svg",
+      "size": 5418,
+      "category": "repository"
+    },
+    {
+      "path": "references/psd-html-reference/FINAL_REPORT.md",
+      "size": 6133,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/ANALISE_INTEGRACAO.md",
+      "size": 7755,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/landing-reconstruction-v3/PROMPT_RECONSTRUCAO_LANDING_V3.md",
+      "size": 41102,
+      "category": "repository"
+    },
+    {
+      "path": "references/landing-reconstruction-v3/PSD_LAYER_METADATA.json",
+      "size": 2956,
+      "category": "repository"
+    },
+    {
+      "path": "references/visual-v2/Passaporte_Serra_Negra_Guia_de_Construcao_v2.md",
+      "size": 38233,
+      "category": "repository"
+    },
+    {
+      "path": "references/visual-v2/source-manifest.json",
+      "size": 2877,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/README.md",
+      "size": 1078,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/icon-manifest.json",
+      "size": 88520,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/ASSET_LICENSES.md",
+      "size": 746,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/scripts/validate-icons.mjs",
+      "size": 1200,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/sources/LEIA-ME-admin-cms.txt",
+      "size": 396,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/sources/LEIA-ME-novos-icones.txt",
+      "size": 840,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/ICON_AUDIT_V2.md",
+      "size": 1069,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/ICON_CATALOG.md",
+      "size": 11994,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/contact-sheet-v2.png",
+      "size": 376334,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/MASTER_DOCUMENTATION_PATCH_V2.md",
+      "size": 1379,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/ICON_SYSTEM.md",
+      "size": 2082,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/ICON_ALIASES.md",
+      "size": 1163,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/preview.html",
+      "size": 44430,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/build-summary.json",
+      "size": 410,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-copiar-link.svg",
+      "size": 429,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-visitantes.svg",
+      "size": 519,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-buscar-nesta-area.svg",
+      "size": 449,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-requer-solicitacao.svg",
+      "size": 775,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-espaco-livre.svg",
+      "size": 480,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-qr-desativado.svg",
+      "size": 1191,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-semana.svg",
+      "size": 729,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-salvar-imagem-exportar.svg",
+      "size": 511,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-guarda-chuva.svg",
+      "size": 422,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-arquivar.svg",
+      "size": 456,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-localizacao.svg",
+      "size": 412,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-alternativa.svg",
+      "size": 458,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-abrir-navegacao.svg",
+      "size": 351,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-destino.svg",
+      "size": 526,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario.svg",
+      "size": 933,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-remover.svg",
+      "size": 354,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-informacao.svg",
+      "size": 436,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-ponto-turistico.svg",
+      "size": 387,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-cancelado.svg",
+      "size": 376,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-expandir-pagina.svg",
+      "size": 487,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-ticket.svg",
+      "size": 403,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/chevron-cima.svg",
+      "size": 340,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-quadrado.svg",
+      "size": 363,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-reorganizar.svg",
+      "size": 408,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-feed-vertical.svg",
+      "size": 519,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/chevron-direita.svg",
+      "size": 349,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-salvar.svg",
+      "size": 380,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte.svg",
+      "size": 513,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-amigos.svg",
+      "size": 491,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-adicionar-ao-roteiro.svg",
+      "size": 387,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/menu.svg",
+      "size": 327,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-camera.svg",
+      "size": 485,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-parcialmente-nublado.svg",
+      "size": 496,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-fechado-no-horario.svg",
+      "size": 978,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-reserva-externa.svg",
+      "size": 452,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/link-externo.svg",
+      "size": 402,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-mover.svg",
+      "size": 424,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-restricao.svg",
+      "size": 359,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-solicitacoes.svg",
+      "size": 401,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-nao-sei.svg",
+      "size": 451,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-telefone.svg",
+      "size": 415,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-ver-fotos.svg",
+      "size": 378,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-filtro.svg",
+      "size": 384,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/chevron-esquerda.svg",
+      "size": 352,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-indice.svg",
+      "size": 459,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/fechar.svg",
+      "size": 329,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-ajustado.svg",
+      "size": 469,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-instagram.svg",
+      "size": 452,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mais-opcoes.svg",
+      "size": 510,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-a-pe.svg",
+      "size": 524,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-tempo-de-resposta.svg",
+      "size": 520,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-gastar-menos.svg",
+      "size": 579,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-chuva.svg",
+      "size": 488,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lua.svg",
+      "size": 395,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-conteudo-cms.svg",
+      "size": 397,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-umidade.svg",
+      "size": 391,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-duracao-sugerida.svg",
+      "size": 437,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-dia.svg",
+      "size": 455,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-origem.svg",
+      "size": 523,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-sensacao-termica.svg",
+      "size": 548,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-nenhuma-necessidade.svg",
+      "size": 449,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-lista.svg",
+      "size": 552,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-editar.svg",
+      "size": 378,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-ocultar.svg",
+      "size": 434,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-casal.svg",
+      "size": 499,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-carro.svg",
+      "size": 447,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-auditoria.svg",
+      "size": 465,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-story.svg",
+      "size": 418,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-restricao-alimentar.svg",
+      "size": 491,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-adicionar-parada.svg",
+      "size": 423,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/busca.svg",
+      "size": 345,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-outdoor.svg",
+      "size": 407,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-tempestade.svg",
+      "size": 415,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/chevron-baixo.svg",
+      "size": 343,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/voltar.svg",
+      "size": 332,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-experiencia-autonoma.svg",
+      "size": 535,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-trocar.svg",
+      "size": 392,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa.svg",
+      "size": 415,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-distancia.svg",
+      "size": 706,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-circulacao-territorial.svg",
+      "size": 578,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-direcoes.svg",
+      "size": 393,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-autosave.svg",
+      "size": 449,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-desempenho.svg",
+      "size": 462,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-fixar-parada.svg",
+      "size": 439,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-animais.svg",
+      "size": 554,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-ritmo-tranquilo.svg",
+      "size": 529,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro.svg",
+      "size": 568,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-presenca-registrada.svg",
+      "size": 553,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-configuracoes.svg",
+      "size": 928,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-comparar-versoes.svg",
+      "size": 610,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-sankey-jornada.svg",
+      "size": 506,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-historico.svg",
+      "size": 379,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/conta.svg",
+      "size": 379,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-visita-ja-registrada.svg",
+      "size": 835,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-qr-code.svg",
+      "size": 914,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-frio.svg",
+      "size": 454,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/sistema.svg",
+      "size": 501,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-dashboard.svg",
+      "size": 670,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-viagem.svg",
+      "size": 429,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-registro-de-secoes.svg",
+      "size": 669,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-rascunho.svg",
+      "size": 464,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-familia.svg",
+      "size": 573,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-ritmo-equilibrado.svg",
+      "size": 442,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-sem-custo.svg",
+      "size": 359,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-preferir-sem-custo.svg",
+      "size": 497,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-relaxar.svg",
+      "size": 472,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-escanear.svg",
+      "size": 409,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/avancar.svg",
+      "size": 336,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-editar-localizacao.svg",
+      "size": 579,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhamento-dobra.svg",
+      "size": 353,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-offline.svg",
+      "size": 466,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-desbloquear.svg",
+      "size": 449,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-ritmo-ativo.svg",
+      "size": 587,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/idioma.svg",
+      "size": 397,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-centralizar.svg",
+      "size": 418,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-chuva-intensa.svg",
+      "size": 570,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-criancas.svg",
+      "size": 467,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/compartilhar.svg",
+      "size": 443,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/explorar.svg",
+      "size": 367,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-estacionamento.svg",
+      "size": 409,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/sol.svg",
+      "size": 420,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-atividade-planejada.svg",
+      "size": 564,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-secoes.svg",
+      "size": 396,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-galeria.svg",
+      "size": 520,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-acessibilidade.svg",
+      "size": 431,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-exportar.svg",
+      "size": 411,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiros.svg",
+      "size": 535,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-fontes.svg",
+      "size": 344,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-localizacao-usuario.svg",
+      "size": 450,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/mapa-outro-lugar-listado.svg",
+      "size": 562,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-vento.svg",
+      "size": 414,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-nublado.svg",
+      "size": 374,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-mes.svg",
+      "size": 1058,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/roteiro-arrastar.svg",
+      "size": 484,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-horario.svg",
+      "size": 358,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-compartilhar-ticket.svg",
+      "size": 547,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/clima-temperatura.svg",
+      "size": 407,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/lugar-whatsapp.svg",
+      "size": 529,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/passaporte-categorias.svg",
+      "size": 515,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/qr-retorno.svg",
+      "size": 354,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/home.svg",
+      "size": 422,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/parceiro-visita-registrada.svg",
+      "size": 517,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/calendario-hoje.svg",
+      "size": 482,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/perfil-taxi-app.svg",
+      "size": 480,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/public/icons/admin-publicar.svg",
+      "size": 401,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-07-passaporte.png",
+      "size": 25746,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-05-calendario-viagem.png",
+      "size": 22537,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-06-qr-visita.png",
+      "size": 28582,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-02-lugares-parceiros.png",
+      "size": 70606,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-08-mapa.png",
+      "size": 50330,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-04-roteiro.png",
+      "size": 51669,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-10-parceiro-minha-pagina.png",
+      "size": 28179,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-01-perfil-viagem.png",
+      "size": 65859,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-09-compartilhamento.png",
+      "size": 29650,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-admin-cms.png",
+      "size": 53031,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/docs/previews/previa-03-clima.png",
+      "size": 39678,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/icon-aliases.ts",
+      "size": 946,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/Icon.tsx",
+      "size": 1107,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/index.ts",
+      "size": 197,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/icon.types.ts",
+      "size": 4195,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/icon-registry.ts",
+      "size": 17771,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/tokens/icons.css",
+      "size": 281,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilFamiliaIcon.tsx",
+      "size": 632,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarVerFotosIcon.tsx",
+      "size": 436,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoStoryIcon.tsx",
+      "size": 487,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminPublicarIcon.tsx",
+      "size": 460,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteExpandirPaginaIcon.tsx",
+      "size": 550,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminCompararVersoesIcon.tsx",
+      "size": 667,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ContaIcon.tsx",
+      "size": 433,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/VoltarIcon.tsx",
+      "size": 386,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarRestricaoIcon.tsx",
+      "size": 418,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroSalvarIcon.tsx",
+      "size": 441,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteTicketIcon.tsx",
+      "size": 467,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaBuscarNestaAreaIcon.tsx",
+      "size": 504,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminCirculacaoTerritorialIcon.tsx",
+      "size": 635,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarDirecoesIcon.tsx",
+      "size": 452,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaExperienciaAutonomaIcon.tsx",
+      "size": 592,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilAPeIcon.tsx",
+      "size": 583,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteCategoriasIcon.tsx",
+      "size": 579,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminExportarIcon.tsx",
+      "size": 470,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroEditarIcon.tsx",
+      "size": 439,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroVisitantesIcon.tsx",
+      "size": 580,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarInstagramIcon.tsx",
+      "size": 511,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilCriancasIcon.tsx",
+      "size": 527,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilAmigosIcon.tsx",
+      "size": 551,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroFixarParadaIcon.tsx",
+      "size": 499,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminEditarLocalizacaoIcon.tsx",
+      "size": 636,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoOcultarIcon.tsx",
+      "size": 504,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaIcon.tsx",
+      "size": 469,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaLocalizacaoUsuarioIcon.tsx",
+      "size": 507,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarAnimaisIcon.tsx",
+      "size": 613,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminConfiguracoesIcon.tsx",
+      "size": 987,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioPresencaRegistradaIcon.tsx",
+      "size": 615,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminAuditoriaIcon.tsx",
+      "size": 524,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilCasalIcon.tsx",
+      "size": 558,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaPontoTuristicoIcon.tsx",
+      "size": 444,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarDuracaoSugeridaIcon.tsx",
+      "size": 495,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarTempoDeRespostaIcon.tsx",
+      "size": 576,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaTemperaturaIcon.tsx",
+      "size": 466,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminRascunhoIcon.tsx",
+      "size": 523,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarOutdoorIcon.tsx",
+      "size": 466,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaChuvaIntensaIcon.tsx",
+      "size": 627,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/HomeIcon.tsx",
+      "size": 476,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaUmidadeIcon.tsx",
+      "size": 450,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilAcessibilidadeIcon.tsx",
+      "size": 491,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaCentralizarIcon.tsx",
+      "size": 476,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ChevronEsquerdaIcon.tsx",
+      "size": 405,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioAtividadePlanejadaIcon.tsx",
+      "size": 626,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaFrioIcon.tsx",
+      "size": 513,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioEspacoLivreIcon.tsx",
+      "size": 542,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ChevronDireitaIcon.tsx",
+      "size": 402,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ChevronBaixoIcon.tsx",
+      "size": 396,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarDistanciaIcon.tsx",
+      "size": 762,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrQrDesativadoIcon.tsx",
+      "size": 1245,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaListaIcon.tsx",
+      "size": 610,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarLocalizacaoIcon.tsx",
+      "size": 471,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarGaleriaIcon.tsx",
+      "size": 578,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrEscanearIcon.tsx",
+      "size": 465,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioFiltroIcon.tsx",
+      "size": 448,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilharIcon.tsx",
+      "size": 497,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroAlternativaIcon.tsx",
+      "size": 518,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioIcon.tsx",
+      "size": 986,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaNubladoIcon.tsx",
+      "size": 433,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/SistemaIcon.tsx",
+      "size": 555,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroAutosaveIcon.tsx",
+      "size": 510,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaAdicionarAoRoteiroIcon.tsx",
+      "size": 443,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AvancarIcon.tsx",
+      "size": 389,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRelaxarIcon.tsx",
+      "size": 532,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaOrigemIcon.tsx",
+      "size": 579,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroDesbloquearIcon.tsx",
+      "size": 510,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioSemanaIcon.tsx",
+      "size": 793,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioMesIcon.tsx",
+      "size": 1122,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioHojeIcon.tsx",
+      "size": 546,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MenuIcon.tsx",
+      "size": 381,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRitmoAtivoIcon.tsx",
+      "size": 646,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaGuardaChuvaIcon.tsx",
+      "size": 480,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroVisitaRegistradaIcon.tsx",
+      "size": 577,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilNenhumaNecessidadeIcon.tsx",
+      "size": 507,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrRetornoIcon.tsx",
+      "size": 410,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroCanceladoIcon.tsx",
+      "size": 438,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilNaoSeiIcon.tsx",
+      "size": 510,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroRemoverIcon.tsx",
+      "size": 415,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminFontesIcon.tsx",
+      "size": 403,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/IdiomaIcon.tsx",
+      "size": 451,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminSankeyJornadaIcon.tsx",
+      "size": 564,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrOfflineIcon.tsx",
+      "size": 522,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LuaIcon.tsx",
+      "size": 446,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilGastarMenosIcon.tsx",
+      "size": 638,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LinkExternoIcon.tsx",
+      "size": 455,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRitmoTranquiloIcon.tsx",
+      "size": 588,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRestricaoAlimentarIcon.tsx",
+      "size": 550,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoQuadradoIcon.tsx",
+      "size": 433,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoDobraIcon.tsx",
+      "size": 423,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaChuvaIcon.tsx",
+      "size": 546,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteCompartilharTicketIcon.tsx",
+      "size": 610,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilTaxiAppIcon.tsx",
+      "size": 539,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminArquivarIcon.tsx",
+      "size": 515,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroTrocarIcon.tsx",
+      "size": 453,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilCarroIcon.tsx",
+      "size": 507,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarInformacaoIcon.tsx",
+      "size": 495,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteHistoricoIcon.tsx",
+      "size": 443,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaOutroLugarListadoIcon.tsx",
+      "size": 617,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MaisOpcoesIcon.tsx",
+      "size": 561,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilPreferirSemCustoIcon.tsx",
+      "size": 555,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminDashboardIcon.tsx",
+      "size": 729,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PerfilRitmoEquilibradoIcon.tsx",
+      "size": 501,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroArrastarIcon.tsx",
+      "size": 545,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/SolIcon.tsx",
+      "size": 472,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaDestinoIcon.tsx",
+      "size": 582,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminConteudoCmsIcon.tsx",
+      "size": 455,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaTempestadeIcon.tsx",
+      "size": 474,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarTelefoneIcon.tsx",
+      "size": 474,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroRequerSolicitacaoIcon.tsx",
+      "size": 835,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CalendarioDiaIcon.tsx",
+      "size": 519,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarReservaExternaIcon.tsx",
+      "size": 510,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoFeedVerticalIcon.tsx",
+      "size": 588,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteIndiceIcon.tsx",
+      "size": 523,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceirosIcon.tsx",
+      "size": 589,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarSemCustoIcon.tsx",
+      "size": 417,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoCopiarLinkIcon.tsx",
+      "size": 498,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaVentoIcon.tsx",
+      "size": 473,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaParcialmenteNubladoIcon.tsx",
+      "size": 554,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroIcon.tsx",
+      "size": 622,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminSecoesIcon.tsx",
+      "size": 455,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteViagemIcon.tsx",
+      "size": 493,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarWhatsappIcon.tsx",
+      "size": 587,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/CompartilhamentoSalvarImagemExportarIcon.tsx",
+      "size": 579,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrCameraIcon.tsx",
+      "size": 541,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroReorganizarIcon.tsx",
+      "size": 469,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroAdicionarParadaIcon.tsx",
+      "size": 483,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/FecharIcon.tsx",
+      "size": 383,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrVisitaJaRegistradaIcon.tsx",
+      "size": 887,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarEstacionamentoIcon.tsx",
+      "size": 468,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroDesempenhoIcon.tsx",
+      "size": 524,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/BuscaIcon.tsx",
+      "size": 399,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/PassaporteIcon.tsx",
+      "size": 567,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroMoverIcon.tsx",
+      "size": 485,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/LugarHorarioIcon.tsx",
+      "size": 417,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/QrQrCodeIcon.tsx",
+      "size": 969,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroSolicitacoesIcon.tsx",
+      "size": 463,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ParceiroAjustadoIcon.tsx",
+      "size": 531,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ChevronCimaIcon.tsx",
+      "size": 393,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/MapaAbrirNavegacaoIcon.tsx",
+      "size": 408,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ClimaSensacaoTermicaIcon.tsx",
+      "size": 605,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/ExplorarIcon.tsx",
+      "size": 421,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/AdminRegistroDeSecoesIcon.tsx",
+      "size": 726,
+      "category": "repository"
+    },
+    {
+      "path": "references/icon-system-v2/src/design-system/icons/generated/RoteiroFechadoNoHorarioIcon.tsx",
+      "size": 1035,
+      "category": "repository"
+    },
+    {
+      "path": "references/psd-html-reference/partner/index.html",
+      "size": 12187,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/script.js",
+      "size": 4429,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/styles.css",
+      "size": 17962,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/index.html",
+      "size": 20664,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/script.js",
+      "size": 4113,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/styles.css",
+      "size": 34500,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/analysis/PSD_TO_COMPONENT_MAP.md",
+      "size": 2319,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/analysis/PSD_ANALYSIS_HOME.md",
+      "size": 4554,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/analysis/PSD_ANALYSIS_PARTNER.md",
+      "size": 3194,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/validation/comparison-partner.png",
+      "size": 3019220,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/comparison-home.png",
+      "size": 5349002,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/partner/partner-1440.png",
+      "size": 3454394,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/partner/partner-390.png",
+      "size": 1938337,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/partner/partner-768.png",
+      "size": 3101907,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/partner/partner-1024.png",
+      "size": 2693059,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/home/home-390.png",
+      "size": 3445025,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/home/home-1024.png",
+      "size": 4695712,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/home/home-1440.png",
+      "size": 5596079,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/home/home-1920.png",
+      "size": 6449900,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/validation/home/home-768.png",
+      "size": 5174064,
+      "category": "psd-validation"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/cabin.webp",
+      "size": 45110,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/route.webp",
+      "size": 28974,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/coast.webp",
+      "size": 24922,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/forest.webp",
+      "size": 52752,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/mountain.webp",
+      "size": 36680,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/cliff.webp",
+      "size": 32474,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/hero.webp",
+      "size": 48382,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/hero.jpg",
+      "size": 89011,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/home/assets/images/columns.webp",
+      "size": 38754,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/hero-partner.jpg",
+      "size": 85473,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/hero-partner.webp",
+      "size": 48742,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/cabin.webp",
+      "size": 45110,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/route.webp",
+      "size": 28974,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/coast.webp",
+      "size": 24922,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/forest.webp",
+      "size": 52752,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/mountain.webp",
+      "size": 36680,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/cliff.webp",
+      "size": 32474,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/hero.webp",
+      "size": 48382,
+      "category": "psd-reference"
+    },
+    {
+      "path": "references/psd-html-reference/partner/assets/images/columns.webp",
+      "size": 38754,
+      "category": "psd-reference"
+    },
+    {
+      "path": "docs/visual/PALETA_OFICIAL.md",
+      "size": 1563,
+      "category": "repository"
+    },
+    {
+      "path": "docs/implementation/CONSTRUCTION_RULES_STATUS.md",
+      "size": 2318,
+      "category": "repository"
+    },
+    {
+      "path": "docs/decisions/ADR-001-modular-monolith.md",
+      "size": 888,
+      "category": "repository"
+    },
+    {
+      "path": "docs/decisions/ADR-002-admin-operational-control-plane.md",
+      "size": 1004,
+      "category": "repository"
+    },
+    {
+      "path": "docs/decisions/ADR-004-environment-fallback.md",
+      "size": 1178,
+      "category": "repository"
+    },
+    {
+      "path": "docs/decisions/ADR-003-validation-providers.md",
+      "size": 774,
+      "category": "repository"
+    },
+    {
+      "path": "docs/latest-block-08/BLOCK_REPORT.md",
+      "size": 4066,
+      "category": "repository"
+    },
+    {
+      "path": "docs/latest-block-08/WORK_STATE.md",
+      "size": 4281,
+      "category": "repository"
+    },
+    {
+      "path": "docs/latest-block-08/PACKAGE_MANIFEST.md",
+      "size": 897,
+      "category": "repository"
+    },
+    {
+      "path": "docs/latest-block-08/VALIDATION_REPORT.md",
+      "size": 9109,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/BLOCK-05.md",
+      "size": 927,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/GITHUB_REPOSITORY_AUDIT.md",
+      "size": 3104,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/BLOCK-07.md",
+      "size": 2671,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/BLOCK-08.md",
+      "size": 4121,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/BLOCK-04.md",
+      "size": 1034,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/BLOCK-06.md",
+      "size": 2775,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/screenshots-overview.jpg",
+      "size": 239984,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/IMPLEMENTATION_INVENTORY.md",
+      "size": 2327,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/BLOCK-03.md",
+      "size": 1024,
+      "category": "repository"
+    },
+    {
+      "path": "docs/validation/VISUAL-V2.md",
+      "size": 3430,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/place-template/alto-serra-390.png",
+      "size": 1000074,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/place-template/alto-serra-1440.png",
+      "size": 2020895,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/place-template/tourism-local-images.jpg",
+      "size": 298288,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/place-template/partner-cafe-1440.png",
+      "size": 2412698,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/validation/psd-reference-720.jpg",
+      "size": 650104,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/validation/implementation-720.jpg",
+      "size": 421425,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/validation/psd-vs-implementation-thumb.jpg",
+      "size": 270524,
+      "category": "repository"
+    },
+    {
+      "path": "screenshots/validation/psd-vs-implementation.jpg",
+      "size": 924571,
+      "category": "repository"
+    },
+    {
+      "path": "src/providers/index.ts",
+      "size": 1777,
+      "category": "next-source"
+    },
+    {
+      "path": "src/components/PlaceActions.tsx",
+      "size": 729,
+      "category": "next-source"
+    },
+    {
+      "path": "src/components/EntityPage.tsx",
+      "size": 5179,
+      "category": "next-source"
+    },
+    {
+      "path": "src/components/content.tsx",
+      "size": 3174,
+      "category": "next-source"
+    },
+    {
+      "path": "src/components/ThemePicker.tsx",
+      "size": 531,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/error.tsx",
+      "size": 233,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/loading.tsx",
+      "size": 110,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "size": 1801,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "size": 3528,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/globals.css",
+      "size": 10089,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/not-found.tsx",
+      "size": 217,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/health/route.ts",
+      "size": 473,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/roteiro/page.tsx",
+      "size": 505,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/admin/layout.tsx",
+      "size": 560,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/admin/page.tsx",
+      "size": 1726,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/meu-passaporte/page.tsx",
+      "size": 4760,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/explorar/page.tsx",
+      "size": 3124,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/explorar/tracking.tsx",
+      "size": 438,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/api/tracking/route.ts",
+      "size": 602,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/lugares/[slug]/page.tsx",
+      "size": 824,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/viagens/[tripId]/roteiro/page.tsx",
+      "size": 4112,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/viagens/[tripId]/calendario/page.tsx",
+      "size": 4423,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/admin/[kind]/page.tsx",
+      "size": 1252,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/admin/[kind]/[id]/page.tsx",
+      "size": 2155,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/admin/[kind]/[id]/preview/page.tsx",
+      "size": 1652,
+      "category": "next-source"
+    },
+    {
+      "path": "src/app/parceiros/[slug]/page.tsx",
+      "size": 864,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/content/repository.ts",
+      "size": 3150,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/passport/model.ts",
+      "size": 1302,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/passport/VisitDemoControl.tsx",
+      "size": 1308,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/passport/actions.ts",
+      "size": 1542,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/passport/StampRenderer.tsx",
+      "size": 878,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/passport/Book.tsx",
+      "size": 1797,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/tracking/client.tsx",
+      "size": 439,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/tracking/service.ts",
+      "size": 648,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/admin/validation.ts",
+      "size": 2423,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/admin/actions.ts",
+      "size": 2033,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/admin/Editor.tsx",
+      "size": 3998,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/admin/service.ts",
+      "size": 2788,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/admin/fields.ts",
+      "size": 5709,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/trips/Onboarding.tsx",
+      "size": 5525,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/trips/repository.ts",
+      "size": 466,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/trips/types.ts",
+      "size": 661,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/trips/actions.ts",
+      "size": 1635,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/trips/engine.ts",
+      "size": 4989,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/trips/evidence.ts",
+      "size": 262,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/trips/ItemControls.tsx",
+      "size": 2130,
+      "category": "next-source"
+    },
+    {
+      "path": "src/modules/trips/edit-actions.ts",
+      "size": 2711,
+      "category": "next-source"
+    },
+    {
+      "path": "src/core/db/index.ts",
+      "size": 665,
+      "category": "next-source"
+    },
+    {
+      "path": "src/core/db/schema.ts",
+      "size": 2137,
+      "category": "next-source"
+    },
+    {
+      "path": "src/core/db/pglite.ts",
+      "size": 386,
+      "category": "next-source"
+    },
+    {
+      "path": "src/core/auth/admin.ts",
+      "size": 627,
+      "category": "next-source"
+    },
+    {
+      "path": "src/core/auth/token.ts",
+      "size": 694,
+      "category": "next-source"
+    },
+    {
+      "path": "src/core/i18n/index.ts",
+      "size": 668,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/icon-aliases.ts",
+      "size": 946,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/Icon.tsx",
+      "size": 1107,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/index.ts",
+      "size": 197,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/icon.types.ts",
+      "size": 4195,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/icon-registry.ts",
+      "size": 17771,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/tokens/icons.css",
+      "size": 281,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilFamiliaIcon.tsx",
+      "size": 632,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarVerFotosIcon.tsx",
+      "size": 436,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoStoryIcon.tsx",
+      "size": 487,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminPublicarIcon.tsx",
+      "size": 460,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteExpandirPaginaIcon.tsx",
+      "size": 550,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminCompararVersoesIcon.tsx",
+      "size": 667,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ContaIcon.tsx",
+      "size": 433,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/VoltarIcon.tsx",
+      "size": 386,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarRestricaoIcon.tsx",
+      "size": 418,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroSalvarIcon.tsx",
+      "size": 441,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteTicketIcon.tsx",
+      "size": 467,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaBuscarNestaAreaIcon.tsx",
+      "size": 504,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminCirculacaoTerritorialIcon.tsx",
+      "size": 635,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarDirecoesIcon.tsx",
+      "size": 452,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaExperienciaAutonomaIcon.tsx",
+      "size": 592,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilAPeIcon.tsx",
+      "size": 583,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteCategoriasIcon.tsx",
+      "size": 579,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminExportarIcon.tsx",
+      "size": 470,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroEditarIcon.tsx",
+      "size": 439,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroVisitantesIcon.tsx",
+      "size": 580,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarInstagramIcon.tsx",
+      "size": 511,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilCriancasIcon.tsx",
+      "size": 527,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilAmigosIcon.tsx",
+      "size": 551,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroFixarParadaIcon.tsx",
+      "size": 499,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminEditarLocalizacaoIcon.tsx",
+      "size": 636,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoOcultarIcon.tsx",
+      "size": 504,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaIcon.tsx",
+      "size": 469,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaLocalizacaoUsuarioIcon.tsx",
+      "size": 507,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarAnimaisIcon.tsx",
+      "size": 613,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminConfiguracoesIcon.tsx",
+      "size": 987,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioPresencaRegistradaIcon.tsx",
+      "size": 615,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminAuditoriaIcon.tsx",
+      "size": 524,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilCasalIcon.tsx",
+      "size": 558,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaPontoTuristicoIcon.tsx",
+      "size": 444,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarDuracaoSugeridaIcon.tsx",
+      "size": 495,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarTempoDeRespostaIcon.tsx",
+      "size": 576,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaTemperaturaIcon.tsx",
+      "size": 466,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminRascunhoIcon.tsx",
+      "size": 523,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarOutdoorIcon.tsx",
+      "size": 466,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaChuvaIntensaIcon.tsx",
+      "size": 627,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/HomeIcon.tsx",
+      "size": 476,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaUmidadeIcon.tsx",
+      "size": 450,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilAcessibilidadeIcon.tsx",
+      "size": 491,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaCentralizarIcon.tsx",
+      "size": 476,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ChevronEsquerdaIcon.tsx",
+      "size": 405,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioAtividadePlanejadaIcon.tsx",
+      "size": 626,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaFrioIcon.tsx",
+      "size": 513,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioEspacoLivreIcon.tsx",
+      "size": 542,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ChevronDireitaIcon.tsx",
+      "size": 402,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ChevronBaixoIcon.tsx",
+      "size": 396,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarDistanciaIcon.tsx",
+      "size": 762,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrQrDesativadoIcon.tsx",
+      "size": 1245,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaListaIcon.tsx",
+      "size": 610,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarLocalizacaoIcon.tsx",
+      "size": 471,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarGaleriaIcon.tsx",
+      "size": 578,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrEscanearIcon.tsx",
+      "size": 465,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioFiltroIcon.tsx",
+      "size": 448,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilharIcon.tsx",
+      "size": 497,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroAlternativaIcon.tsx",
+      "size": 518,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioIcon.tsx",
+      "size": 986,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaNubladoIcon.tsx",
+      "size": 433,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/SistemaIcon.tsx",
+      "size": 555,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroAutosaveIcon.tsx",
+      "size": 510,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaAdicionarAoRoteiroIcon.tsx",
+      "size": 443,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AvancarIcon.tsx",
+      "size": 389,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRelaxarIcon.tsx",
+      "size": 532,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaOrigemIcon.tsx",
+      "size": 579,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroDesbloquearIcon.tsx",
+      "size": 510,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioSemanaIcon.tsx",
+      "size": 793,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioMesIcon.tsx",
+      "size": 1122,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioHojeIcon.tsx",
+      "size": 546,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MenuIcon.tsx",
+      "size": 381,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRitmoAtivoIcon.tsx",
+      "size": 646,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaGuardaChuvaIcon.tsx",
+      "size": 480,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroVisitaRegistradaIcon.tsx",
+      "size": 577,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilNenhumaNecessidadeIcon.tsx",
+      "size": 507,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrRetornoIcon.tsx",
+      "size": 410,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroCanceladoIcon.tsx",
+      "size": 438,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilNaoSeiIcon.tsx",
+      "size": 510,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroRemoverIcon.tsx",
+      "size": 415,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminFontesIcon.tsx",
+      "size": 403,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/IdiomaIcon.tsx",
+      "size": 451,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminSankeyJornadaIcon.tsx",
+      "size": 564,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrOfflineIcon.tsx",
+      "size": 522,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LuaIcon.tsx",
+      "size": 446,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilGastarMenosIcon.tsx",
+      "size": 638,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LinkExternoIcon.tsx",
+      "size": 455,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRitmoTranquiloIcon.tsx",
+      "size": 588,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRestricaoAlimentarIcon.tsx",
+      "size": 550,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoQuadradoIcon.tsx",
+      "size": 433,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoDobraIcon.tsx",
+      "size": 423,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaChuvaIcon.tsx",
+      "size": 546,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteCompartilharTicketIcon.tsx",
+      "size": 610,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilTaxiAppIcon.tsx",
+      "size": 539,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminArquivarIcon.tsx",
+      "size": 515,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroTrocarIcon.tsx",
+      "size": 453,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilCarroIcon.tsx",
+      "size": 507,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarInformacaoIcon.tsx",
+      "size": 495,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteHistoricoIcon.tsx",
+      "size": 443,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaOutroLugarListadoIcon.tsx",
+      "size": 617,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MaisOpcoesIcon.tsx",
+      "size": 561,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilPreferirSemCustoIcon.tsx",
+      "size": 555,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminDashboardIcon.tsx",
+      "size": 729,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PerfilRitmoEquilibradoIcon.tsx",
+      "size": 501,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroArrastarIcon.tsx",
+      "size": 545,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/SolIcon.tsx",
+      "size": 472,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaDestinoIcon.tsx",
+      "size": 582,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminConteudoCmsIcon.tsx",
+      "size": 455,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaTempestadeIcon.tsx",
+      "size": 474,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarTelefoneIcon.tsx",
+      "size": 474,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroRequerSolicitacaoIcon.tsx",
+      "size": 835,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CalendarioDiaIcon.tsx",
+      "size": 519,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarReservaExternaIcon.tsx",
+      "size": 510,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoFeedVerticalIcon.tsx",
+      "size": 588,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteIndiceIcon.tsx",
+      "size": 523,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceirosIcon.tsx",
+      "size": 589,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarSemCustoIcon.tsx",
+      "size": 417,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoCopiarLinkIcon.tsx",
+      "size": 498,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaVentoIcon.tsx",
+      "size": 473,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaParcialmenteNubladoIcon.tsx",
+      "size": 554,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroIcon.tsx",
+      "size": 622,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminSecoesIcon.tsx",
+      "size": 455,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteViagemIcon.tsx",
+      "size": 493,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarWhatsappIcon.tsx",
+      "size": 587,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/CompartilhamentoSalvarImagemExportarIcon.tsx",
+      "size": 579,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrCameraIcon.tsx",
+      "size": 541,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroReorganizarIcon.tsx",
+      "size": 469,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroAdicionarParadaIcon.tsx",
+      "size": 483,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/FecharIcon.tsx",
+      "size": 383,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrVisitaJaRegistradaIcon.tsx",
+      "size": 887,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarEstacionamentoIcon.tsx",
+      "size": 468,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroDesempenhoIcon.tsx",
+      "size": 524,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/BuscaIcon.tsx",
+      "size": 399,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/PassaporteIcon.tsx",
+      "size": 567,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroMoverIcon.tsx",
+      "size": 485,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/LugarHorarioIcon.tsx",
+      "size": 417,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/QrQrCodeIcon.tsx",
+      "size": 969,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroSolicitacoesIcon.tsx",
+      "size": 463,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ParceiroAjustadoIcon.tsx",
+      "size": 531,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ChevronCimaIcon.tsx",
+      "size": 393,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/MapaAbrirNavegacaoIcon.tsx",
+      "size": 408,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ClimaSensacaoTermicaIcon.tsx",
+      "size": 605,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/ExplorarIcon.tsx",
+      "size": 421,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/AdminRegistroDeSecoesIcon.tsx",
+      "size": 726,
+      "category": "next-source"
+    },
+    {
+      "path": "src/design-system/icons/generated/RoteiroFechadoNoHorarioIcon.tsx",
+      "size": 1035,
+      "category": "next-source"
+    },
+    {
+      "path": "tests/unit/evidence.test.ts",
+      "size": 573,
+      "category": "repository"
+    },
+    {
+      "path": "tests/unit/rendering.test.ts",
+      "size": 605,
+      "category": "repository"
+    },
+    {
+      "path": "tests/unit/passport.test.ts",
+      "size": 865,
+      "category": "repository"
+    },
+    {
+      "path": "tests/unit/admin.test.ts",
+      "size": 877,
+      "category": "repository"
+    },
+    {
+      "path": "tests/unit/trips.test.ts",
+      "size": 2165,
+      "category": "repository"
+    },
+    {
+      "path": "tests/unit/providers.test.ts",
+      "size": 386,
+      "category": "repository"
+    },
+    {
+      "path": "tests/e2e/06-passport.spec.ts",
+      "size": 1297,
+      "category": "repository"
+    },
+    {
+      "path": "tests/e2e/01-discovery.spec.ts",
+      "size": 1414,
+      "category": "repository"
+    },
+    {
+      "path": "tests/e2e/05-calendar.spec.ts",
+      "size": 1215,
+      "category": "repository"
+    },
+    {
+      "path": "tests/e2e/00-bootstrap.spec.ts",
+      "size": 651,
+      "category": "repository"
+    },
+    {
+      "path": "tests/e2e/02-entities.spec.ts",
+      "size": 937,
+      "category": "repository"
+    },
+    {
+      "path": "tests/e2e/03-admin.spec.ts",
+      "size": 2855,
+      "category": "repository"
+    },
+    {
+      "path": "tests/e2e/04-trip.spec.ts",
+      "size": 938,
+      "category": "repository"
+    }
+  ]
+}

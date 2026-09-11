@@ -67,3 +67,7 @@ Esta versão substitui os placeholders vetoriais dos cards por **fotografias rea
 ## Páginas internas de pontos turísticos pesquisados
 
 A descoberta pública agora prioriza atrativos reais de Serra Negra pesquisados em fontes municipais. Cada página possui informações práticas, fonte oficial, fotografia temporária com crédito e continuidade para roteiro. Os parceiros e a jornada demonstrativa continuam identificados como conteúdo de validação.
+
+## Consolidação v11
+
+O repositório agora também incorpora as melhorias de Admin/CMS do `LATEST(4)` e preserva as reconstruções HTML dos PSDs em `references/psd-html-reference/` para construção das próximas páginas. Consulte `docs/SOURCE_OF_TRUTH_V11.md` e `docs/PAGE_CONSTRUCTION_V11.md` antes de portar layouts para o runtime.
