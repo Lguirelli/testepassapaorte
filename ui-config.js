@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   window.PSN_UI_CONFIG = {
-    storeVersion: 2,
+    storeVersion: 3,
     navigation: {
       main: [
         { label:'Explorar', href:'#/explorar', iconKey:'nav.explore' },

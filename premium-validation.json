@@ -1,0 +1,16 @@
+{
+  "passport_svg_used": true,
+  "shared_transition": true,
+  "header_scroll": true,
+  "explore_list_map": true,
+  "map_preview": true,
+  "route_drag": true,
+  "route_reflow": true,
+  "passport_turn": true,
+  "stamp_motion": true,
+  "home_personalization": true,
+  "nearby_context": true,
+  "progressive_disclosure": true,
+  "image_reveal": true,
+  "header_old_image_refs": false
+}

@@ -997,170 +997,6 @@ body[data-page="para-parceiros"] .mobile-menu{
 }
 
 /* ------------------------------------------------------------
-   Header scenic background, responsive + optimized assets
-   ------------------------------------------------------------ */
-:root{
-  --header-ink:#F3F1EC;
-  --header-muted:rgba(243,241,236,.8);
-  --header-border:rgba(240,237,229,.18);
-  --header-control-bg:rgba(14,18,28,.34);
-  --header-control-bg-hover:rgba(14,18,28,.52);
-  --header-control-border:rgba(243,241,236,.22);
-  --header-shadow:0 14px 34px rgba(0,0,0,.18);
-}
-
-.site-header{
-  position:sticky;
-  top:0;
-  isolation:isolate;
-  overflow:hidden;
-  background:transparent !important;
-  color:var(--header-ink) !important;
-  border-bottom-color:var(--header-border) !important;
-  box-shadow:var(--header-shadow);
-  backdrop-filter:none;
-  -webkit-backdrop-filter:none;
-}
-.site-header::before,
-.site-header::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-}
-.site-header::before{
-  z-index:-2;
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center 46%;
-  background-image:
-    linear-gradient(180deg, rgba(8,12,22,.22) 0%, rgba(8,12,22,.28) 100%),
-    url('./assets/brand/header/serra-negra-header-640.jpg');
-}
-.site-header::after{
-  z-index:-1;
-  background:
-    linear-gradient(180deg, rgba(6,10,18,.28) 0%, rgba(6,10,18,.56) 100%),
-    linear-gradient(90deg, rgba(4,7,14,.12) 0%, rgba(4,7,14,.06) 38%, rgba(4,7,14,.18) 100%);
-}
-@supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-640.webp') type('image/webp') 1x)){
-  .site-header::before{
-    background-image:
-      linear-gradient(180deg, rgba(8,12,22,.22) 0%, rgba(8,12,22,.28) 100%),
-      image-set(
-        url('./assets/brand/header/serra-negra-header-640.webp') type('image/webp') 1x,
-        url('./assets/brand/header/serra-negra-header-640.jpg') type('image/jpeg') 1x
-      );
-  }
-}
-@media (min-width: 700px){
-  .site-header::before{
-    background-image:
-      linear-gradient(180deg, rgba(8,12,22,.22) 0%, rgba(8,12,22,.28) 100%),
-      url('./assets/brand/header/serra-negra-header-960.jpg');
-  }
-  @supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-960.webp') type('image/webp') 1x)){
-    .site-header::before{
-      background-image:
-        linear-gradient(180deg, rgba(8,12,22,.22) 0%, rgba(8,12,22,.28) 100%),
-        image-set(
-          url('./assets/brand/header/serra-negra-header-960.webp') type('image/webp') 1x,
-          url('./assets/brand/header/serra-negra-header-960.jpg') type('image/jpeg') 1x
-        );
-    }
-  }
-}
-@media (min-width: 1024px){
-  .site-header::before{
-    background-image:
-      linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
-      url('./assets/brand/header/serra-negra-header-1280.jpg');
-  }
-  @supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-1280.webp') type('image/webp') 1x)){
-    .site-header::before{
-      background-image:
-        linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
-        image-set(
-          url('./assets/brand/header/serra-negra-header-1280.webp') type('image/webp') 1x,
-          url('./assets/brand/header/serra-negra-header-1280.jpg') type('image/jpeg') 1x
-        );
-    }
-  }
-}
-@media (min-width: 1360px){
-  .site-header::before{
-    background-image:
-      linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
-      url('./assets/brand/header/serra-negra-header-1600.jpg');
-  }
-  @supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-1600.webp') type('image/webp') 1x)){
-    .site-header::before{
-      background-image:
-        linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
-        image-set(
-          url('./assets/brand/header/serra-negra-header-1600.webp') type('image/webp') 1x,
-          url('./assets/brand/header/serra-negra-header-1600.jpg') type('image/jpeg') 1x
-        );
-    }
-  }
-}
-@media (min-width: 1800px){
-  .site-header::before{
-    background-image:
-      linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
-      url('./assets/brand/header/serra-negra-header-2048.jpg');
-  }
-  @supports (background-image: image-set(url('./assets/brand/header/serra-negra-header-2048.webp') type('image/webp') 1x)){
-    .site-header::before{
-      background-image:
-        linear-gradient(180deg, rgba(8,12,22,.18) 0%, rgba(8,12,22,.24) 100%),
-        image-set(
-          url('./assets/brand/header/serra-negra-header-2048.webp') type('image/webp') 1x,
-          url('./assets/brand/header/serra-negra-header-2048.jpg') type('image/jpeg') 1x
-        );
-    }
-  }
-}
-.site-header > *{position:relative;z-index:1}
-.site-header .brand strong,
-.site-header .brand small,
-.site-header .main-nav>a:not(.button),
-.site-header .theme-picker,
-.site-header .theme-picker-label,
-.site-header .mobile-menu{color:var(--header-ink) !important;text-shadow:0 1px 2px rgba(0,0,0,.28)}
-.site-header .brand small{color:var(--header-muted) !important}
-.site-header .main-nav>a:not(.button){opacity:.95}
-.site-header .main-nav>a:not(.button):hover{opacity:1}
-.site-header .theme-picker select,
-.site-header .mobile-menu,
-.site-header .nav-cta{
-  background:var(--header-control-bg) !important;
-  color:var(--header-ink) !important;
-  border-color:var(--header-control-border) !important;
-  box-shadow:none;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-.site-header .theme-picker select:hover,
-.site-header .mobile-menu:hover,
-.site-header .nav-cta:hover{background:var(--header-control-bg-hover) !important}
-.site-header .nav-cta{font-weight:600}
-.site-header .nav-cta .ui-icon,
-.site-header .mobile-menu .ui-icon,
-.site-header .theme-picker-label .ui-icon,
-.site-header .main-nav .ui-icon{color:currentColor !important}
-@media (max-width: 980px){
-  .site-header .main-nav{
-    background:rgba(11,15,24,.88) !important;
-    border-color:rgba(243,241,236,.16) !important;
-    box-shadow:0 22px 44px rgba(0,0,0,.3);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-  }
-  .site-header .main-nav>a:not(.button){color:var(--header-ink) !important}
-}
-
-/* ------------------------------------------------------------
    v8 correction: scenic image belongs to the home hero, not header
    ------------------------------------------------------------ */
 .site-header{
@@ -1203,3 +1039,236 @@ body[data-page="home"] .site-header .nav-cta:hover{
     border-color:rgba(243,241,236,.16) !important;
   }
 }
+
+/* ========================================================================== 
+   PREMIUM EXPERIENCE v9
+   Contextual navigation, shared transitions, map/list morph, route DnD,
+   personalized home and SVG Passport spread.
+   ========================================================================== */
+:root{
+  --premium-ease:cubic-bezier(.22,.61,.36,1);
+  --premium-screen-ease:cubic-bezier(.4,0,.2,1);
+  --premium-fast:120ms;
+  --premium-base:220ms;
+  --premium-slow:460ms;
+  --premium-glass:color-mix(in srgb,var(--color-surface) 84%,transparent);
+  --premium-glass-border:color-mix(in srgb,var(--color-border-control) 56%,transparent);
+}
+
+/* Contextual header: truly transparent at the top, glass only after movement. */
+.site-header{
+  transition:background-color 300ms var(--premium-ease),border-color 300ms var(--premium-ease),min-height 300ms var(--premium-ease),padding 300ms var(--premium-ease),box-shadow 300ms var(--premium-ease),color 300ms var(--premium-ease)!important;
+}
+body:not([data-page="home"]):not([data-page="parceiros"]):not([data-page="para-parceiros"]) .site-header .brand strong,
+body:not([data-page="home"]):not([data-page="parceiros"]):not([data-page="para-parceiros"]) .site-header .brand small,
+body:not([data-page="home"]):not([data-page="parceiros"]):not([data-page="para-parceiros"]) .site-header .main-nav>a:not(.button),
+body:not([data-page="home"]):not([data-page="parceiros"]):not([data-page="para-parceiros"]) .site-header .theme-picker,
+body:not([data-page="home"]):not([data-page="parceiros"]):not([data-page="para-parceiros"]) .site-header .mobile-menu{
+  color:var(--color-text)!important;
+  text-shadow:none!important;
+}
+.site-header.is-scrolled{
+  background:var(--premium-glass)!important;
+  border-bottom-color:var(--premium-glass-border)!important;
+  box-shadow:0 10px 28px color-mix(in srgb,#000 10%,transparent)!important;
+  backdrop-filter:blur(18px) saturate(1.15)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.15)!important;
+  padding-top:.62rem!important;
+  padding-bottom:.62rem!important;
+}
+body[data-page="home"] .site-header.is-scrolled,
+body[data-page="parceiros"] .site-header.is-scrolled,
+body[data-page="para-parceiros"] .site-header.is-scrolled{
+  --premium-glass:rgba(22,22,24,.86);
+  --premium-glass-border:rgba(243,241,236,.14);
+  color:#F3F1EC!important;
+}
+.site-header.is-over-hero{box-shadow:none!important}
+
+/* Shared card -> detail media. */
+::view-transition-group(place-media){
+  animation-duration:520ms;
+  animation-timing-function:var(--premium-ease);
+  z-index:60;
+}
+::view-transition-old(place-media),::view-transition-new(place-media){
+  animation-duration:520ms;
+  animation-timing-function:var(--premium-ease);
+  mix-blend-mode:normal;
+}
+[data-explore-transition]::view-transition-old(root),
+[data-explore-transition]::view-transition-new(root){animation:none!important}
+[data-explore-transition]::view-transition-group(*){
+  animation-duration:440ms;
+  animation-timing-function:var(--premium-ease);
+}
+
+/* Card affordance only appears when it is actionable. */
+.place-card-action-label{
+  max-width:0;
+  opacity:0;
+  overflow:hidden;
+  white-space:nowrap;
+  transition:max-width 240ms var(--premium-ease),opacity 180ms var(--premium-ease),margin 240ms var(--premium-ease);
+}
+.place-card:hover .place-card-action-label,
+.place-card:focus-within .place-card-action-label{max-width:7rem;opacity:1;margin-right:.35rem}
+.place-card-arrow{display:inline-flex;align-items:center;justify-content:flex-end}
+.place-card.is-map-active,.place-card:has(.is-map-active){
+  translate:0 -5px;
+  border-color:var(--color-focus)!important;
+  box-shadow:0 20px 44px color-mix(in srgb,#000 18%,transparent)!important;
+}
+
+/* Personalization strip: appears only after onboarding generated a trip. */
+.home-personal-strip{
+  margin-top:1rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+  padding:.78rem 1rem;
+  border:1px solid rgba(243,241,236,.26);
+  border-radius:18px;
+  background:rgba(11,15,24,.34);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  color:#F3F1EC;
+  box-shadow:0 16px 40px rgba(0,0,0,.16);
+}
+.home-personal-strip>span{display:grid;gap:.05rem;padding-right:1rem;border-right:1px solid rgba(243,241,236,.16)}
+.home-personal-strip small{text-transform:uppercase;letter-spacing:.12em;font-size:.58rem;color:rgba(243,241,236,.68)}
+.home-personal-strip strong{font-size:.82rem;font-weight:650}
+.home-personal-strip a{margin-left:auto;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font-weight:650;font-size:.82rem}
+
+/* Explore list / map becomes one continuous object. */
+.explore-toolbar{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}
+.explore-view-switch{display:inline-flex;gap:.35rem;padding:.25rem;border:1px solid var(--color-border-subtle);border-radius:999px;background:var(--color-surface-inset)}
+.explore-view-switch button{min-height:36px;border-radius:999px;padding:.38rem .7rem}
+.explore-view-stage{min-height:420px;contain:layout paint}
+.explore-premium-grid{align-items:stretch}
+.explore-map-premium{display:grid;grid-template-columns:minmax(240px,.54fr) minmax(0,1.46fr);gap:1rem;align-items:stretch}
+.explore-map-copy{background:var(--color-surface);border:1px solid var(--color-border-subtle);border-radius:var(--r);padding:1.25rem;display:flex;flex-direction:column}
+.explore-map-index{display:grid;gap:.35rem;margin-top:1rem;overflow:auto;max-height:360px}
+.explore-map-index a{display:grid;grid-template-columns:34px 1fr;gap:.7rem;align-items:center;text-decoration:none;padding:.6rem;border-radius:10px;border:1px solid transparent;transition:background 180ms var(--premium-ease),border-color 180ms var(--premium-ease),translate 180ms var(--premium-ease)}
+.explore-map-index a span{font-size:.66rem;color:var(--color-text-muted)}
+.explore-map-index a:hover,.explore-map-index a.is-map-active{background:var(--color-surface-raised);border-color:var(--color-border-control);translate:3px 0}
+.premium-map{min-height:520px;border-style:solid;background:var(--color-surface-inset)}
+.premium-map-pin{display:grid;place-items:center;text-decoration:none;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:var(--color-surface);color:var(--color-text);border:1px solid var(--color-border-control);box-shadow:0 8px 22px rgba(0,0,0,.14);transition:scale 180ms var(--premium-ease),box-shadow 180ms var(--premium-ease),background 180ms var(--premium-ease),color 180ms var(--premium-ease)}
+.premium-map-pin:hover,.premium-map-pin.is-map-active{scale:1.2;background:var(--color-action);color:var(--color-action-text);box-shadow:0 14px 28px rgba(0,0,0,.22);z-index:7}
+.map-label.is-map-active{font-weight:700;border-color:var(--color-border-control);z-index:8}
+
+/* Progressive disclosure keeps detail pages visually quiet until requested. */
+.premium-disclosure{border:1px solid var(--color-border-subtle);border-radius:14px;background:var(--color-surface);overflow:hidden}
+.premium-disclosure summary{list-style:none;display:flex;align-items:center;gap:.6rem;cursor:pointer;padding:1rem 1.1rem;font-weight:650}
+.premium-disclosure summary::-webkit-details-marker{display:none}
+.premium-disclosure summary .ui-icon:last-child{margin-left:auto;transition:rotate 220ms var(--premium-ease)}
+.premium-disclosure[open] summary .ui-icon:last-child{rotate:180deg}
+.premium-disclosure .tourism-notes{padding:0 1rem 1rem}
+
+/* Route becomes a tangible planning surface. */
+.route-premium-insight{display:flex;gap:.8rem;align-items:flex-start;padding:1rem 1.1rem;margin-bottom:1rem;border:1px solid var(--color-border-subtle);background:linear-gradient(135deg,var(--color-surface),var(--color-surface-inset));border-radius:14px}
+.route-premium-insight>div{display:grid;gap:.14rem}
+.route-premium-insight small{text-transform:uppercase;letter-spacing:.12em;font-size:.62rem;color:var(--color-text-muted)}
+.route-premium-insight strong{font-size:.9rem;font-weight:620;line-height:1.45}
+.premium-route-list .route-item{position:relative;grid-template-columns:28px 80px 1fr auto;transition:translate 220ms var(--premium-ease),box-shadow 220ms var(--premium-ease),border-color 220ms var(--premium-ease),opacity 180ms ease}
+.route-drag-handle{align-self:center;color:var(--color-icon-muted);cursor:grab;display:grid;place-items:center}
+.route-item:active .route-drag-handle{cursor:grabbing}
+.route-item.is-dragging{opacity:.55;translate:0 -5px;box-shadow:var(--hover-shadow-strong)}
+.route-item.is-drop-target{border-color:var(--color-focus);box-shadow:0 0 0 3px color-mix(in srgb,var(--color-focus) 20%,transparent);translate:0 5px}
+
+/* SVG supplied by the user is the actual two-page Passport sheet. */
+.book{
+  view-transition-name:passport-spread;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:0 26px 68px rgba(35,18,10,.20),0 4px 16px rgba(35,18,10,.12)!important;
+  overflow:visible!important;
+  perspective:1400px;
+}
+.book-page{
+  color:#383838!important;
+  background-color:transparent!important;
+  background-image:url('./assets/brand/passport/folha-passaporte.svg')!important;
+  background-repeat:no-repeat!important;
+  background-size:200% 100%!important;
+  border:0!important;
+  min-height:clamp(540px,48vw,720px)!important;
+  padding:clamp(2rem,4.2vw,4.7rem)!important;
+  box-shadow:none!important;
+  overflow:auto;
+}
+.book-page:first-child{background-position:left center!important}
+.book-page:nth-child(2){background-position:right center!important}
+.book-page h2,.book-page h3,.book-page strong{color:#383838!important}
+.book-page p,.book-page small,.book-page .muted,.book-page .eyebrow{color:#5d554f!important}
+.book-page .badge{border-color:rgba(56,56,56,.28);color:#383838;background:rgba(245,237,234,.55)}
+.book-page .ticket{background:rgba(245,237,234,.68);backdrop-filter:blur(2px);border-color:rgba(56,56,56,.34)}
+.book-page .stamp{background:rgba(245,237,234,.22);color:#383838}
+.passport-reference-mock .passport-book{background-image:url('./assets/brand/passport/folha-passaporte.svg')!important;background-size:100% 100%!important;background-repeat:no-repeat!important;background-color:transparent!important}
+.passport-reference-mock .passport-book-cover,.passport-reference-mock .passport-book-page{background:transparent!important;border:0!important}
+::view-transition-group(passport-spread){animation-duration:420ms;animation-timing-function:var(--premium-ease)}
+[data-passport-turn="forward"]::view-transition-old(passport-spread){animation:passport-out-left 360ms var(--premium-ease) both;transform-origin:right center}
+[data-passport-turn="forward"]::view-transition-new(passport-spread){animation:passport-in-right 420ms var(--premium-ease) both;transform-origin:left center}
+[data-passport-turn="back"]::view-transition-old(passport-spread){animation:passport-out-right 360ms var(--premium-ease) both;transform-origin:left center}
+[data-passport-turn="back"]::view-transition-new(passport-spread){animation:passport-in-left 420ms var(--premium-ease) both;transform-origin:right center}
+@keyframes passport-out-left{from{transform:translateX(0) rotateY(0)}to{transform:translateX(-4%) rotateY(-7deg)}}
+@keyframes passport-in-right{from{transform:translateX(4%) rotateY(7deg)}to{transform:translateX(0) rotateY(0)}}
+@keyframes passport-out-right{from{transform:translateX(0) rotateY(0)}to{transform:translateX(4%) rotateY(7deg)}}
+@keyframes passport-in-left{from{transform:translateX(-4%) rotateY(-7deg)}to{transform:translateX(0) rotateY(0)}}
+.stamp.is-new-stamp{animation:premium-stamp 420ms cubic-bezier(.2,.82,.24,1.12) both}
+@keyframes premium-stamp{0%{scale:.82;rotate:-10deg;opacity:.2}65%{scale:1.035;rotate:-4deg;opacity:1}100%{scale:1;rotate:-5deg;opacity:1}}
+
+/* Micro-interaction hierarchy. */
+:where(.place-card,.route-reference-card,.category-reference-tile,.partner-reference-card,.spot-reference-card):hover{translate:0 -5px}
+:where(.place-card,.route-reference-card,.category-reference-tile,.partner-reference-card,.spot-reference-card):active{translate:0 -1px;transition-duration:var(--premium-fast)}
+:where(button:not(:disabled),.button,a[href]):active{transition-duration:var(--premium-fast)}
+
+@media(max-width:980px){
+  .explore-map-premium{grid-template-columns:1fr}
+  .premium-map{min-height:440px}
+  .home-personal-strip a{width:100%;margin-left:0}
+  .premium-route-list .route-item{grid-template-columns:24px 64px 1fr}
+  .premium-route-list .route-actions{grid-column:1/-1}
+}
+@media(max-width:650px){
+  .home-personal-strip{border-radius:14px;gap:.65rem}.home-personal-strip>span{border-right:0;padding-right:.5rem}
+  .book{display:block!important}
+  .book-page{background-size:200% 100%!important;background-position:left center!important;min-height:560px!important;padding:2.2rem 1.8rem!important}
+  .book-page:nth-child(2){display:none!important}
+  .explore-view-switch{width:100%}.explore-view-switch button{flex:1}
+  .premium-map{min-height:380px}
+}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-group(place-media),::view-transition-old(place-media),::view-transition-new(place-media),::view-transition-group(passport-spread),::view-transition-old(passport-spread),::view-transition-new(passport-spread),.stamp.is-new-stamp{animation:none!important}
+  .route-item,.premium-map-pin,.place-card-action-label,.site-header{transition:none!important}
+}
+
+/* Explore preview drawer inside map context. */
+.explore-map-index button{
+  width:100%;display:grid;grid-template-columns:34px 1fr;gap:.7rem;align-items:center;text-align:left;
+  min-height:44px;padding:.6rem;border-radius:10px;border:1px solid transparent;background:transparent;color:inherit;
+  transition:background 180ms var(--premium-ease),border-color 180ms var(--premium-ease),translate 180ms var(--premium-ease);
+}
+.explore-map-index button span{font-size:.66rem;color:var(--color-text-muted)}
+.explore-map-index button:hover,.explore-map-index button.is-map-active,.explore-map-index button.is-selected{background:var(--color-surface-raised);border-color:var(--color-border-control);translate:3px 0}
+.explore-map-preview{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--color-border-subtle);outline:none}
+.explore-map-preview-media{height:150px;border-radius:12px;overflow:hidden;margin-bottom:.8rem}
+.explore-map-preview-media .scenic-media{height:100%}
+.explore-map-preview small{font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:var(--color-text-muted)}
+.explore-map-preview h3{margin:.35rem 0 .55rem;font-size:1.35rem}
+.explore-map-preview p{font-size:.88rem;color:var(--color-text-secondary)}
+.premium-generic-hero{padding:0!important}
+.premium-generic-hero .scenic-media{position:absolute;inset:0}
+.premium-generic-hero .mark{z-index:3;background:color-mix(in srgb,var(--color-surface) 82%,transparent);backdrop-filter:blur(8px)}
+.passport-stamp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;align-items:center;justify-items:center}
+.passport-stamp-grid .stamp{width:112px;height:112px;margin:.25rem;font-size:.58rem}
+.passport-stamp-grid .stamp strong{font-size:.72rem;line-height:1.1;max-width:90px}
+.route-order-control{min-width:40px}
+@media(max-width:650px){.route-order-control span{display:none}.passport-stamp-grid .stamp{width:104px;height:104px}}
+/* Progressive image reveal: static layout remains stable while imagery resolves. */
+.scenic-media{background-color:var(--color-surface-inset)}
+.scenic-photo{opacity:0;transition:opacity 320ms var(--premium-ease)}
+.scenic-photo.is-loaded{opacity:1}
+@media(prefers-reduced-motion:reduce){.scenic-photo{opacity:1!important;transition:none!important}}
+.premium-map-pin.is-selected{scale:1.14;background:var(--color-action);color:var(--color-action-text);z-index:6}

@@ -1,0 +1,3 @@
+'use client';
+import {useActionState,useEffect} from 'react';import {addPlace} from '@/modules/trips/actions';import {track} from '@/modules/tracking/client';import {Icon} from '@/design-system/icons';
+export function PlaceActions({id,partner=false}:{id:string;partner?:boolean}){const [state,action,pending]=useActionState(addPlace,{message:''});useEffect(()=>{track('PLACE_VIEWED',{placeId:id});if(partner)track('PARTNER_CARD_CLICK',{placeId:id});},[id,partner]);return <form action={action}><input type="hidden" name="placeId" value={id}/><button className="primary" disabled={pending}><Icon name="roteiro-adicionar-parada"/>{pending?'Salvando…':'Adicionar ao roteiro'}</button><p role="status">{state.message}</p></form>;}

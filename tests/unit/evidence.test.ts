@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import fixture from '../../seed/validation-trip.json';import {itemEvidence} from '../../src/modules/trips/evidence';
+test('evidence is bound to place and date, not merely a planned item',()=>{assert.equal(itemEvidence(fixture,fixture.days[0].items[0],'2026-09-12'),'Presença registrada demo');assert.equal(itemEvidence(fixture,fixture.days[0].items[0],'2026-09-13'),'Sem evidência registrada');assert.equal(itemEvidence(fixture,fixture.days[1].items[1],'2026-09-13'),'Sem evidência registrada');});

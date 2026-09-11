@@ -1,0 +1,4 @@
+PASS home desktop: h1='Serra Negra,\nno seu ritmo.', overflow=1440/1440, interactions=PASS
+PASS partner desktop: h1='Café Neblina Alta', overflow=1440/1440, add-trip handler=PASS
+PASS home mobile: h1='Serra Negra,\nno seu ritmo.', overflow=390/390, interactions=PASS
+PASS partner mobile: h1='Café Neblina Alta', overflow=390/390, add-trip handler=PASS
