@@ -1,0 +1,14 @@
+{
+  "patch_version": "v13",
+  "scope": "encontros-pelo-caminho",
+  "files": [
+    {"path": "theme.css", "change": "modified"},
+    {"path": "app.js", "change": "modified"},
+    {"path": "CHANGELOG.md", "change": "added"},
+    {"path": "PATCH_MANIFEST.json", "change": "added"}
+  ],
+  "notes": [
+    "ZIP incremental: somente arquivos alterados ou adicionados.",
+    "Aplicar sobre o repositório v12 atual."
+  ]
+}

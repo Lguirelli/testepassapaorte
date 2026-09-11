@@ -410,12 +410,12 @@
         while(offset>count/2)offset-=count;
         while(offset<-count/2)offset+=count;
         const abs=Math.abs(offset), limited=clamp(offset,-3.15,3.15);
-        const arc=Math.min(abs*abs*17,94);
-        const scale=1-Math.min(abs*.09,.285);
-        const opacity=abs>3.05?0:1-Math.min(abs*.245,.76);
-        const blur=Math.min(abs*.82,2.6);
-        const rotation=clamp(-limited*7.2,-20,20);
-        const shade=Math.min(abs*.105,.30);
+        const arc=Math.min(abs*abs*15.4,88);
+        const scale=1-Math.min(abs*.082,.24);
+        const opacity=abs>3.1?0:1-Math.min(abs*.17,.5);
+        const blur=Math.min(abs*.5,1.55);
+        const rotation=clamp(-limited*6.5,-17,17);
+        const shade=Math.min(abs*.075,.18);
         if(abs<closestDistance){closestDistance=abs;closest=index;}
         const active=abs<.42;
         card.classList.toggle('is-center',active);
