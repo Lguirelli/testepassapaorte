@@ -10,7 +10,7 @@ const config: NextConfig = {
   async redirects(){
     return [
       {source:'/para-parceiros',destination:'/parceiros',permanent:true},
-      {source:'/lugares',destination:'/explorar?relation=public_point',permanent:true},
+      {source:'/lugares',destination:'/pontos-turisticos',permanent:true},
     ];
   },
 };

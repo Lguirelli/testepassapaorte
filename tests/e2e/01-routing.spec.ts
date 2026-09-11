@@ -3,6 +3,8 @@ import {test,expect} from '@playwright/test';
 const routes:[string,string][]=[
   ['/','home'],
   ['/explorar','explore'],
+  ['/pontos-turisticos','tourist-index'],
+  ['/mapa','map'],
   ['/parceiros','partner-acquisition'],
   ['/parceiros/cafe-neblina-alta','partner-detail'],
   ['/lugares/mirante-alto-da-serra','tourism-detail'],
@@ -20,11 +22,14 @@ for(const [route,kind] of routes){
   });
 }
 
-test('explore, tourist points and map have distinct navigation state',async({page})=>{
-  await page.goto('/explorar');
-  await expect(page.getByRole('navigation',{name:'Navegação principal'}).getByRole('link',{name:'Explorar',exact:true})).toHaveAttribute('aria-current','page');
-  await page.goto('/explorar?relation=public_point');
-  await expect(page.getByRole('navigation',{name:'Navegação principal'}).getByRole('link',{name:'Pontos turísticos',exact:true})).toHaveAttribute('aria-current','page');
-  await page.goto('/explorar?view=map');
-  await expect(page.getByRole('navigation',{name:'Navegação principal'}).getByRole('link',{name:'Mapa',exact:true})).toHaveAttribute('aria-current','page');
+test('main navigation uses independent dynamic URLs',async({page})=>{
+  for(const [route,label] of [
+    ['/explorar','Explorar'],
+    ['/pontos-turisticos','Pontos turísticos'],
+    ['/mapa','Mapa'],
+    ['/parceiros','Para parceiros'],
+  ] as const){
+    await page.goto(route);
+    await expect(page.getByRole('navigation',{name:'Navegação principal'}).getByRole('link',{name:label,exact:true})).toHaveAttribute('aria-current','page');
+  }
 });

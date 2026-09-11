@@ -1,8 +1,8 @@
 export const ROUTES = {
   home: '/',
   explore: '/explorar',
-  touristPoints: '/explorar?relation=public_point',
-  map: '/explorar?view=map',
+  touristPoints: '/pontos-turisticos',
+  map: '/mapa',
   partnerProgram: '/parceiros',
   tripBuilder: '/roteiro',
   passport: '/meu-passaporte',
