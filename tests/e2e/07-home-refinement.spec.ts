@@ -36,6 +36,9 @@ test('home refinement core interactions',async({page})=>{
   const central=gallery.locator('[data-offset="0"]');
   const left=gallery.locator('[data-offset="-1"]');
   const right=gallery.locator('[data-offset="1"]');
+  await expect(central).not.toHaveAttribute('inert','');
+  await expect(left).toHaveAttribute('inert','');
+  await expect(right).toHaveAttribute('inert','');
   const before=await Promise.all([left,right].map(locator=>locator.evaluate(element=>getComputedStyle(element).transform)));
   await central.locator('div').first().hover();
   await page.waitForTimeout(80);
@@ -55,6 +58,9 @@ test('home refinement core interactions',async({page})=>{
 
   await page.getByRole('tab',{name:'Natureza'}).click();
   await expect(page.getByTestId('home-route-slider')).toContainText('Mais tempo ao ar livre');
+  await expect(page.getByRole('tab',{name:'Natureza'})).toHaveAttribute('tabindex','0');
+  await expect(page.getByRole('tab',{name:'Primeira visita'})).toHaveAttribute('tabindex','-1');
+  await expect(page.getByTestId('home-route-slider').locator('article[aria-hidden="true"]')).toHaveAttribute('inert','');
 
   const routeDot=page.getByTestId('home-route-track').locator('span').first();
   const routeTransformBefore=await routeDot.evaluate(element=>getComputedStyle(element).transform);

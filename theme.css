@@ -767,7 +767,7 @@ body[data-page="para-parceiros"] .mobile-menu{
 
 /* ==========================================================================
    Motion & interaction layer v6
-   Full-screen horizontal page slides + whole-card hover movement.
+   Content-only route slides + whole-card hover movement.
    ========================================================================== */
 :root{
   --motion-ease:cubic-bezier(.22,1,.36,1);
@@ -782,52 +782,41 @@ body[data-page="para-parceiros"] .mobile-menu{
   --hover-shadow-strong:0 20px 44px color-mix(in srgb,#000 19%,transparent);
 }
 
-/* Route changes move the complete rendered viewport sideways. No fade. */
+/* The header/footer remain outside the animated snapshot. Only #app slides. */
 #app{
   transform-origin:50% 50%;
   will-change:transform;
+  view-transition-name:page-content;
 }
 #app.is-route-transitioning{pointer-events:none}
 
+::view-transition-image-pair(root){isolation:isolate}
 ::view-transition-old(root),
-::view-transition-new(root){
+::view-transition-new(root){animation:none!important;mix-blend-mode:normal}
+
+::view-transition-group(page-content),
+::view-transition-old(page-content),
+::view-transition-new(page-content){
+  animation:none;
+  mix-blend-mode:normal;
+  backface-visibility:hidden;
+}
+
+[data-route-slide]::view-transition-old(page-content),
+[data-route-slide]::view-transition-new(page-content){
   animation-duration:var(--route-slide-duration);
   animation-timing-function:var(--route-slide-ease);
   animation-fill-mode:both;
-  mix-blend-mode:normal;
-  opacity:1;
-  backface-visibility:hidden;
-  transform-origin:center center;
-  will-change:transform;
 }
-::view-transition-image-pair(root){
-  isolation:isolate;
-}
+[data-route-slide="forward"]::view-transition-old(page-content){animation-name:psn-content-out-left}
+[data-route-slide="forward"]::view-transition-new(page-content){animation-name:psn-content-in-right}
+[data-route-slide="back"]::view-transition-old(page-content){animation-name:psn-content-out-right}
+[data-route-slide="back"]::view-transition-new(page-content){animation-name:psn-content-in-left}
 
-[data-route-slide="forward"]::view-transition-old(root){animation-name:psn-screen-out-left}
-[data-route-slide="forward"]::view-transition-new(root){animation-name:psn-screen-in-right}
-[data-route-slide="back"]::view-transition-old(root){animation-name:psn-screen-out-right}
-[data-route-slide="back"]::view-transition-new(root){animation-name:psn-screen-in-left}
-
-[data-route-slide="forward"]::view-transition-new(root){box-shadow:-18px 0 38px rgba(0,0,0,.10)}
-[data-route-slide="back"]::view-transition-new(root){box-shadow:18px 0 38px rgba(0,0,0,.10)}
-
-@keyframes psn-screen-out-left{
-  0%{transform:translate3d(0,0,0)}
-  100%{transform:translate3d(-22vw,0,0)}
-}
-@keyframes psn-screen-in-right{
-  0%{transform:translate3d(100vw,0,0)}
-  100%{transform:translate3d(0,0,0)}
-}
-@keyframes psn-screen-out-right{
-  0%{transform:translate3d(0,0,0)}
-  100%{transform:translate3d(22vw,0,0)}
-}
-@keyframes psn-screen-in-left{
-  0%{transform:translate3d(-100vw,0,0)}
-  100%{transform:translate3d(0,0,0)}
-}
+@keyframes psn-content-out-left{from{transform:translate3d(0,0,0)}to{transform:translate3d(-18vw,0,0)}}
+@keyframes psn-content-in-right{from{transform:translate3d(32vw,0,0)}to{transform:translate3d(0,0,0)}}
+@keyframes psn-content-out-right{from{transform:translate3d(0,0,0)}to{transform:translate3d(18vw,0,0)}}
+@keyframes psn-content-in-left{from{transform:translate3d(-32vw,0,0)}to{transform:translate3d(0,0,0)}}
 
 /* Smooth feedback for actual interactive elements. */
 :where(
@@ -983,7 +972,7 @@ body[data-page="para-parceiros"] .mobile-menu{
 }
 
 /* Map/list controls that are not cards keep a compact hover response. */
-:where(.map-reference-list a,.route-visual-stop):hover{
+:where(.map-reference-list a):hover{
   translate:0 -2px;
   border-color:var(--color-border-control);
   box-shadow:var(--hover-shadow);
@@ -999,7 +988,7 @@ body[data-page="para-parceiros"] .mobile-menu{
 }
 
 @media(prefers-reduced-motion:reduce){
-  ::view-transition-old(root),::view-transition-new(root){animation:none!important}
+  ::view-transition-old(root),::view-transition-new(root),::view-transition-old(page-content),::view-transition-new(page-content){animation:none!important}
   #app,
   :where(a[href],button,[role="button"],[role="tab"],[data-action]),
   .ui-icon,
@@ -1106,12 +1095,12 @@ body[data-page="para-parceiros"] .site-header.is-scrolled{
 
 /* Shared card -> detail media. */
 ::view-transition-group(place-media){
-  animation-duration:520ms;
+  animation-duration:600ms;
   animation-timing-function:var(--premium-ease);
   z-index:60;
 }
 ::view-transition-old(place-media),::view-transition-new(place-media){
-  animation-duration:520ms;
+  animation-duration:600ms;
   animation-timing-function:var(--premium-ease);
   mix-blend-mode:normal;
 }
@@ -1293,39 +1282,6 @@ body[data-page="para-parceiros"] .site-header.is-scrolled{
 .premium-map-pin.is-selected{scale:1.14;background:var(--color-action);color:var(--color-action-text);z-index:6}
 
 
-/* ==========================================================================
-   PREMIUM ROUTE MOTION v10 — softer full-screen lateral navigation
-   ========================================================================== */
-:root{
-  --route-slide-duration:680ms;
-  --route-slide-ease:cubic-bezier(.16,1,.3,1);
-}
-
-/* Keep the two viewport snapshots perfectly contiguous while they travel. */
-::view-transition-image-pair(root){
-  isolation:isolate;
-  overflow:clip;
-}
-::view-transition-old(root),
-::view-transition-new(root){
-  animation-duration:var(--route-slide-duration)!important;
-  animation-timing-function:var(--route-slide-ease)!important;
-  animation-fill-mode:both!important;
-  transform:translateZ(0);
-}
-
-/* Shared media stays slightly faster than the screen so it visually settles
-   before the route completes instead of snapping at the end. */
-::view-transition-group(place-media){
-  animation-duration:600ms;
-  animation-timing-function:cubic-bezier(.16,1,.3,1);
-}
-::view-transition-old(place-media),
-::view-transition-new(place-media){
-  animation-duration:600ms;
-  animation-timing-function:cubic-bezier(.16,1,.3,1);
-}
-
 /* ============================================================
    v12 · Encontros pelo caminho
    Circular editorial carousel inspired by the supplied technical
@@ -1434,33 +1390,14 @@ body[data-page="para-parceiros"] .site-header.is-scrolled{
   border:1px solid rgba(240,237,229,.28);
   border-radius:26px;
   box-shadow:0 16px 38px rgba(0,0,0,.24),0 0 0 1px rgba(240,237,229,.05);
-  will-change:transform,box-shadow,border-color;
-  transform:translate3d(0,0,0) scale(1);
-  transition:transform .34s cubic-bezier(.22,1,.36,1),border-color .28s ease,box-shadow .34s ease,background .28s ease;
+  transition:border-color .28s ease,box-shadow .34s ease,background .28s ease;
 }
 .encounter-card.is-center .encounter-card-link{
   border-color:rgba(240,237,229,.58);
   box-shadow:0 28px 68px rgba(0,0,0,.4),0 0 0 1px rgba(240,237,229,.1);
 }
-.encounter-carousel.is-center-expanded .encounter-card:not(.is-center){--enc-spread:clamp(18px,1.65vw,30px)}
-@media (hover:hover) and (pointer:fine){
-  .encounter-card:not(.is-center):hover{
-    --enc-hover-y:0px;
-    --enc-hover-scale:1;
-    z-index:var(--enc-z);
-  }
-  .encounter-card:not(.is-center):hover .encounter-card-link{
-    transform:translate3d(0,0,0) scale(1);
-    border-color:rgba(240,237,229,.28);
-    box-shadow:0 16px 38px rgba(0,0,0,.24),0 0 0 1px rgba(240,237,229,.05);
-  }
-  .encounter-card.is-center:hover{z-index:80;--enc-hover-y:-22px;--enc-hover-scale:1.072}
-  .encounter-card.is-center:hover .encounter-card-link{transform:translate3d(0,-14px,0) scale(1.024);border-color:rgba(240,237,229,.74);box-shadow:0 44px 108px rgba(0,0,0,.56),0 0 0 1px rgba(240,237,229,.18)}
-}
 .encounter-card:not(.is-center):active{--enc-hover-y:0px;--enc-hover-scale:1}
-.encounter-card:not(.is-center):active .encounter-card-link{transform:translate3d(0,0,0) scale(1)}
 .encounter-card.is-center:active{--enc-hover-y:-5px;--enc-hover-scale:1.024}
-.encounter-card.is-center:active .encounter-card-link{transform:translate3d(0,-3px,0) scale(1.008)}
 .encounter-card-media{position:relative;min-height:0;overflow:hidden;background:#262425}
 .encounter-card-media .scenic-media{position:absolute;inset:0;min-height:100%;border-radius:0!important}
 .encounter-card-media .scenic-photo{width:100%;height:100%;object-fit:cover;transform:none!important;transition:none!important}

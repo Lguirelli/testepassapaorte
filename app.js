@@ -364,7 +364,7 @@
     return `<section class="home-section home-route-types" data-psd-layer="05" aria-labelledby="route-types-title"><div class="psd-container">
       <div class="route-types-tabs" role="tablist" aria-label="Tipos de roteiro">${HOME_ROUTE_TYPES.map((x,i)=>`<button role="tab" aria-selected="${i===activeIndex}" tabindex="${i===activeIndex?'0':'-1'}" data-route-type="${x.id}" class="${i===activeIndex?'active':''}"><span>0${i+1}</span>${esc(x.label)}</button>`).join('')}</div>
       <div class="route-types-slider" data-route-types-slider>
-        ${HOME_ROUTE_TYPES.map((item,i)=>{const places=item.placeIds.map(placeById).filter(Boolean);return `<article class="route-types-slide ${i===activeIndex?'active':''}" data-route-slide="${item.id}" style="--route-slide-offset:${i-activeIndex};--route-slide-opacity:${i===activeIndex?1:0}" aria-hidden="${i!==activeIndex}">
+        ${HOME_ROUTE_TYPES.map((item,i)=>{const places=item.placeIds.map(placeById).filter(Boolean);return `<article class="route-types-slide ${i===activeIndex?'active':''}" data-route-slide="${item.id}" style="--route-slide-offset:${i-activeIndex};--route-slide-opacity:${i===activeIndex?1:0}" aria-hidden="${i!==activeIndex}" ${i===activeIndex?'':'inert'}>
           <div class="route-types-intro"><p class="psd-kicker">Tipos de roteiro</p><h2 ${i===activeIndex?'id="route-types-title"':''}>${esc(item.title)}</h2><p>${esc(item.body)}</p></div>
           <div class="route-types-poster">${scenicMedia(places[0]||{},'route-types-poster')}<span class="route-types-number">0${i+1}</span></div>
           <aside class="route-types-summary"><span class="route-summary-label">${esc(item.label)}</span><p>Uma forma de começar sem transformar a viagem em uma sequência rígida.</p><dl><div><dt>Paradas</dt><dd>3</dd></div><div><dt>Duração</dt><dd>1 dia</dd></div><div><dt>Estado</dt><dd>editável</dd></div></dl><a class="button primary" href="#/roteiro">Montar o meu</a></aside>
@@ -410,7 +410,7 @@
     ui.homeRouteType=id;
     const tabs=$$('.route-types-tabs [data-route-type]');
     tabs.forEach((tab,index)=>{const active=index===nextIndex;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});
-    $$('.route-types-slide').forEach((slide,index)=>{const active=index===nextIndex;slide.classList.toggle('active',active);slide.setAttribute('aria-hidden',String(!active));slide.style.setProperty('--route-slide-offset',String(index-nextIndex));slide.style.setProperty('--route-slide-opacity',active?'1':'0');const h=slide.querySelector('h2');if(h){if(active)h.id='route-types-title';else h.removeAttribute('id');}});
+    $$('.route-types-slide').forEach((slide,index)=>{const active=index===nextIndex;slide.classList.toggle('active',active);slide.setAttribute('aria-hidden',String(!active));slide.inert=!active;slide.style.setProperty('--route-slide-offset',String(index-nextIndex));slide.style.setProperty('--route-slide-opacity',active?'1':'0');const h=slide.querySelector('h2');if(h){if(active)h.id='route-types-title';else h.removeAttribute('id');}});
   }
   function setHomeFaq(index){
     const next=ui.homeFaqOpen===index?-1:index; ui.homeFaqOpen=next;
@@ -445,7 +445,7 @@
     const lerp=(a,b,t)=>a+(b-a)*t;
     const normalize=i=>((i%count)+count)%count;
     let currentIndex=normalize(Number(carousel.dataset.initialIndex)||0);
-    let rafId=0, autoplayId=0, snapId=0;
+    let rafId=0, snapId=0;
     let pointerDown=false,startX=0,lastX=0,lastT=0,startTarget=currentIndex,velocity=0;
     const scroll={current:currentIndex,target:currentIndex,ease:reduced?1:.105};
 
@@ -481,6 +481,7 @@
         card.style.setProperty('--enc-z',String(40-Math.round(abs*6)));
         card.style.pointerEvents=abs<2.7?'auto':'none';
         card.setAttribute('aria-hidden',String(!active));
+        card.inert=!active;
         const link=card.querySelector('.encounter-card-link');
         if(link){link.tabIndex=active?0:-1;link.style.pointerEvents=active?'auto':'none';}
       });
@@ -492,17 +493,11 @@
       if(Math.abs(scroll.current-scroll.target)<.001)scroll.current=scroll.target;
       apply(); rafId=requestAnimationFrame(animate);
     }
-    function stopAutoplay(){if(autoplayId){clearInterval(autoplayId);autoplayId=0;}}
-    function goTo(index,{restart=true}={}){
+    function goTo(index){
       const target=normalize(index); let delta=target-scroll.target;
       while(delta>count/2)delta-=count;
       while(delta<-count/2)delta+=count;
       scroll.target+=delta; currentIndex=target; ui.homePartnerIndex=target;
-      if(restart)startAutoplay();
-    }
-    function startAutoplay(){
-      stopAutoplay(); if(reduced||count<2)return;
-      autoplayId=setInterval(()=>goTo(currentIndex+1,{restart:false}),5600);
     }
     function snap(){clearTimeout(snapId);snapId=setTimeout(()=>goTo(Math.round(scroll.target)),130);}
     function setCenterExpanded(force){
@@ -524,14 +519,14 @@
     }
     function onWheel(event){
       if(Math.abs(event.deltaX)<1&&Math.abs(event.deltaY)<1)return;
-      event.preventDefault();stopAutoplay();
+      event.preventDefault();
       const delta=Math.abs(event.deltaX)>Math.abs(event.deltaY)?event.deltaX:event.deltaY;
       scroll.target+=clamp(delta,-90,90)*.00265;snap();
     }
     function onPointerDown(event){
       if(event.button!==undefined&&event.button!==0)return;
       pointerDown=true;startX=lastX=event.clientX;lastT=performance.now();startTarget=scroll.target;velocity=0;
-      stopAutoplay();carousel.classList.add('is-dragging');carousel.setPointerCapture?.(event.pointerId);
+      carousel.classList.add('is-dragging');carousel.setPointerCapture?.(event.pointerId);
     }
     function onPointerMove(event){
       if(!pointerDown)return;
@@ -544,33 +539,31 @@
     }
     function onPrev(event){event?.preventDefault();goTo(currentIndex-1);}
     function onNext(event){event?.preventDefault();goTo(currentIndex+1);}
-    function pause(){stopAutoplay();}
-    function resume(){startAutoplay();}
+    const onHoverMove=()=>setCenterExpanded();
+    const onHoverLeave=()=>setCenterExpanded(false);
+    const onFocusIn=()=>setCenterExpanded();
+    const onFocusOut=()=>requestAnimationFrame(()=>setCenterExpanded());
 
     carousel.tabIndex=0;
     carousel.setAttribute('role','region');
     carousel.addEventListener('click',onClick);
     carousel.addEventListener('keydown',onKey);
     carousel.addEventListener('wheel',onWheel,{passive:false});
-    carousel.addEventListener('pointermove',()=>setCenterExpanded());
-    carousel.addEventListener('pointerleave',()=>setCenterExpanded(false));
-    carousel.addEventListener('focusin',()=>setCenterExpanded());
-    carousel.addEventListener('focusout',()=>requestAnimationFrame(()=>setCenterExpanded()));
+    carousel.addEventListener('pointermove',onHoverMove);
+    carousel.addEventListener('pointerleave',onHoverLeave);
+    carousel.addEventListener('focusin',onFocusIn);
+    carousel.addEventListener('focusout',onFocusOut);
     carousel.addEventListener('pointerdown',onPointerDown);
     carousel.addEventListener('pointermove',onPointerMove);
     carousel.addEventListener('pointerup',onRelease);
     carousel.addEventListener('pointercancel',onRelease);
-    carousel.addEventListener('mouseenter',pause);
-    carousel.addEventListener('mouseleave',resume);
-    carousel.addEventListener('focusin',pause);
-    carousel.addEventListener('focusout',resume);
-    apply();animate();startAutoplay();
+    apply();animate();
     encounterCarouselApi={prev:onPrev,next:onNext,goTo};
     encounterCarouselCleanup=()=>{
-      stopAutoplay();cancelAnimationFrame(rafId);clearTimeout(snapId);
+      cancelAnimationFrame(rafId);clearTimeout(snapId);
       carousel.removeEventListener('click',onClick);carousel.removeEventListener('keydown',onKey);carousel.removeEventListener('wheel',onWheel);
+      carousel.removeEventListener('pointermove',onHoverMove);carousel.removeEventListener('pointerleave',onHoverLeave);carousel.removeEventListener('focusin',onFocusIn);carousel.removeEventListener('focusout',onFocusOut);
       carousel.removeEventListener('pointerdown',onPointerDown);carousel.removeEventListener('pointermove',onPointerMove);carousel.removeEventListener('pointerup',onRelease);carousel.removeEventListener('pointercancel',onRelease);
-      carousel.removeEventListener('mouseenter',pause);carousel.removeEventListener('mouseleave',resume);carousel.removeEventListener('focusin',pause);carousel.removeEventListener('focusout',resume);
     };
   }
   function renderHome(){
@@ -1039,8 +1032,8 @@
       return;
     }
 
-    /* View Transitions captures the whole viewport, so header, content and
-       footer move as one opaque screen instead of fading independently. */
+    /* #app has its own view-transition-name, so route motion is isolated to
+       content while the persistent header and footer remain stationary. */
     if(typeof document.startViewTransition==='function'){
       const transition=document.startViewTransition(()=>{
         if(sequence===routeTransitionSequence) render();

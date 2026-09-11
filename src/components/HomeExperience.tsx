@@ -67,10 +67,10 @@ function RouteTypeSlider(){
       <p>Troque o foco sem perder a sensação de continuidade entre texto, imagem e informações.</p>
     </div>
     <div className={styles.routeTabs} role="tablist" aria-label="Tipos de roteiro">
-      {routeTypes.map((item,index)=><button key={item.name} type="button" role="tab" aria-selected={active===index} className={active===index?styles.routeTabActive:styles.routeTab} onClick={()=>change(index)}>{item.name}</button>)}
+      {routeTypes.map((item,index)=><button key={item.name} type="button" role="tab" aria-selected={active===index} tabIndex={active===index?0:-1} className={active===index?styles.routeTabActive:styles.routeTab} onClick={()=>change(index)}>{item.name}</button>)}
     </div>
     <div className={styles.slideViewport} data-testid="home-route-slider" aria-live="polite">
-      {previousItem&&<article aria-hidden="true" className={`${styles.routeSlide} ${direction===1?styles.slideOutLeft:styles.slideOutRight}`}>
+      {previousItem&&<article aria-hidden="true" inert className={`${styles.routeSlide} ${direction===1?styles.slideOutLeft:styles.slideOutRight}`}>
         <RouteSlideContent item={previousItem}/>
       </article>}
       <article key={current.name} className={`${styles.routeSlide} ${direction===1?styles.slideInRight:styles.slideInLeft}`}>
@@ -106,6 +106,8 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
   const dragStart=useRef<number|null>(null);
   const dragged=useRef(false);
   const wheelLock=useRef(false);
+  const wheelTimer=useRef<ReturnType<typeof window.setTimeout>|null>(null);
+  useEffect(()=>()=>{if(wheelTimer.current)window.clearTimeout(wheelTimer.current);},[]);
   const move=(delta:number)=>setActive(value=>(value+delta+items.length)%items.length);
   if(!items.length)return <p className="empty">Nenhum parceiro publicado nesta seleção.</p>;
   const onPointerDown=(event:ReactPointerEvent<HTMLDivElement>)=>{dragStart.current=event.clientX;dragged.current=false;event.currentTarget.setPointerCapture(event.pointerId);};
@@ -121,7 +123,8 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
     if(wheelLock.current||Math.abs(event.deltaY)+Math.abs(event.deltaX)<12)return;
     wheelLock.current=true;
     move((event.deltaY||event.deltaX)>0?1:-1);
-    window.setTimeout(()=>{wheelLock.current=false;},320);
+    if(wheelTimer.current)window.clearTimeout(wheelTimer.current);
+    wheelTimer.current=window.setTimeout(()=>{wheelLock.current=false;wheelTimer.current=null;},320);
   };
   return <>
     <div className={styles.galleryViewport}>
@@ -138,7 +141,7 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
             '--opacity':String(1-distance*.18),
             '--stack':String(10-distance),
           } as CSSProperties;
-          return <div key={place.id} className={styles.galleryPosition} data-offset={offset} data-visible={visible?'true':'false'} style={style} aria-hidden={!visible}>
+          return <div key={place.id} className={styles.galleryPosition} data-offset={offset} data-visible={visible?'true':'false'} style={style} aria-hidden={offset!==0} inert={offset!==0}>
             <div className={styles.galleryMotion} onPointerEnter={()=>offset===0&&setCenterHover(true)} onPointerLeave={()=>offset===0&&setCenterHover(false)}>
               <PlaceCard place={place}/>
             </div>

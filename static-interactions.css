@@ -49,15 +49,13 @@ body[data-page="home"] .site-header .nav-cta:hover{background:#fff!important;col
 .encounter-card.is-center{z-index:90}
 .encounter-carousel.is-center-expanded .encounter-card:not(.is-center){--enc-spread:clamp(56px,4.4vw,84px)}
 @media (hover:hover) and (pointer:fine){
-  .encounter-card:not(.is-center):hover{--enc-hover-y:0px!important;--enc-hover-scale:1!important}
-  .encounter-card:not(.is-center):hover .encounter-card-link{transform:translate3d(0,0,0) scale(1)!important}
+  .encounter-card:not(.is-center):hover{--enc-hover-y:0px;--enc-hover-scale:1}
   .encounter-card.is-center:hover{z-index:100;--enc-hover-y:-16px;--enc-hover-scale:1.06}
-  .encounter-card.is-center:hover .encounter-card-link{transform:translate3d(0,-8px,0) scale(1.012)}
+  .encounter-card.is-center:hover .encounter-card-link{border-color:rgba(240,237,229,.74);box-shadow:0 44px 108px rgba(0,0,0,.56),0 0 0 1px rgba(240,237,229,.18)}
 }
 
 /* Linha conecta a experiência: somente escala/cor, sem deslocamento */
-.route-visual-stop-position{position:absolute;transform:translate(-8px,-50%);width:min(230px,34%);color:inherit;text-decoration:none;z-index:2}
-.route-visual-stop{position:relative;inset:auto;width:100%;transform:scale(1);transition:transform var(--motion-fast) var(--motion-ease),background var(--motion-fast) var(--motion-ease),color var(--motion-fast) var(--motion-ease),border-color var(--motion-fast) var(--motion-ease),box-shadow var(--motion-fast) var(--motion-ease);transform-origin:center}
+.route-visual-stop{transform:scale(1);transition:transform var(--motion-fast) var(--motion-ease),background var(--motion-fast) var(--motion-ease),color var(--motion-fast) var(--motion-ease),border-color var(--motion-fast) var(--motion-ease),box-shadow var(--motion-fast) var(--motion-ease);transform-origin:center}
 .route-visual-stop-position:hover .route-visual-stop,.route-visual-stop-position:focus-visible .route-visual-stop{transform:scale(1.045);background:color-mix(in srgb,var(--surface-primary) 90%,var(--niche-yellow));border-color:color-mix(in srgb,var(--border-primary) 50%,var(--niche-yellow));box-shadow:0 16px 34px rgba(0,0,0,.16)}
 .route-visual-stop-position:focus-visible{outline:2px solid var(--niche-blue);outline-offset:5px;border-radius:14px}
 
@@ -97,8 +95,7 @@ body[data-page="home"] .site-header .nav-cta:hover{background:#fff!important;col
 /* Pins: apenas escala/cor, coordenadas intactas */
 .premium-map-pin{transition:transform 300ms var(--motion-ease),background-color 300ms var(--motion-ease),color 300ms var(--motion-ease),border-color 300ms var(--motion-ease),box-shadow 300ms var(--motion-ease);transform-origin:center}
 .premium-map-pin:hover,.premium-map-pin:focus-visible,.premium-map-pin.is-map-active,.premium-map-pin.is-selected{transform:scale(1.075);background:color-mix(in srgb,var(--accent-primary) 82%,var(--niche-yellow));color:var(--surface-primary)}
-.territory-pin-position{position:absolute;width:44px;height:44px;transform:translate(-50%,-50%);display:block;text-decoration:none;z-index:2}
-.territory-pin{position:absolute;inset:0;width:44px;height:44px;pointer-events:none;transform:rotate(-45deg) scale(1);transition:transform 300ms var(--motion-ease),background-color 300ms var(--motion-ease),color 300ms var(--motion-ease),border-color 300ms var(--motion-ease),box-shadow 300ms var(--motion-ease);transform-origin:center}
+.territory-pin{pointer-events:none;transform:rotate(-45deg) scale(1);transition:transform 300ms var(--motion-ease),background-color 300ms var(--motion-ease),color 300ms var(--motion-ease),border-color 300ms var(--motion-ease),box-shadow 300ms var(--motion-ease);transform-origin:center}
 .territory-pin-position:hover .territory-pin,.territory-pin-position:focus-visible .territory-pin,.territory-pin-position.is-map-active .territory-pin{transform:rotate(-45deg) scale(1.08);background:color-mix(in srgb,var(--surface-primary) 78%,var(--niche-yellow));border-color:color-mix(in srgb,var(--text-primary) 76%,var(--niche-yellow));box-shadow:0 12px 28px rgba(0,0,0,.28)}
 .territory-pin *{pointer-events:none}
 .territory-pin-position:focus-visible{outline:2px solid rgba(243,241,236,.9);outline-offset:7px;border-radius:50%}
