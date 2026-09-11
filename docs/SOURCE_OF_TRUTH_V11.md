@@ -1,69 +1,45 @@
-# Fontes de verdade — repositório consolidado v11
+# Fonte de verdade atual do repositório
 
-Este repositório consolida três linhas de trabalho sem misturar responsabilidades.
+> Atualização de arquitetura: a antiga divisão entre uma SPA estática visual e uma base Next foi encerrada. Este arquivo substitui a orientação anterior da v11.
 
-## 1. Experiência visual executável
+## 1. Runtime único
 
-A raiz estática é a referência atual de UX/UI premium:
+A única aplicação executável é **Next.js em `src/`**.
 
-- `index.html`
-- `app.js`
-- `styles.css`
-- `visual.css`
-- `visual-v2.css`
-- `theme.css`
-- `partners-page.js`
-- `partners-page.css`
-- `tourism-data.js`
-- `tourism-pages.css`
-- `assets/`
+Não existe mais uma segunda aplicação em `index.html`, `app.js`, arquivos CSS da raiz ou diretórios HTML de redirects. Qualquer implementação nova de página, interação, navegação ou regra visual deve entrar no runtime Next.
 
-Ela contém as melhorias até a v10: hero fotográfico, header transparente, movimento lateral suave, shared transitions, hover do card inteiro, sistema de ícones, dark mode, mapa/lista, roteiro manipulável e Passaporte com a folha SVG fornecida.
+## 2. Dados, CMS e regras
 
-## 2. Base de produção Next / dados / CMS
+A fonte de dados dinâmica permanece em:
 
-`src/` é a base técnica de produção.
+- `src/modules/content/`;
+- `src/core/db/`;
+- `seed/`;
+- módulos de Admin em `src/modules/admin/`.
 
-Nesta consolidação foram incorporadas do `LATEST(4)`:
+Atrativos públicos pesquisados que antes eram injetados em `tourism-data.js` agora fazem parte do seed dinâmico.
 
-- `src/modules/admin/service.ts`;
-- separação `editorialDataset()` / `publicDataset()`;
-- `visibleDataset()`;
-- regras de categorias ativas e ordenação editorial;
-- regras de integridade de parceiros/lugares;
-- controle de concorrência por versão;
-- fluxo transacional do Admin;
-- `scripts/verify-admin.ts`.
+## 3. Rotas e tipos de página
 
-A raiz estática não deve importar diretamente código de `src/`.
+- URLs e navegação: `src/core/routing/routes.ts`;
+- classificação funcional das páginas: `src/core/routing/page-kind.ts`;
+- `/parceiros`: aquisição/institucional;
+- `/parceiros/[slug]`: detalhe de parceiro;
+- `/lugares/[slug]`: detalhe de ponto turístico;
+- `/explorar?relation=public_point`: pontos turísticos;
+- `/explorar?view=map`: mapa.
 
-## 3. Referência visual dos PSDs
+## 4. Estilos
 
-`references/psd-html-reference/` contém as reconstruções HTML e screenshots do material PSD.
+- base compartilhada: `src/app/globals.css`;
+- efeitos/componentes específicos: CSS Modules junto aos componentes/páginas;
+- não adicionar novamente folhas globais concorrentes na raiz;
+- movimento deve ser opt-in por componente, não aplicado por seletores genéricos compartilhados.
 
-Uso correto:
+## 5. Referências visuais
 
-- composição;
-- proporções;
-- ritmo vertical;
-- hierarquia editorial;
-- estrutura da Home;
-- estrutura da página individual de parceiro;
-- validação responsiva.
+`references/` continua sendo material de consulta para composição e comparação. Esses arquivos não são runtime e não devem voltar a ser publicados como uma aplicação paralela.
 
-Esses arquivos não fazem parte do deploy público e não são o runtime final.
+## 6. Deploy
 
-## Regra para futuras páginas
-
-- **Visual/composição:** `references/psd-html-reference/`
-- **Interações premium:** raiz estática v10+
-- **Dados/CMS/regras:** `src/`
-- **Ícones:** `assets/icons-v3/`
-- **Marca:** `assets/brand/`
-- **Fotografias finais:** acervo real aprovado
-
-## Páginas prioritárias
-
-1. Reconstruir a página individual `#/parceiros/:slug` com a composição do PSD Partner, mantendo dados e ações dinâmicas.
-2. Reconciliar a Home com os 12 blocos da referência, preservando a inteligência e as interações da versão premium.
-3. Migrar progressivamente essas superfícies para os componentes Next em `src/` sem regressão visual.
+A aplicação usa build Next `standalone`. GitHub Pages foi removido porque não executa SSR. Consulte `docs/DYNAMIC_ARCHITECTURE.md`.

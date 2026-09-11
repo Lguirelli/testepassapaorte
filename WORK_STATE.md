@@ -1,3 +1,11 @@
+# ESTADO ATUAL — MIGRAÇÃO DINÂMICA
+
+Atualizado em 2026-09-11. A arquitetura foi consolidada: **Next.js em `src/` é agora o único runtime**. A antiga SPA estática da raiz, seus CSS/JS, redirects HTML e o deploy GitHub Pages foram removidos. Rotas oficiais estão em `src/core/routing/routes.ts`; classificação de páginas em `src/core/routing/page-kind.ts`; detalhes em `docs/DYNAMIC_ARCHITECTURE.md`.
+
+As seções abaixo permanecem apenas como histórico dos checkpoints anteriores e não devem ser interpretadas como arquitetura vigente.
+
+---
+
 # Checkpoint atual: Bloco 08 PARCIAL
 
 Baseline local concluída; Validation V1 NÃO fechada. Próxima ação: continuar Bloco 08. Blocos 09–12 não iniciados. Nenhuma mudança de produto, seed ou lockfile nesta sessão.
