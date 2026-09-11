@@ -410,12 +410,12 @@
         while(offset>count/2)offset-=count;
         while(offset<-count/2)offset+=count;
         const abs=Math.abs(offset), limited=clamp(offset,-3.15,3.15);
-        const arc=Math.min(abs*abs*15.4,88);
-        const scale=1-Math.min(abs*.082,.24);
-        const opacity=abs>3.1?0:1-Math.min(abs*.17,.5);
-        const blur=Math.min(abs*.5,1.55);
-        const rotation=clamp(-limited*6.5,-17,17);
-        const shade=Math.min(abs*.075,.18);
+        const arc=Math.min(abs*abs*17.8,106);
+        const scale=1-Math.min(abs*.088,.265);
+        const opacity=abs>3.1?0:1-Math.min(abs*.18,.54);
+        const blur=abs<.18?0:Math.min((abs-.12)*1.34,4.4);
+        const rotation=clamp(-limited*7.4,-19,19);
+        const shade=Math.min(abs*.092,.24);
         if(abs<closestDistance){closestDistance=abs;closest=index;}
         const active=abs<.42;
         card.classList.toggle('is-center',active);
@@ -427,7 +427,7 @@
         card.style.setProperty('--enc-blur',`${blur}px`);
         card.style.setProperty('--enc-shade',String(shade));
         card.style.setProperty('--enc-z',String(40-Math.round(abs*6)));
-        card.style.pointerEvents=abs<2.45?'auto':'none';
+        card.style.pointerEvents=abs<2.7?'auto':'none';
         card.setAttribute('aria-hidden',String(!active));
         const link=card.querySelector('.encounter-card-link');
         if(link){link.tabIndex=active?0:-1;link.style.pointerEvents=active?'auto':'none';}
