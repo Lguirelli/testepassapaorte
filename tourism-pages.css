@@ -8,14 +8,14 @@
 .tourism-hero-copy{position:relative;z-index:2;width:min(1180px,calc(100% - 48px));margin:0 auto;padding:clamp(7rem,16vh,12rem) 0 4rem;color:#F3F1EC}
 .tourism-hero-copy .breadcrumbs{color:#F3F1EC;margin-bottom:clamp(2rem,5vh,4rem)}
 .tourism-hero-copy .breadcrumbs a,.tourism-hero-copy .breadcrumbs span{color:inherit}
-.tourism-hero-copy h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(3.1rem,7vw,7.4rem);font-weight:400;line-height:.92;letter-spacing:-.055em;max-width:1050px;margin:.35rem 0 1rem}
+.tourism-hero-copy h1{font-family:var(--font-display);font-size:clamp(3.1rem,7vw,7.4rem);font-weight:400;line-height:.92;letter-spacing:-.055em;max-width:1050px;margin:.35rem 0 1rem}
 .tourism-hero-copy .lead{max-width:740px;font-size:clamp(1.05rem,1.5vw,1.38rem);line-height:1.55;color:#E8E8E0}
 .tourism-hero-actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.6rem;align-items:center}
 .tourism-hero-actions .button,.tourism-hero-actions button{min-height:46px}
 .tourism-photo-credit{position:absolute;z-index:3;right:18px;bottom:14px;background:rgba(22,22,24,.66);color:#F3F1EC;padding:.42rem .65rem;border-radius:999px;font-size:.7rem;backdrop-filter:blur(8px)}
 .tourism-photo-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .tourism-intro{width:min(1180px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.65fr);gap:clamp(2rem,6vw,6rem);padding:clamp(4rem,8vw,8rem) 0}
-.tourism-intro-copy h2,.tourism-section h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.25rem,4.4vw,4.9rem);line-height:.98;letter-spacing:-.045em;font-weight:400;margin:.5rem 0 1.5rem}
+.tourism-intro-copy h2,.tourism-section h2{font-family:var(--font-display);font-size:clamp(2.25rem,4.4vw,4.9rem);line-height:.98;letter-spacing:-.045em;font-weight:400;margin:.5rem 0 1.5rem}
 .tourism-intro-copy>p{font-size:clamp(1.05rem,1.4vw,1.27rem);line-height:1.72;color:var(--text-secondary);max-width:760px}
 .tourism-practical{border-top:1px solid var(--border-primary);padding-top:1rem;align-self:start;position:sticky;top:110px}
 .tourism-practical-row{display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border-primary)}
@@ -27,7 +27,7 @@
 .tourism-heading p{color:var(--text-secondary);line-height:1.65}
 .tourism-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-primary);border:1px solid var(--border-primary)}
 .tourism-highlight{background:var(--surface-primary);padding:clamp(1.4rem,2.5vw,2.4rem);min-height:200px;display:flex;flex-direction:column;justify-content:space-between}
-.tourism-highlight span{font-family:Georgia,serif;font-size:2.8rem;color:var(--text-muted)}
+.tourism-highlight span{font-family:var(--font-display);font-size:2.8rem;color:var(--text-muted)}
 .tourism-highlight p{font-size:1rem;line-height:1.55;margin:1.5rem 0 0}
 .tourism-media-story{display:grid;grid-template-columns:1.2fr .8fr;min-height:620px;background:var(--text-primary);color:var(--bg-primary)}
 .tourism-media-story .tourism-story-image{position:relative;min-height:520px;overflow:hidden}
@@ -46,7 +46,7 @@
 .tourism-location-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:stretch}
 .tourism-location-grid .map{height:100%;min-height:420px}
 .tourism-location-copy{padding:2rem;border:1px solid var(--border-primary);background:var(--surface-primary);display:flex;flex-direction:column;justify-content:center}
-.tourism-location-copy h3{font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,3rem);font-weight:400;line-height:1.05;margin:.5rem 0 1rem}
+.tourism-location-copy h3{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,3rem);font-weight:400;line-height:1.05;margin:.5rem 0 1rem}
 .tourism-location-copy p{color:var(--text-secondary);line-height:1.6}
 .tourism-more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
 .tourism-research-badge{display:inline-flex;align-items:center;gap:.45rem;border:1px solid rgba(243,241,236,.55);border-radius:999px;padding:.38rem .65rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
