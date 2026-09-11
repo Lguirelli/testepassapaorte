@@ -1,4 +1,0 @@
-import {notFound} from 'next/navigation';import {publicDataset} from '@/modules/content/repository';import {getTrip} from '@/modules/trips/repository';import {EntityPage} from '@/components/EntityPage';
-export const dynamic='force-dynamic';
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=(await publicDataset()).places.find(p=>p.slug===slug);return{title:p?.name||'Parceiro indisponível'};}
-export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const data=await publicDataset();const place=data.places.find(p=>p.slug===slug&&p.commercialRelation==='partner');const partner=data.partners.find(p=>p.placeId===place?.id);if(!place||!partner)notFound();return <EntityPage place={place} partner={partner} data={data} trip={(await getTrip()).data}/>;}
