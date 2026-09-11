@@ -1,10 +1,4 @@
-# Validação atual: Bloco 08 PARCIAL
-
-Baseline local reexecutada: lint, strict, 13 unitários, persistência PGlite, build e migração/seed PASS. Nove rotas HTTP 200. Suíte completa tentou 51 casos, todos bloqueados antes do corpo por Chromium ausente. PostGIS não executado, instalação de sistema bloqueada por permissões. Axe e screenshots novos não executados. G0 PASS; G1–G8 PARCIAL.
-
-Evidência atual: artifacts/block_08/ e docs/validation/BLOCK-08.md. As seções abaixo são o histórico do Bloco 07, preservado como tal. Elas não constituem nova execução.
-
----
+> Estado atual — bloco 12: etapa demonstrativa encerrada por ajuste explícito do usuário, sem Chromium e PostGIS. A dispensa permite entrega/apresentação, não transforma as verificações ausentes em PASS. Consulte ADR-005 e docs/DEMO_PRESENTATION.md.
 
 # Relatório de validação, Passaporte Serra Negra
 
@@ -82,10 +76,36 @@ Assets ausentes: RV-XX, motor oficial de carimbos, mapa territorial final, fotog
 
 Providers/credenciais: autenticação de produção, mapas/rotas/clima/storage externos e GitHub autenticado. Mocks não são integrações reais.
 
-Dívida técnica e cobertura: extração i18n incompleta; relações JSONB validadas na aplicação; migration inicial sem ledger; arquivamento de parceiros pode deixar referências comerciais em lugares e precisa de política/correção e teste; categorias desabilitadas e ordenação editorial precisam de regressão e tratamento público consistente; campos de perfil armazenados não são garantias de acessibilidade; dados demo restringem datas a 12–14/09/2026. Não promover esta base a produção enquanto essas pendências e os gates não forem resolvidos.
+Dívida técnica e cobertura: extração i18n incompleta; relações JSONB validadas na aplicação; migration inicial sem ledger; relações arquivadas e categorias foram corrigidas/testadas na persistência no Bloco 08; confirmação na interface permanece pendente; campos de perfil armazenados não são garantias de acessibilidade; dados demo restringem datas a 12–14/09/2026. Não promover esta base a produção enquanto essas pendências e os gates não forem resolvidos.
 
 ## Entrega e continuidade
 
 Repositório local com commits por bloco, sem push GitHub. LATEST.zip contém estado completo para instalação e seed, documentação, testes, CI e evidências. Não contém caches, node_modules, builds, segredos ou banco binário. Os fixtures canônicos não foram alterados pelas mutações de QA; relatórios e capturas guardam sua evidência, não equivalência binária do banco transitório.
 
 Próximo bloco recomendado: executar os 51 casos com Chromium e PostGIS disponíveis, completar CRUD/arquivo/relações e responsividade, corrigir violações reais e atualizar G1–G8. Não reiniciar projeto nem aplicar branding final. Consultar WORK_STATE.md.
+
+## Atualização de 2026-09-11, Bloco 08
+
+11 cenários de integração PASS usando o serviço transacional do Admin com PGlite em memória. Os seis tipos percorrem criação/edição/publicação/arquivo/restauração e rejeição de versão obsoleta sem auditoria indevida. Também foram verificados ocultação de relações indisponíveis, desativação/ordem de categorias e rollback por referência arquivada. Serviço interno foi extraído sem remover autorização da server action. Lint, typecheck e 13 unitários reexecutados; build e detalhes em artifacts/validation/block-08/.
+
+Correções: restauração/edição não retiram arquivo implicitamente; relações públicas inválidas não geram cards para páginas indisponíveis; opções editoriais permitem completar um parceiro novo; ícone legado inválido de Bem-estar é compatibilizado com perfil-relaxar do sistema fornecido. Primeiro erro de integração e resultado final estão preservados nos logs.
+
+Não foram executados novos testes de navegador ou PostGIS. A presença dos executáveis foi conferida e continuou negativa. Tentativa limitada de download não produziu instalação confirmada. G4 evoluiu em cobertura de persistência, mas todos os gates antes parciais continuam parciais. Nenhum dos 51 casos E2E foi declarado aprovado. Próximo bloco 09: matriz UI/PostGIS e confirmação das correções na interface.
+
+## Bloco 09, confirmação UI de 2026-09-11
+
+O navegador cloud confirmou oito verificações de categoria, ícone legado, arquivo persistido e republicação do parceiro; duas capturas adicionais e observações estruturadas em artifacts/validation/block-09/. A categoria Bem-estar e o Café terminaram públicos novamente. A suíte foi ampliada de 51 para 57 casos com dois fluxos em três projetos; continua somente preparada no runner standalone. Lint, typecheck e 13 unitários passaram. Não houve alteração no código de produto ou mudança do status parcial dos gates.
+
+## Encerramento da implementação, Bloco 10
+
+O pacote final contém os módulos solicitados, fixtures, migrations, Compose, CI, testes, 10 screenshots cloud e relatórios por bloco. Foram adicionados preflight e executor sequencial da aceitação completa, com logs e códigos de saída distintos para falha e bloqueio. Preflight executado: BLOCKED (Chromium ausente e PostgreSQL/PostGIS de validação não configurado). O caminho completo não foi executado. Novos comandos são auxiliares para reproduzir os gates, não evidência de sua aprovação.
+
+Estado final: implementação do vertical slice entregue; aceitação integral da Definition of Done NÃO concluída. G0 PASS; G1–G8 PARCIAIS. Permanecem obrigatórios 57 casos E2E, três viewports, Axe, PostGIS e revisão das capturas produzidas por essa execução. Nenhum push/deploy ou execução remota foi feito. O próximo trabalho é remover esses bloqueios de infraestrutura e executar a aceitação, sem reconstruir o produto.
+
+## Bloco 11, tentativa com URL demo explícita
+
+Após o guia ser reenviado, validate:preflight e validate:full foram invocados com a URL PostgreSQL local demo configurada. Ambos retornaram BLOCKED. Diferentemente das tentativas sem variável, houve tentativa de verificar a conexão indicada, sem sucesso. Docker ausente. A execução completa foi chamada, mas não avançou a migrações ou testes. Logs e resumos separados em artifacts/validation/block-11/. Gates anteriores inalterados; não há aprovação adicional. Tentativa limitada de instalação do Chromium documentada no mesmo diretório.
+
+## Bloco 12 — entrega para apresentação
+
+PASS: demo:prepare duas vezes sobre o mesmo banco temporário; recusa de porta 4173 ocupada com saída 1 esperada e nenhum banco criado; lint; TypeScript; 13 testes unitários. Evidências em artifacts/validation/block-12/. O wrapper utiliza os scripts de migração/seed existentes e inicia o dev existente. Não houve nova inspeção browser nem reexecução de build/integração neste bloco; evidências anteriores são preservadas. Nenhuma tentativa adicional de Chromium/PostGIS. Etapa demonstrativa concluída, homologação integral não executada.

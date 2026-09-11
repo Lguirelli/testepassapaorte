@@ -1,16 +1,14 @@
-# PACKAGE_MANIFEST
+# Conteúdo do pacote
 
-Entrega: **Passaporte Serra Negra + landing de parceiros + páginas internas de pontos turísticos pesquisados**.
-
-- Entrada principal: `index.html`
-- Nova camada de dados: `tourism-data.js`
-- Estilos das páginas: `tourism-pages.css`
-- Rotas pesquisadas: 12
-- Entradas físicas em `/lugares/`: 13 (`index` + 12 atrativos)
-- Fotografias temporárias: Wikimedia Commons/Pexels com origem e licença registradas no dataset
-- Fallbacks: fotografias reais locais em `assets/stock/`
-- Parceiros e roteiro demo permanecem funcionais e separados da pesquisa de atrativos
-- Pesquisa: `TOURISM_RESEARCH.md`
-- Validação: `TOURISM_VALIDATION.md`
-
-Não incluir `node_modules`, `.next`, caches ou segredos no ZIP final.
+- `WORK_COMMAND.md`: comando mestre para execução no Work.
+- `references/Passaporte_Serra_Negra_Documentacao_Mestra_v4_2026-09-09.md`: fonte de verdade de produto.
+- `references/icon-system-v2/`: Icon System v2 completo.
+- `docs/VALIDATION_SCOPE.md`: escopo do vertical slice.
+- `docs/ADMIN_VALIDATION_RULES.md`: regra Admin sem banco/código.
+- `docs/NO_BRAND_DECISIONS.md`: bloqueio de decisões prematuras de fonte/cor/identidade.
+- `docs/REPO_BLUEPRINT.md`: organização técnica recomendada.
+- `docs/MISSING_REFERENCE_ASSETS.md`: lista do que deve permanecer placeholder.
+- `seed/validation-content.json`: lugares, parceiros, experiências e eventos fictícios.
+- `seed/validation-trip.json`: viagem, visitas e clima fictícios.
+- `acceptance/PLAYWRIGHT_MATRIX.md`: testes e screenshots obrigatórios.
+- `acceptance/DEFINITION_OF_DONE.md`: critérios de conclusão.

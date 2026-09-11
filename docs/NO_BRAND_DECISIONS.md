@@ -1,7 +1,5 @@
 # Restrições visuais desta etapa
 
-> **Atualização:** a restrição sobre paleta/cor primária foi substituída pela decisão registrada em `docs/visual/PALETA_OFICIAL.md`. As demais restrições deste documento continuam válidas.
-
 Esta build é para validar produto e sistema, não identidade visual final.
 
 ## Não definir

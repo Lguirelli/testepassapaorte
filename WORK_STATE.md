@@ -1,73 +1,38 @@
-# ESTADO ATUAL — MIGRAÇÃO DINÂMICA
-
-Atualizado em 2026-09-11. A arquitetura foi consolidada: **Next.js em `src/` é agora o único runtime**. A antiga SPA estática da raiz, seus CSS/JS, redirects HTML e o deploy GitHub Pages foram removidos. Rotas oficiais estão em `src/core/routing/routes.ts`; classificação de páginas em `src/core/routing/page-kind.ts`; detalhes em `docs/DYNAMIC_ARCHITECTURE.md`.
-
-As seções abaixo permanecem apenas como histórico dos checkpoints anteriores e não devem ser interpretadas como arquitetura vigente.
-
----
-
-# Checkpoint atual: Bloco 08 PARCIAL
-
-Baseline local concluída; Validation V1 NÃO fechada. Próxima ação: continuar Bloco 08. Blocos 09–12 não iniciados. Nenhuma mudança de produto, seed ou lockfile nesta sessão.
-
-## Evidência desta execução
-Lint, typecheck, 13 unitários, persistência PGlite, build e migração/seed PASS. Smoke HTTP: nove rotas 200. Playwright: 51 tentativas, 51 falhas de inicialização, zero corpos executados. Chromium indisponível; download com timeout. Docker/PostgreSQL/PostGIS ausentes; apt-get falhou por permissões. Sem nova inspeção visual ou Axe. G0 PASS; G1–G8 PARCIAL.
-
-## Continuação exata
-Executar PostGIS real e Chromium, ampliar/executar CRUD/status das seis entidades e demais fluxos requeridos, corrigir apenas defeitos comprovados, inspecionar screenshots/acessibilidade e reempacotar Bloco 08 antes do checkpoint visual. Consultar docs/validation/BLOCK-08.md e artifacts/block_08/.
-
-## Artefatos
-Entregas desta sessão: deliveries/block_08.zip e deliveries/LATEST.zip. SHA-256 de ambos no DELIVERY_RECEIPT.json externo e na cópia externa deste WORK_STATE.md, gerados após fechar os ZIPs para evitar hash circular. ZIP íntegro não significa gate aprovado. Base recebida sem Git; SHA-256: f758bed53abb8d8ac0664f52efa156d0f4f2618d25281d8fb5a5032ade2f25e7.
-
-## Histórico preservado do Bloco 07
-
 # WORK_STATE
 
-Atualizado: 2026-09-10. Bloco atual: 07, regressão e entrega consolidadas. Bloco 06 entregue com ZIP validado. Blocos 00–05 concluídos como checkpoints, com gates técnicos parciais documentados; não reiniciar.
+Atualizado: 2026-09-11. Bloco atual: 12, etapa demonstrativa ENCERRADA conforme escopo ajustado pelo usuário. Blocos 00–12 concluídos como entregas; resultados BLOCKED históricos preservados. Não reiniciar o projeto.
 
-## Decisões permanentes
-Next.js App Router, React, TypeScript strict, Drizzle/PostgreSQL/PostGIS; monólito modular. Dados fictícios, sem branding final. Icon System v2 fornecido. Providers mock substituíveis; sem autenticação real, QR, reservas, pagamentos, motor oficial de carimbos ou mapa territorial. PGlite é fallback explícito sem PostGIS. Preservar os arquivos de referência em reference/ e documentação existente.
+## Objetivo e decisões permanentes
+Repositório de validação do Passaporte Serra Negra, não MVP final. Next.js App Router, React, TypeScript strict, monólito modular, Drizzle, PostgreSQL/PostGIS e Docker Compose. Dados sintéticos do kit; ícones do Icon System v2; fontes, cores e capa neutras temporárias. Providers mock explícitos. Motor oficial de carimbos, mapa territorial, fotografias e RV-XX permanecem placeholders conforme comando. Não importar branding ou mudanças de outras conversas.
 
-## Estado técnico e validações
-Home, Explorar, lugares/parceiros, Admin operacional, onboarding, roteiro determinístico, calendário e Passaporte implementados. Lint, typecheck e 13 testes unitários passaram. Fluxos cloud de Admin (draft/preview/publicação/audit), roteiro (geração/movimento/fixado), calendário e Passaporte verificados em 1363×936. CI e testes E2E de três viewports preparados, não executados. PostGIS ainda pendente. Build completo final PASS. Persistência isolada PASS: 30 conteúdos, 1 viagem, idempotência e edição preservada. 51 casos E2E enumerados; smoke falhou antes do corpo por Chromium ausente. Logs em artifacts/validation/.
+## Estado técnico
+Home, Explorar, lugares/parceiros, Admin de seis tipos, onboarding, roteiro editável, calendário e Passaporte implementados. Admin separa rascunho/publicação, mantém auditoria e comparação de versão. Arquivo só volta ao público por publicação explícita. Categorias desativadas e relações indisponíveis são filtradas no público. Livro separa presença de planejamento. Compatibilidade pontual do ícone legado passaporte-descobertas para perfil-relaxar.
+
+## Validações concluídas
+Lint e TypeScript PASS; 13 testes unitários PASS; 11 cenários de integração Admin PASS; migração/seed idempotente com 30 conteúdos e 1 viagem PASS em PGlite isolado; build completo PASS. Navegador cloud em 1363×936 usado para fluxos dirigidos, com 10 screenshots acumuladas. Bloco 09 confirmou oito verificações de categoria/arquivo/republicação. Pacotes conferidos por CRC, lista exata e SHA-256.
+
+## Gates originais e dispensa para esta etapa
+G0 PASS. G1–G8 PARCIAIS. Chromium standalone e Docker/PostGIS indisponíveis nesta execução; 57 casos E2E preparados, não aprovados. Sem execução Axe ou prova em três viewports; sem execução remota do CI. Preflight final retornou BLOCKED corretamente. Não declarar aceitação integral ou produção pronta. Extração i18n e modelo relacional definitivo permanecem pendências registradas.
 
 ## Arquivos principais
-README.md; package.json/package-lock.json; src/app/; src/modules/; src/core/db/; drizzle/; seed/; public/; docs/decisions/; docs/validation/; tests/; artifacts/playwright/; scripts/deliver-block.py. Entregas antigas passaporte-bloco-00.zip a passaporte-bloco-05.zip preservadas. Nova regra: deliveries/block_XX, ZIP delta, LATEST completo, relatórios e manifests.
+README.md; VALIDATION_REPORT.md; DELIVERY_INDEX.md; docs/FINAL_ACCEPTANCE.md; docs/VALIDATION_ARCHITECTURE.md; docs/decisions/; docs/validation/BLOCK-*.md; src/; drizzle/; seed/; public/; tests/; scripts/validate-all.mjs; scripts/verify-admin.ts; scripts/verify-persistence.ts; scripts/deliver-block.py; artifacts/playwright/; artifacts/validation/.
 
-## Dependências e comandos
-Node 24, npm, Docker Compose para PostGIS. `npm ci`; copiar `.env.example` para `.env.local`; `docker compose up -d`; `npm run db:migrate`; `npm run db:seed`; `npm run dev`. Sem Docker: definir DB_MODE=pglite, ALLOW_DEMO=true, executar migrate e seed com servidor parado. Não abrir o mesmo banco PGlite em dois processos. `npm run lint`; `npm run typecheck`; `npm test`; `ALLOW_DEMO=true npm run build`; `npx playwright install chromium`; `npm run test:e2e`.
+## Dependências e execução
+Node 24 recomendado; dependências fixadas no package-lock.json. `npm ci`; copiar `.env.example` para `.env.local`; `docker compose up -d`; `npm run db:migrate`; `npm run db:seed`; `npm run dev`. Sem Docker, fallback DB_MODE=pglite e ALLOW_DEMO=true conforme README, sem PostGIS. Nunca abrir o mesmo PGlite por dois processos.
 
-## Continuidade dos dados
-Snapshot distribui seed sintético reproduzível, não o diretório binário do banco. Edições cloud são evidências nos relatórios/screenshots, não conteúdo canônico do seed. Checkouts novos iniciam nos fixtures originais. Não alegar reprodução idêntica de dados transitórios.
+Com banco de teste e Chromium disponíveis, definir VALIDATION_DATABASE_URL conforme docs/FINAL_ACCEPTANCE.md e executar `npm run validate:preflight`, depois `npm run validate:full`. Resultados em artifacts/validation/acceptance-current. Fechar servidor existente na porta 4173 antes da suíte. CI permite acionamento manual, mas requer repositório GitHub autorizado.
 
-## Problemas abertos
-PostGIS/Docker e Chromium standalone indisponíveis na execução anterior. G1–G7 parciais. i18n parcialmente extraído; esquema v0 JSONB com relações na aplicação; CRUD completo das seis entidades e matriz responsiva ainda exigem regressão E2E. Não conectar APIs reais nem publicar sem escopo explícito.
+## Dados e entregas
+LATEST.zip contém todo o projeto reproduzível a partir do seed, sem banco binário, caches, node_modules, builds ou segredos. block_XX.zip contém delta e evidências do bloco, respeitando caminhos relativos. Arquivos antigos preservados. Categoria Bem-estar e parceiro Café terminaram públicos após QA; fixtures originais não foram modificados. Não confundir memória de QA com estado inicial de uma extração limpa.
 
-## Próximo bloco recomendado
-08: executar regressão completa com Chromium e PostGIS; completar CRUD/arquivo/relações e três viewports, corrigir defeitos e atualizar gates. Relatório final em VALIDATION_REPORT.md. Não reiniciar o projeto. Conferir ZIP atual antes de avançar. Pacotes devem ter CRC válido e SHA-256 de todos os arquivos, sem caches/segredos/dependências reinstaláveis.
+## Próximo passo
+Apresentar a demonstração conforme docs/DEMO_PRESENTATION.md e registrar feedback priorizado. O usuário dispensou explicitamente Chromium e PostGIS para encerrar esta etapa: ADR-005. Não há novo módulo de produto autorizado pendente. Não repetir tentativas de infraestrutura como condição de encerramento. A aceitação integral original permanece futura e não executada; nenhuma classificação foi promovida artificialmente.
 
-## Entrega atual
-block_07.zip contém apenas arquivos relacionados à regressão; LATEST.zip contém fontes completas. O bloco 06 permanece em block_06.zip. Relatórios específicos em docs/validation/ e em cada pasta de entrega. Gates G1–G8 ainda parciais, sem promoção a produção.
+## Execução recomendada agora
+Node 24, `npm ci`, `npm run demo`. Sem Docker, Chromium ou credenciais. O script prepara e inicia PGlite separado em .data/demo-presentation, preservando o banco anterior. `npm run demo:prepare` prepara apenas. DEMO_DATA_PATH permite outro diretório demo. Pare o servidor antes de preparar e nunca compartilhe um diretório PGlite entre processos.
 
+## Bloco 11
+Guia reenviado executado com VALIDATION_DATABASE_URL local demo. Preflight e full retornaram BLOCKED; full não chegou às etapas de aplicação. Docker ausente, PostGIS não conectado, Chromium não disponível no preflight. Tentativa limitada de instalação documentada em artifacts/validation/block-11/. Nenhum código de produto alterado. Pacotes atuais: block_11.zip e LATEST.zip.
 
-## GitHub Pages na raiz
-
-A demonstração funcional foi movida de `demo/` para a raiz do repositório. `index.html`, `app.js`, `data.js`, `styles.css`, `404.html`, `.nojekyll` e `assets/` passam a ser a entrada de publicação. Esta é uma alteração de empacotamento/apresentação e não muda o estado PARCIAL do Bloco 08.
-
-## Checkpoint de apresentação visual v2
-
-Aplicada uma camada visual e modular sobre a demonstração GitHub Pages, sem alterar seed, banco ou contratos de produção. Home e página pública de parceiro foram reconstruídas segundo o Guia de Construção Visual v2. A Home usa um `sectionRegistry` local para 12 seções configuradas. Foi adicionada a rota `#/para-parceiros` e o Public Shell passou a expor a navegação prevista no guia.
-
-A superfície Pages continua na raiz (`index.html`, `app.js`, `data.js`, `styles.css`, `visual-v2.css`, `assets/`). As referências visuais não são exibidas como conteúdo final. A ausência de fotografia final, galeria de parceiro e FAQ estruturado continua sendo tratada sem inventar dados.
-
-Validação desta camada: `node --check` PASS; smoke estático de 8 rotas PASS; ícones referenciados 0 ausentes. Browser smoke autocontido PASS para Home e Parceiro em desktop 1440×1100 e mobile 390×844, com interações e ausência de overflow horizontal verificadas. Capturas estão em `artifacts/visual-v2/`. Os gates G1–G8 do Bloco 08 permanecem PARCIAIS porque essa validação não substitui a suíte E2E/PostGIS original.
-
-
-## Correção de paleta — 2026-09-10
-
-A camada Visual v2 foi corrigida para usar a paleta principal oficial em grandes superfícies, header, fundos, textos, bordas e CTA. O verde deixou de ser tratado como identidade global. A paleta complementar permanece disponível apenas em usos contextuais por nicho, como categorias, mídia ilustrativa, chips, pinos, carimbos e pequenos destaques. Light/Dark/System foram alinhados aos tokens fornecidos pelo usuário.
-
-
-## Logo oficial + regras de construção (2026-09-10)
-
-O SVG `Ativo 2logo passaporte.svg` foi incorporado sem alteração de conteúdo e usado na marca do Header/Footer e favicon. Foram aplicadas à demo estática as regras compatíveis de transparência, privacidade, cookies, acessibilidade, 404, títulos/meta descriptions, breadcrumbs e robots. RBAC/Clerk permanece requisito de produção e não é falsamente simulado no GitHub Pages.
+## Bloco 12
+Comandos demo e demo:prepare adicionados; guia de apresentação e ADR-005 entregues. Preparo em banco temporário executado duas vezes PASS; recusa de porta ocupada sem criar banco PASS; lint, TypeScript e 13 unitários PASS. Código de UI e arquitetura preservados; build e integração seguem evidências aprovadas anteriores, sem reexecução neste bloco. Inicialização completa pelo novo wrapper não foi reinspecionada no navegador. Chromium/PostGIS dispensados para encerramento desta etapa, sem PASS de homologação. Pacotes: block_12.zip e LATEST.zip.
