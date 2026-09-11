@@ -642,7 +642,17 @@
   }
 
   let routeTransitionSequence=0;
+  let previousRouteHash=location.hash||'#/';
+  let pendingRouteDirection=null;
   const reducedMotion=()=>window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const routeParts=(hash)=>String(hash||'#/').replace(/^#/,'').split('?')[0].split('/').filter(Boolean);
+  function inferRouteDirection(fromHash,toHash){
+    const from=routeParts(fromHash), to=routeParts(toHash);
+    if(to.length<from.length) return -1;
+    if(to.length>from.length) return 1;
+    if((to[0]||'')==='' && (from[0]||'')!=='') return -1;
+    return 1;
+  }
   function closeMobileNavigation(){
     const nav=$('#main-nav');
     nav?.classList.remove('open');
@@ -651,40 +661,65 @@
     menu?.setAttribute('aria-expanded','false');
     if(menu) menu.innerHTML=`${icon('nav.menu','',{size:20})}<span>Menu</span>`;
   }
-  async function renderWithRouteTransition(){
+  function renderWithRouteTransition(direction=1){
     closeMobileNavigation();
     const sequence=++routeTransitionSequence;
-    if(reducedMotion() || typeof app.animate!=='function'){ render(); return; }
+    const root=document.documentElement;
+    const dir=direction<0?'back':'forward';
+    root.dataset.routeSlide=dir;
 
+    if(reducedMotion()){
+      render();
+      delete root.dataset.routeSlide;
+      return;
+    }
+
+    /* View Transitions captures the whole viewport, so header, content and
+       footer move as one opaque screen instead of fading independently. */
+    if(typeof document.startViewTransition==='function'){
+      const transition=document.startViewTransition(()=>{
+        if(sequence===routeTransitionSequence) render();
+      });
+      transition.finished.finally(()=>{
+        if(sequence===routeTransitionSequence) delete root.dataset.routeSlide;
+      });
+      return;
+    }
+
+    /* Fallback for browsers without View Transitions: horizontal movement
+       only, with no opacity animation. */
+    if(typeof app.animate!=='function'){
+      render();
+      delete root.dataset.routeSlide;
+      return;
+    }
     app.classList.add('is-route-transitioning');
+    const sign=direction<0?-1:1;
     for(const animation of app.getAnimations()) animation.cancel();
-
-    try{
-      await app.animate(
-        [
-          {opacity:1,transform:'translateY(0) scale(1)'},
-          {opacity:0,transform:'translateY(8px) scale(.997)'}
-        ],
-        {duration:150,easing:'ease-in-out',fill:'forwards'}
-      ).finished;
-    }catch{}
-
-    if(sequence!==routeTransitionSequence) return;
-    render();
-    for(const animation of app.getAnimations()) animation.cancel();
-
-    try{
-      await app.animate(
-        [
-          {opacity:0,transform:'translateY(-8px) scale(.997)'},
-          {opacity:1,transform:'translateY(0) scale(1)'}
-        ],
-        {duration:230,easing:'ease-in-out',fill:'both'}
-      ).finished;
-    }catch{}
-
-    if(sequence===routeTransitionSequence) app.classList.remove('is-route-transitioning');
+    app.animate(
+      [{transform:'translateX(0)'},{transform:`translateX(${-sign*100}vw)`}],
+      {duration:260,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'}
+    ).finished.catch(()=>{}).then(()=>{
+      if(sequence!==routeTransitionSequence) return;
+      render();
+      for(const animation of app.getAnimations()) animation.cancel();
+      return app.animate(
+        [{transform:`translateX(${sign*100}vw)`},{transform:'translateX(0)'}],
+        {duration:320,easing:'cubic-bezier(.4,0,.2,1)',fill:'both'}
+      ).finished.catch(()=>{});
+    }).finally(()=>{
+      if(sequence===routeTransitionSequence){
+        app.classList.remove('is-route-transitioning');
+        delete root.dataset.routeSlide;
+      }
+    });
   }
+
+  document.addEventListener('click',e=>{
+    const link=e.target.closest?.('a[href^="#/"]');
+    if(!link) return;
+    pendingRouteDirection=inferRouteDirection(previousRouteHash,link.getAttribute('href'));
+  },{capture:true});
 
 
   document.addEventListener('click',e=>{
@@ -765,7 +800,7 @@
     tabs[i].focus(); tabs[i].click();
   });
 
-  window.addEventListener('hashchange',()=>{void renderWithRouteTransition()});
+  window.addEventListener('hashchange',()=>{const next=location.hash||'#/';const direction=pendingRouteDirection??inferRouteDirection(previousRouteHash,next);pendingRouteDirection=null;previousRouteHash=next;renderWithRouteTransition(direction);});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){const nav=$('#main-nav');if(nav?.classList.contains('open')){nav.classList.remove('open');document.body.classList.remove('menu-open');const menu=$('.mobile-menu');menu?.setAttribute('aria-expanded','false');if(menu)menu.innerHTML=`${icon('nav.menu','',{size:20})}<span>Menu</span>`;menu?.focus();}}});
   const themeSelect=$('#theme-select');
   const themeMeta=document.querySelector('meta[name="theme-color"]');
