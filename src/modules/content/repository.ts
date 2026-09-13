@@ -4,6 +4,7 @@ import {sanitizeId,sanitizeSearchQuery,sanitizeText} from '@/core/security/sanit
 import {
   editorialDrafts,events,experiences,partners,placeCategories,placeCategoryLinks,placeMedia,places,placeSources,sources,type ContentData,
 } from '@/core/db/schema';
+import real from '../../../seed/tourism-real.json';
 
 export const kinds=['places','partners','experiences','events','categories','sources'] as const;
 export type Kind=typeof kinds[number];
@@ -34,6 +35,37 @@ async function relationalDataset(providedDatabase?:Database){
 }
 export type Dataset=Awaited<ReturnType<typeof relationalDataset>>;
 
+/**
+ * Canonical, researched public content bundled with the application.
+ * This is deliberately read-only and contains no partner/demo relationship data.
+ * It keeps discovery usable during a database outage while authenticated and
+ * write flows remain database-strict.
+ */
+export function canonicalPublicDataset():Dataset{
+ const categories:ContentData[]=real.categories.map(category=>({...category,status:'published',synthetic:false} as ContentData));
+ const sourceData:ContentData[]=real.sources.map(source=>({
+  id:source.id,
+  name:source.name,
+  sourceName:source.name,
+  sourceType:source.sourceType,
+  sourceUrl:source.url,
+  verificationStatus:source.verificationStatus,
+  verifiedAt:source.verifiedAt,
+  status:'published',
+  synthetic:false,
+ }));
+ const placeData:ContentData[]=real.places.map(raw=>{
+  const {research:_research,...place}=raw;
+  return {...place,cityId:real.city.id,status:'published',synthetic:false,discoveryVisible:place.discoveryVisible!==false} as ContentData;
+ });
+ return visibleDataset({places:placeData,partners:[],experiences:[],events:[],categories,sources:sourceData});
+}
+
+function reportPublicFallback(reason:'database_unavailable'|'database_empty'){
+ // Keep operational detail in server logs without serializing errors, secrets or connection strings.
+ console.warn(`[public-content] ${reason}; serving bundled canonical content.`);
+}
+
 // Admin preview overlays staging drafts over canonical relational entities.
 export async function editorialDataset(){
  const data=await relationalDataset();const database=await db();const drafts=await database.select().from(editorialDrafts).where(ne(editorialDrafts.status,'archived'));
@@ -50,7 +82,16 @@ export function visibleDataset(data:Dataset):Dataset{
  const clean=(items:ContentData[])=>items.map(item=>({...item,categoryIds:item.categoryIds?.filter(id=>categoryIds.has(id))}));
  return {...data,categories,places:clean(places),partners:data.partners.filter(p=>placeIds.has(p.placeId||'')&&places.some(place=>place.id===p.placeId&&place.commercialRelation==='partner')),experiences:clean(data.experiences.filter(e=>!e.placeId||placeIds.has(e.placeId))),events:clean(data.events.filter(e=>!e.placeId||placeIds.has(e.placeId)))};
 }
-export async function publicDataset(){return visibleDataset(await relationalDataset());}
+export async function publicDataset(){
+ try{
+  const data=visibleDataset(await relationalDataset());
+  if(data.places.length>0)return data;
+  reportPublicFallback('database_empty');
+ }catch{
+  reportPublicFallback('database_unavailable');
+ }
+ return canonicalPublicDataset();
+}
 export async function publicContent(kind:Kind):Promise<ContentData[]>{return(await publicDataset())[kind];}
 export {placeUrl} from './urls';
 export function normalize(value:string){return value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR');}
