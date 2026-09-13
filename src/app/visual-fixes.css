@@ -69,6 +69,18 @@ main{padding-top:calc(var(--header-height) + env(safe-area-inset-top) + 1.7rem)}
 .route-state h1{max-width:15ch}.route-state .actions{margin-top:.8rem}
 @keyframes route-skeleton{0%{background-position:100% 0}100%{background-position:-120% 0}}
 
+/* The route-type panels previously inherited secondary text colors that fall below AA
+   on the raised dark surface. Keep the whole panel readable during and after theme changes. */
+html[data-theme="dark"] [data-testid="home-route-slider"] [class*="slideCopy"]>:is(.eyebrow,p,h3,a),
+html[data-theme="dark"] [data-testid="home-route-slider"] [class*="slideMeta"]>:is(strong,span){color:#ecebe6}
+html[data-theme="dark"] [data-testid="home-route-slider"] [class*="slideCopy"]>.eyebrow{color:#d8e2e6}
+
+@media(prefers-color-scheme:dark){
+  html[data-theme="system"] [data-testid="home-route-slider"] [class*="slideCopy"]>:is(.eyebrow,p,h3,a),
+  html[data-theme="system"] [data-testid="home-route-slider"] [class*="slideMeta"]>:is(strong,span){color:#ecebe6}
+  html[data-theme="system"] [data-testid="home-route-slider"] [class*="slideCopy"]>.eyebrow{color:#d8e2e6}
+}
+
 @media(max-width:720px){
   .route-loading-grid{grid-template-columns:1fr}
   .route-loading-grid>span:nth-child(n+2){display:none}
