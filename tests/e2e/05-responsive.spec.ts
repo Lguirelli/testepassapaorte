@@ -23,6 +23,23 @@ for(const width of widths)test(`continuous resize preserves usable public layout
     }
 });
 
+test('place card media uses one bounded viewport independent of source image ratio',async({page},info)=>{
+  test.skip(info.project.name!=='desktop','cenário dedicado roda uma vez');
+  for(const viewport of [{width:1371,height:900},{width:713,height:820},{width:347,height:760}]){
+    await page.setViewportSize(viewport);
+    await page.goto('/');
+    const media=page.locator('[data-card-media="true"]:visible');
+    await expect(media.first()).toBeVisible();
+    const heights=await media.evaluateAll(nodes=>nodes.slice(0,8).map(node=>(node as HTMLElement).getBoundingClientRect().height));
+    expect(heights.length).toBeGreaterThan(0);
+    for(const height of heights){
+      expect(height).toBeGreaterThanOrEqual(189);
+      expect(height).toBeLessThanOrEqual(221);
+    }
+    expect(Math.max(...heights)-Math.min(...heights)).toBeLessThanOrEqual(1);
+  }
+});
+
 test('low height and mobile landscape preserve navigation and primary content',async({page},info)=>{
   test.skip(info.project.name!=='desktop','cenário dedicado roda uma vez');
   for(const viewport of [{width:844,height:390},{width:667,height:375},{width:1024,height:480}]){
