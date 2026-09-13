@@ -17,9 +17,15 @@ export function PlaceCard({place}:{place:ContentData}){
   return <article className="card" data-testid={`place-card-${place.id}`}>
     <img
       className="placeholder"
+      data-card-media="true"
       src={image}
       alt={alt}
-      style={{objectPosition:safeObjectPosition(asset?.position)}}
+      style={{
+        objectPosition:safeObjectPosition(asset?.position),
+        width:'100%',
+        height:'clamp(190px, 22vw, 220px)',
+        objectFit:'cover',
+      }}
       loading="lazy"
       decoding="async"
       draggable={false}
