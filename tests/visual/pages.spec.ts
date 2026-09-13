@@ -130,3 +130,49 @@ test('desktop Dock labels remain on one line',async({page})=>{
  }));
  for(const label of labels)expect(label.lines,`Dock label wraps: ${label.text}`).toBe(1);
 });
+
+test('lime marks selected/current state while hover stays dark green',async({page})=>{
+ await page.setViewportSize({width:1371,height:936});
+ await page.goto('/');
+ const palette=await page.evaluate(()=>{
+  const style=getComputedStyle(document.documentElement);
+  return {
+   lime:style.getPropertyValue('--lime').trim().toUpperCase(),
+   darkGreen:style.getPropertyValue('--dark-green').trim().toUpperCase(),
+   greenBlack:style.getPropertyValue('--green-black').trim().toUpperCase(),
+  };
+ });
+ expect(palette).toEqual({lime:'#D8E600',darkGreen:'#003328',greenBlack:'#001F18'});
+
+ const current=page.locator('.main-nav a[aria-current="page"]').first();
+ await expect(current).toBeVisible();
+ const currentBefore=await current.evaluate(node=>({background:getComputedStyle(node).backgroundColor,shadow:getComputedStyle(node).boxShadow}));
+ expect(currentBefore.shadow).toContain('216, 230, 0');
+ await current.hover();
+ const currentAfter=await current.evaluate(node=>({background:getComputedStyle(node).backgroundColor,shadow:getComputedStyle(node).boxShadow}));
+ expect(currentAfter).toEqual(currentBefore);
+
+ const neutralNav=page.locator('.main-nav a:not(.button):not([aria-current="page"])').first();
+ await neutralNav.hover();
+ const neutralNavStyle=await neutralNav.evaluate(node=>({background:getComputedStyle(node).backgroundColor,shadow:getComputedStyle(node).boxShadow}));
+ expect(neutralNavStyle.background).not.toBe('rgb(216, 230, 0)');
+ expect(neutralNavStyle.shadow).not.toContain('216, 230, 0');
+
+ const selectedTab=page.getByRole('tab',{name:'Primeira visita',exact:true});
+ await expect(selectedTab).toHaveAttribute('aria-selected','true');
+ const selectedStyle=await selectedTab.evaluate(node=>({background:getComputedStyle(node).backgroundColor,color:getComputedStyle(node).color}));
+ expect(selectedStyle.background).toBe('rgb(216, 230, 0)');
+ expect(selectedStyle.color).toBe('rgb(0, 31, 24)');
+ await selectedTab.hover();
+ expect(await selectedTab.evaluate(node=>getComputedStyle(node).backgroundColor)).toBe('rgb(216, 230, 0)');
+
+ const neutralTab=page.getByRole('tab',{name:'Natureza',exact:true});
+ await neutralTab.hover();
+ expect(await neutralTab.evaluate(node=>getComputedStyle(node).backgroundColor)).not.toBe('rgb(216, 230, 0)');
+
+ await page.getByRole('combobox',{name:'Aparência',exact:true}).selectOption('dark');
+ await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
+ expect(await selectedTab.evaluate(node=>({background:getComputedStyle(node).backgroundColor,color:getComputedStyle(node).color}))).toEqual({background:'rgb(216, 230, 0)',color:'rgb(0, 31, 24)'});
+ expect(await seriousA11yViolations(page)).toEqual([]);
+ await page.screenshot({path:test.info().outputPath('palette-selected-and-hover.png'),fullPage:true});
+});
