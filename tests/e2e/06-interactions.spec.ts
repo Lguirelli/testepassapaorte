@@ -64,6 +64,7 @@ test('Circular Gallery funciona por teclado, wheel e ação lateral',async({page
 
   const side=page.locator('[data-offset="1"] [data-testid^="home-gallery-center-"]').first();
   await expect(side).toBeVisible();
+  await side.scrollIntoViewIfNeeded();
   const before=await activeGalleryDot(page);
   const box=await side.boundingBox();
   expect(box).not.toBeNull();
