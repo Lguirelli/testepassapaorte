@@ -14,6 +14,7 @@
 - [OK] Admin/Intelligence
 - [OK] privacidade, consentimento, sanitização e retenção
 - [OK] sistema responsivo contínuo, container-aware, safe areas e QA estático de reflow
+- [OK] sistema global de UX/UI aplicado ao runtime Next e à prévia GitHub Pages, com auditoria automatizada de 38 invariantes
 - [OK] documentação e QA estático
 - [BLOQUEADO] instalação de dependências, build, lint/typecheck completo e E2E/Axe no ambiente de geração por indisponibilidade do registry npm
 

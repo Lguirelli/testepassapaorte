@@ -48,3 +48,18 @@ A revisão responsiva está concluída no nível de implementação e QA estáti
 - varredura por caminhos internos/IDs/segredos na prévia: PASS
 - `npm run validate:static`: PASS
 - GitHub Pages real: depende de push e configuração **Settings → Pages → Source: GitHub Actions**, não executável localmente nesta sessão.
+
+## Aplicação do sistema global de UX/UI
+
+- `node scripts/audit-uxui.mjs` — **PASS, 38 verificações**.
+- `npm run validate:static` — **PASS** após integrar `audit:uxui` ao gate estático.
+- `node scripts/audit-responsive.mjs` — **PASS** após as correções UX/UI.
+- `node scripts/audit-sanitization.mjs` — **PASS** após as correções UX/UI.
+- `node scripts/scan-sensitive.mjs` — **PASS, 0 achados** após as correções UX/UI.
+- `node --check github-pages/*.js` — **PASS**.
+- smoke HTTP local da prévia — **PASS** para `/`, `uxui-system.css` e SVG de iconografia.
+- referências locais HTML/CSS da prévia — **PASS, 0 assets ausentes**.
+
+A auditoria cobre estruturalmente targets, foco, teclado, touch/coarse pointer, ausência de dependência funcional de hover nos cards principais, reduced motion, contraste aumentado, forced colors, safe areas, reflow, SVGs e integração do sistema UX/UI no runtime Next e na prévia do GitHub Pages.
+
+A validação visual automatizada em browser real/Axe continua **não declarada como aprovada**, pois a instalação npm/Chromium necessária segue indisponível no ambiente de geração. Uma tentativa de browser local não foi usada como evidência de aprovação.

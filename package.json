@@ -18,12 +18,13 @@
     "local": "node scripts/local.mjs",
     "local:prepare": "node scripts/local.mjs --prepare-only",
     "validate": "node scripts/validate-all.mjs",
-    "validate:static": "node scripts/validate-static.mjs && node scripts/scan-sensitive.mjs && node scripts/audit-sanitization.mjs && node scripts/audit-responsive.mjs",
+    "validate:static": "node scripts/validate-static.mjs && node scripts/scan-sensitive.mjs && node scripts/audit-sanitization.mjs && node scripts/audit-responsive.mjs && node scripts/audit-uxui.mjs",
     "security:scan": "node scripts/scan-sensitive.mjs",
     "privacy:cleanup": "node --import tsx scripts/privacy-maintenance.ts",
     "audit:sanitize": "node scripts/audit-sanitization.mjs",
     "db:sanitize": "node --import tsx scripts/sanitize-existing-data.ts",
-    "audit:responsive": "node scripts/audit-responsive.mjs"
+    "audit:responsive": "node scripts/audit-responsive.mjs",
+    "audit:uxui": "node scripts/audit-uxui.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "0.5.8",

@@ -58,7 +58,7 @@ export function MainNavigation({initialTheme}:{initialTheme:'system'|'light'|'da
 
   return <>
     <button ref={triggerRef} className="mobile-menu-trigger" type="button" aria-label={open?'Fechar menu':'Abrir menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={()=>setOpen(v=>!v)}><Icon name={open?'fechar':'menu'}/></button>
-    <nav ref={navRef} aria-label="Navegação principal" className="main-nav dock-nav" onPointerMove={e=>setPointerX(e.clientX)} onPointerLeave={()=>setPointerX(null)}>
+    <nav ref={navRef} aria-label="Navegação principal" className="main-nav dock-nav" onPointerMove={e=>{if(e.pointerType!=='touch'&&window.matchMedia('(hover:hover) and (pointer:fine)').matches)setPointerX(e.clientX)}} onPointerLeave={()=>setPointerX(null)}>
       {MAIN_NAV.map(item=><Link key={item.key} href={item.href} aria-current={active===item.key?'page':undefined} ref={node=>{if(node)node.style.setProperty('--dock-scale',String(dockScale(node)))}}>{item.label}</Link>)}
       <Link className="button header-cta" href={ROUTES.tripBuilder}>Montar meu roteiro</Link>
     </nav>

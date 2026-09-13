@@ -27,6 +27,18 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Audit UX/UI, responsiveness and information hygiene
+        run: |
+          node scripts/audit-uxui.mjs
+          node scripts/audit-responsive.mjs
+          node scripts/audit-sanitization.mjs
+          node scripts/scan-sensitive.mjs
+
       - name: Upload static preview
         uses: actions/upload-pages-artifact@v4
         with:

@@ -1,9 +1,12 @@
 {
-  "artifact": "PASSAPORTE_SERRA_NEGRA_GITHUB_READY.zip",
-  "generated_at": "2026-09-13T00:19:14.216384+00:00",
-  "status": "GITHUB_PAGES_PREVIEW_READY_FULL_NEXT_RUNTIME_PRESERVED",
+  "artifact": "PASSAPORTE_SERRA_NEGRA_GITHUB_READY_UXUI.zip",
+  "generated_at": "2026-09-13T00:37:23.535113+00:00",
+  "status": "GITHUB_PAGES_UXUI_APPLIED_FULL_NEXT_RUNTIME_PRESERVED",
   "github_pages_preview": true,
   "full_next_runtime": true,
+  "uxui_audit": "PASS_38_CHECKS",
+  "responsive_audit": "PASS",
+  "sanitization_audit": "PASS",
   "files": [
     {
       "path": ".env.example",
@@ -17,8 +20,8 @@
     },
     {
       "path": ".github/workflows/deploy-pages.yml",
-      "size": 722,
-      "sha256": "a506179ccacd5d4425df3fd186d172b50faf3d74ce23a05abf1604586ef8ee6a"
+      "size": 1077,
+      "sha256": "d2a1ecd45583d7b58cce50b2d63f5b2b4c0edf4fece079e96f103cc9c4abf831"
     },
     {
       "path": ".gitignore",
@@ -37,28 +40,28 @@
     },
     {
       "path": "BLOCK_STATUS.md",
-      "size": 779,
-      "sha256": "228f09f36f21659a86aa27d5130e67d6ceb6165b65fcc3cae8dbb43c44476f97"
+      "size": 907,
+      "sha256": "401c97c7c34e9eb72db706fcfa7a0e86dac2ef87feac04ff6661f10f46260ab2"
     },
     {
       "path": "CHANGELOG.md",
-      "size": 4209,
-      "sha256": "dc1695d03b8e5bface16e9a599f6d0b6ac8a9034dd019736547756d1a7764fab"
+      "size": 5851,
+      "sha256": "795e00e729dd05ed40a00ea386506b4132126cc1638e14d6ee631f54c1af9497"
     },
     {
       "path": "GITHUB_DEPLOY.md",
-      "size": 1272,
-      "sha256": "a354725e1143efa409a203615ed741da2bfd0683e16e330820f752e86a6b8a2b"
+      "size": 1430,
+      "sha256": "78116ca32be7fe272ca588ded8628b76398e8bb4b194c94e8b90f6b006d71a7c"
     },
     {
       "path": "README.md",
-      "size": 5105,
-      "sha256": "8cfed6f76b760af12545f81c7c3c40b3a8ead722f0adc709733db3094ffe3814"
+      "size": 5642,
+      "sha256": "2c2b4cd48e212c66a1b305ef3d67147dad8e3c257abb3a6bf1ab84e9e914ceff"
     },
     {
       "path": "TEST_REPORT.md",
-      "size": 2502,
-      "sha256": "b31dd3b84e28cb2c25a1078c7b4cc987cc8a594ab337cf438869d91f07a026af"
+      "size": 3734,
+      "sha256": "5cc6bf8d0297536b601e7fa17c13d960b2d64d04b1998ec94dde706454606bbd"
     },
     {
       "path": "docker-compose.yml",
@@ -82,8 +85,8 @@
     },
     {
       "path": "docs/FINAL_IMPLEMENTATION_REPORT.md",
-      "size": 3994,
-      "sha256": "4c1e1c5ce9ef3461694db262a70bf95e0e0e96341b9bb61678f146ebd6317292"
+      "size": 4997,
+      "sha256": "756c89ccb91ff442a811ec1b7f2f92ed27b432bd879ffe8c1fc5527b42c42507"
     },
     {
       "path": "docs/FONTS_NOT_INCLUDED.md",
@@ -102,8 +105,8 @@
     },
     {
       "path": "docs/KNOWN_LIMITATIONS.md",
-      "size": 2567,
-      "sha256": "595ffcf118a34fa3f17a4209a7a83ab658f54ee31adb502df49e608a39ce54c2"
+      "size": 2866,
+      "sha256": "3df32a5f4a1b6dd106f9653a0cd037c3b71c054478cc53f495708714805ef69f"
     },
     {
       "path": "docs/MIGRATION_FROM_STATIC.md",
@@ -137,8 +140,18 @@
     },
     {
       "path": "docs/TEST_REPORT.md",
-      "size": 2041,
-      "sha256": "e0ebbf70efdea96e2c420d7617d919d116b7ab601717934af3b583072bd6427d"
+      "size": 2779,
+      "sha256": "2ded0850747dbfc3e73764ae4e8c2dd9a81fcfdeed420e648efe54091d36e111"
+    },
+    {
+      "path": "docs/UX_UI_AUDIT_REPORT.md",
+      "size": 3362,
+      "sha256": "3f955199efe6312382211ff8cf0f057e8357889d58a0a115e27124f36720f026"
+    },
+    {
+      "path": "docs/UX_UI_SYSTEM.md",
+      "size": 2051,
+      "sha256": "529be6df0de1d0ef8cbd8bffd890245922eceb1afabbe9e7346cc8d9e01c2142"
     },
     {
       "path": "docs/WORK_REBUILD_MASTER.md",
@@ -177,8 +190,8 @@
     },
     {
       "path": "github-pages/app.js",
-      "size": 125828,
-      "sha256": "2de2b4746545da3717de98f51af624881a07f337807d853cdea8df81b7e61bf6"
+      "size": 125491,
+      "sha256": "5872947593e3e415a2a8bb25f28a24b7b2421b609227da3f47e7bf78d1cd4494"
     },
     {
       "path": "github-pages/assets/FONTS_NOT_INCLUDED.md",
@@ -1217,13 +1230,13 @@
     },
     {
       "path": "github-pages/icon-registry.js",
-      "size": 24202,
-      "sha256": "99591f1a7fc81c1d54b9ea380fcb311b49ba1ace161542249a3c6dd9672f4403"
+      "size": 24256,
+      "sha256": "01a1faac155bdebe93395e3de853c69cc4b09804db38a5d0955ffc48973301cd"
     },
     {
       "path": "github-pages/index.html",
-      "size": 3082,
-      "sha256": "9ec086dd3f6df934a7a9d72af604c4ecf40db8189c3e041181ab953b747529d7"
+      "size": 2869,
+      "sha256": "764715b83c95af59c2846f57d9a8141dc567de8bf3640545a51ef5bfadbd5500"
     },
     {
       "path": "github-pages/partners-page.css",
@@ -1252,8 +1265,8 @@
     },
     {
       "path": "github-pages/static-interactions.js",
-      "size": 4370,
-      "sha256": "e9b6cf7e5d5985c0d0b35d27f6d63f84a962ac77379e2b3d3b05e4915215391e"
+      "size": 5755,
+      "sha256": "e4c96ea7d6aa4690fa68f6d392f1fc256937d3844646525548bdee41f9e24da7"
     },
     {
       "path": "github-pages/styles.css",
@@ -1262,8 +1275,8 @@
     },
     {
       "path": "github-pages/theme.css",
-      "size": 67380,
-      "sha256": "d4410f07665af380ecee3c1717c60f9a032a144f49243f2c31e380edc125f933"
+      "size": 67049,
+      "sha256": "f7bb3eded7a78cf9f29057c916d033554df8d2e91c9204b9435761fe969b6678"
     },
     {
       "path": "github-pages/tourism-data.js",
@@ -1277,13 +1290,18 @@
     },
     {
       "path": "github-pages/ui-config.js",
-      "size": 18794,
-      "sha256": "b701982110b75071b97246efcf444b04b7065492a6090c4ecc5e22910dcfd02b"
+      "size": 18684,
+      "sha256": "c01e7d3d9836f516ffbb53e3776e3cdd254fc58db115afcb0c4983d1514a6c84"
     },
     {
       "path": "github-pages/ui-shell.js",
       "size": 2515,
       "sha256": "7e5711f37a4f3fc3bcc610aec1adf9acb7da1443714e0959c1dea78243a889f0"
+    },
+    {
+      "path": "github-pages/uxui-system.css",
+      "size": 15586,
+      "sha256": "9eece6265a2c764a57bc084934b0129e79e0d6bc43ea95bc643bac3cbd60e5a3"
     },
     {
       "path": "github-pages/visual-v2.css",
@@ -1297,8 +1315,8 @@
     },
     {
       "path": "index.html",
-      "size": 3114,
-      "sha256": "83536361f71cccd6376fdb880dfb0d6310665afea58e9373b156fda10a943163"
+      "size": 2901,
+      "sha256": "1b2638ee130f876991190ca5085ab801390b938bc0a77687e803b158a445aa77"
     },
     {
       "path": "next-env.d.ts",
@@ -1317,8 +1335,8 @@
     },
     {
       "path": "package.json",
-      "size": 1779,
-      "sha256": "d56ca0fe4d09c3e3d3a4c2d64a8bba31088ca05622603056573206025aebb246"
+      "size": 1859,
+      "sha256": "f87a3a1c0a05922d98c5dceea49b5718d772bd3dd611dc0374adeeb3fc21986c"
     },
     {
       "path": "playwright.config.ts",
@@ -2386,6 +2404,11 @@
       "sha256": "e01462439d611fd9d639f7712933619c3d7ebe3f5708029ee9942bdc9781f9fc"
     },
     {
+      "path": "scripts/audit-uxui.mjs",
+      "size": 3258,
+      "sha256": "2fc2bf3530a534d3626177dd1b298ba73e96de221fb94f918a9224b01ad13d4b"
+    },
+    {
       "path": "scripts/dev.mjs",
       "size": 419,
       "sha256": "c071c0bfa68087685ab24a6f1072a4b2839aeb8a0e64093be15bdb3ac0a3a35b"
@@ -2432,8 +2455,8 @@
     },
     {
       "path": "scripts/validate-static.mjs",
-      "size": 5179,
-      "sha256": "4636f41fe873add6eb949c2b40e69bd5d6377125a3e62a575ac770ddb4e519ae"
+      "size": 5536,
+      "sha256": "2bebe9f78ea8be7913e4d7ed457690091fdfadf0aa58cd3f321158df421f6ae8"
     },
     {
       "path": "seed/source/TOURISM_RESEARCH.md",
@@ -2572,8 +2595,8 @@
     },
     {
       "path": "src/app/globals.css",
-      "size": 27255,
-      "sha256": "6a4c3269d757fbe9ee3c51ea800370aa09bc6dbefafe4d9cfcd9d4b0a7dc3385"
+      "size": 27222,
+      "sha256": "51974ccd9a13899e550bac52e872cca1d9b92414b5300e7fb383097a9afb9a96"
     },
     {
       "path": "src/app/health/route.ts",
@@ -2747,8 +2770,8 @@
     },
     {
       "path": "src/components/MainNavigation.tsx",
-      "size": 4702,
-      "sha256": "1bb5ceec1965e83ee670b5e52c4fed1ab51f37d13e089521ccdced8288496011"
+      "size": 4794,
+      "sha256": "bb6bf85194d4398f083d03022a1cfc98658cfa6b5eca1c0de509222ef1caadc6"
     },
     {
       "path": "src/components/MapExperience.tsx",
@@ -3619,6 +3642,11 @@
       "path": "src/design-system/tokens/icons.css",
       "size": 281,
       "sha256": "29a733dd3b6d57a2e355bfefe8683b87d7eb232dacd2f75689d93e6722f94538"
+    },
+    {
+      "path": "src/design-system/tokens/uxui.css",
+      "size": 2618,
+      "sha256": "675ac1786ebe6910e644d00be86f3a6480bbb839815a6180e853d86ff6a90826"
     },
     {
       "path": "src/modules/admin/Editor.tsx",

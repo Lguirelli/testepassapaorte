@@ -39,7 +39,27 @@
     const desktopTheme=document.getElementById('theme-select');
     const mobileTheme=document.getElementById('theme-select-mobile');
     if(desktopTheme&&mobileTheme){mobileTheme.value=desktopTheme.value;mobileTheme.addEventListener('change',()=>{desktopTheme.value=mobileTheme.value;desktopTheme.dispatchEvent(new Event('change',{bubbles:true}));});desktopTheme.addEventListener('change',()=>{mobileTheme.value=desktopTheme.value;});}
-    nav.addEventListener('click',e=>{if(e.target.closest('a')&&nav.classList.contains('open')){requestAnimationFrame(()=>button.focus({preventScroll:true}));}});
+    const focusables=()=>[...nav.querySelectorAll('a[href],button:not([disabled]),select:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden&&el.getClientRects().length);
+    const close=({restore=true}={})=>{
+      if(!nav.classList.contains('open'))return;
+      nav.classList.remove('open');document.body.classList.remove('menu-open');button.setAttribute('aria-expanded','false');
+      if(window.PSN_ICON)button.innerHTML=`${window.PSN_ICON.html('nav.menu','',{size:20})}<span>Menu</span>`;
+      if(restore)requestAnimationFrame(()=>button.focus({preventScroll:true}));
+    };
+    nav.addEventListener('click',e=>{if(e.target.closest('a'))close();});
+    document.addEventListener('pointerdown',e=>{if(nav.classList.contains('open')&&!nav.contains(e.target)&&!button.contains(e.target))close({restore:false});});
+    document.addEventListener('keydown',e=>{
+      if(!nav.classList.contains('open'))return;
+      if(e.key==='Escape'){e.preventDefault();close();return;}
+      if(e.key!=='Tab')return;
+      const items=focusables();if(!items.length){e.preventDefault();button.focus();return;}
+      const first=items[0],last=items.at(-1);
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    });
+    const compact=window.matchMedia('(max-width: 68rem)');
+    const sync=()=>{if(!compact.matches)close({restore:false});};
+    compact.addEventListener?.('change',sync);
   }
 
   function enhance(){initDock();initMobileNav();initWarp();}

@@ -53,3 +53,19 @@
 - adicionado `.nojekyll` para evitar interpretação Jekyll do artefato estático;
 - documentação técnica deixou de ser usada como entrada da publicação;
 - produto Next.js server-side permanece canônico e separado da prévia estática.
+
+## Aplicação sistêmica do comando global de UX/UI — revisão pós-GitHub Pages
+
+- Corrigida a divergência entre o produto Next.js e a prévia publicada no GitHub Pages.
+- Removido o runtime de Material Symbols da prévia; iconografia pública passa a usar o sistema SVG do projeto.
+- Adicionada `github-pages/uxui-system.css` como camada normativa final de tokens, hierarquia, estados, foco, targets, motion e responsividade.
+- Aplicado alvo mínimo de interação de aproximadamente 44×44 px nos controles principais da prévia e do runtime Next.
+- Hover transformativo passa a existir apenas com `(hover: hover) and (pointer: fine)`; touch/coarse pointer não depende de hover.
+- Menu compacto recebeu focus trap, Escape, retorno de foco, clique externo, bloqueio de scroll, safe areas e altura dinâmica.
+- Ações primárias de cards deixaram de depender visualmente de hover para comunicar affordance.
+- `main` deixou de atuar como live region global; feedback assistivo fica concentrado nos status/toasts apropriados.
+- Linguagem pública foi simplificada para tarefa do turista, reduzindo termos de implementação, validação e demo.
+- Grids e formulários passaram a usar reflow intrínseco; tabelas mantêm comparação por overflow deliberado quando necessário.
+- Contraste aumentado, forced colors e reduced motion ganharam regras explícitas na camada normativa.
+- Adicionada auditoria `audit:uxui` com 38 verificações estruturais e integração em `validate:static` e no workflow de deploy do GitHub Pages.
+- Documentados o sistema em `docs/UX_UI_SYSTEM.md` e os achados/correções em `docs/UX_UI_AUDIT_REPORT.md`.

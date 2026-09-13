@@ -19,20 +19,20 @@
       {value:'dark',label:'Escuro',iconKey:'theme.dark'}
     ],
     footer: {
-      description:'Demonstração visual e funcional. Parceiros e jornada continuam sintéticos; atrativos públicos destacados usam pesquisa em fontes oficiais.',
+      description:'Descubra lugares, organize sua viagem e guarde as experiências vividas em Serra Negra.',
       groups:[
         {label:'Descobrir',items:[{label:'Explorar',href:'#/explorar'},{label:'Montar roteiro',href:'#/roteiro'},{label:'Meu Passaporte',href:'#/meu-passaporte'}]},
-        {label:'Ecossistema',items:[{label:'Para parceiros',href:'#/parceiros'},{label:'Admin demo',href:'#/admin'},{label:'Restaurar demo',action:'reset-demo'}]},
+        {label:'Ecossistema',items:[{label:'Para parceiros',href:'#/parceiros'},{label:'Área de operação',href:'#/admin'},{label:'Restaurar prévia',action:'reset-demo'}]},
         {label:'Transparência',items:[{label:'Privacidade',href:'#/privacidade'},{label:'Termos de uso',href:'#/termos'},{label:'Cookies e armazenamento',href:'#/cookies'},{label:'Acessibilidade',href:'#/acessibilidade'}]}
       ]
     },
     pageMeta: {
-      home:['Passaporte Serra Negra','Explore possibilidades e monte um roteiro demonstrativo por Serra Negra.'],
-      explorar:['Explorar · Passaporte Serra Negra','Busque lugares, experiências e categorias na demonstração do Passaporte Serra Negra.'],
-      roteiro:['Montar roteiro · Passaporte Serra Negra','Responda às etapas e gere um roteiro demonstrativo editável.'],
+      home:['Passaporte Serra Negra','Descubra lugares, organize caminhos e explore Serra Negra do seu jeito.'],
+      explorar:['Explorar · Passaporte Serra Negra','Busque lugares, experiências e categorias para montar seu caminho por Serra Negra.'],
+      roteiro:['Montar roteiro · Passaporte Serra Negra','Responda às etapas essenciais e organize um roteiro flexível para sua viagem.'],
       viagens:['Minha viagem · Passaporte Serra Negra','Consulte roteiro e calendário usando o mesmo estado demonstrativo da viagem.'],
       'meu-passaporte':['Meu Passaporte · Passaporte Serra Negra','Veja registros demonstrativos separados dos itens apenas planejados.'],
-      admin:['Admin demo · Passaporte Serra Negra','Controle operacional local da demonstração. Não representa autorização de produção.'],
+      admin:['Operação · Passaporte Serra Negra','Área de operação da prévia navegável.'],
       parceiros:['Para parceiros · Passaporte Serra Negra','Entenda como negócios locais podem entrar de forma contextual na jornada de quem visita Serra Negra.'],
       'para-parceiros':['Para parceiros · Passaporte Serra Negra','Entenda como negócios locais podem entrar de forma contextual na jornada de quem visita Serra Negra.'],
       privacidade:['Privacidade · Passaporte Serra Negra','Como esta demonstração local trata estado, preferências e dados no navegador.'],
@@ -43,8 +43,8 @@
     labels: {
       cost: {free:'Sem custo',paid:'Pago',mixed:'Misto',paid_with_booking:'Pago · reserva',not_informed:'Confirmar'},
       environment: {indoor:'Ambiente interno',outdoor:'Ao ar livre',mixed:'Misto'},
-      relation: {partner:'Parceiro demo',public_point:'Ponto turístico demo'},
-      response: {within_1_hour:'Em até 1 hora (demo)',same_day:'No mesmo dia (demo)',within_few_hours:'Em algumas horas (demo)'},
+      relation: {partner:'Parceiro',public_point:'Ponto turístico'},
+      response: {within_1_hour:'Em até 1 hora',same_day:'No mesmo dia',within_few_hours:'Em algumas horas'},
       status: {
         planned:{label:'Planejado',iconKey:'calendar.planned',tone:'warning'},
         fixed:{label:'Fixo',iconKey:'route.fix',tone:'neutral'},

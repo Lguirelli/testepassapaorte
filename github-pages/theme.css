@@ -133,8 +133,8 @@
   }
 }
 
-/* Icon system: Material Symbols inherit currentColor and size through --icon-size. */
-.ui-icon{display:inline-grid;place-items:center;width:var(--icon-size,20px);height:var(--icon-size,20px);flex:0 0 var(--icon-size,20px);font-family:'Material Symbols Outlined';font-size:var(--icon-size,20px);font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;word-wrap:normal;direction:ltr;font-feature-settings:'liga';-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;vertical-align:-.14em;color:currentColor}
+/* Icon system baseline. The final SVG mask behavior is defined in uxui-system.css. */
+.ui-icon{display:inline-block;width:var(--icon-size,20px);height:var(--icon-size,20px);flex:0 0 var(--icon-size,20px);vertical-align:-.14em;color:currentColor}
 .icon-label{display:inline-flex;align-items:center;gap:.45rem}.icon-label .ui-icon{color:var(--color-icon)}
 button .ui-icon,.button .ui-icon,a .ui-icon{pointer-events:none}
 .main-nav>a{display:inline-flex;align-items:center;gap:.38rem}.main-nav>a:not(.button) .ui-icon{--icon-size:16px;opacity:.8}

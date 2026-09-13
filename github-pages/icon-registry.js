@@ -513,11 +513,12 @@
   const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function html(key, label='', options={}) {
     const k=resolveKey(key);
-    if(!REGISTRY[k]) return '';
-    const cls=['ui-icon','material-symbols-outlined',options.className||''].filter(Boolean).join(' ');
-    const size=Number(options.size)||20;
-    const title=label ? ` title="${esc(label)}"` : '';
-    return `<span class="${cls}" data-ui-icon="true" aria-hidden="true"${title} style="--icon-size:${size}px">${esc(symbol(k))}</span>`;
+    const src=path(k);
+    if(!src) return '';
+    const cls=['ui-icon',options.className||''].filter(Boolean).join(' ');
+    const size=Math.max(12,Math.min(64,Number(options.size)||20));
+    const accessible=label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true"';
+    return `<span class="${cls}" data-ui-icon="true" ${accessible} style="--icon-size:${size}px;--ui-icon-url:url('${esc(src)}')"></span>`;
   }
   window.PSN_ICON={registry:REGISTRY,symbols:SYMBOLS,aliases:ALIASES,resolveKey,path,symbol,html};
 })();

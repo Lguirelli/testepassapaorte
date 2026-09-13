@@ -17,3 +17,4 @@
 12. **Garantia de sanitização:** os invariantes cobertos pelos scripts locais são verificáveis e falham o QA estático em regressões conhecidas; isso não equivale a promessa de segurança absoluta contra vulnerabilidades futuras ou conteúdo malicioso em superfícies que ainda não existem no MVP.
 
 13. **QA visual responsivo automatizado:** a matriz adicional de resize/200%/landscape está incluída em `tests/e2e/05-responsive.spec.ts`, mas não é declarada como executada nesta sessão enquanto `npm ci` permanecer bloqueado pelo registry. A auditoria estática `audit:responsive` foi executada e passou.
+14. **QA visual de UX/UI em browser real:** a auditoria `audit:uxui` e os smoke tests estáticos passaram, mas Axe/Playwright e inspeção visual automatizada de todas as rotas continuam dependentes da instalação npm/Chromium. O pacote não apresenta essa etapa como aprovada sem execução real.

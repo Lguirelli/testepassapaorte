@@ -39,3 +39,13 @@ O novo refinamento responsivo foi submetido novamente ao scan sensível e à aud
 ## Regra de interpretação
 
 A revisão responsiva está concluída no nível de implementação e QA estático verificável. A validação visual/browser-dependent permanece explicitamente bloqueada por dependência externa; nenhum teste não executado foi convertido em aprovação.
+
+## Auditoria UX/UI pós-correção da publicação
+
+- `node scripts/audit-uxui.mjs` — **PASS, 38 verificações**.
+- `npm run validate:static` — **PASS** com UX/UI + responsividade + sanitização como gates combinados.
+- `node --check` nos scripts da prévia estática — **PASS**.
+- smoke HTTP da prévia — **PASS** para documento, stylesheet normativa e SVG.
+- referências locais de assets — **PASS, 0 ausentes**.
+
+A prévia publicada e o runtime canônico agora compartilham invariantes de targets, foco, pointer/hover, reduced motion, contraste, iconografia SVG, reflow e tokens. A inspeção visual/Axe em browser real permanece pendente enquanto a instalação completa das dependências estiver bloqueada externamente.

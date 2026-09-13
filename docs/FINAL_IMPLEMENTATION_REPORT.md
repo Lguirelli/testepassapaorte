@@ -54,3 +54,11 @@ A camada de responsividade foi revisada após a implementação funcional. O pro
 A Home usa container queries, grids intrínsecos e unidades de container na galeria; o slider permite crescimento por conteúdo; overlays respeitam `dvh` e safe areas; o Passaporte observa o próprio container com `ResizeObserver`; e calendários/tabelas preservam relações comparativas com scroll horizontal explícito quando necessário.
 
 A auditoria estática de responsividade passa. A validação visual real com Playwright permanece preparada, mas depende da instalação das dependências bloqueada externamente nesta sessão.
+
+## Convergência UX/UI da prévia pública
+
+Após a primeira correção de GitHub Pages, foi identificada uma divergência: a prévia estática ainda reutilizava partes do sistema visual legado e não refletia integralmente as normas globais de UX/UI do produto. A camada pública foi então tratada como superfície de produto, e não como documentação técnica.
+
+A revisão removeu Material Symbols da prévia, adotou os SVGs do projeto, introduziu tokens e invariantes compartilhados, targets mínimos de interação, foco visível, comportamento de hover condicionado à capacidade real do pointer, menu compacto com focus trap e retorno de foco, safe areas, reflow intrínseco, CTA sempre descobrível, reduced motion, contraste aumentado e forced colors. O runtime Next recebeu os mesmos invariantes onde havia divergência.
+
+`npm run audit:uxui` funciona como gate estrutural e também é executado antes do deploy do GitHub Pages. O relatório completo está em `docs/UX_UI_AUDIT_REPORT.md`.

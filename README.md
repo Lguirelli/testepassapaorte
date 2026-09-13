@@ -46,6 +46,7 @@ npm run validate:static
 npm run security:scan
 npm run audit:sanitize
 npm run audit:responsive
+npm run audit:uxui
 npm run privacy:cleanup
 npm run db:sanitize
 npm run validate
@@ -75,6 +76,12 @@ Analytics opcional depende de consentimento. IDs anônimos e sessões técnicas 
 Toda entrada externa é tratada na fronteira: schemas estritos/allowlists, normalização antes da persistência quando segura, validação de URLs/redirects/assets, escaping na saída e minimização/redaction em analytics, logs e auditoria. Use `npm run security:scan` para procurar material sensível. O desenho completo está em `docs/SANITIZATION_AND_PRIVACY.md`. Para uma base já existente, execute `npm run db:sanitize`; para retenção configurável, execute `npm run privacy:cleanup`.
 
 Em produção, `DATABASE_URL` e `NEXT_PUBLIC_SITE_URL` são obrigatórias; PGlite, credenciais `.local` e segredos de demonstração são recusados.
+
+## UX/UI
+
+O runtime canônico e a prévia do GitHub Pages compartilham as mesmas invariantes de UX/UI: hierarquia de ação, targets de aproximadamente 44 px, foco visível, teclado/touch, SVGs próprios, motion funcional, reduced motion, feedback contextual e responsividade intrínseca. A prévia pública não utiliza Material Symbols.
+
+`npm run audit:uxui` impede regressões estruturais e o workflow de Pages executa a auditoria antes de publicar. Consulte `docs/UX_UI_SYSTEM.md` e `docs/UX_UI_AUDIT_REPORT.md`.
 
 ## Responsividade
 
