@@ -110,36 +110,36 @@ html[data-theme="dark"] [data-testid="home-route-slider"] [class*="slideCopy"]>.
   }
 }
 
-/* Green accent system derived from the approved palette reference.
-   Greens are used as emphasis and interaction feedback without recoloring large surfaces. */
-body::selection{background:var(--highlight-lime);color:var(--highlight-forest)}
+/* Approved interaction palette: only Green Black (#001F18) and Dark Green (#003328)
+   are used as green accents. Neutral surfaces remain unchanged for readability. */
+body::selection{background:var(--dark-green);color:#fff}
 .main-nav>a:not(.button):hover{
-  background:color-mix(in srgb,var(--highlight-lime) 22%,var(--surface-raised));
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--highlight-olive) 42%,transparent)
+  background:color-mix(in srgb,var(--dark-green) 14%,var(--surface-raised));
+  box-shadow:inset 0 0 0 1px var(--dark-green)
 }
 .main-nav>a[aria-current=page]{
-  background:color-mix(in srgb,var(--highlight-lime) 14%,var(--surface-raised));
-  box-shadow:inset 0 -2px 0 var(--highlight-teal)
+  background:color-mix(in srgb,var(--dark-green) 10%,var(--surface-raised));
+  box-shadow:inset 0 -2px 0 var(--dark-green)
 }
 button:not(.primary):not(:disabled):hover,.button:not(.primary):hover{
-  border-color:color-mix(in srgb,var(--highlight-teal) 72%,var(--border-default));
-  background:color-mix(in srgb,var(--highlight-lime) 16%,var(--surface-raised))
+  border-color:var(--dark-green);
+  background:color-mix(in srgb,var(--dark-green) 12%,var(--surface-raised))
 }
 .card:hover,.panel:has(a:hover),.panel:has(button:hover){
-  border-color:color-mix(in srgb,var(--highlight-olive) 68%,var(--border-default));
-  box-shadow:0 18px 48px color-mix(in srgb,var(--highlight-forest) 14%,transparent)
+  border-color:var(--dark-green);
+  box-shadow:0 18px 48px color-mix(in srgb,var(--green-black) 18%,transparent)
 }
 .badge:hover,.chips a:hover,.chips button:hover{
-  border-color:var(--highlight-olive);
-  background:color-mix(in srgb,var(--highlight-lime) 18%,var(--surface-raised))
+  border-color:var(--dark-green);
+  background:color-mix(in srgb,var(--dark-green) 12%,var(--surface-raised))
 }
-.site-footer nav a:hover{color:var(--highlight-forest);text-decoration-color:var(--highlight-teal)}
+.site-footer nav a:hover{color:var(--green-black);text-decoration-color:var(--dark-green)}
 
 @media(max-width:1120px){
   .mobile-nav-card>a:not(.button):hover,
   .mobile-nav-card>a[aria-current=page]{
-    background:color-mix(in srgb,var(--highlight-lime) 18%,var(--surface-raised));
-    box-shadow:inset 3px 0 0 var(--highlight-teal)
+    background:color-mix(in srgb,var(--dark-green) 14%,var(--surface-raised));
+    box-shadow:inset 3px 0 0 var(--dark-green)
   }
 }
 
@@ -150,9 +150,10 @@ html[data-theme="dark"] .button:not(.primary):hover,
 html[data-theme="dark"] .badge:hover,
 html[data-theme="dark"] .chips a:hover,
 html[data-theme="dark"] .chips button:hover{
-  background:color-mix(in srgb,var(--highlight-lime) 12%,var(--surface-raised))
+  background:color-mix(in srgb,var(--dark-green) 68%,var(--surface-raised));
+  color:#fff
 }
-html[data-theme="dark"] .site-footer nav a:hover{color:var(--highlight-lime)}
+html[data-theme="dark"] .site-footer nav a:hover{color:#fff;text-decoration-color:var(--dark-green)}
 
 @media(prefers-color-scheme:dark){
   html[data-theme="system"] .main-nav>a:not(.button):hover,
@@ -162,7 +163,8 @@ html[data-theme="dark"] .site-footer nav a:hover{color:var(--highlight-lime)}
   html[data-theme="system"] .badge:hover,
   html[data-theme="system"] .chips a:hover,
   html[data-theme="system"] .chips button:hover{
-    background:color-mix(in srgb,var(--highlight-lime) 12%,var(--surface-raised))
+    background:color-mix(in srgb,var(--dark-green) 68%,var(--surface-raised));
+    color:#fff
   }
-  html[data-theme="system"] .site-footer nav a:hover{color:var(--highlight-lime)}
+  html[data-theme="system"] .site-footer nav a:hover{color:#fff;text-decoration-color:var(--dark-green)}
 }
