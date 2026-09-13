@@ -11,9 +11,8 @@ async function expectNoAccidentalHorizontalOverflow(page:import('@playwright/tes
   expect(result.scrollWidth,`overflow horizontal: ${JSON.stringify(result)}`).toBeLessThanOrEqual(result.clientWidth+1);
 }
 
-test('continuous resize preserves usable public layout',async({page},info)=>{
+for(const width of widths)test(`continuous resize preserves usable public layout at ${width}px`,async({page},info)=>{
   test.skip(info.project.name!=='desktop','matriz aleatória roda uma vez para evitar multiplicar a suíte');
-  for(const width of widths){
     await page.setViewportSize({width,height:720});
     for(const route of routes){
       await page.goto(route);
@@ -22,7 +21,6 @@ test('continuous resize preserves usable public layout',async({page},info)=>{
       const targetSizes=await page.locator('button:visible,a.button:visible,.mobile-menu-trigger:visible').evaluateAll(nodes=>nodes.slice(0,20).map(node=>{const r=(node as HTMLElement).getBoundingClientRect();return {w:r.width,h:r.height,text:(node.textContent||'').trim()}}));
       for(const target of targetSizes){expect(target.h,`target baixo demais: ${target.text}`).toBeGreaterThanOrEqual(44)}
     }
-  }
 });
 
 test('low height and mobile landscape preserve navigation and primary content',async({page},info)=>{

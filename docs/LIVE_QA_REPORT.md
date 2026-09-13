@@ -19,3 +19,28 @@ Local terminal, browser and environment restart tools are not exposed in this Wo
 Local build, Playwright and visual inspection: NOT EXECUTED.
 Remote CI and Vercel results: pending.
 Authenticated pages, saved trips, QR registration and backend workflows remain outside visual acceptance.
+
+## Retomada: validação do main atual, 2026-09-13
+
+Este registro atualiza os estados antigos de ferramenta indisponível acima.
+Base atual: `64d8ee9973645cfc5bd333436587a9ba8bdb7af0`.
+Branch de validação: `work/current-visual-validation`.
+Production: https://testepassapaorte-iota.vercel.app
+Deployment Vercel: `dpl_Fk4tDNefeb6yPDHar2Xqww7dAYkq`, READY.
+
+Evidências consultadas: GitHub Actions run `34778365458`.
+- validate: PASS, incluindo build, typecheck, lint e unitários no CI.
+- visual: PASS com 56 casos, 54 passaram de primeira, 2 passaram após retry.
+- Os dois retries registraram contraste intermediário durante a animação de entrada do slider em dark mode.
+- Correção no teste: aguardar a conclusão das animações finitas antes do Axe; nenhuma regra desabilitada, nenhuma violação filtrada além do nível critical/serious já existente.
+- A suíte cobre oito rotas públicas, health, galeria com drag e geometria, roteiro, FAQ, menu, teclado, dark mode, reduced motion e larguras contínuas.
+- Navegador cloud voltou a funcionar. Production abriu; próximo parceiro mudou a seleção; aba Natureza e FAQ responderam; overflow da Home medido em 0 px.
+- Playwright standalone local: instalação do Chromium anteriormente falhou por timeout/502 e arquivo truncado. Nova tentativa em andamento. Não declarar execução local aprovada.
+- Acrescentado job separado de smoke visual contra Production. Esse job valida o produto publicado, não a aplicação candidata da PR. O job visual local continua validando a candidata.
+- Resultado remoto desta nova rodada: pendente.
+- Banco permanece adiado; nenhuma migration/seed/alteração Supabase nesta rodada.
+- A main já foi alterada externamente para Node 24.x; esta rodada preserva essa alteração existente e usa o package.json como referência do job remoto.
+
+Ferramentas de apoio: Context7, documentação oficial do Playwright sobre baseURL/deployment; Building React Native Apps, princípio medir antes de otimizar. Aplicação permanece Next.js; não foram adicionadas dependências nativas ou otimizações sem medição.
+
+Pendências comprovadas: estabilizar os dois retries de Axe, finalizar smoke remoto e classificar separadamente o E2E de persistência, que permanece fora da aceitação visual.

@@ -4,6 +4,11 @@ import AxeBuilder from '@axe-core/playwright';
 const publicPaths=['/','/explorar','/mapa','/parceiros','/pontos-turisticos','/roteiro','/lugares/igreja-matriz-nossa-senhora-do-rosario','/parceiros/cafe-neblina-alta'];
 
 async function seriousA11yViolations(page:import('@playwright/test').Page){
+ // Audit the settled UI, not intermediate opacity during page/slide entry.
+ await page.evaluate(async()=>{
+  const animations=document.getAnimations().filter(animation=>animation.playState==='running'&&Number.isFinite(Number(animation.effect?.getComputedTiming().endTime)));
+  await Promise.all(animations.map(animation=>animation.finished.catch(()=>undefined)));
+ });
  const axe=await new AxeBuilder({page}).analyze();
  return axe.violations.filter(v=>v.impact==='critical'||v.impact==='serious');
 }
@@ -111,4 +116,17 @@ test('home and map adapt continuously across intermediate widths and dark mode r
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
  expect(await seriousA11yViolations(page)).toEqual([]);
  await page.screenshot({path:test.info().outputPath('home-dark.png'),fullPage:true});
+});
+
+
+test('desktop Dock labels remain on one line',async({page})=>{
+ await page.setViewportSize({width:1371,height:936});
+ await page.goto('/');
+ const nav=page.getByRole('navigation',{name:'Navegação principal',exact:true});
+ await expect(nav).toBeVisible();
+ const labels=await nav.locator('a').evaluateAll(links=>links.map(link=>{
+  const range=document.createRange();range.selectNodeContents(link);
+  return {text:link.textContent,lines:new Set([...range.getClientRects()].map(rect=>Math.round(rect.top))).size};
+ }));
+ for(const label of labels)expect(label.lines,`Dock label wraps: ${label.text}`).toBe(1);
 });
