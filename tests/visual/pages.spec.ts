@@ -4,6 +4,11 @@ import AxeBuilder from '@axe-core/playwright';
 const publicPaths=['/','/explorar','/mapa','/parceiros','/pontos-turisticos','/roteiro','/lugares/igreja-matriz-nossa-senhora-do-rosario','/parceiros/cafe-neblina-alta'];
 
 async function seriousA11yViolations(page:import('@playwright/test').Page){
+ // Audit the settled UI, not intermediate opacity during page/slide entry.
+ await page.evaluate(async()=>{
+  const animations=document.getAnimations().filter(animation=>animation.playState==='running'&&Number.isFinite(Number(animation.effect?.getComputedTiming().endTime)));
+  await Promise.all(animations.map(animation=>animation.finished.catch(()=>undefined)));
+ });
  const axe=await new AxeBuilder({page}).analyze();
  return axe.violations.filter(v=>v.impact==='critical'||v.impact==='serious');
 }
