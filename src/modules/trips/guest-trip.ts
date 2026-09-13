@@ -5,6 +5,7 @@ import type {TripData,TripProfile,Visit} from './types';
 
 export const GUEST_TRIP_STORAGE_KEY='psn-guest-trip-v1';
 export const GUEST_SAVE_PENDING_KEY='psn-guest-save-pending-v1';
+const GUEST_TRIP_CHANGE_EVENT='psn-guest-trip-change';
 
 const id=z.string().min(1).max(160).regex(/^[A-Za-z0-9][A-Za-z0-9._:-]{0,159}$/);
 const time=z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/);
@@ -53,9 +54,11 @@ export function addGuestVisit(draft:GuestTripDraft,placeId:string,date:string):G
   return withUpdatedGuestData(draft,data);
 }
 
+function emitGuestDraftChange(){if(typeof window!=='undefined')window.dispatchEvent(new Event(GUEST_TRIP_CHANGE_EVENT));}
 export function readGuestDraft():GuestTripDraft|null{
   if(typeof window==='undefined')return null;try{const raw=localStorage.getItem(GUEST_TRIP_STORAGE_KEY);if(!raw)return null;const parsed=guestDraftSchema.safeParse(JSON.parse(raw));if(parsed.success)return parsed.data;localStorage.removeItem(GUEST_TRIP_STORAGE_KEY);return null;}catch{return null;}
 }
-export function writeGuestDraft(draft:GuestTripDraft){if(typeof window!=='undefined')localStorage.setItem(GUEST_TRIP_STORAGE_KEY,JSON.stringify(draft));}
-export function clearGuestDraft(){if(typeof window!=='undefined'){localStorage.removeItem(GUEST_TRIP_STORAGE_KEY);localStorage.removeItem(GUEST_SAVE_PENDING_KEY);}}
+export function subscribeGuestDraft(callback:()=>void){if(typeof window==='undefined')return()=>{};const onStorage=(event:StorageEvent)=>{if(event.key===GUEST_TRIP_STORAGE_KEY)callback();};window.addEventListener('storage',onStorage);window.addEventListener(GUEST_TRIP_CHANGE_EVENT,callback);return()=>{window.removeEventListener('storage',onStorage);window.removeEventListener(GUEST_TRIP_CHANGE_EVENT,callback);};}
+export function writeGuestDraft(draft:GuestTripDraft){if(typeof window!=='undefined'){localStorage.setItem(GUEST_TRIP_STORAGE_KEY,JSON.stringify(draft));emitGuestDraftChange();}}
+export function clearGuestDraft(){if(typeof window!=='undefined'){localStorage.removeItem(GUEST_TRIP_STORAGE_KEY);localStorage.removeItem(GUEST_SAVE_PENDING_KEY);emitGuestDraftChange();}}
 export function markGuestSavePending(){if(typeof window!=='undefined')localStorage.setItem(GUEST_SAVE_PENDING_KEY,'1');}
