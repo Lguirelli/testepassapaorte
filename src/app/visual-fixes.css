@@ -96,4 +96,15 @@ html[data-theme="dark"] [data-testid="home-route-slider"] [class*="slideCopy"]>.
 @media(prefers-reduced-motion:reduce){
   .route-transition-frame{animation:none}
   .route-loading-line,.route-loading-grid>span{animation:none}
+
+  /* Reduced motion removes animation, not hierarchy. Keep lateral cards spatially
+     separated, scaled and blurred while the centered card stays sharp. */
+  [data-testid="home-partner-gallery"] [data-offset]:not([data-offset="0"])>div:first-child{
+    transform:scale(var(--side-scale))!important;
+    filter:blur(var(--blur))!important;
+  }
+  [data-testid="home-partner-gallery"] [data-offset="0"]>div:first-child{
+    transform:scale(1)!important;
+    filter:none!important;
+  }
 }
