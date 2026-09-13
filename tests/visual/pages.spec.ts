@@ -131,43 +131,43 @@ test('desktop Dock labels remain on one line',async({page})=>{
  for(const label of labels)expect(label.lines,`Dock label wraps: ${label.text}`).toBe(1);
 });
 
-test('lime marks selected/current state while hover stays dark green',async({page})=>{
+test('Green marks selected/current state while hover stays in the dark greens',async({page})=>{
  await page.setViewportSize({width:1371,height:936});
  await page.goto('/');
  const palette=await page.evaluate(()=>{
   const style=getComputedStyle(document.documentElement);
   return {
-   lime:style.getPropertyValue('--lime').trim().toUpperCase(),
+   green:style.getPropertyValue('--green').trim().toUpperCase(),
    darkGreen:style.getPropertyValue('--dark-green').trim().toUpperCase(),
    greenBlack:style.getPropertyValue('--green-black').trim().toUpperCase(),
   };
  });
- expect(palette).toEqual({lime:'#D8E600',darkGreen:'#003328',greenBlack:'#001F18'});
+ expect(palette).toEqual({green:'#008542',darkGreen:'#003328',greenBlack:'#001F18'});
 
  const current=page.locator('.main-nav a[aria-current="page"]').first();
  await expect(current).toBeVisible();
- await expect.poll(()=>current.evaluate(node=>getComputedStyle(node).boxShadow)).toContain('216, 230, 0');
+ await expect.poll(()=>current.evaluate(node=>getComputedStyle(node).boxShadow)).toContain('0, 133, 66');
  await current.hover();
- await expect.poll(()=>current.evaluate(node=>getComputedStyle(node).boxShadow)).toContain('216, 230, 0');
+ await expect.poll(()=>current.evaluate(node=>getComputedStyle(node).boxShadow)).toContain('0, 133, 66');
 
  const neutralNav=page.locator('.main-nav a:not(.button):not([aria-current="page"])').first();
  await neutralNav.hover();
- await expect.poll(()=>neutralNav.evaluate(node=>getComputedStyle(node).backgroundColor)).not.toBe('rgb(216, 230, 0)');
- await expect.poll(()=>neutralNav.evaluate(node=>getComputedStyle(node).boxShadow)).not.toContain('216, 230, 0');
+ await expect.poll(()=>neutralNav.evaluate(node=>getComputedStyle(node).backgroundColor)).not.toBe('rgb(0, 133, 66)');
+ await expect.poll(()=>neutralNav.evaluate(node=>getComputedStyle(node).boxShadow)).not.toContain('0, 133, 66');
 
  const selectedTab=page.getByRole('tab',{name:'Primeira visita',exact:true});
  await expect(selectedTab).toHaveAttribute('aria-selected','true');
- await expect.poll(()=>selectedTab.evaluate(node=>({background:getComputedStyle(node).backgroundColor,color:getComputedStyle(node).color}))).toEqual({background:'rgb(216, 230, 0)',color:'rgb(0, 31, 24)'});
+ await expect.poll(()=>selectedTab.evaluate(node=>({background:getComputedStyle(node).backgroundColor,color:getComputedStyle(node).color}))).toEqual({background:'rgb(0, 133, 66)',color:'rgb(255, 255, 255)'});
  await selectedTab.hover();
- await expect.poll(()=>selectedTab.evaluate(node=>getComputedStyle(node).backgroundColor)).toBe('rgb(216, 230, 0)');
+ await expect.poll(()=>selectedTab.evaluate(node=>getComputedStyle(node).backgroundColor)).toBe('rgb(0, 133, 66)');
 
  const neutralTab=page.getByRole('tab',{name:'Natureza',exact:true});
  await neutralTab.hover();
- await expect.poll(()=>neutralTab.evaluate(node=>getComputedStyle(node).backgroundColor)).not.toBe('rgb(216, 230, 0)');
+ await expect.poll(()=>neutralTab.evaluate(node=>getComputedStyle(node).backgroundColor)).not.toBe('rgb(0, 133, 66)');
 
  await page.getByRole('combobox',{name:'Aparência',exact:true}).selectOption('dark');
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
- await expect.poll(()=>selectedTab.evaluate(node=>({background:getComputedStyle(node).backgroundColor,color:getComputedStyle(node).color}))).toEqual({background:'rgb(216, 230, 0)',color:'rgb(0, 31, 24)'});
+ await expect.poll(()=>selectedTab.evaluate(node=>({background:getComputedStyle(node).backgroundColor,color:getComputedStyle(node).color}))).toEqual({background:'rgb(0, 133, 66)',color:'rgb(255, 255, 255)'});
  expect(await seriousA11yViolations(page)).toEqual([]);
  await page.screenshot({path:test.info().outputPath('palette-selected-and-hover.png'),fullPage:true});
 });
