@@ -27,3 +27,5 @@ Nenhum teste bloqueado foi tratado como aprovado.
 - `validate:static`: PASS.
 - runtime Next.js completo preservado.
 
+
+- Vercel: compilação + TypeScript confirmados pelo deploy real; correção de prerender `/opengraph-image` aplicada e aguardando redeploy autoritativo.

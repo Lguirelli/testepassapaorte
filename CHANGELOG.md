@@ -83,3 +83,10 @@
 - Contraste aumentado, forced colors e reduced motion ganharam regras explícitas na camada normativa.
 - Adicionada auditoria `audit:uxui` com 38 verificações estruturais e integração em `validate:static` e no workflow de deploy do GitHub Pages.
 - Documentados o sistema em `docs/UX_UI_SYSTEM.md` e os achados/correções em `docs/UX_UI_AUDIT_REPORT.md`.
+
+
+## Vercel Open Graph prerender fix — 2026-09-13
+
+- Corrigido `/opengraph-image` para o renderer `next/og` do Next.js 16.3.4: container com múltiplos filhos agora possui `display: flex` explícito.
+- `audit:vercel` ampliado de 7 para 8 invariantes para impedir regressão deste requisito.
+- Mantidas as correções anteriores de TypeScript/Drizzle/Onboarding confirmadas pelo build real do Vercel.

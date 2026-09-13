@@ -75,3 +75,16 @@ Verificações executadas após a correção:
 
 O ambiente local de geração não conseguiu concluir uma reinstalação íntegra de `node_modules`; portanto não é declarado aqui um `next build` local aprovado. A correção foi direcionada exatamente aos diagnósticos produzidos pelo build real do Vercel e recebeu um gate estático específico para impedir regressão. O próximo deploy no Vercel é a validação autoritativa do typecheck com as dependências completas.
 
+
+
+## Vercel prerender de Open Graph
+
+O segundo build real do Vercel avançou além da compilação e do TypeScript, confirmando que os cinco erros anteriores foram corrigidos. A falha seguinte ocorreu exclusivamente no prerender de `/opengraph-image`: o renderer `next/og` exige `display` explícito em todo `<div>` que possua múltiplos filhos.
+
+Correção aplicada:
+
+- o agrupador interno de título + subtítulo em `src/app/opengraph-image.tsx` agora usa `display: flex` e `flex-direction: column`;
+- `audit:vercel` ganhou um gate específico para essa invariável do `next/og`;
+- `npm run validate:static` executado novamente após a correção — **PASS**.
+
+O build real do usuário já confirmou nesta revisão: bundle Next.js **PASS** e TypeScript **PASS**. O próximo redeploy valida a etapa de prerender após esta correção.

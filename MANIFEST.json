@@ -1,15 +1,17 @@
 {
-  "artifact": "PASSAPORTE_SERRA_NEGRA_VERCEL_READY.zip",
-  "generated_at": "2026-09-13T01:00:12.210193+00:00",
-  "status": "VERCEL_BUILD_HOTFIX_APPLIED_AWAITING_AUTHORITATIVE_REDEPLOY",
-  "source": "PASSAPORTE_SERRA_NEGRA_GITHUB_READY_UXUI.zip",
-  "vercel_log_commit": "eba9a39",
-  "vercel_typescript_errors_fixed": 5,
+  "artifact": "PASSAPORTE_SERRA_NEGRA_VERCEL_READY_02.zip",
+  "generated_at": "2026-09-13T01:14:56.810243+00:00",
+  "status": "VERCEL_OG_PRERENDER_HOTFIX_APPLIED_AWAITING_REDEPLOY",
+  "source": "PASSAPORTE_SERRA_NEGRA_VERCEL_READY.zip",
+  "vercel_log_commit": "b7c7358",
+  "vercel_compile": "PASS",
+  "vercel_typescript": "PASS",
+  "vercel_prerender_fix": "opengraph-image explicit flex layout",
   "static_validation": "PASS",
   "uxui_audit": "PASS_38_CHECKS",
   "responsive_audit": "PASS",
   "sanitization_audit": "PASS",
-  "vercel_audit": "PASS_7_CHECKS",
+  "vercel_audit": "PASS_8_CHECKS",
   "files": [
     {
       "path": ".env.example",
@@ -43,13 +45,13 @@
     },
     {
       "path": "BLOCK_STATUS.md",
-      "size": 1151,
-      "sha256": "b1a1ba77a9c9835f0ec8f05ada9c81faf08e7f7e2d34926afe7cefcb22b0a8d6"
+      "size": 1306,
+      "sha256": "e8530d108451fe4b31cfeca60734d2be1b55dfd27b50443ec36c644795961a6a"
     },
     {
       "path": "CHANGELOG.md",
-      "size": 6501,
-      "sha256": "3bef8cbb223595ed2e2b22e16868f57ca649d6d78175a68b6983af769e172d41"
+      "size": 6903,
+      "sha256": "11f81e3d689f7f4d6b95c771cad4aaaeb668b0a43b599991354d0fc9feb2bd8e"
     },
     {
       "path": "GITHUB_DEPLOY.md",
@@ -63,8 +65,8 @@
     },
     {
       "path": "TEST_REPORT.md",
-      "size": 4762,
-      "sha256": "e3233fbce8614d94020bb97e9163a531eef78ead3619b4988ce27b976641e1cd"
+      "size": 5599,
+      "sha256": "0baca0e21f3c70659457d96524a45b030bdd12d72da7025032c64e4031eb50f0"
     },
     {
       "path": "VERCEL_DEPLOY.md",
@@ -2418,8 +2420,8 @@
     },
     {
       "path": "scripts/audit-vercel-build.mjs",
-      "size": 1650,
-      "sha256": "3e0e4dcbb1202b76864d94a7fdb25453200b64df9afbc6bf1ce9bc447fc042c3"
+      "size": 1840,
+      "sha256": "09fac6d1dd587fe267f117a10b8a6c3bfcb5481213960823d3cc4d2a7ff014a2"
     },
     {
       "path": "scripts/dev.mjs",
@@ -2668,8 +2670,8 @@
     },
     {
       "path": "src/app/opengraph-image.tsx",
-      "size": 846,
-      "sha256": "1643047d7e20a6ab1f3791a2b318cc7c2dd631ec7e35e58f73083849bc986532"
+      "size": 894,
+      "sha256": "6024c3a530eb6126214540e3339273d16176ce96d03daefff0016f38655d3477"
     },
     {
       "path": "src/app/page.tsx",
@@ -3915,11 +3917,6 @@
       "path": "tsconfig.json",
       "size": 854,
       "sha256": "4e749640a0ad4645e98c8650d4a6170f6440cf3c1326440d18abc45f181cd4a4"
-    },
-    {
-      "path": "tsconfig.tsbuildinfo",
-      "size": 683417,
-      "sha256": "2d2d29bb5afb87b6b7e04b949601aa3cb7646fbb5bcd227ea3f3e52dc641894d"
     }
   ]
 }
