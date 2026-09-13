@@ -26,6 +26,11 @@
 main{padding-top:calc(var(--header-height) + env(safe-area-inset-top) + 1.7rem)}
 .site-footer{padding-bottom:calc(3.5rem + env(safe-area-inset-bottom))}
 
+/* Keep route changes spatial rather than fading the page. The persistent header stays in
+   place, while only the new content plane settles horizontally into position. */
+.route-transition-frame{animation:route-ux-enter var(--route-slide-duration) var(--route-slide-ease) both}
+@keyframes route-ux-enter{from{transform:translate3d(clamp(1rem,3vw,2.75rem),0,0)}to{transform:none}}
+
 /* The collapsed header has one visual axis: centered brand, menu trigger on the right.
    Account/passport access and appearance controls live inside the menu at this size. */
 @media (max-width:1120px){
@@ -89,5 +94,6 @@ html[data-theme="dark"] [data-testid="home-route-slider"] [class*="slideCopy"]>.
 }
 
 @media(prefers-reduced-motion:reduce){
+  .route-transition-frame{animation:none}
   .route-loading-line,.route-loading-grid>span{animation:none}
 }
