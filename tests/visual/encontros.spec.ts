@@ -24,9 +24,6 @@ test('Encontros treats cards as separate draggable objects with center-only emph
       centerFilter:getComputedStyle(centerMotion).filter,
       leftFilter:getComputedStyle(leftMotion).filter,
       rightFilter:getComputedStyle(rightMotion).filter,
-      centerWidth:c.width,
-      leftEdge:l.left,
-      rightEdge:r.right,
     };
   });
 
@@ -43,25 +40,29 @@ test('Encontros treats cards as separate draggable objects with center-only emph
   const sideName=sideLabel!.replace(/^Centralizar\s+/,'');
   await sideButton.click();
   await expect(page.getByText(`Parceiro em destaque: ${sideName}`,{exact:true})).toBeVisible();
-
-  const centerMotion=gallery.locator('[data-offset="0"] > div:first-child');
-  const beforeHover=await gallery.evaluate(node=>{
-    const center=node.querySelector<HTMLElement>('[data-offset="0"] .card')!.getBoundingClientRect();
-    const left=node.querySelector<HTMLElement>('[data-offset="-1"] .card')!.getBoundingClientRect();
-    const right=node.querySelector<HTMLElement>('[data-offset="1"] .card')!.getBoundingClientRect();
-    return {centerWidth:center.width,leftEdge:left.left,rightEdge:right.right};
-  });
-  await centerMotion.hover();
   await page.waitForTimeout(420);
-  const afterHover=await gallery.evaluate(node=>{
-    const center=node.querySelector<HTMLElement>('[data-offset="0"] .card')!.getBoundingClientRect();
-    const left=node.querySelector<HTMLElement>('[data-offset="-1"] .card')!.getBoundingClientRect();
-    const right=node.querySelector<HTMLElement>('[data-offset="1"] .card')!.getBoundingClientRect();
-    return {centerWidth:center.width,leftEdge:left.left,rightEdge:right.right};
-  });
-  expect(afterHover.centerWidth).toBeGreaterThan(beforeHover.centerWidth);
-  expect(afterHover.leftEdge).toBeLessThan(beforeHover.leftEdge-10);
-  expect(afterHover.rightEdge).toBeGreaterThan(beforeHover.rightEdge+10);
+
+  const reducedMotion=await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
+  if(!reducedMotion){
+    const centerMotion=gallery.locator('[data-offset="0"] > div:first-child');
+    const beforeHover=await gallery.evaluate(node=>{
+      const center=node.querySelector<HTMLElement>('[data-offset="0"] .card')!.getBoundingClientRect();
+      const left=node.querySelector<HTMLElement>('[data-offset="-1"] .card')!.getBoundingClientRect();
+      const right=node.querySelector<HTMLElement>('[data-offset="1"] .card')!.getBoundingClientRect();
+      return {centerWidth:center.width,leftEdge:left.left,rightEdge:right.right};
+    });
+    await centerMotion.hover();
+    await page.waitForTimeout(420);
+    const afterHover=await gallery.evaluate(node=>{
+      const center=node.querySelector<HTMLElement>('[data-offset="0"] .card')!.getBoundingClientRect();
+      const left=node.querySelector<HTMLElement>('[data-offset="-1"] .card')!.getBoundingClientRect();
+      const right=node.querySelector<HTMLElement>('[data-offset="1"] .card')!.getBoundingClientRect();
+      return {centerWidth:center.width,leftEdge:left.left,rightEdge:right.right};
+    });
+    expect(afterHover.centerWidth).toBeGreaterThan(beforeHover.centerWidth);
+    expect(afterHover.leftEdge).toBeLessThan(beforeHover.leftEdge-10);
+    expect(afterHover.rightEdge).toBeGreaterThan(beforeHover.rightEdge+10);
+  }
 
   await page.mouse.move(1,1);
   const live=page.locator('.sr-only[aria-live="polite"]').filter({hasText:'Parceiro em destaque:'});
