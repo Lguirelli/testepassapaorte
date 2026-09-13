@@ -17,7 +17,7 @@ export function ExploreExperience({places,categories,filters}:{places:ContentDat
       <h1 className="compact">O que você quer descobrir?</h1>
       <p className="lead">Explore a cidade usando a mesma base de lugares que alimenta o mapa e o roteiro.</p>
     </section>
-    <Form action="/explorar" className="filter-bar" prefetch>
+    <Form action="/explorar" className="filter-bar">
       <label className="search-field"><span className="sr-only">Buscar</span><Icon name="busca"/><input type="search" name="q" defaultValue={filters.q} placeholder="Busque por lugar, interesse ou experiência"/></label>
       <label><span>Categoria</span><select name="category" defaultValue={filters.category}><option value="">Todas</option>{categories.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
       <label><span>Ambiente</span><select name="environment" defaultValue={filters.environment}><option value="">Todos</option><option value="outdoor">Ao ar livre</option><option value="indoor">Ambiente interno</option></select></label>
