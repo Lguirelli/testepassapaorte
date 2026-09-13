@@ -1,9 +1,0 @@
-import type { SVGProps } from "react";
-
-export function PerfilGastarMenosIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="-10 -10 120 120" fill="none" aria-hidden="true" focusable="false" {...props}>
-      <g id="psn-perfil-gastar-menos-o-012" stroke="currentColor" strokeWidth="var(--icon-stroke-width, 4)" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="62" cy="24" rx="22" ry="9"/><path d="M40 24V44 M84 24V66C84 77 60 79 51 74 M51 64C65 69 84 65 84 57 M51 53C65 58 84 54 84 46 M42 36C54 43 84 41 84 33"/><ellipse cx="29" cy="54" rx="22" ry="9"/><path d="M7 54V76C7 88 51 88 51 76V54 M7 65C7 77 51 77 51 65"/></g>
-    </svg>
-  );
-}
