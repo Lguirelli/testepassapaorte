@@ -35,14 +35,14 @@ for(const path of publicPaths){
  });
 }
 
-test('route steps produce a visual preview without login',async({page})=>{
+test('route steps build a full guest itinerary without login',async({page})=>{
  await page.goto('/roteiro');
  for(let i=0;i<7;i++)await page.getByRole('button',{name:'Continuar',exact:true}).click();
- await page.getByRole('button',{name:'Visualizar meu roteiro',exact:true}).click();
- await expect(page.getByRole('heading',{name:'Uma prévia dos seus caminhos'})).toBeVisible();
- await expect(page).toHaveURL(/\/roteiro$/);
- await page.getByRole('button',{name:'Voltar',exact:true}).focus();
- await expect(page.getByRole('button',{name:'Voltar',exact:true})).toBeFocused();
+ await page.getByRole('button',{name:'Montar meu roteiro',exact:true}).click();
+ await expect(page).toHaveURL(/\/experiencia\/roteiro/);
+ await expect(page.getByRole('heading',{name:/Seu roteiro, dia a dia/i})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Salvar minha viagem',exact:true})).toBeVisible();
+ await expect(page).not.toHaveURL(/\/login/);
 });
 
 test('gallery, route tabs, FAQ and mobile menu respond to keyboard',async({page})=>{
