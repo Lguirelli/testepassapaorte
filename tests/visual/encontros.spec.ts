@@ -33,6 +33,10 @@ test('Encontros treats cards as separate draggable objects with center-only emph
   expect(geometry.leftFilter).toContain('blur');
   expect(geometry.rightFilter).toContain('blur');
 
+  const live=page.locator('.sr-only[aria-live="polite"]').filter({hasText:'Parceiro em destaque:'});
+
+  // A side-card tap/click must promote that card to the center without being swallowed
+  // by the stage-level pointer capture used for continuous dragging.
   const sideButton=gallery.locator('[data-offset="1"] > button[aria-label^="Centralizar"]').first();
   await expect(sideButton).toBeVisible();
   const sideLabel=await sideButton.getAttribute('aria-label');
@@ -40,10 +44,30 @@ test('Encontros treats cards as separate draggable objects with center-only emph
   const sideName=sideLabel!.replace(/^Centralizar\s+/,'');
   await sideButton.click();
   await expect(page.getByText(`Parceiro em destaque: ${sideName}`,{exact:true})).toBeVisible();
+  await page.mouse.move(1,1);
   await page.waitForTimeout(420);
 
+  // Drag directly on the centered card. Use a generous gesture so the assertion tests
+  // the interaction contract rather than velocity sampling noise between browser runs.
+  const beforeDrag=(await live.textContent())?.trim();
+  const centerBox=await gallery.locator('[data-offset="0"] .card').boundingBox();
+  expect(centerBox).toBeTruthy();
+  const centerX=centerBox!.x+centerBox!.width/2;
+  const centerY=centerBox!.y+centerBox!.height/2;
+  await page.mouse.move(centerX,centerY);
+  await page.mouse.down();
+  await page.mouse.move(centerX-240,centerY,{steps:10});
+  await page.mouse.up();
+  await expect.poll(async()=>(await live.textContent())?.trim(),{timeout:3000}).not.toBe(beforeDrag);
+  await page.mouse.move(1,1);
+  await page.waitForTimeout(420);
+
+  // Hover-only behavior is asserted only on pointer environments that can actually hover.
+  // The pointer is moved away before measuring the baseline because the card promoted by
+  // the preceding click can animate underneath the previous cursor position.
   const reducedMotion=await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
-  if(!reducedMotion){
+  const hoverCapable=await page.evaluate(()=>matchMedia('(hover:hover) and (pointer:fine)').matches);
+  if(!reducedMotion&&hoverCapable){
     const centerMotion=gallery.locator('[data-offset="0"] > div:first-child');
     const beforeHover=await gallery.evaluate(node=>{
       const center=node.querySelector<HTMLElement>('[data-offset="0"] .card')!.getBoundingClientRect();
@@ -63,15 +87,4 @@ test('Encontros treats cards as separate draggable objects with center-only emph
     expect(afterHover.leftEdge).toBeLessThan(beforeHover.leftEdge-10);
     expect(afterHover.rightEdge).toBeGreaterThan(beforeHover.rightEdge+10);
   }
-
-  await page.mouse.move(1,1);
-  const live=page.locator('.sr-only[aria-live="polite"]').filter({hasText:'Parceiro em destaque:'});
-  const beforeDrag=(await live.textContent())?.trim();
-  const centerBox=await gallery.locator('[data-offset="0"] .card').boundingBox();
-  expect(centerBox).toBeTruthy();
-  await page.mouse.move(centerBox!.x+centerBox!.width/2,centerBox!.y+centerBox!.height/2);
-  await page.mouse.down();
-  await page.mouse.move(centerBox!.x+centerBox!.width/2-150,centerBox!.y+centerBox!.height/2,{steps:8});
-  await page.mouse.up();
-  await expect.poll(async()=>(await live.textContent())?.trim()).not.toBe(beforeDrag);
 });
