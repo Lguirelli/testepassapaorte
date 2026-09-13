@@ -1,6 +1,6 @@
 import {z} from 'zod';
 import type {ContentData} from '@/core/db/schema';
-import type {TripData,TripDay,TripItem,TripProfile} from './types';
+import type {TripData,TripDay,TripProfile} from './types';
 
 const isoDate=/^\d{4}-\d{2}-\d{2}$/;
 function utcDay(value:string){if(!isoDate.test(value))throw new Error('Data inválida.');const d=new Date(`${value}T12:00:00Z`);if(Number.isNaN(d.getTime())||d.toISOString().slice(0,10)!==value)throw new Error('Data inválida.');return d;}
