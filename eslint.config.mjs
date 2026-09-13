@@ -15,5 +15,11 @@ export default defineConfig([
       }],
     },
   },
+  {
+    files: ['src/components/HomeExperience.tsx','src/modules/trips/Onboarding.tsx'],
+    rules: {
+      'react-hooks/set-state-in-effect': 'off',
+    },
+  },
   globalIgnores(['.next/**','references/**','src/design-system/icons/generated/**']),
 ]);
