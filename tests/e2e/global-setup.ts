@@ -1,10 +1,10 @@
-import {chromium,type FullConfig} from '@playwright/test';
+import {chromium} from '@playwright/test';
 import {mkdir} from 'node:fs/promises';
 import {dirname} from 'node:path';
 
 const storageStatePath='test-results/.auth/vercel.json';
 
-export default async function globalSetup(_config:FullConfig){
+export default async function globalSetup(){
   const bootstrapUrl=process.env.E2E_BOOTSTRAP_URL;
   if(!bootstrapUrl)return;
 
