@@ -164,7 +164,6 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
     if(wheelTimer.current)window.clearTimeout(wheelTimer.current);
     if(pointerFrame.current!==null)cancelAnimationFrame(pointerFrame.current);
   },[]);
-  useEffect(()=>{if(active>=items.length&&items.length)setActive(0);},[active,items.length]);
 
   const move=(delta:number)=>{
     if(!items.length)return;
