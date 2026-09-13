@@ -67,6 +67,35 @@ test('gallery, route tabs, FAQ and mobile menu respond to keyboard',async({page}
  await page.screenshot({path:test.info().outputPath('home-interactions.png'),fullPage:true});
 });
 
+test('Encontros gallery keeps the center card readable and controls outside the card',async({page})=>{
+ await page.setViewportSize({width:1371,height:936});
+ await page.goto('/');
+ const gallery=page.getByTestId('home-partner-gallery');
+ await expect(gallery).toBeVisible();
+ const geometry=await gallery.evaluate(node=>{
+  const center=node.querySelector<HTMLElement>('[data-offset="0"] .card');
+  const left=node.querySelector<HTMLElement>('[data-offset="-1"] .card');
+  const right=node.querySelector<HTMLElement>('[data-offset="1"] .card');
+  const next=document.querySelector<HTMLElement>('button[aria-label="Próximo parceiro"]');
+  if(!center||!left||!right||!next)throw new Error('Gallery geometry nodes missing');
+  const c=center.getBoundingClientRect();
+  const l=left.getBoundingClientRect();
+  const r=right.getBoundingClientRect();
+  const n=next.getBoundingClientRect();
+  return {
+   centerHeight:c.height,
+   centerBottom:c.bottom,
+   controlsTop:n.top,
+   leftExposure:c.left-l.left,
+   rightExposure:r.right-c.right,
+  };
+ });
+ expect(geometry.centerHeight).toBeLessThan(470);
+ expect(geometry.controlsTop).toBeGreaterThanOrEqual(geometry.centerBottom+4);
+ expect(geometry.leftExposure).toBeGreaterThan(90);
+ expect(geometry.rightExposure).toBeGreaterThan(90);
+});
+
 test('home and map adapt continuously across intermediate widths and dark mode remains accessible',async({page})=>{
  const widths=[347,529,713,887,979,1113,1371];
  for(const path of ['/','/mapa']){
