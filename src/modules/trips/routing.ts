@@ -1,0 +1,4 @@
+import type {ContentData} from '@/core/db/schema';
+import type {Transport} from './types';
+function rad(v:number){return v*Math.PI/180;}
+export function estimateRoute(from:ContentData|undefined,to:ContentData|undefined,transport:Transport){if(from?.location?.lat===undefined||from.location.lng===undefined||to?.location?.lat===undefined||to.location.lng===undefined)return null;const R=6371;const dLat=rad(to.location.lat-from.location.lat);const dLng=rad(to.location.lng-from.location.lng);const a=Math.sin(dLat/2)**2+Math.cos(rad(from.location.lat))*Math.cos(rad(to.location.lat))*Math.sin(dLng/2)**2;const km=2*R*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));const speed=transport==='walk'?4.5:transport==='car'?25:transport==='taxi_app'?22:18;return{distanceKm:Math.round(km*10)/10,minutes:Math.max(3,Math.round(km/speed*60)),estimated:true as const};}

@@ -1,0 +1,33 @@
+name: Validate Full Next.js Product
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:static
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+        env:
+          NODE_ENV: production
+          DATABASE_URL: postgresql://placeholder:placeholder@localhost:5432/passaporte
+          SESSION_SECRET: ci-only-session-secret-000000000000000000000000000000
+          IDENTITY_PEPPER: ci-only-identity-pepper-111111111111111111111111111111
+          NEXT_PUBLIC_SITE_URL: https://example.invalid

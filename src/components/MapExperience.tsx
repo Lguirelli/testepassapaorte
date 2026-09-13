@@ -1,0 +1,3 @@
+'use client';
+import {useState} from 'react';import type {ContentData} from '@/core/db/schema';import {PlaceMap} from './PlaceMap';import {PlaceCard} from './content';
+export function MapExperience({places}:{places:ContentData[]}){const[selected,setSelected]=useState<string|null>(places[0]?.id||null);return <div className="map-page-layout"><div className="map-page-canvas"><PlaceMap places={places} selectedId={selected} onSelect={setSelected}/></div><aside className="map-page-list" aria-label="Lugares no mapa">{places.map(place=><div key={place.id} data-selected={selected===place.id?'true':'false'} onMouseEnter={()=>setSelected(place.id)} onFocusCapture={()=>setSelected(place.id)}><PlaceCard place={place}/></div>)}</aside></div>}
