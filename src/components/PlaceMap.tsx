@@ -30,7 +30,7 @@ export function PlaceMap({places,selectedId,onSelect,compact=false}:{places:Cont
   const selected=places.find(place=>place.id===selectedId)||places[0];
   return <div className={`territorial-map ${compact?'territorial-map-compact':''}`} data-testid="place-map">
     <div className="territorial-map-head"><div><Icon name="mapa"/><strong> Serra Negra</strong></div><small>{places.some((place,index)=>pts[index]?.approx&&place.location?.lat===undefined)?'Alguns pontos usam posição esquemática até a coordenada ser verificada.':'Posições baseadas nas coordenadas publicadas.'}</small></div>
-    <svg viewBox="0 0 100 100" role="img" aria-label={`Mapa com ${places.length} lugares`}>
+    <svg viewBox="0 0 100 100" role="group" aria-label={`Mapa com ${places.length} lugares`}>
       <defs><pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M12 0H0V12" fill="none" stroke="currentColor" strokeOpacity=".07" strokeWidth=".35"/></pattern></defs>
       <rect width="100" height="100" rx="5" fill="url(#grid)"/>
       <path d="M8 78 C23 63, 27 38, 46 30 S72 22, 91 11" fill="none" stroke="currentColor" strokeOpacity=".18" strokeWidth="1.2"/>
