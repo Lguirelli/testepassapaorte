@@ -63,7 +63,7 @@
   --hover-shift:0cqi!important;
 }
 [data-testid="home-partner-gallery"] [data-offset="-1"]{
-  --x:-31cqi!important;
+  --x:-35cqi!important;
   --y:24px!important;
   --z:-72px!important;
   --rot:3deg!important;
@@ -73,7 +73,7 @@
   --hover-shift:-6cqi!important;
 }
 [data-testid="home-partner-gallery"] [data-offset="1"]{
-  --x:31cqi!important;
+  --x:35cqi!important;
   --y:24px!important;
   --z:-72px!important;
   --rot:-3deg!important;
@@ -83,7 +83,7 @@
   --hover-shift:6cqi!important;
 }
 [data-testid="home-partner-gallery"] [data-offset="-2"]{
-  --x:-55cqi!important;
+  --x:-61cqi!important;
   --y:44px!important;
   --z:-150px!important;
   --rot:5.5deg!important;
@@ -93,7 +93,7 @@
   --hover-shift:-9cqi!important;
 }
 [data-testid="home-partner-gallery"] [data-offset="2"]{
-  --x:55cqi!important;
+  --x:61cqi!important;
   --y:44px!important;
   --z:-150px!important;
   --rot:-5.5deg!important;
