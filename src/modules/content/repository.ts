@@ -55,8 +55,8 @@ export function canonicalPublicDataset():Dataset{
   synthetic:false,
  }));
  const placeData:ContentData[]=real.places.map(raw=>{
-  const place={...raw};
-  delete (place as typeof place&{research?:unknown}).research;
+  const {research:_research,...place}=raw;
+  void _research;
   return {...place,cityId:real.city.id,status:'published',synthetic:false,discoveryVisible:place.discoveryVisible!==false} as ContentData;
  });
  return visibleDataset({places:placeData,partners:[],experiences:[],events:[],categories,sources:sourceData});
