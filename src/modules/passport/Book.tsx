@@ -27,9 +27,8 @@ export function Book({pages}:{pages:BookPage[]}){
     return()=>observer.disconnect();
   },[]);
 
-  useEffect(()=>{
-    if(page>=pages.length)setPage(Math.max(0,pages.length-1));
-  },[page,pages.length]);
+  const lastPage=Math.max(0,pages.length-1);
+  if(page>lastPage)setPage(lastPage);
 
   function go(next:number){
     setPage(Math.max(0,Math.min(next,pages.length-1)));

@@ -1,3 +1,4 @@
+import {isVisualMode} from '@/core/app-mode';
 import {cookies} from 'next/headers';
 import {eq} from 'drizzle-orm';
 import {z} from 'zod';
@@ -11,6 +12,7 @@ const uuid=z.string().uuid();
 function analyticsCookieMaxAge(){const days=Number(process.env.ANALYTICS_COOKIE_DAYS||180);const safe=Number.isFinite(days)?Math.min(365,Math.max(1,Math.trunc(days))):180;return safe*24*60*60;}
 
 export async function POST(req:Request){
+  if(isVisualMode())return new Response(null,{status:204,headers:{'Cache-Control':'no-store'}});
   try{assertSameOrigin(req);}catch{return Response.json({error:'Requisição inválida'},{status:400});}
   const jar=await cookies();if(jar.get('psn_analytics')?.value!=='granted')return new Response(null,{status:204,headers:{'Cache-Control':'no-store'}});
   try{

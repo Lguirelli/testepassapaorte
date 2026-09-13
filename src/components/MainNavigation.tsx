@@ -25,7 +25,8 @@ export function MainNavigation({initialTheme}:{initialTheme:'system'|'light'|'da
   const triggerRef=useRef<HTMLButtonElement>(null);
   const dockFrame=useRef<number|null>(null);
 
-  useEffect(()=>setOpen(false),[pathname]);
+  const [previousPath,setPreviousPath]=useState(pathname);
+  if(previousPath!==pathname){setPreviousPath(pathname);setOpen(false);}
 
   useEffect(()=>{
     if(!open)return;

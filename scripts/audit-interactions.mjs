@@ -19,7 +19,7 @@ check('gallery-progressive-depth',home.includes("'--blur'")&&home.includes("'--s
 check('route-slider-keyboard',home.includes("ArrowRight")&&home.includes("ArrowLeft")&&home.includes("role=\"tablist\""),'Slider de roteiro precisa de teclado');
 check('route-transition',fs.existsSync('src/app/template.tsx')&&globalCss.includes('route-page-enter'),'Transição de rota precisa preservar header e animar conteúdo');
 check('map-svg-semantics',!map.includes('<button')&&map.includes('role="button"')&&map.includes("event.key==='Enter'"),'Pins do SVG precisam de semântica/teclado válidos');
-check('sitemap-build-safe',sitemap.includes("export const dynamic='force-dynamic'")&&sitemap.includes('if(!process.env.DATABASE_URL)return staticEntries'),'Sitemap não pode exigir banco no prerender da Vercel');
+check('sitemap-build-safe',sitemap.includes("export const dynamic='force-dynamic'")&&(sitemap.includes('if(!process.env.DATABASE_URL)return staticEntries')||sitemap.includes('if(!isVisualMode()&&!process.env.DATABASE_URL)return staticEntries')),'Sitemap não pode exigir banco no prerender da Vercel');
 
 console.log(JSON.stringify({at:new Date().toISOString(),status:failures.length?'FAIL':'PASS',checks:10,failures},null,2));
 process.exit(failures.length?1:0);

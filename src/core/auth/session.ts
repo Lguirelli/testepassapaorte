@@ -1,3 +1,4 @@
+import {isVisualMode} from '@/core/app-mode';
 import {createHash,createHmac,timingSafeEqual} from 'node:crypto';
 import {cookies} from 'next/headers';
 import {and,eq,gt,isNull} from 'drizzle-orm';
@@ -78,6 +79,7 @@ export async function createSession(actor:Actor){
 }
 
 export async function currentActor():Promise<Actor|null>{
+  if(isVisualMode())return null;
   const parsed=verify((await cookies()).get(COOKIE)?.value);if(!parsed)return null;
   const database=await db();const [row]=await database.select().from(authSessions).where(and(eq(authSessions.id,parsed.id),gt(authSessions.expiresAt,new Date()),isNull(authSessions.revokedAt)));
   if(!row||!['tourist','partner','admin'].includes(row.role))return null;
