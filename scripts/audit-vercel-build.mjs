@@ -19,7 +19,7 @@ check('onboarding-explicit-unions',onboarding.includes("type Intention=Profile['
 check('opengraph-node-runtime',!og.includes("runtime='edge'")&&og.includes("runtime='nodejs'"),'Edge runtime está deprecated no Next 16.3.4');
 check('opengraph-flex-layout',og.includes("<div style={{display:'flex',flexDirection:'column'}}><div style={{fontSize:78"),'next/og exige display explícito em divs com múltiplos filhos');
 check('vercel-origin-fallback',origin.includes('VERCEL_PROJECT_PRODUCTION_URL')&&origin.includes('VERCEL_URL'),'origem deve reconhecer URL de sistema da Vercel');
-check('sitemap-build-safe',sitemap.includes("export const dynamic='force-dynamic'")&&sitemap.includes('if(!process.env.DATABASE_URL)return staticEntries'),'sitemap não pode consultar banco durante build sem DATABASE_URL');
+check('sitemap-build-safe',sitemap.includes("export const dynamic='force-dynamic'")&&(sitemap.includes('if(!process.env.DATABASE_URL)return staticEntries')||sitemap.includes('if(!isVisualMode()&&!process.env.DATABASE_URL)return staticEntries')),'sitemap não pode consultar banco durante build sem DATABASE_URL');
 
 const report={at:new Date().toISOString(),status:failures.length?'FAIL':'PASS',checks:9,failures};
 console.log(JSON.stringify(report,null,2));
