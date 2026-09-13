@@ -1,29 +1,29 @@
 'use client';
 
-import {useEffect,useState} from 'react';
+import {useState,useSyncExternalStore} from 'react';
 
 type Consent='granted'|'denied'|'unset';
+const subscribe=()=>()=>{};
 
 function readConsent():Consent{
-  if(typeof document==='undefined')return 'unset';
   const raw=document.cookie.split('; ').find(value=>value.startsWith('psn_analytics='))?.split('=')[1];
   return raw==='granted'||raw==='denied'?raw:'unset';
 }
 
 export function PrivacyPreferences(){
-  const[consent,setConsent]=useState<Consent>('unset');
+  const storedConsent=useSyncExternalStore(subscribe,readConsent,()=> 'unset' as Consent);
+  const[override,setOverride]=useState<Consent|null>(null);
+  const consent=override??storedConsent;
   const[saving,setSaving]=useState<Consent|null>(null);
   const[message,setMessage]=useState('');
   const[error,setError]=useState('');
-
-  useEffect(()=>setConsent(readConsent()),[]);
 
   async function save(status:Exclude<Consent,'unset'>){
     setSaving(status);setMessage('');setError('');
     try{
       const response=await fetch('/api/consent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({status})});
       if(!response.ok)throw new Error();
-      setConsent(status);
+      setOverride(status);
       setMessage(status==='granted'?'Analytics opcional ativado.':'Analytics opcional desativado. Identificadores de analytics deste navegador foram removidos.');
     }catch{
       setError('Não foi possível atualizar sua preferência. Tente novamente.');
