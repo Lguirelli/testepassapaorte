@@ -35,8 +35,6 @@ test('Encontros treats cards as separate draggable objects with center-only emph
 
   const live=page.locator('.sr-only[aria-live="polite"]').filter({hasText:'Parceiro em destaque:'});
 
-  // A side-card tap/click must promote that card to the center without being swallowed
-  // by the stage-level pointer capture used for continuous dragging.
   const sideButton=gallery.locator('[data-offset="1"] > button[aria-label^="Centralizar"]').first();
   await expect(sideButton).toBeVisible();
   const sideLabel=await sideButton.getAttribute('aria-label');
@@ -47,8 +45,6 @@ test('Encontros treats cards as separate draggable objects with center-only emph
   await page.mouse.move(1,1);
   await page.waitForTimeout(420);
 
-  // Drag directly on the centered card. Use a generous gesture so the assertion tests
-  // the interaction contract rather than velocity sampling noise between browser runs.
   const beforeDrag=(await live.textContent())?.trim();
   const centerBox=await gallery.locator('[data-offset="0"] .card').boundingBox();
   expect(centerBox).toBeTruthy();
@@ -62,9 +58,6 @@ test('Encontros treats cards as separate draggable objects with center-only emph
   await page.mouse.move(1,1);
   await page.waitForTimeout(420);
 
-  // Hover-only behavior is asserted only on pointer environments that can actually hover.
-  // The pointer is moved away before measuring the baseline because the card promoted by
-  // the preceding click can animate underneath the previous cursor position.
   const reducedMotion=await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
   const hoverCapable=await page.evaluate(()=>matchMedia('(hover:hover) and (pointer:fine)').matches);
   if(!reducedMotion&&hoverCapable){
