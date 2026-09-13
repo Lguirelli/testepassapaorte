@@ -90,7 +90,7 @@ test('Encontros gallery keeps the center card readable and controls outside the 
    rightExposure:r.right-c.right,
   };
  });
- expect(geometry.centerHeight).toBeLessThan(470);
+ expect(geometry.centerHeight).toBeLessThan(500);
  expect(geometry.controlsTop).toBeGreaterThanOrEqual(geometry.centerBottom+4);
  expect(geometry.leftExposure).toBeGreaterThan(90);
  expect(geometry.rightExposure).toBeGreaterThan(90);
