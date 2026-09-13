@@ -25,8 +25,7 @@ export function MainNavigation({initialTheme,accountHref,accountLabel}:{initialT
   const triggerRef=useRef<HTMLButtonElement>(null);
   const dockFrame=useRef<number|null>(null);
 
-  const [previousPath,setPreviousPath]=useState(pathname);
-  if(previousPath!==pathname){setPreviousPath(pathname);setOpen(false);}
+  useEffect(()=>{setOpen(false);},[pathname]);
 
   useEffect(()=>{
     if(!open)return;
