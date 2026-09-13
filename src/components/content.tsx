@@ -8,14 +8,18 @@ import {placeUrl} from '@/modules/content/urls';
 export const labels:Record<string,string>={tourist_point:'Ponto turístico',business:'Estabelecimento',partner:'Parceiro',public_point:'Ponto público',free:'Sem custo',paid:'Pago',paid_with_booking:'Pago com reserva',free_with_booking:'Gratuito com reserva',mixed:'Misto',unknown:'Não informado',indoor:'Ambiente interno',outdoor:'Ao ar livre',within_1_hour:'Em até 1 hora',same_day:'No mesmo dia',within_few_hours:'Em algumas horas',partly_cloudy:'Parcialmente nublado',rain:'Chuva',clear:'Céu aberto',planned:'Planejado',fixed:'Fixado',moved:'Movido',removed:'Removido'};
 
 export function PlaceCard({place}:{place:ContentData}){
-  const image=safeAssetSrc(place.imageAsset?.src||place.imageAsset?.fallbackSrc,'/placeholders/card.svg');
+  const asset=place.imageAsset;
+  const remoteIsIllustrative=asset?.illustrative===true||asset?.notActualPlace===true;
+  const preferFallback=remoteIsIllustrative&&Boolean(asset?.fallbackSrc);
+  const image=safeAssetSrc(preferFallback?asset?.fallbackSrc:(asset?.src||asset?.fallbackSrc),'/placeholders/card.svg');
+  const alt=preferFallback?`Imagem de ${place.name}`:(asset?.alt||`Imagem de ${place.name}`);
   const kind=labels[place.commercialRelation||'']||labels[place.placeType||''];
   return <article className="card" data-testid={`place-card-${place.id}`}>
     <img
       className="placeholder"
       src={image}
-      alt={place.imageAsset?.alt||`Imagem de ${place.name}`}
-      style={{objectPosition:safeObjectPosition(place.imageAsset?.position)}}
+      alt={alt}
+      style={{objectPosition:safeObjectPosition(asset?.position)}}
       loading="lazy"
       decoding="async"
       draggable={false}
