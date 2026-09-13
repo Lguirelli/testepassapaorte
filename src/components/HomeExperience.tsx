@@ -164,7 +164,6 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
     if(wheelTimer.current)window.clearTimeout(wheelTimer.current);
     if(pointerFrame.current!==null)cancelAnimationFrame(pointerFrame.current);
   },[]);
-  if(active!==0&&active>=items.length)setActive(0);
 
   const move=(delta:number)=>{
     if(!items.length)return;
@@ -227,27 +226,32 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
     wheelTimer.current=window.setTimeout(()=>{wheelLock.current=false;wheelTimer.current=null;},280);
   };
 
+  const centerCard=(index:number)=>{
+    setActive(index);
+    requestAnimationFrame(()=>stageRef.current?.focus({preventScroll:true}));
+  };
+
   return <>
     <div className={styles.galleryViewport}>
-      <div ref={stageRef} className={styles.galleryStage} data-testid="home-partner-gallery" data-center-hover={centerHover?'true':'false'} tabIndex={0} aria-label="Galeria de parceiros. Arraste, role ou use as setas do teclado." onKeyDown={event=>{if(event.key==='ArrowLeft'){event.preventDefault();move(-1);}if(event.key==='ArrowRight'){event.preventDefault();move(1);}}} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={()=>{drag.current=null;dragged.current=false;resetDrag();}} onWheel={onWheel} onClickCapture={event=>{if(dragged.current){event.preventDefault();event.stopPropagation();dragged.current=false;}}}>
+      <div ref={stageRef} className={styles.galleryStage} data-testid="home-partner-gallery" data-center-hover={centerHover?'true':'false'} tabIndex={0} aria-label="Galeria de parceiros. Arraste, role, clique em um card lateral ou use as setas do teclado." onKeyDown={event=>{if(event.key==='ArrowLeft'){event.preventDefault();move(-1);}if(event.key==='ArrowRight'){event.preventDefault();move(1);}}} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={()=>{drag.current=null;dragged.current=false;resetDrag();}} onWheel={onWheel} onClickCapture={event=>{if(dragged.current){event.preventDefault();event.stopPropagation();dragged.current=false;}}}>
         {items.map((place,index)=>{
           const offset=circularOffset(index,active,items.length);
           const visible=Math.abs(offset)<=2;
           const distance=Math.abs(offset);
           const style={
-            '--x':`${offset*27}cqi`,
-            '--y':`${distance*34}px`,
-            '--z':`${distance*-95}px`,
+            '--x':`calc(${offset} * clamp(230px, 34cqi, 440px))`,
+            '--y':`${distance*24}px`,
+            '--z':`${distance*-110}px`,
             '--rot':`${offset*-4}deg`,
-            '--opacity':String(1-distance*.18),
+            '--opacity':String(Math.max(.48,1-distance*.2)),
             '--stack':String(10-distance),
-            '--blur':`${distance*1.15}px`,
-            '--side-scale':String(1-distance*.065),
-            '--hover-shift':`${offset*4}cqi`,
+            '--blur':`${distance*2.5}px`,
+            '--side-scale':String(1-distance*.08),
+            '--hover-shift':`calc(${offset} * clamp(42px, 6cqi, 86px))`,
           } as GalleryStyle;
           return <div key={place.id} className={styles.galleryPosition} data-offset={offset} data-visible={visible?'true':'false'} style={style}>
             <div className={styles.galleryMotion} aria-hidden={offset!==0} inert={offset!==0} onPointerEnter={()=>offset===0&&setCenterHover(true)} onPointerLeave={()=>offset===0&&setCenterHover(false)}><PlaceCard place={place}/></div>
-            {visible&&offset!==0&&<button type="button" data-testid={`home-gallery-center-${index}`} className={styles.gallerySideActivate} aria-label={`Centralizar ${place.name}`} onClick={()=>setActive(index)}/>} 
+            {visible&&offset!==0&&<button type="button" data-testid={`home-gallery-center-${index}`} className={styles.gallerySideActivate} aria-label={`Centralizar ${place.name}`} onPointerDown={event=>event.stopPropagation()} onClick={()=>centerCard(index)}/>} 
           </div>;
         })}
       </div>
@@ -255,15 +259,15 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
     <p className="sr-only" aria-live="polite">Parceiro em destaque: {items[active]?.name}</p>
     <div className={styles.galleryControls}>
       <button type="button" aria-label="Parceiro anterior" onClick={()=>move(-1)}><Icon name="chevron-esquerda"/></button>
-      <p>ARRASTE · ROLE · USE AS SETAS</p>
+      <p>ARRASTE · ROLE · CLIQUE · USE AS SETAS</p>
       <button type="button" aria-label="Próximo parceiro" onClick={()=>move(1)}><Icon name="chevron-direita"/></button>
     </div>
-    <div className={styles.galleryDots} aria-label="Posição da galeria">{items.map((place,index)=><button key={place.id} type="button" data-testid={`home-gallery-dot-${index}`} aria-label={`Mostrar ${place.name}`} aria-pressed={index===active} onClick={()=>setActive(index)}/>)}</div>
+    <div className={styles.galleryDots} aria-label="Posição da galeria">{items.map((place,index)=><button key={place.id} type="button" data-testid={`home-gallery-dot-${index}`} aria-label={`Mostrar ${place.name}`} aria-pressed={index===active} onClick={()=>centerCard(index)}/>)}</div>
   </>;
 }
 
 function FAQ(){
-  const [open,setOpen]=useState(0);
+  const [open,setOpen]=useState(-1);
   return <div className={styles.faqList} data-testid="home-faq">{faqs.map(([question,answer],index)=>{
     const expanded=open===index;
     const answerId=`faq-answer-${index}`;
