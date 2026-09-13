@@ -109,3 +109,60 @@ html[data-theme="dark"] [data-testid="home-route-slider"] [class*="slideCopy"]>.
     filter:none!important;
   }
 }
+
+/* Green accent system derived from the approved palette reference.
+   Greens are used as emphasis and interaction feedback without recoloring large surfaces. */
+body::selection{background:var(--highlight-lime);color:var(--highlight-forest)}
+.main-nav>a:not(.button):hover{
+  background:color-mix(in srgb,var(--highlight-lime) 22%,var(--surface-raised));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--highlight-olive) 42%,transparent)
+}
+.main-nav>a[aria-current=page]{
+  background:color-mix(in srgb,var(--highlight-lime) 14%,var(--surface-raised));
+  box-shadow:inset 0 -2px 0 var(--highlight-teal)
+}
+button:not(.primary):not(:disabled):hover,.button:not(.primary):hover{
+  border-color:color-mix(in srgb,var(--highlight-teal) 72%,var(--border-default));
+  background:color-mix(in srgb,var(--highlight-lime) 16%,var(--surface-raised))
+}
+.card:hover,.panel:has(a:hover),.panel:has(button:hover){
+  border-color:color-mix(in srgb,var(--highlight-olive) 68%,var(--border-default));
+  box-shadow:0 18px 48px color-mix(in srgb,var(--highlight-forest) 14%,transparent)
+}
+.badge:hover,.chips a:hover,.chips button:hover{
+  border-color:var(--highlight-olive);
+  background:color-mix(in srgb,var(--highlight-lime) 18%,var(--surface-raised))
+}
+.site-footer nav a:hover{color:var(--highlight-forest);text-decoration-color:var(--highlight-teal)}
+
+@media(max-width:1120px){
+  .mobile-nav-card>a:not(.button):hover,
+  .mobile-nav-card>a[aria-current=page]{
+    background:color-mix(in srgb,var(--highlight-lime) 18%,var(--surface-raised));
+    box-shadow:inset 3px 0 0 var(--highlight-teal)
+  }
+}
+
+html[data-theme="dark"] .main-nav>a:not(.button):hover,
+html[data-theme="dark"] .main-nav>a[aria-current=page],
+html[data-theme="dark"] button:not(.primary):not(:disabled):hover,
+html[data-theme="dark"] .button:not(.primary):hover,
+html[data-theme="dark"] .badge:hover,
+html[data-theme="dark"] .chips a:hover,
+html[data-theme="dark"] .chips button:hover{
+  background:color-mix(in srgb,var(--highlight-lime) 12%,var(--surface-raised))
+}
+html[data-theme="dark"] .site-footer nav a:hover{color:var(--highlight-lime)}
+
+@media(prefers-color-scheme:dark){
+  html[data-theme="system"] .main-nav>a:not(.button):hover,
+  html[data-theme="system"] .main-nav>a[aria-current=page],
+  html[data-theme="system"] button:not(.primary):not(:disabled):hover,
+  html[data-theme="system"] .button:not(.primary):hover,
+  html[data-theme="system"] .badge:hover,
+  html[data-theme="system"] .chips a:hover,
+  html[data-theme="system"] .chips button:hover{
+    background:color-mix(in srgb,var(--highlight-lime) 12%,var(--surface-raised))
+  }
+  html[data-theme="system"] .site-footer nav a:hover{color:var(--highlight-lime)}
+}
