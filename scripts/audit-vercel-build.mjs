@@ -11,7 +11,7 @@ const sitemap=read('src/app/sitemap.ts');
 const failures=[];
 const check=(name,ok,detail)=>{if(!ok)failures.push({name,detail});};
 
-check('node-engine',pkg.engines?.node==='22.x',`esperado 22.x; atual ${pkg.engines?.node}`);
+check('node-engine',pkg.engines?.node==='24.x',`esperado 24.x; atual ${pkg.engines?.node}`);
 check('drizzle-returning-partner',!partner.includes('.returning({'),'Drizzle 0.45.2 nesta base usa returning() sem seleção neste fluxo');
 check('drizzle-returning-trips',!trips.includes('.returning({'),'Drizzle 0.45.2 nesta base usa returning() sem seleção neste fluxo');
 check('onboarding-no-never-cast',!onboarding.includes('as never'),'Onboarding não pode depender de coerção never');
