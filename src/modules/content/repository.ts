@@ -1,3 +1,5 @@
+import {isVisualMode} from '@/core/app-mode';
+import {visualDataset} from './visual-dataset';
 import {asc,ne} from 'drizzle-orm';
 import {db} from '@/core/db';
 import {sanitizeId,sanitizeSearchQuery,sanitizeText} from '@/core/security/sanitize';
@@ -50,7 +52,7 @@ export function visibleDataset(data:Dataset):Dataset{
  const clean=(items:ContentData[])=>items.map(item=>({...item,categoryIds:item.categoryIds?.filter(id=>categoryIds.has(id))}));
  return {...data,categories,places:clean(places),partners:data.partners.filter(p=>placeIds.has(p.placeId||'')&&places.some(place=>place.id===p.placeId&&place.commercialRelation==='partner')),experiences:clean(data.experiences.filter(e=>!e.placeId||placeIds.has(e.placeId))),events:clean(data.events.filter(e=>!e.placeId||placeIds.has(e.placeId)))};
 }
-export async function publicDataset(){return visibleDataset(await relationalDataset());}
+export async function publicDataset(){return visibleDataset(isVisualMode()?visualDataset():await relationalDataset());}
 export async function publicContent(kind:Kind):Promise<ContentData[]>{return(await publicDataset())[kind];}
 export {placeUrl} from './urls';
 export function normalize(value:string){return value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR');}

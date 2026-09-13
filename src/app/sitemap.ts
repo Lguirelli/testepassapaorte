@@ -1,3 +1,4 @@
+import {isVisualMode} from '@/core/app-mode';
 import type {MetadataRoute} from 'next';
 import {publicDataset,placeUrl} from '@/modules/content/repository';
 import {siteOrigin} from '@/core/security/origin';
@@ -16,7 +17,7 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
     priority:url==='/'?1:.7,
   }));
 
-  if(!process.env.DATABASE_URL)return staticEntries;
+  if(!isVisualMode()&&!process.env.DATABASE_URL)return staticEntries;
 
   try{
     const data=await publicDataset();
