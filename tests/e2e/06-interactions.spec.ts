@@ -14,6 +14,10 @@ async function activeGalleryDot(page:Page){
   return -1;
 }
 
+test.beforeEach(async({context})=>{
+  await context.addCookies([{name:'psn_analytics',value:'denied',domain:'localhost',path:'/'}]);
+});
+
 test('Dock responde por proximidade sem alterar geometria',async({page},info)=>{
   test.skip(!info.project.name.startsWith('desktop'),'efeito Dock é validado em pointer fino');
   await page.goto('/');
@@ -57,12 +61,18 @@ test('Circular Gallery funciona por teclado, wheel e ação lateral',async({page
   const afterKeyboard=await activeGalleryDot(page);
   await stage.dispatchEvent('wheel',{deltaY:120,deltaX:0});
   await expect.poll(()=>activeGalleryDot(page)).not.toBe(afterKeyboard);
-  const side=page.locator('[data-testid^="home-gallery-center-"]:visible').first();
-  if(await side.count()){
-    const before=await activeGalleryDot(page);
-    await side.click();
-    await expect.poll(()=>activeGalleryDot(page)).not.toBe(before);
-  }
+
+  const side=page.locator('[data-offset="1"] [data-testid^="home-gallery-center-"]').first();
+  await expect(side).toBeVisible();
+  const before=await activeGalleryDot(page);
+  const box=await side.boundingBox();
+  expect(box).not.toBeNull();
+  const viewport=page.viewportSize();
+  expect(viewport).not.toBeNull();
+  const x=Math.max(8,Math.min(viewport!.width-8,box!.x+box!.width-18));
+  const y=Math.max(8,Math.min(viewport!.height-8,box!.y+Math.min(box!.height*.32,150)));
+  await page.mouse.click(x,y);
+  await expect.poll(()=>activeGalleryDot(page)).not.toBe(before);
 });
 
 test('slider de roteiro preserva semântica tabs e teclado',async({page})=>{
