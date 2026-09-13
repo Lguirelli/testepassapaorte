@@ -1,0 +1,59 @@
+name: Validate Full Next.js Product
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:static
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+        env:
+          NODE_ENV: production
+          SESSION_SECRET: ci-only-session-secret-000000000000000000000000000000
+          IDENTITY_PEPPER: ci-only-identity-pepper-111111111111111111111111111111
+          NEXT_PUBLIC_SITE_URL: https://example.invalid
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: validate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Playwright Chromium
+        run: npm run playwright:install:ci
+      - name: Run Playwright E2E + Axe
+        run: npm run test:e2e
+      - name: Upload Playwright artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          if-no-files-found: ignore
+          path: |
+            playwright-report/
+            test-results/
+            docs/validation/
+

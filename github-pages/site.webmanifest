@@ -1,0 +1,16 @@
+{
+  "name": "Passaporte Serra Negra",
+  "short_name": "Passaporte SN",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E8E8E0",
+  "theme_color": "#403D3F",
+  "icons": [
+    {
+      "src": "/assets/brand/logo-passaporte-serra-negra.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
