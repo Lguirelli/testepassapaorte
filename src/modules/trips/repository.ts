@@ -1,2 +1,0 @@
-import {and,eq} from 'drizzle-orm';import {db} from '@/core/db';import {trips} from '@/core/db/schema';import {authProvider} from '@/providers';import type {TripData} from './types';
-export async function getTrip(){const user=await authProvider.currentUser();const [row]=await(await db()).select().from(trips).where(and(eq(trips.id,'demo-trip-001'),eq(trips.owner,user.id)));if(!row)throw new Error('Demo trip not seeded');return{...row,data:row.data as TripData};}

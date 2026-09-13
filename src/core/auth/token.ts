@@ -1,3 +1,0 @@
-import {createHmac,timingSafeEqual} from 'node:crypto';
-export function signDemoToken(secret:string,expires=Date.now()+4*60*60*1000){const body=`demo-admin.${expires}`;return `${body}.${createHmac('sha256',secret).update(body).digest('hex')}`;}
-export function verifyDemoToken(value:string|undefined,secret:string){if(!value)return false;const [role,expiry,signature,...extra]=value.split('.');if(role!=='demo-admin'||extra.length||!expiry||Number(expiry)<Date.now()||!/^\d+$/.test(expiry)||!signature||!/^[a-f0-9]{64}$/.test(signature))return false;const expected=createHmac('sha256',secret).update(`${role}.${expiry}`).digest();return timingSafeEqual(expected,Buffer.from(signature,'hex'));}

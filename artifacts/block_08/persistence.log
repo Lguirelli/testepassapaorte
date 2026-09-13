@@ -1,5 +1,0 @@
-Validation v0 migration applied; PostGIS: false
-Synthetic seed applied idempotently; existing content preserved.
-Validation v0 migration applied; PostGIS: false
-Synthetic seed applied idempotently; existing content preserved.
-PASS: migration repeated; 30 content records and 1 trip; seed repeated three times; edited version preserved after reopen.

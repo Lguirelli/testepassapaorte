@@ -1,8 +1,0 @@
-.page { max-width:1440px; margin-inline:auto; }
-.hero { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr); gap:clamp(2rem,5vw,5rem); padding:clamp(4rem,8vw,8rem) 0; align-items:center; }
-.summary { background:var(--text-primary); color:var(--bg-primary); }
-.summary :global(.eyebrow) { color:var(--bg-secondary); }
-.summary ol { margin:1.25rem 0 0; padding-left:1.25rem; }
-.summary li+li { margin-top:.8rem; }
-.benefit :global([data-ui-icon]) { width:2rem!important; height:2rem!important; font-size:2rem!important; margin-bottom:.75rem; }
-@media (max-width:1100px) { .hero { grid-template-columns:1fr; } }

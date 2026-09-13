@@ -1,3 +1,0 @@
-import {test,expect} from '@playwright/test';
-import AxeBuilder from '@axe-core/playwright';
-test('G1 home and health',async({page,request},info)=>{expect((await request.get('/health')).ok()).toBeTruthy();await page.goto('/');await expect(page.getByRole('heading',{level:1})).toBeVisible();await expect(page.getByText('Modo de validação • conteúdo fictício')).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();expect((await new AxeBuilder({page}).analyze()).violations).toEqual([]);await page.screenshot({path:`artifacts/playwright/${info.project.name}/00-home.png`,fullPage:true});});
