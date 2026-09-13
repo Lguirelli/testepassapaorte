@@ -193,3 +193,6 @@ dialog,[role="dialog"]{max-inline-size:min(42rem,calc(100% - 2rem));max-block-si
   .map-pin .map-pin-dot{transition:none!important}
 }
 .map-pin[data-active=true] .map-pin-hit,.map-pin:hover .map-pin-hit,.map-pin:focus-visible .map-pin-hit{fill:transparent!important;stroke:none!important}
+
+/* Full-bleed sections measure the available page width, excluding scrollbars. */
+body{container-type:inline-size}

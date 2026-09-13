@@ -14,7 +14,7 @@ test('public pages render without a database',async({page,request})=>{
   expect(response?.status()).toBe(200);
   await expect(page.locator('h1')).toBeVisible();
   await expect(page.getByText('Falha temporária',{exact:true})).toHaveCount(0);
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2)).toBe(true);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth),`Overflow on ${path}`).toBeLessThanOrEqual(2);
   const axe=await new AxeBuilder({page}).analyze();
   expect(axe.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);
  }
