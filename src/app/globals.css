@@ -167,7 +167,7 @@ dialog,[role="dialog"]{max-inline-size:min(42rem,calc(100% - 2rem));max-block-si
 
 /* Route continuity: the header stays fixed while new page content enters. */
 .route-transition-frame{animation:route-page-enter var(--route-slide-duration) var(--route-slide-ease) both;min-inline-size:0}
-@keyframes route-page-enter{from{opacity:0;transform:translate3d(2.25rem,0,0)}to{opacity:1;transform:none}}
+@keyframes route-page-enter{from{opacity:0;transform:translate3d(.5rem,0,0)}to{opacity:1;transform:none}}
 
 /* Dock scales visually without changing layout metrics. */
 .dock-nav>a{--dock-scale:1;will-change:transform;transform:scale(var(--dock-scale));transform-origin:center;transition:transform var(--motion-base) var(--motion-ease),background var(--motion-base) var(--motion-ease),border-color var(--motion-base) var(--motion-ease)}
@@ -196,3 +196,9 @@ dialog,[role="dialog"]{max-inline-size:min(42rem,calc(100% - 2rem));max-block-si
 
 /* Full-bleed sections measure the available page width, excluding scrollbars. */
 body{container-type:inline-size}
+
+.route-home{animation:none}
+.section-head{flex-wrap:wrap}
+.section-head>div{min-inline-size:0;flex:1 1 20rem}
+.section-head>.actions{flex:0 1 auto}
+body[data-page="home"] .site-header[data-scrolled="false"] .brand{color:#fff}

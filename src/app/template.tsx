@@ -5,5 +5,5 @@ import type {ReactNode} from 'react';
 
 export default function Template({children}:{children:ReactNode}){
   const pathname=usePathname();
-  return <div key={pathname} className="route-transition-frame">{children}</div>;
+  return <div key={pathname} className={pathname==='/'?'route-transition-frame route-home':'route-transition-frame'}>{children}</div>;
 }
