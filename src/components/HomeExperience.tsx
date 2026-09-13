@@ -15,10 +15,10 @@ type Props={featured:ContentData[];partners:ContentData[];categories:ContentData
 type GalleryStyle=CSSProperties&Record<'--x'|'--y'|'--z'|'--rot'|'--opacity'|'--stack'|'--blur'|'--side-scale'|'--hover-shift',string>;
 
 const routeTypes=[
-  {name:'Primeira visita',title:'Um começo equilibrado',copy:'Misture referências da cidade, pausas e descobertas sem concentrar tudo no mesmo período.',icon:'roteiro'},
-  {name:'Natureza',title:'Mais tempo ao ar livre',copy:'Priorize mirantes, jardins e experiências abertas, deixando margem para o ritmo do dia.',icon:'lugar-outdoor'},
-  {name:'Gastronomia',title:'Paradas que também contam a viagem',copy:'Distribua cafés, refeições e produtores locais entre os deslocamentos do roteiro.',icon:'perfil-relaxar'},
-  {name:'Dia de chuva',title:'Um plano que continua funcionando',copy:'Reorganize o dia com experiências cobertas e mantenha alternativas para quando o tempo mudar.',icon:'clima-chuva'},
+  {name:'Primeira visita',title:'Um começo equilibrado',copy:'Misture referências da cidade, pausas e descobertas sem concentrar tudo no mesmo período.',icon:'roteiro',image:'/assets/tourism/fontana-di-trevi.jpg',imagePosition:'center 52%'},
+  {name:'Natureza',title:'Mais tempo ao ar livre',copy:'Priorize mirantes, jardins e experiências abertas, deixando margem para o ritmo do dia.',icon:'lugar-outdoor',image:'/assets/tourism/mirante-alto-da-serra.jpg',imagePosition:'center 54%'},
+  {name:'Gastronomia',title:'Paradas que também contam a viagem',copy:'Distribua cafés, refeições e produtores locais entre os deslocamentos do roteiro.',icon:'perfil-relaxar',image:'/assets/tourism/feira-artesanato.jpg',imagePosition:'center'},
+  {name:'Dia de chuva',title:'Um plano que continua funcionando',copy:'Reorganize o dia com experiências cobertas e mantenha alternativas para quando o tempo mudar.',icon:'clima-chuva',image:'/assets/tourism/igreja-nossa-senhora-rosario.jpg',imagePosition:'center'},
 ] as const;
 
 function categoryIcon(category:ContentData):IconName{
@@ -139,7 +139,7 @@ function RouteSlideContent({item}:{item:(typeof routeTypes)[number]}){
       <p>{item.copy}</p>
       <Link href={`/roteiro?profile=${encodeURIComponent(item.name.toLowerCase())}`}>Montar este roteiro</Link>
     </div>
-    <div className={styles.slideVisual} aria-hidden="true"><img src="/placeholders/gallery.svg" alt=""/></div>
+    <div className={styles.slideVisual} aria-hidden="true"><img src={item.image} style={{objectPosition:item.imagePosition}} alt=""/></div>
     <aside className={styles.slideMeta}>
       <strong>O que muda</strong>
       <span>ordem das paradas</span>
