@@ -20,7 +20,7 @@ function isPrivateHost(hostname:string){
   return false;
 }
 function looksSensitiveString(value:string){
-  if(EMAIL.test(value.trim()))return true;
+  if(/[^\s@]+@[^\s@]+\.[^\s@]+/.test(value))return true;
   if(/(?:postgres(?:ql)?|mysql|mongodb(?:\+srv)?):\/\/[^\s]+/i.test(value))return true;
   if(/\b(?:bearer\s+)?(?:sk-[A-Za-z0-9_-]{12,}|AKIA[0-9A-Z]{16}|eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{8,})\b/i.test(value))return true;
   if(/(?:^|\s)\+?\d[\d\s().-]{7,}\d(?:\s|$)/.test(value))return true;
