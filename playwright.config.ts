@@ -2,8 +2,6 @@ import {defineConfig} from '@playwright/test';
 
 const baseURL=process.env.BASE_URL||'http://localhost:4173';
 const external=Boolean(process.env.EXTERNAL_SERVER);
-const protectedPreview=Boolean(process.env.E2E_BOOTSTRAP_URL);
-const storageStatePath='test-results/.auth/vercel.json';
 
 export default defineConfig({
   testDir:'./tests/e2e',
@@ -14,7 +12,6 @@ export default defineConfig({
   expect:{timeout:7_500},
   reporter:[['list'],['html',{open:'never'}]],
   outputDir:'test-results',
-  globalSetup:protectedPreview?'./tests/e2e/global-setup.ts':undefined,
   use:{
     baseURL,
     browserName:'chromium',
@@ -24,7 +21,6 @@ export default defineConfig({
     screenshot:'only-on-failure',
     video:'retain-on-failure',
     colorScheme:'light',
-    storageState:protectedPreview?storageStatePath:undefined,
   },
   projects:[
     {name:'mobile',use:{viewport:{width:390,height:844},hasTouch:true,isMobile:true}},

@@ -18,6 +18,9 @@ const cleanIds=(values:string[]|undefined,label:string)=>values?.map(value=>sani
 
 export function validateContent(kind:Kind,data:ContentData){
   if(kind==='categories'&&data.icon==='passaporte-descobertas')data={...data,icon:'perfil-relaxar'};
+  // Legacy researched tourism content used "not_informed" before the canonical cost enum
+  // was consolidated. Keep the persisted/admin representation canonical without rewriting source files.
+  if(data.costType==='not_informed')data={...data,costType:'unknown'};
   const result=schema.safeParse(data);if(!result.success)throw new Error(result.error.issues.map(i=>`${i.path.join('.')}: ${i.message}`).join(' '));
   const parsed=result.data;
   const clean:ContentData={

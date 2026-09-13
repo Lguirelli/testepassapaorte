@@ -4,7 +4,6 @@ const ZERO_WIDTH=/[\u200B\uFEFF]/g;
 const SAFE_ID=/^[A-Za-z0-9](?:[A-Za-z0-9._:-]{0,127})$/;
 const SAFE_SLUG=/^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const EMBEDDED_EMAIL=/(?:^|\s|[<(])[^\s@<>]+@[^\s@<>]+\.[A-Za-z]{2,}(?=$|\s|[)>.,;:!?])/i;
 const REDACTED='[redacted]';
 const DANGEROUS_KEYS=new Set(['__proto__','prototype','constructor']);
 const SENSITIVE_KEY=/(?:password|passwd|secret|token|cookie|authorization|session|email|phone|whatsapp|authsubject|anonymousvisitor|traveleruser|requester|reviewedby|storagekey|recovery|credential|privatekey|apikey|api_key)/i;
@@ -21,7 +20,7 @@ function isPrivateHost(hostname:string){
   return false;
 }
 function looksSensitiveString(value:string){
-  if(EMAIL.test(value.trim())||EMBEDDED_EMAIL.test(value))return true;
+  if(/[^\s@]+@[^\s@]+\.[^\s@]+/.test(value))return true;
   if(/(?:postgres(?:ql)?|mysql|mongodb(?:\+srv)?):\/\/[^\s]+/i.test(value))return true;
   if(/\b(?:bearer\s+)?(?:sk-[A-Za-z0-9_-]{12,}|AKIA[0-9A-Z]{16}|eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{8,})\b/i.test(value))return true;
   if(/(?:^|\s)\+?\d[\d\s().-]{7,}\d(?:\s|$)/.test(value))return true;
@@ -154,6 +153,7 @@ export function sanitizeNarrative(value:unknown,max=5000){
   if(looksSensitiveString(text))throw new Error('Remova e-mails, telefones, credenciais ou outros dados sensíveis deste campo.');
   return text;
 }
+
 
 export type SanitizedStructuredValue=null|string|number|boolean|SanitizedStructuredValue[]|{[key:string]:SanitizedStructuredValue};
 export function sanitizeStructuredValue(value:unknown,depth=0):SanitizedStructuredValue{

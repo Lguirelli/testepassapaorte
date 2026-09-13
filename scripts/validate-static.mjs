@@ -1,5 +1,5 @@
 import {existsSync,readFileSync,readdirSync,statSync} from 'node:fs';
-import {join,dirname,resolve} from 'node:path';
+import {join,dirname,extname,resolve} from 'node:path';
 const root=process.cwd();const failures=[];const checks=[];const pass=(name,detail)=>checks.push({name,status:'PASS',detail});const fail=(name,detail)=>{checks.push({name,status:'FAIL',detail});failures.push(`${name}: ${detail}`)};
 const required=['package.json','package-lock.json','.env.example','src/app/page.tsx','src/app/layout.tsx','drizzle/0000_validation.sql','drizzle/0001_relational_domain.sql','drizzle/0002_final_product.sql','seed/tourism-real.json','README.md','src/core/security/sanitize.ts','src/core/security/origin.ts','scripts/scan-sensitive.mjs','scripts/audit-sanitization.mjs','scripts/privacy-maintenance.ts','docs/SANITIZATION_AND_PRIVACY.md'];for(const f of required)(existsSync(f)?pass:fail)(`required:${f}`,existsSync(f)?'present':'missing');
 for(const old of ['app.js','theme.css','visual.css','visual-v2.css']){if(existsSync(old))fail(`legacy:${old}`,'legacy runtime file still exists');else pass(`legacy:${old}`,'absent');}

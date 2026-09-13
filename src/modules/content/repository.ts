@@ -1,3 +1,5 @@
+import {isVisualMode} from '@/core/app-mode';
+import {visualDataset} from './visual-dataset';
 import {asc,ne} from 'drizzle-orm';
 import {db} from '@/core/db';
 import {sanitizeId,sanitizeSearchQuery,sanitizeText} from '@/core/security/sanitize';
@@ -36,10 +38,8 @@ async function relationalDataset(providedDatabase?:Database){
 export type Dataset=Awaited<ReturnType<typeof relationalDataset>>;
 
 /**
- * Canonical, researched public content bundled with the application.
- * This is deliberately read-only and contains no partner/demo relationship data.
- * It keeps discovery usable during a database outage while authenticated and
- * write flows remain database-strict.
+ * Read-only researched public catalog used only when the public database cannot
+ * serve discovery. Authentication, writes, partner and admin flows remain strict.
  */
 export function canonicalPublicDataset():Dataset{
  const categories:ContentData[]=real.categories.map(category=>({...category,status:'published',synthetic:false} as ContentData));
@@ -55,14 +55,14 @@ export function canonicalPublicDataset():Dataset{
   synthetic:false,
  }));
  const placeData:ContentData[]=real.places.map(raw=>{
-  const {research:_research,...place}=raw;
+  const place={...raw};
+  delete (place as typeof place&{research?:unknown}).research;
   return {...place,cityId:real.city.id,status:'published',synthetic:false,discoveryVisible:place.discoveryVisible!==false} as ContentData;
  });
  return visibleDataset({places:placeData,partners:[],experiences:[],events:[],categories,sources:sourceData});
 }
 
 function reportPublicFallback(reason:'database_unavailable'|'database_empty'){
- // Keep operational detail in server logs without serializing errors, secrets or connection strings.
  console.warn(`[public-content] ${reason}; serving bundled canonical content.`);
 }
 
@@ -83,6 +83,7 @@ export function visibleDataset(data:Dataset):Dataset{
  return {...data,categories,places:clean(places),partners:data.partners.filter(p=>placeIds.has(p.placeId||'')&&places.some(place=>place.id===p.placeId&&place.commercialRelation==='partner')),experiences:clean(data.experiences.filter(e=>!e.placeId||placeIds.has(e.placeId))),events:clean(data.events.filter(e=>!e.placeId||placeIds.has(e.placeId)))};
 }
 export async function publicDataset(){
+ if(isVisualMode())return visibleDataset(visualDataset());
  try{
   const data=visibleDataset(await relationalDataset());
   if(data.places.length>0)return data;

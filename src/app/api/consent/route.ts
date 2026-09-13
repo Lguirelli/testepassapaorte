@@ -1,3 +1,4 @@
+import {isVisualMode} from '@/core/app-mode';
 import {cookies} from 'next/headers';
 import {z} from 'zod';
 import {db} from '@/core/db';
@@ -10,6 +11,7 @@ const POLICY_VERSION='2026-09-12';
 function cookieMaxAge(){const days=Number(process.env.ANALYTICS_COOKIE_DAYS||180);const safe=Number.isFinite(days)?Math.min(365,Math.max(1,Math.trunc(days))):180;return safe*24*60*60;}
 
 export async function POST(req:Request){
+  if(isVisualMode())return new Response(null,{status:204,headers:{'Cache-Control':'no-store'}});
   try{
     assertSameOrigin(req);
     const {status}=schema.parse(await readJsonBody(req));
