@@ -16,7 +16,7 @@ function activeKey(pathname:string):MainNavKey|undefined{
   return undefined;
 }
 
-export function MainNavigation({initialTheme}:{initialTheme:'system'|'light'|'dark'}){
+export function MainNavigation({initialTheme,accountHref,accountLabel}:{initialTheme:'system'|'light'|'dark';accountHref:string;accountLabel:string}){
   const pathname=usePathname();
   const active=activeKey(pathname);
   const [open,setOpen]=useState(false);
@@ -86,6 +86,7 @@ export function MainNavigation({initialTheme}:{initialTheme:'system'|'light'|'da
   return <>
     <button ref={triggerRef} className="mobile-menu-trigger" type="button" aria-label={open?'Fechar menu':'Abrir menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={()=>setOpen(value=>!value)}><Icon name={open?'fechar':'menu'}/></button>
     <nav ref={navRef} data-testid="main-dock-navigation" aria-label="Navegação principal" className="main-nav dock-nav" onPointerMove={event=>{if(event.pointerType!=='touch')updateDock(event.clientX)}} onPointerLeave={resetDock}>
+      <Link href={ROUTES.home} aria-current={pathname===ROUTES.home?'page':undefined}>Início</Link>
       {MAIN_NAV.map(item=><Link key={item.key} href={item.href} aria-current={active===item.key?'page':undefined}>{item.label}</Link>)}
       <Link className="button header-cta" href={ROUTES.tripBuilder}>Montar meu roteiro</Link>
     </nav>
@@ -93,9 +94,11 @@ export function MainNavigation({initialTheme}:{initialTheme:'system'|'light'|'da
       <button className="mobile-nav-backdrop" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{setOpen(false);requestAnimationFrame(()=>triggerRef.current?.focus())}}/>
       <nav ref={mobileCardRef} className="mobile-nav-card" aria-label="Navegação mobile" inert={!open}>
         <div className="mobile-nav-title"><span>Explorar Serra Negra</span><button type="button" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{setOpen(false);requestAnimationFrame(()=>triggerRef.current?.focus())}}><Icon name="fechar"/></button></div>
-        {MAIN_NAV.map((item,index)=><Link key={item.key} style={{'--stagger':`${index*38}ms`} as React.CSSProperties} href={item.href} tabIndex={open?0:-1} aria-current={active===item.key?'page':undefined}><span>{item.label}</span><Icon name="avancar" size="sm"/></Link>)}
+        <Link style={{'--stagger':'0ms'} as React.CSSProperties} href={ROUTES.home} tabIndex={open?0:-1} aria-current={pathname===ROUTES.home?'page':undefined} onClick={()=>setOpen(false)}><span>Início</span><Icon name="avancar" size="sm"/></Link>
+        {MAIN_NAV.map((item,index)=><Link key={item.key} style={{'--stagger':`${(index+1)*38}ms`} as React.CSSProperties} href={item.href} tabIndex={open?0:-1} aria-current={active===item.key?'page':undefined} onClick={()=>setOpen(false)}><span>{item.label}</span><Icon name="avancar" size="sm"/></Link>)}
+        <Link className="mobile-nav-account" style={{'--stagger':`${(MAIN_NAV.length+1)*38}ms`} as React.CSSProperties} href={accountHref} tabIndex={open?0:-1} onClick={()=>setOpen(false)}><span className="mobile-nav-account-label"><Icon name="conta" size="sm"/><span>{accountLabel}</span></span><Icon name="avancar" size="sm"/></Link>
         <div className="mobile-nav-preferences"><span>Aparência</span><ThemePicker initialTheme={initialTheme}/></div>
-        <Link className="button primary mobile-route-cta" href={ROUTES.tripBuilder} tabIndex={open?0:-1}>Montar meu roteiro</Link>
+        <Link className="button primary mobile-route-cta" href={ROUTES.tripBuilder} tabIndex={open?0:-1} onClick={()=>setOpen(false)}>Montar meu roteiro</Link>
       </nav>
     </div>
   </>;
