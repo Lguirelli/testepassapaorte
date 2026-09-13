@@ -47,3 +47,113 @@
   .site-header-inner>.brand span{font-size:.66rem}
   .site-header-inner>.brand strong{font-size:.88rem}
 }
+
+/* Encontros pelo caminho: each card must read as an independent object.
+   The center card is the only sharp, full-scale interactive card. Side cards keep
+   enough physical separation to avoid forming one visual mass, remain clickable to
+   become the center card, and move farther outward only while the center card is hovered. */
+[data-testid="home-partner-gallery"] [data-offset="0"]{
+  --x:0cqi!important;
+  --y:0px!important;
+  --z:0px!important;
+  --rot:0deg!important;
+  --opacity:1!important;
+  --blur:0px!important;
+  --side-scale:1!important;
+  --hover-shift:0cqi!important;
+}
+[data-testid="home-partner-gallery"] [data-offset="-1"]{
+  --x:-31cqi!important;
+  --y:24px!important;
+  --z:-72px!important;
+  --rot:3deg!important;
+  --opacity:.88!important;
+  --blur:2.2px!important;
+  --side-scale:.955!important;
+  --hover-shift:-6cqi!important;
+}
+[data-testid="home-partner-gallery"] [data-offset="1"]{
+  --x:31cqi!important;
+  --y:24px!important;
+  --z:-72px!important;
+  --rot:-3deg!important;
+  --opacity:.88!important;
+  --blur:2.2px!important;
+  --side-scale:.955!important;
+  --hover-shift:6cqi!important;
+}
+[data-testid="home-partner-gallery"] [data-offset="-2"]{
+  --x:-55cqi!important;
+  --y:44px!important;
+  --z:-150px!important;
+  --rot:5.5deg!important;
+  --opacity:.68!important;
+  --blur:4.6px!important;
+  --side-scale:.9!important;
+  --hover-shift:-9cqi!important;
+}
+[data-testid="home-partner-gallery"] [data-offset="2"]{
+  --x:55cqi!important;
+  --y:44px!important;
+  --z:-150px!important;
+  --rot:-5.5deg!important;
+  --opacity:.68!important;
+  --blur:4.6px!important;
+  --side-scale:.9!important;
+  --hover-shift:9cqi!important;
+}
+
+/* Preserve blur on every non-center card, including compact viewports where the base
+   module intentionally removed it. The active center card always stays sharp. */
+[data-testid="home-partner-gallery"] [data-offset="-1"]>div:first-child,
+[data-testid="home-partner-gallery"] [data-offset="1"]>div:first-child{
+  filter:blur(2.2px)!important;
+  transform:scale(.955)!important;
+}
+[data-testid="home-partner-gallery"] [data-offset="-2"]>div:first-child,
+[data-testid="home-partner-gallery"] [data-offset="2"]>div:first-child{
+  filter:blur(4.6px)!important;
+  transform:scale(.9)!important;
+}
+[data-testid="home-partner-gallery"] [data-offset="0"]>div:first-child{
+  filter:none!important;
+  transform:scale(1)!important;
+}
+
+/* Click-and-drag belongs to the cards themselves, not only to the empty stage area. */
+[data-testid="home-partner-gallery"] [data-offset]>div:first-child,
+[data-testid="home-partner-gallery"] [data-offset] .card{cursor:grab}
+[data-testid="home-partner-gallery"][data-dragging="true"] [data-offset]>div:first-child,
+[data-testid="home-partner-gallery"][data-dragging="true"] [data-offset] .card{cursor:grabbing!important}
+
+/* Side-card click target stays available across the whole visible card. A click recenters
+   it; a real drag is still intercepted by the existing drag threshold. */
+[data-testid="home-partner-gallery"] [data-offset]:not([data-offset="0"])>button[aria-label^="Centralizar"]{
+  pointer-events:auto!important;
+  cursor:pointer!important;
+}
+
+/* Hover rule is exclusive to the card currently in the middle. The center grows, while
+   every visible side card moves outward through its own --hover-shift value. */
+@media (hover:hover) and (pointer:fine){
+  [data-testid="home-partner-gallery"] [data-offset="0"]>div:first-child:hover{
+    transform:translateY(-8px) scale(1.065)!important;
+    filter:drop-shadow(0 24px 32px #0003)!important;
+  }
+  [data-testid="home-partner-gallery"][data-center-hover="true"] [data-offset="-1"],
+  [data-testid="home-partner-gallery"][data-center-hover="true"] [data-offset="1"],
+  [data-testid="home-partner-gallery"][data-center-hover="true"] [data-offset="-2"],
+  [data-testid="home-partner-gallery"][data-center-hover="true"] [data-offset="2"]{
+    transform:translate3d(calc(-50% + var(--x) + var(--hover-shift) + var(--drag-shift)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot))!important;
+  }
+}
+
+/* Motion preference removes animated transitions, not the visual distinction between
+   the focused center card and the blurred side cards. */
+@media (prefers-reduced-motion:reduce){
+  [data-testid="home-partner-gallery"] [data-offset="-1"]>div:first-child,
+  [data-testid="home-partner-gallery"] [data-offset="1"]>div:first-child{filter:blur(2.2px)!important;transform:scale(.955)!important}
+  [data-testid="home-partner-gallery"] [data-offset="-2"]>div:first-child,
+  [data-testid="home-partner-gallery"] [data-offset="2"]>div:first-child{filter:blur(4.6px)!important;transform:scale(.9)!important}
+  [data-testid="home-partner-gallery"] [data-offset="0"]>div:first-child{filter:none!important;transform:none!important}
+}
