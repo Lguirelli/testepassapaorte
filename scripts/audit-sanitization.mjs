@@ -1,5 +1,5 @@
 import {existsSync,readFileSync,readdirSync,statSync} from 'node:fs';
-import {basename,dirname,extname,join,relative,resolve} from 'node:path';
+import {dirname,extname,join,relative,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
@@ -58,8 +58,6 @@ if(/travelerUserId:null/.test(tracking))pass('analytics-deidentification','analy
 const consent=readFileSync('src/app/api/consent/route.ts','utf8');
 if(/status==='denied'[\s\S]*jar\.delete\('psn_anon'\)/.test(consent))pass('consent-denied','negação remove identificador de analytics do navegador');else fail('consent-denied','negação mantém identificador persistente sem necessidade');
 
-
-
 const auth=readFileSync('src/core/auth/session.ts','utf8');
 const identity=readFileSync('src/core/auth/identity.ts','utf8');
 if(/createHmac\('sha256',identityPepper\(\)\)/.test(identity)&&/IDENTITY_PEPPER/.test(identity))pass('identity-pseudonymization','HMAC com pepper separado');else fail('identity-pseudonymization','identidade não usa HMAC com pepper explícito');
@@ -69,7 +67,6 @@ if(existsSync('scripts/sanitize-existing-data.ts'))pass('legacy-data-sanitizatio
 const envExample=readFileSync('.env.example','utf8');
 if(/IDENTITY_PEPPER=/.test(envExample))pass('env:identity-pepper','documentado');else fail('env:identity-pepper','não documentado');
 if(/TERRITORIAL_FLOW_MIN_COUNT=([3-9]|[1-9]\d+)/.test(envExample))pass('aggregation-threshold','limiar padrão >= 3');else fail('aggregation-threshold','limiar de agregação abaixo de 3 ou ausente');
-
 
 for(const privateLayout of ['src/app/admin/layout.tsx','src/app/painel-parceiro/layout.tsx']){
   const source=readFileSync(privateLayout,'utf8');
