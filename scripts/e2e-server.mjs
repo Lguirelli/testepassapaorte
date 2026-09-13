@@ -1,4 +1,0 @@
-import {spawn} from 'node:child_process';import {resolve} from 'node:path';
-const env={...process.env,DB_MODE:'pglite',PGLITE_PATH:resolve('.data/e2e'),NEXT_PUBLIC_SITE_URL:'http://localhost:4173',SESSION_SECRET:'e2e-session-secret-with-at-least-thirty-two-characters',IDENTITY_PEPPER:'e2e-identity-pepper-with-at-least-thirty-two-characters',TOURIST_EMAIL:'turista@passaporte.local',TOURIST_PASSWORD:'turista-local',PARTNER_EMAIL:'parceiro@passaporte.local',PARTNER_PASSWORD:'parceiro-local',PARTNER_ID:'partner-cafe-neblina',ADMIN_EMAIL:'admin@passaporte.local',ADMIN_PASSWORD:'admin-local'};
-const child=spawn(process.execPath,['scripts/local.mjs'],{stdio:'inherit',env});
-for(const signal of ['SIGTERM','SIGINT'])process.on(signal,()=>child.kill(signal));child.on('exit',code=>process.exit(code??1));

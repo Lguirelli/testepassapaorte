@@ -1,4 +1,0 @@
-import {publicContent} from '@/modules/content/repository';import {Onboarding} from '@/modules/trips/Onboarding';import {trySanitizeId} from '@/core/security/sanitize';
-export const dynamic='force-dynamic';export const metadata={title:'Montar meu roteiro',alternates:{canonical:'/roteiro'}};
-function today(){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
-export default async function Page({searchParams}:{searchParams:Promise<{interest?:string;resume?:string}>}){const categories=await publicContent('categories');const {interest:rawInterest,resume}=await searchParams;const interest=rawInterest?trySanitizeId(rawInterest,'Interesse'):null;return <Onboarding categories={categories} initialInterest={interest&&categories.some(c=>c.id===interest)?interest:undefined} defaultStart={today()} resume={resume==='1'}/>;}
