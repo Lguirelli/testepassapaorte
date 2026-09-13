@@ -36,6 +36,8 @@ export const guestDraftSchema=z.object({version:z.literal(1),createdAt:z.string(
 });
 
 export type GuestTripDraft=z.infer<typeof guestDraftSchema>;
+let cachedRaw:string|null|undefined;
+let cachedDraft:GuestTripDraft|null=null;
 
 export function profileFromTrip(data:TripData):TripProfile{return{startsOn:data.trip.startsOn,endsOn:data.trip.endsOn,party:data.trip.party,interests:[...data.trip.interests],intentions:[...data.trip.intentions],pace:data.trip.pace,transport:data.trip.transport,needs:[...data.trip.needs]};}
 
@@ -56,9 +58,18 @@ export function addGuestVisit(draft:GuestTripDraft,placeId:string,date:string):G
 
 function emitGuestDraftChange(){if(typeof window!=='undefined')window.dispatchEvent(new Event(GUEST_TRIP_CHANGE_EVENT));}
 export function readGuestDraft():GuestTripDraft|null{
-  if(typeof window==='undefined')return null;try{const raw=localStorage.getItem(GUEST_TRIP_STORAGE_KEY);if(!raw)return null;const parsed=guestDraftSchema.safeParse(JSON.parse(raw));if(parsed.success)return parsed.data;localStorage.removeItem(GUEST_TRIP_STORAGE_KEY);return null;}catch{return null;}
+  if(typeof window==='undefined')return null;
+  try{
+    const raw=localStorage.getItem(GUEST_TRIP_STORAGE_KEY);
+    if(raw===cachedRaw)return cachedDraft;
+    cachedRaw=raw;
+    if(!raw){cachedDraft=null;return null;}
+    const parsed=guestDraftSchema.safeParse(JSON.parse(raw));
+    if(parsed.success){cachedDraft=parsed.data;return cachedDraft;}
+    localStorage.removeItem(GUEST_TRIP_STORAGE_KEY);cachedRaw=null;cachedDraft=null;return null;
+  }catch{cachedRaw=null;cachedDraft=null;return null;}
 }
-export function subscribeGuestDraft(callback:()=>void){if(typeof window==='undefined')return()=>{};const onStorage=(event:StorageEvent)=>{if(event.key===GUEST_TRIP_STORAGE_KEY)callback();};window.addEventListener('storage',onStorage);window.addEventListener(GUEST_TRIP_CHANGE_EVENT,callback);return()=>{window.removeEventListener('storage',onStorage);window.removeEventListener(GUEST_TRIP_CHANGE_EVENT,callback);};}
-export function writeGuestDraft(draft:GuestTripDraft){if(typeof window!=='undefined'){localStorage.setItem(GUEST_TRIP_STORAGE_KEY,JSON.stringify(draft));emitGuestDraftChange();}}
-export function clearGuestDraft(){if(typeof window!=='undefined'){localStorage.removeItem(GUEST_TRIP_STORAGE_KEY);localStorage.removeItem(GUEST_SAVE_PENDING_KEY);emitGuestDraftChange();}}
+export function subscribeGuestDraft(callback:()=>void){if(typeof window==='undefined')return()=>{};const onStorage=(event:StorageEvent)=>{if(event.key===GUEST_TRIP_STORAGE_KEY){cachedRaw=undefined;callback();}};window.addEventListener('storage',onStorage);window.addEventListener(GUEST_TRIP_CHANGE_EVENT,callback);return()=>{window.removeEventListener('storage',onStorage);window.removeEventListener(GUEST_TRIP_CHANGE_EVENT,callback);};}
+export function writeGuestDraft(draft:GuestTripDraft){if(typeof window!=='undefined'){const raw=JSON.stringify(draft);cachedRaw=raw;cachedDraft=draft;localStorage.setItem(GUEST_TRIP_STORAGE_KEY,raw);emitGuestDraftChange();}}
+export function clearGuestDraft(){if(typeof window!=='undefined'){cachedRaw=null;cachedDraft=null;localStorage.removeItem(GUEST_TRIP_STORAGE_KEY);localStorage.removeItem(GUEST_SAVE_PENDING_KEY);emitGuestDraftChange();}}
 export function markGuestSavePending(){if(typeof window!=='undefined')localStorage.setItem(GUEST_SAVE_PENDING_KEY,'1');}
