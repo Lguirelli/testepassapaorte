@@ -23,7 +23,7 @@
 
 /* Respect browser safe areas on edge-to-edge phones without changing desktop geometry. */
 .site-header{height:calc(var(--header-height) + env(safe-area-inset-top));padding-top:env(safe-area-inset-top)}
-main{padding-top:calc(var(--header-height) + env(safe-area-inset-top) + 1.7rem)}
+main{padding-top:calc(var(--header-height) + env(safe-area-inset-top) + 1.7rem);overflow-x:clip}
 .site-footer{padding-bottom:calc(3.5rem + env(safe-area-inset-bottom))}
 
 /* Keep route changes spatial rather than fading the page. The persistent header stays in
