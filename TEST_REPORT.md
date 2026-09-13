@@ -63,3 +63,15 @@ A revisão responsiva está concluída no nível de implementação e QA estáti
 A auditoria cobre estruturalmente targets, foco, teclado, touch/coarse pointer, ausência de dependência funcional de hover nos cards principais, reduced motion, contraste aumentado, forced colors, safe areas, reflow, SVGs e integração do sistema UX/UI no runtime Next e na prévia do GitHub Pages.
 
 A validação visual automatizada em browser real/Axe continua **não declarada como aprovada**, pois a instalação npm/Chromium necessária segue indisponível no ambiente de geração. Uma tentativa de browser local não foi usada como evidência de aprovação.
+## Reprodução do erro Vercel e correção
+
+O deploy Vercel fornecido pelo usuário instalou `Next.js 16.3.4`, `drizzle-orm 0.45.2` e `TypeScript 6.0.3`, compilou o bundle e falhou no typecheck em cinco pontos. Todos os cinco pontos foram corrigidos nesta revisão.
+
+Verificações executadas após a correção:
+
+- `npm run validate:static` — **PASS**, incluindo sanitização, responsividade, UX/UI e compatibilidade Vercel;
+- `node scripts/audit-vercel-build.mjs` — **PASS, 7/7 invariantes**;
+- transpilação sintática dos 279 arquivos TS/TSX com TypeScript global — **PASS, 0 erros**.
+
+O ambiente local de geração não conseguiu concluir uma reinstalação íntegra de `node_modules`; portanto não é declarado aqui um `next build` local aprovado. A correção foi direcionada exatamente aos diagnósticos produzidos pelo build real do Vercel e recebeu um gate estático específico para impedir regressão. O próximo deploy no Vercel é a validação autoritativa do typecheck com as dependências completas.
+

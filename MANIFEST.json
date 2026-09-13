@@ -1,17 +1,20 @@
 {
-  "artifact": "PASSAPORTE_SERRA_NEGRA_GITHUB_READY_UXUI.zip",
-  "generated_at": "2026-09-13T00:37:23.535113+00:00",
-  "status": "GITHUB_PAGES_UXUI_APPLIED_FULL_NEXT_RUNTIME_PRESERVED",
-  "github_pages_preview": true,
-  "full_next_runtime": true,
+  "artifact": "PASSAPORTE_SERRA_NEGRA_VERCEL_READY.zip",
+  "generated_at": "2026-09-13T01:00:12.210193+00:00",
+  "status": "VERCEL_BUILD_HOTFIX_APPLIED_AWAITING_AUTHORITATIVE_REDEPLOY",
+  "source": "PASSAPORTE_SERRA_NEGRA_GITHUB_READY_UXUI.zip",
+  "vercel_log_commit": "eba9a39",
+  "vercel_typescript_errors_fixed": 5,
+  "static_validation": "PASS",
   "uxui_audit": "PASS_38_CHECKS",
   "responsive_audit": "PASS",
   "sanitization_audit": "PASS",
+  "vercel_audit": "PASS_7_CHECKS",
   "files": [
     {
       "path": ".env.example",
-      "size": 1776,
-      "sha256": "93cbd5dd415d9de5711a119d8135933ccb7f81395b3f61b17cb2097e48eb696f"
+      "size": 1792,
+      "sha256": "4736830f9fe63d21f6f55cef712c0357eb4bb419e4eff27e7252b72c8e73a8fa"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -40,13 +43,13 @@
     },
     {
       "path": "BLOCK_STATUS.md",
-      "size": 907,
-      "sha256": "401c97c7c34e9eb72db706fcfa7a0e86dac2ef87feac04ff6661f10f46260ab2"
+      "size": 1151,
+      "sha256": "b1a1ba77a9c9835f0ec8f05ada9c81faf08e7f7e2d34926afe7cefcb22b0a8d6"
     },
     {
       "path": "CHANGELOG.md",
-      "size": 5851,
-      "sha256": "795e00e729dd05ed40a00ea386506b4132126cc1638e14d6ee631f54c1af9497"
+      "size": 6501,
+      "sha256": "3bef8cbb223595ed2e2b22e16868f57ca649d6d78175a68b6983af769e172d41"
     },
     {
       "path": "GITHUB_DEPLOY.md",
@@ -55,13 +58,18 @@
     },
     {
       "path": "README.md",
-      "size": 5642,
-      "sha256": "2c2b4cd48e212c66a1b305ef3d67147dad8e3c257abb3a6bf1ab84e9e914ceff"
+      "size": 5878,
+      "sha256": "86003a434563422ffcd8763ef36b8579dc4ee2369b4278ad6933f41135dfca8b"
     },
     {
       "path": "TEST_REPORT.md",
-      "size": 3734,
-      "sha256": "5cc6bf8d0297536b601e7fa17c13d960b2d64d04b1998ec94dde706454606bbd"
+      "size": 4762,
+      "sha256": "e3233fbce8614d94020bb97e9163a531eef78ead3619b4988ce27b976641e1cd"
+    },
+    {
+      "path": "VERCEL_DEPLOY.md",
+      "size": 2500,
+      "sha256": "327c70c195d32ec7fdb97bec0c7f329cad5270a8191c81a968f950815d5b01b7"
     },
     {
       "path": "docker-compose.yml",
@@ -1330,13 +1338,13 @@
     },
     {
       "path": "package-lock.json",
-      "size": 273536,
-      "sha256": "d84e3b03d12769fb59bd7250342954e12748a2f1f4b7c7593290876bebef18a0"
+      "size": 274176,
+      "sha256": "f4b520c3ab7ba702659f0ae6c02ed4c07b29f3cd03a5dc702a97926275a070ee"
     },
     {
       "path": "package.json",
-      "size": 1859,
-      "sha256": "f87a3a1c0a05922d98c5dceea49b5718d772bd3dd611dc0374adeeb3fc21986c"
+      "size": 1953,
+      "sha256": "08fee9c74c0357e91a480c8ad978e6c54791dea6d0f2c95ba8c861a8aa18255b"
     },
     {
       "path": "playwright.config.ts",
@@ -2409,6 +2417,11 @@
       "sha256": "2fc2bf3530a534d3626177dd1b298ba73e96de221fb94f918a9224b01ad13d4b"
     },
     {
+      "path": "scripts/audit-vercel-build.mjs",
+      "size": 1650,
+      "sha256": "3e0e4dcbb1202b76864d94a7fdb25453200b64df9afbc6bf1ce9bc447fc042c3"
+    },
+    {
       "path": "scripts/dev.mjs",
       "size": 419,
       "sha256": "c071c0bfa68087685ab24a6f1072a4b2839aeb8a0e64093be15bdb3ac0a3a35b"
@@ -2655,8 +2668,8 @@
     },
     {
       "path": "src/app/opengraph-image.tsx",
-      "size": 844,
-      "sha256": "8de1af68fe21baa687c92bf1296a7d53cb99502465c9a784c569e1f7cbb09db4"
+      "size": 846,
+      "sha256": "1643047d7e20a6ab1f3791a2b318cc7c2dd631ec7e35e58f73083849bc986532"
     },
     {
       "path": "src/app/page.tsx",
@@ -2875,8 +2888,8 @@
     },
     {
       "path": "src/core/security/origin.ts",
-      "size": 895,
-      "sha256": "d26a6065a106e16f8069dfd81636c8b6c0db3245eaa8afbd6d4aa6b0ab94fa7e"
+      "size": 1026,
+      "sha256": "e5d8016bfd114c0f30bda5cb52919baf25ae8bb1f0fb30984f46e39a99edf082"
     },
     {
       "path": "src/core/security/sanitize.ts",
@@ -3705,8 +3718,8 @@
     },
     {
       "path": "src/modules/partners/service.ts",
-      "size": 5795,
-      "sha256": "b72a46c5a1231a74c8c4720eb84b9b5aaa83f804b2f0bbb3112fbc137d11e13f"
+      "size": 5765,
+      "sha256": "2c054db63c2eaffe641605d0d01f5409a65cea7e689f9626fa9fe65ed97f04c9"
     },
     {
       "path": "src/modules/passport/Book.tsx",
@@ -3755,8 +3768,8 @@
     },
     {
       "path": "src/modules/trips/Onboarding.tsx",
-      "size": 6484,
-      "sha256": "14c96534452b7432a68973f4e9d56f26210790111d2646745387ec05b735eaaa"
+      "size": 6878,
+      "sha256": "e9f27d8a5640f7e4eaacde5cebb7a6069cca282b22d283d02247b95ed51da492"
     },
     {
       "path": "src/modules/trips/actions.ts",
@@ -3780,8 +3793,8 @@
     },
     {
       "path": "src/modules/trips/persistence.ts",
-      "size": 2306,
-      "sha256": "bc07d1a312d9d1f04bff38d0e8ade5e3eb94ce04b2ce9fd28ec5e93159b40940"
+      "size": 2293,
+      "sha256": "cd8eae483b6a6d42a7560337a22e9beef8810022f0ca23f83733c988145981c7"
     },
     {
       "path": "src/modules/trips/repository.ts",
@@ -3902,6 +3915,11 @@
       "path": "tsconfig.json",
       "size": 854,
       "sha256": "4e749640a0ad4645e98c8650d4a6170f6440cf3c1326440d18abc45f181cd4a4"
+    },
+    {
+      "path": "tsconfig.tsbuildinfo",
+      "size": 683417,
+      "sha256": "2d2d29bb5afb87b6b7e04b949601aa3cb7646fbb5bcd227ea3f3e52dc641894d"
     }
   ]
 }

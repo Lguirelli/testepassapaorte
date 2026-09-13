@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": ">=22.0.0"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "node scripts/dev.mjs",
@@ -18,13 +18,14 @@
     "local": "node scripts/local.mjs",
     "local:prepare": "node scripts/local.mjs --prepare-only",
     "validate": "node scripts/validate-all.mjs",
-    "validate:static": "node scripts/validate-static.mjs && node scripts/scan-sensitive.mjs && node scripts/audit-sanitization.mjs && node scripts/audit-responsive.mjs && node scripts/audit-uxui.mjs",
+    "validate:static": "node scripts/validate-static.mjs && node scripts/scan-sensitive.mjs && node scripts/audit-sanitization.mjs && node scripts/audit-responsive.mjs && node scripts/audit-uxui.mjs && node scripts/audit-vercel-build.mjs",
     "security:scan": "node scripts/scan-sensitive.mjs",
     "privacy:cleanup": "node --import tsx scripts/privacy-maintenance.ts",
     "audit:sanitize": "node scripts/audit-sanitization.mjs",
     "db:sanitize": "node --import tsx scripts/sanitize-existing-data.ts",
     "audit:responsive": "node scripts/audit-responsive.mjs",
-    "audit:uxui": "node scripts/audit-uxui.mjs"
+    "audit:uxui": "node scripts/audit-uxui.mjs",
+    "audit:vercel": "node scripts/audit-vercel-build.mjs"
   },
   "dependencies": {
     "@electric-sql/pglite": "0.5.8",

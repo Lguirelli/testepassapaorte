@@ -1,3 +1,17 @@
+# Changelog
+
+## 2026-09-12 — Compatibilidade de build Vercel
+
+- corrigidos os cinco erros TypeScript observados no deploy Vercel do commit `eba9a39`;
+- updates Drizzle agora usam `.returning()` compatível com `drizzle-orm@0.45.2`;
+- onboarding ganhou tipos explícitos derivados de `Profile`, sem coerção `as never`;
+- Node fixado em `22.x`;
+- Open Graph migrou de Edge para Node.js;
+- origem pública usa `VERCEL_PROJECT_PRODUCTION_URL`/`VERCEL_URL` quando `NEXT_PUBLIC_SITE_URL` não estiver definido;
+- removida duplicação de `IDENTITY_PEPPER` em `.env.example`;
+- adicionado `audit:vercel` ao gate estático;
+- criado `VERCEL_DEPLOY.md`.
+
 # Changelog final
 
 ## 1.0.0 — 2026-09-12

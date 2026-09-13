@@ -103,3 +103,7 @@ A responsividade é contínua e orientada pelo espaço disponível, conteúdo e 
 ## Estado de validação desta entrega
 
 A auditoria estática do repositório passa. Nesta sessão de geração, `npm ci` não pôde terminar por indisponibilidade de rede/registry do ambiente, portanto `lint`, `typecheck`, `build`, Playwright e Axe completos não são declarados como aprovados sem execução. Consulte `docs/TEST_REPORT.md` e `docs/KNOWN_LIMITATIONS.md`.
+
+## Deploy no Vercel
+
+Para o produto completo, use a raiz do repositório no Vercel. Veja `VERCEL_DEPLOY.md` para banco, segredos, migração, seed e validação. A pasta `github-pages/` é somente a prévia estática do GitHub Pages.

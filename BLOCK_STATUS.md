@@ -19,3 +19,11 @@
 - [BLOQUEADO] instalação de dependências, build, lint/typecheck completo e E2E/Axe no ambiente de geração por indisponibilidade do registry npm
 
 Nenhum teste bloqueado foi tratado como aprovado.
+## Hotfix Vercel 2026-09-12
+
+- STATUS: IMPLEMENTADO, aguardando redeploy autoritativo no Vercel.
+- 5 erros TypeScript do log informado: corrigidos.
+- gate `audit:vercel`: PASS.
+- `validate:static`: PASS.
+- runtime Next.js completo preservado.
+
