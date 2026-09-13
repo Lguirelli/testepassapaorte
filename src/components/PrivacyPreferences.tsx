@@ -1,6 +1,7 @@
 'use client';
 
-import {useEffect,useState} from 'react';
+import {useClientReady} from './useClientReady';
+import {useState} from 'react';
 
 type Consent='granted'|'denied'|'unset';
 
@@ -11,12 +12,13 @@ function readConsent():Consent{
 }
 
 export function PrivacyPreferences(){
-  const[consent,setConsent]=useState<Consent>('unset');
+  const ready=useClientReady();
+  const[chosen,setConsent]=useState<Consent|null>(null);
+  const consent=chosen??(ready?readConsent():'unset');
   const[saving,setSaving]=useState<Consent|null>(null);
   const[message,setMessage]=useState('');
   const[error,setError]=useState('');
 
-  useEffect(()=>setConsent(readConsent()),[]);
 
   async function save(status:Exclude<Consent,'unset'>){
     setSaving(status);setMessage('');setError('');
