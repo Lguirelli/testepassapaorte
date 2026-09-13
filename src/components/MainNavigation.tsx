@@ -25,8 +25,6 @@ export function MainNavigation({initialTheme}:{initialTheme:'system'|'light'|'da
   const triggerRef=useRef<HTMLButtonElement>(null);
   const dockFrame=useRef<number|null>(null);
 
-  useEffect(()=>setOpen(false),[pathname]);
-
   useEffect(()=>{
     if(!open)return;
     const prev=document.body.style.overflow;
@@ -58,6 +56,7 @@ export function MainNavigation({initialTheme}:{initialTheme:'system'|'light'|'da
 
   useEffect(()=>()=>{if(dockFrame.current!==null)cancelAnimationFrame(dockFrame.current);},[]);
 
+  const closeMobile=()=>setOpen(false);
   const resetDock=()=>{
     if(dockFrame.current!==null)cancelAnimationFrame(dockFrame.current);
     dockFrame.current=requestAnimationFrame(()=>{
@@ -89,12 +88,12 @@ export function MainNavigation({initialTheme}:{initialTheme:'system'|'light'|'da
       <Link className="button header-cta" href={ROUTES.tripBuilder}>Montar meu roteiro</Link>
     </nav>
     <div id="mobile-navigation" data-testid="mobile-navigation" className="mobile-nav-layer" data-open={open?'true':'false'} aria-hidden={!open} role="dialog" aria-modal={open?'true':undefined} aria-label="Menu principal">
-      <button className="mobile-nav-backdrop" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{setOpen(false);requestAnimationFrame(()=>triggerRef.current?.focus())}}/>
+      <button className="mobile-nav-backdrop" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{closeMobile();requestAnimationFrame(()=>triggerRef.current?.focus())}}/>
       <nav ref={mobileCardRef} className="mobile-nav-card" aria-label="Navegação mobile" inert={!open}>
-        <div className="mobile-nav-title"><span>Explorar Serra Negra</span><button type="button" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{setOpen(false);requestAnimationFrame(()=>triggerRef.current?.focus())}}><Icon name="fechar"/></button></div>
-        {MAIN_NAV.map((item,index)=><Link key={item.key} style={{'--stagger':`${index*38}ms`} as React.CSSProperties} href={item.href} tabIndex={open?0:-1} aria-current={active===item.key?'page':undefined}><span>{item.label}</span><Icon name="avancar" size="sm"/></Link>)}
+        <div className="mobile-nav-title"><span>Explorar Serra Negra</span><button type="button" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{closeMobile();requestAnimationFrame(()=>triggerRef.current?.focus())}}><Icon name="fechar"/></button></div>
+        {MAIN_NAV.map((item,index)=><Link key={item.key} style={{'--stagger':`${index*38}ms`} as React.CSSProperties} href={item.href} tabIndex={open?0:-1} aria-current={active===item.key?'page':undefined} onClick={closeMobile}><span>{item.label}</span><Icon name="avancar" size="sm"/></Link>)}
         <div className="mobile-nav-preferences"><span>Aparência</span><ThemePicker initialTheme={initialTheme}/></div>
-        <Link className="button primary mobile-route-cta" href={ROUTES.tripBuilder} tabIndex={open?0:-1}>Montar meu roteiro</Link>
+        <Link className="button primary mobile-route-cta" href={ROUTES.tripBuilder} tabIndex={open?0:-1} onClick={closeMobile}>Montar meu roteiro</Link>
       </nav>
     </div>
   </>;
