@@ -6,6 +6,11 @@ async function run(name,cmd,args){const chunks=[];const code=await new Promise(r
 let ok=await run('static',process.execPath,['scripts/validate-static.mjs']);
 if(ok)ok=await run('sensitive-scan',process.execPath,['scripts/scan-sensitive.mjs']);
 if(ok)ok=await run('sanitization-audit',process.execPath,['scripts/audit-sanitization.mjs']);
+if(ok)ok=await run('responsive-audit',process.execPath,['scripts/audit-responsive.mjs']);
+if(ok)ok=await run('uxui-audit',process.execPath,['scripts/audit-uxui.mjs']);
+if(ok)ok=await run('vercel-audit',process.execPath,['scripts/audit-vercel-build.mjs']);
+if(ok)ok=await run('interactions-audit',process.execPath,['scripts/audit-interactions.mjs']);
+if(ok)ok=await run('playwright-audit',process.execPath,['scripts/audit-playwright.mjs']);
 if(ok&&existsSync('node_modules/typescript/package.json')){for(const [name,args] of [['typecheck',['run','typecheck']],['lint',['run','lint']],['unit',['test']],['prepare',['run','local:prepare']],['build',['run','build']]]){if(!await run(name,npm,args)){ok=false;break;}}if(ok&&existsSync('node_modules/@playwright/test/package.json'))ok=await run('e2e',npm,['run','test:e2e']);}
 else results.push({name:'dependency-suite',status:'BLOCKED',detail:'Execute npm ci before the dependency-based suite.'});
 writeFileSync(join(out,'SUMMARY.json'),JSON.stringify({at:new Date().toISOString(),status:ok?'PASS':results.some(r=>r.status==='BLOCKED')?'BLOCKED':'FAIL',results},null,2));process.exitCode=ok?0:1;

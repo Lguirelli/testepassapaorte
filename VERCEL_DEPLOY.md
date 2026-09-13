@@ -59,3 +59,26 @@ O log do deploy de 12/09/2026 expôs incompatibilidades que foram corrigidas:
 3. abra `/`, `/explorar`, `/mapa`, `/roteiro`;
 4. execute login somente depois de configurar credenciais e banco;
 5. valide `Admin` e `Painel do parceiro` apenas com contas explicitamente configuradas.
+
+## Effects Restoration revision
+
+O sitemap não depende mais de conexão com o banco durante o build. Isso permite concluir a fase de prerender mesmo quando variáveis de banco não são expostas à etapa de build.
+
+Isso **não** torna o banco opcional para o produto completo. Para abrir Home, Explorar, mapa, roteiro e superfícies dinâmicas em produção, configure `DATABASE_URL` e aplique migrations/seed.
+
+A revisão também adiciona `npm run audit:interactions`, executado por `validate:static`, para proteger Warp Text, Dock, Circular Gallery, transições, pins e reduced motion contra regressões.
+
+
+## Playwright contra o deploy
+
+Após o deployment concluir, valide a URL real com:
+
+```bash
+npm ci
+npm run playwright:install
+npm run test:e2e:remote -- https://seu-projeto.vercel.app
+```
+
+Use uma Preview dedicada quando a suíte precisar de credenciais de validação. Não utilize contas reais de produção nos testes automatizados.
+
+A execução remota padrão cobre as superfícies públicas, responsividade e interações. Para uma Preview de QA com contas de teste próprias, acrescente `--full` e configure as variáveis `E2E_*` descritas em `docs/PLAYWRIGHT_QA.md`.

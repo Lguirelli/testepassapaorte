@@ -53,7 +53,7 @@ A camada de responsividade foi revisada após a implementação funcional. O pro
 
 A Home usa container queries, grids intrínsecos e unidades de container na galeria; o slider permite crescimento por conteúdo; overlays respeitam `dvh` e safe areas; o Passaporte observa o próprio container com `ResizeObserver`; e calendários/tabelas preservam relações comparativas com scroll horizontal explícito quando necessário.
 
-A auditoria estática de responsividade passa. A validação visual real com Playwright permanece preparada, mas depende da instalação das dependências bloqueada externamente nesta sessão.
+A auditoria estática de responsividade passa. Playwright/Chromium estão integrados ao QA e o browser executou smoke real neste ambiente. A suíte TypeScript completa do runtime depende do `npm ci` local ou do job CI, pois o registry continua indisponível na máquina de geração.
 
 ## Convergência UX/UI da prévia pública
 

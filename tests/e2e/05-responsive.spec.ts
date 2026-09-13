@@ -20,7 +20,7 @@ test('continuous resize preserves usable public layout',async({page},info)=>{
       await expect(page.locator('main')).toBeVisible();
       await expectNoAccidentalHorizontalOverflow(page);
       const targetSizes=await page.locator('button:visible,a.button:visible,.mobile-menu-trigger:visible').evaluateAll(nodes=>nodes.slice(0,20).map(node=>{const r=(node as HTMLElement).getBoundingClientRect();return {w:r.width,h:r.height,text:(node.textContent||'').trim()}}));
-      for(const target of targetSizes){expect(target.h,`target baixo demais: ${target.text}`).toBeGreaterThanOrEqual(39)}
+      for(const target of targetSizes){expect(target.h,`target baixo demais: ${target.text}`).toBeGreaterThanOrEqual(44)}
     }
   }
 });

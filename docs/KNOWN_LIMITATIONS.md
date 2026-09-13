@@ -1,6 +1,6 @@
 # Limitações conhecidas
 
-1. **Validação dependente de npm/Chromium:** o ambiente de geração não concluiu `npm ci` por falha de acesso ao registry. Por isso build, lint, typecheck completo, Playwright e Axe não são declarados como aprovados nesta sessão.
+1. **Validação dependente de npm do runtime:** Playwright Python + Chromium executam neste ambiente, mas `npm ci` do projeto Next.js ainda não conclui por falha de acesso ao registry. Por isso a suíte TypeScript E2E/Axe completa do runtime não é declarada como aprovada localmente; o GitHub Actions agora instala Chromium e executa essa suíte automaticamente.
 2. **Autenticação:** há um adaptador local de credenciais para desenvolvimento. Uma integração externa de identidade pode substituir esse adaptador sem mudar RBAC/ownership do domínio.
 3. **PostGIS:** o MVP funciona sem PostGIS em PGlite; consultas territoriais avançadas devem usar PostgreSQL/PostGIS em produção quando necessário.
 4. **Clima:** nenhum clima é inventado. A UI exibe contexto somente quando há `weather_snapshots` verificados.
@@ -17,4 +17,4 @@
 12. **Garantia de sanitização:** os invariantes cobertos pelos scripts locais são verificáveis e falham o QA estático em regressões conhecidas; isso não equivale a promessa de segurança absoluta contra vulnerabilidades futuras ou conteúdo malicioso em superfícies que ainda não existem no MVP.
 
 13. **QA visual responsivo automatizado:** a matriz adicional de resize/200%/landscape está incluída em `tests/e2e/05-responsive.spec.ts`, mas não é declarada como executada nesta sessão enquanto `npm ci` permanecer bloqueado pelo registry. A auditoria estática `audit:responsive` foi executada e passou.
-14. **QA visual de UX/UI em browser real:** a auditoria `audit:uxui` e os smoke tests estáticos passaram, mas Axe/Playwright e inspeção visual automatizada de todas as rotas continuam dependentes da instalação npm/Chromium. O pacote não apresenta essa etapa como aprovada sem execução real.
+14. **QA visual completo do runtime:** o browser Playwright/Chromium foi validado por smoke real, e a suíte automatizada foi ampliada. A execução contra todas as rotas Next.js ainda depende do `npm ci` local ou do job CI/Preview remoto. O pacote não apresenta essa etapa completa como aprovada sem a execução correspondente.

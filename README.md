@@ -41,7 +41,9 @@ npm start
 npm run lint
 npm run typecheck
 npm test
+npm run playwright:install
 npm run test:e2e
+npm run test:e2e:remote -- https://seu-deploy.vercel.app
 npm run validate:static
 npm run security:scan
 npm run audit:sanitize
@@ -75,7 +77,7 @@ Analytics opcional depende de consentimento. IDs anônimos e sessões técnicas 
 
 Toda entrada externa é tratada na fronteira: schemas estritos/allowlists, normalização antes da persistência quando segura, validação de URLs/redirects/assets, escaping na saída e minimização/redaction em analytics, logs e auditoria. Use `npm run security:scan` para procurar material sensível. O desenho completo está em `docs/SANITIZATION_AND_PRIVACY.md`. Para uma base já existente, execute `npm run db:sanitize`; para retenção configurável, execute `npm run privacy:cleanup`.
 
-Em produção, `DATABASE_URL` e `NEXT_PUBLIC_SITE_URL` são obrigatórias; PGlite, credenciais `.local` e segredos de demonstração são recusados.
+Em produção, `DATABASE_URL` é obrigatória para as superfícies dinâmicas. `NEXT_PUBLIC_SITE_URL` pode ser definida explicitamente; na Vercel, o runtime também reconhece `VERCEL_PROJECT_PRODUCTION_URL`/`VERCEL_URL`. PGlite, credenciais `.local` e segredos de demonstração são recusados.
 
 ## UX/UI
 
@@ -102,8 +104,19 @@ A responsividade é contínua e orientada pelo espaço disponível, conteúdo e 
 
 ## Estado de validação desta entrega
 
-A auditoria estática do repositório passa. Nesta sessão de geração, `npm ci` não pôde terminar por indisponibilidade de rede/registry do ambiente, portanto `lint`, `typecheck`, `build`, Playwright e Axe completos não são declarados como aprovados sem execução. Consulte `docs/TEST_REPORT.md` e `docs/KNOWN_LIMITATIONS.md`.
+A auditoria estática do repositório passa. Playwright Python 1.57 + Chromium 144 executaram smoke real neste ambiente. O `npm ci` completo do runtime continua bloqueado localmente por indisponibilidade do registry, portanto `lint`, `typecheck`, `build` e a suíte TypeScript Playwright/Axe completa desta revisão não são declarados como aprovados localmente. O GitHub Actions agora instala Chromium e executa E2E/Axe automaticamente. Consulte `docs/TEST_REPORT.md` e `docs/KNOWN_LIMITATIONS.md`.
 
 ## Deploy no Vercel
 
 Para o produto completo, use a raiz do repositório no Vercel. Veja `VERCEL_DEPLOY.md` para banco, segredos, migração, seed e validação. A pasta `github-pages/` é somente a prévia estática do GitHub Pages.
+
+## Interações premium no runtime Next.js
+
+A versão Vercel inclui a camada de movimento aprovada: Warp Text responsivo ao pointer, Dock por proximidade, Circular Gallery com drag/inércia/snap, profundidade/blur progressivos, slider horizontal de roteiros, FAQ orgânico, microinterações de cards/mapa e transição horizontal de entrada entre rotas. Todos os efeitos possuem fallback para touch e `prefers-reduced-motion`.
+
+O sitemap é build-safe na Vercel e não consulta o banco durante prerender sem `DATABASE_URL`. O banco continua obrigatório para as superfícies dinâmicas do produto em produção.
+
+
+## Playwright e QA em browser real
+
+O repositório inclui `@playwright/test` e `@axe-core/playwright` como dependências de desenvolvimento fixadas. Para preparar o Chromium localmente, execute `npm run playwright:install`; em CI, `npm run playwright:install:ci`. A suíte completa roda com `npm run test:e2e`. Para validar um deployment Vercel existente, use `npm run test:e2e:remote -- https://seu-deploy.vercel.app`. Consulte `docs/PLAYWRIGHT_QA.md`.

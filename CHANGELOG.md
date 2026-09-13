@@ -90,3 +90,30 @@
 - Corrigido `/opengraph-image` para o renderer `next/og` do Next.js 16.3.4: container com múltiplos filhos agora possui `display: flex` explícito.
 - `audit:vercel` ampliado de 7 para 8 invariantes para impedir regressão deste requisito.
 - Mantidas as correções anteriores de TypeScript/Drizzle/Onboarding confirmadas pelo build real do Vercel.
+
+## 2026-09-12 — Vercel effects restoration + sitemap build fix
+
+- Corrigido `/sitemap.xml` para não exigir `DATABASE_URL` durante o prerender/build da Vercel; rotas dinâmicas são adicionadas quando o banco está disponível em runtime.
+- Reinstalado Warp Text funcional no hero, limitado a pointer fino e removido em `prefers-reduced-motion`/layouts compactos.
+- Dock desktop refeito com magnificação contínua por proximidade via `requestAnimationFrame`, sem alterar métricas do layout.
+- Circular Gallery recebeu arraste com deslocamento visual, projeção de velocidade, snap/inércia de até duas posições, blur/escala progressivos e ação explícita para centralizar cards laterais.
+- Slider de tipos de roteiro usa duração/easing do design system e navegação ArrowLeft/ArrowRight/Home/End.
+- Linha do roteiro tornou-se navegável, com hover/focus equivalente sem deslocar os pontos.
+- Adicionada transição horizontal de entrada entre rotas preservando o header e respeitando reduced motion.
+- Pins do mapa migrados de `<button>` inválido dentro de SVG para semântica SVG válida, com teclado e hit area ampliada.
+- Primeiros caminhos voltam a selecionar três pontos distintos em ordem variável por request.
+- Adicionado `audit:interactions` e integrado ao `validate:static`.
+
+## 2026-09-13 — Playwright como gate permanente de QA
+
+- adicionados scripts `playwright:install`, `playwright:install:ci`, `test:e2e:remote`, `test:e2e:headed` e `test:e2e:report`;
+- `playwright.config.ts` ganhou Chromium explícito, artifacts em falha e projeto dedicado a reduced motion;
+- suíte E2E ampliada para Dock, Warp Text, Circular Gallery, slider, FAQ, Card Nav e mapa;
+- adicionados test IDs estáveis apenas para automação, sem alterar semântica pública;
+- GitHub Actions ganhou job E2E com instalação de Chromium e upload de report/traces/screenshots;
+- criado `audit:playwright` e integrado ao `validate:static`;
+- criado `docs/PLAYWRIGHT_QA.md`;
+- Playwright Python 1.57 + Chromium 144 executaram smoke real no ambiente de geração.
+
+- targets de header/dots/controles compactos corrigidos de 39–40/32 px para 44 px conforme o sistema global de UX/UI; teste responsivo passa a exigir 44 px.
+- execução remota do Playwright é pública/visual por padrão e aceita `--full` com credenciais `E2E_*` para Preview dedicada.

@@ -49,3 +49,8 @@ A revisão responsiva está concluída no nível de implementação e QA estáti
 - referências locais de assets — **PASS, 0 ausentes**.
 
 A prévia publicada e o runtime canônico agora compartilham invariantes de targets, foco, pointer/hover, reduced motion, contraste, iconografia SVG, reflow e tokens. A inspeção visual/Axe em browser real permanece pendente enquanto a instalação completa das dependências estiver bloqueada externamente.
+
+
+## Playwright QA integrado
+
+A suíte passou a ter instalação explícita de Chromium, job CI próprio, execução remota contra Vercel e cobertura dos efeitos principais. O browser Playwright disponível neste ambiente executou smoke real com Chromium 144. A suíte Next.js completa continua aguardando dependências npm neste ambiente local; o workflow CI foi adicionado exatamente para tornar essa validação reproduzível fora dessa limitação.

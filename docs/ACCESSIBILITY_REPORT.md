@@ -21,7 +21,7 @@
 
 ## Validação automatizada
 
-A suíte E2E inclui Axe para violações `critical`/`serious` e matriz 390×844, 768×1024, 1366×936 e 1440×900. Nesta sessão, a execução do browser ficou bloqueada porque `npm ci` não conseguiu concluir no ambiente de geração. O teste está incluído e deve ser executado com `npm run test:e2e` após instalar dependências e Chromium.
+A suíte E2E inclui Axe para violações `critical`/`serious` e matriz 390×844, 768×1024, 1366×936 e 1440×900. Playwright Python 1.57 + Chromium 144 executaram smoke real neste ambiente. A suíte TypeScript do runtime ainda depende do `npm ci` completo, que não conclui localmente por indisponibilidade do registry; o job E2E do GitHub Actions instala Chromium e executa `npm run test:e2e` automaticamente.
 
 ## Responsividade e acessibilidade
 

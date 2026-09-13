@@ -1,90 +1,53 @@
-# Relatório de testes
+# TEST REPORT
 
-**Data:** 2026-09-12
+## Revisão Vercel Effects Restoration
 
-## Executado nesta revisão
+### Evidência do deploy anterior fornecida pelo usuário
 
-- `node scripts/validate-static.mjs` — **PASS**.
-- `node scripts/scan-sensitive.mjs` — **PASS, 0 achados**.
-- `node scripts/audit-sanitization.mjs` — **PASS**.
-- `node scripts/audit-responsive.mjs` — **PASS**.
-  - sem `100vh` no runtime;
-  - sem device sniffing, `innerWidth` ou media query JS para arquitetura de layout;
-  - safe areas, `dvh`, container queries e grids intrínsecos presentes;
-  - Passaporte container-aware com `ResizeObserver`;
-  - suíte E2E responsiva presente com larguras 347, 529, 713, 887, 1113 e 1371 px, baixa altura/landscape, texto 200%, overflow e preservação de estado.
-- Transpilação sintática com TypeScript global em **279 arquivos TS/TSX** (excluindo `.d.ts`) — **PASS, 0 erros**.
-- Balanceamento de chaves CSS dos arquivos principais alterados — **PASS**.
+- Next.js 16.3.4: compilação de produção concluída.
+- TypeScript: concluído sem erros.
+- coleta de page data: concluída até geração de páginas.
+- bloqueio observado: prerender de `/sitemap.xml` por ausência de `DATABASE_URL`.
 
-## QA responsivo implementado no repositório
+### Correção
 
-`tests/e2e/05-responsive.spec.ts` testa redimensionamento em larguras intermediárias aleatórias, ausência de overflow horizontal, alvo mínimo dos principais controles, landscape/altura reduzida, texto ampliado a 200% e preservação do valor de busca durante resize.
+`src/app/sitemap.ts` agora é dinâmico e devolve o conjunto de rotas estáticas quando `DATABASE_URL` não está presente durante o build. Se o banco estiver disponível em runtime, acrescenta as páginas dinâmicas dos lugares. Falhas de sitemap não derrubam o deployment, mas páginas de produto continuam exigindo banco real.
 
-## Dependente de instalação
+### Gates executados nesta revisão
 
-O ambiente de geração continua sem conseguir concluir `npm ci` por indisponibilidade do registry/cache incompleto. Portanto os comandos abaixo permanecem **não declarados como aprovados sem execução real**:
+- Static structural validation: PASS
+- Sensitive information scan: PASS
+- Sanitization audit: PASS
+- Responsive audit: PASS
+- UX/UI audit: PASS
+- Vercel audit: PASS, 9/9
+- Interaction audit: PASS, 10/10
+- TypeScript transpile syntax: PASS, 280 arquivos TS/TSX, 0 erros
 
-- `npm run typecheck`
-- `npm run lint`
-- `npm test`
-- `npm run local:prepare`
-- `npm run build`
-- `npm run test:e2e`
-- Axe/Playwright em browser real
+### Cobertura do interaction audit
 
-## Sanitização
+- Warp Text + pointer/reduced-motion guards
+- Dock com requestAnimationFrame e escala sem reflow
+- drag/inércia/snap da Circular Gallery
+- blur/escala progressivos
+- centralização explícita de cards laterais
+- teclado do slider de roteiro
+- transição de rota
+- semântica e teclado dos pins SVG
+- sitemap build-safe
 
-O novo refinamento responsivo foi submetido novamente ao scan sensível e à auditoria de sanitização. Ambos passaram sem regressões.
+### Não executado localmente
 
-## Regra de interpretação
-
-A revisão responsiva está concluída no nível de implementação e QA estático verificável. A validação visual/browser-dependent permanece explicitamente bloqueada por dependência externa; nenhum teste não executado foi convertido em aprovação.
-
-## GitHub Pages correction
-
-- `node --check` nos principais scripts da prévia: PASS
-- referências locais de `github-pages/index.html`: PASS, 0 ausentes
-- HTTP smoke local: PASS (`index.html`, `app.js`, logo SVG)
-- varredura por caminhos internos/IDs/segredos na prévia: PASS
-- `npm run validate:static`: PASS
-- GitHub Pages real: depende de push e configuração **Settings → Pages → Source: GitHub Actions**, não executável localmente nesta sessão.
-
-## Aplicação do sistema global de UX/UI
-
-- `node scripts/audit-uxui.mjs` — **PASS, 38 verificações**.
-- `npm run validate:static` — **PASS** após integrar `audit:uxui` ao gate estático.
-- `node scripts/audit-responsive.mjs` — **PASS** após as correções UX/UI.
-- `node scripts/audit-sanitization.mjs` — **PASS** após as correções UX/UI.
-- `node scripts/scan-sensitive.mjs` — **PASS, 0 achados** após as correções UX/UI.
-- `node --check github-pages/*.js` — **PASS**.
-- smoke HTTP local da prévia — **PASS** para `/`, `uxui-system.css` e SVG de iconografia.
-- referências locais HTML/CSS da prévia — **PASS, 0 assets ausentes**.
-
-A auditoria cobre estruturalmente targets, foco, teclado, touch/coarse pointer, ausência de dependência funcional de hover nos cards principais, reduced motion, contraste aumentado, forced colors, safe areas, reflow, SVGs e integração do sistema UX/UI no runtime Next e na prévia do GitHub Pages.
-
-A validação visual automatizada em browser real/Axe continua **não declarada como aprovada**, pois a instalação npm/Chromium necessária segue indisponível no ambiente de geração. Uma tentativa de browser local não foi usada como evidência de aprovação.
-## Reprodução do erro Vercel e correção
-
-O deploy Vercel fornecido pelo usuário instalou `Next.js 16.3.4`, `drizzle-orm 0.45.2` e `TypeScript 6.0.3`, compilou o bundle e falhou no typecheck em cinco pontos. Todos os cinco pontos foram corrigidos nesta revisão.
-
-Verificações executadas após a correção:
-
-- `npm run validate:static` — **PASS**, incluindo sanitização, responsividade, UX/UI e compatibilidade Vercel;
-- `node scripts/audit-vercel-build.mjs` — **PASS, 7/7 invariantes**;
-- transpilação sintática dos 279 arquivos TS/TSX com TypeScript global — **PASS, 0 erros**.
-
-O ambiente local de geração não conseguiu concluir uma reinstalação íntegra de `node_modules`; portanto não é declarado aqui um `next build` local aprovado. A correção foi direcionada exatamente aos diagnósticos produzidos pelo build real do Vercel e recebeu um gate estático específico para impedir regressão. O próximo deploy no Vercel é a validação autoritativa do typecheck com as dependências completas.
+`npm ci` continua sem concluir por indisponibilidade de registry neste ambiente, portanto o `next build` desta revisão não é marcado como aprovado localmente. O redeploy Vercel é o teste autoritativo de build/runtime desta revisão.
 
 
+### Playwright QA
 
-## Vercel prerender de Open Graph
+- configuração Playwright auditada: PASS, 14/14 invariantes;
+- Playwright Python 1.57 + Chromium 144: smoke real PASS;
+- clique, viewport 390×844, reduced motion e ausência de overflow no harness: PASS;
+- suíte E2E do runtime ampliada para Dock, Warp Text, Circular Gallery, slider, FAQ, Card Nav e pins do mapa;
+- GitHub Actions instala Chromium e executa E2E/Axe automaticamente;
+- execução TypeScript completa local do Playwright permanece não executada nesta máquina porque `npm ci` não conclui por falha de registry; não é marcada como aprovada.
 
-O segundo build real do Vercel avançou além da compilação e do TypeScript, confirmando que os cinco erros anteriores foram corrigidos. A falha seguinte ocorreu exclusivamente no prerender de `/opengraph-image`: o renderer `next/og` exige `display` explícito em todo `<div>` que possua múltiplos filhos.
-
-Correção aplicada:
-
-- o agrupador interno de título + subtítulo em `src/app/opengraph-image.tsx` agora usa `display: flex` e `flex-direction: column`;
-- `audit:vercel` ganhou um gate específico para essa invariável do `next/og`;
-- `npm run validate:static` executado novamente após a correção — **PASS**.
-
-O build real do usuário já confirmou nesta revisão: bundle Next.js **PASS** e TypeScript **PASS**. O próximo redeploy valida a etapa de prerender após esta correção.
+- melhoria derivada do QA: targets do header, tema, ícones, fechamento mobile e dots da galeria elevados para 44 px; a suíte responsiva agora exige 44 px nos controles avaliados.
