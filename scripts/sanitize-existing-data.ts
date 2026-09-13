@@ -68,3 +68,4 @@ await database.transaction(async tx=>{
 });
 
 console.log(JSON.stringify({status:'ok',roles:principals.map(({role})=>role),operations:changed,note:'Sessões legadas identificadas foram revogadas; novo login cria sessão pseudonimizada.'}));
+process.exit(0);

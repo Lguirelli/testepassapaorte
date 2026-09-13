@@ -1,0 +1,15 @@
+/* Targeted responsive/accessibility corrections validated by Playwright. */
+
+/* Short landscape viewports switch the global header to sticky flow, so the Home brand
+   must use the page text color instead of the white hero-overlay treatment. */
+@media (max-height:40rem){
+  body[data-page="home"] .site-header[data-scrolled="false"] .brand{color:var(--text-primary)}
+}
+
+/* At intermediate widths the page heading and action group need separate rows.
+   Prevent action labels from collapsing letter-by-letter while still allowing wrapping. */
+@media (min-width:45.01rem) and (max-width:61.25rem){
+  .section-head>.actions{flex:1 1 100%;inline-size:100%;min-inline-size:0}
+  .section-head>.actions>.button,
+  .section-head>.actions>button{flex:0 1 auto;max-inline-size:100%;white-space:nowrap;overflow-wrap:normal}
+}
