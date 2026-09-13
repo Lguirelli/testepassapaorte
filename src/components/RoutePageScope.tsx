@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect,useRef,useState} from 'react';
+import {useEffect,useRef} from 'react';
 import {usePathname} from 'next/navigation';
 import {pageKindForPath} from '@/core/routing/page-kind';
 
@@ -19,12 +19,11 @@ function routeLabel(pathname:string){
 export function RoutePageScope(){
   const pathname=usePathname();
   const firstRender=useRef(true);
-  const [announcement,setAnnouncement]=useState('');
+  const announcement=`${routeLabel(pathname)} carregado`;
 
   useEffect(()=>{
     document.body.dataset.page=pageKindForPath(pathname);
     document.body.dataset.path=pathname;
-    setAnnouncement(`${routeLabel(pathname)} carregado`);
 
     if(firstRender.current){
       firstRender.current=false;
