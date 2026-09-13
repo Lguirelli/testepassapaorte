@@ -89,6 +89,8 @@ jobs:
 
   visual-production:
     name: Public production visual smoke
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch'
+    needs: [validate, visual, e2e]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
