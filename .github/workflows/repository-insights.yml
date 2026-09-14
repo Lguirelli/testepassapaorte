@@ -28,6 +28,10 @@ on:
       - 'index.html'
   workflow_dispatch:
 
+concurrency:
+  group: repository-insights-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
