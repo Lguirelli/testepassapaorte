@@ -5,6 +5,7 @@ const PORT=4180;
 const ORIGIN=`http://127.0.0.1:${PORT}`;
 const server=spawn('python3',['-m','http.server',String(PORT),'--bind','127.0.0.1','--directory','github-pages'],{stdio:['ignore','pipe','pipe']});
 let browser;
+let navigationSequence=0;
 
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function waitForServer(){
@@ -29,10 +30,11 @@ async function open(page,hash){
     }
   };
   page.on('pageerror',onPageError);page.on('console',onConsole);page.on('response',onResponse);
-  const response=await page.goto(`${ORIGIN}/${hash}`,{waitUntil:'networkidle'});
-  // A hash-only SPA navigation legitimately returns null because no document
-  // request is issued. When a document response exists, it still must be OK.
-  if(response)assert(response.ok(),`HTTP failure for ${hash}: ${response.status()}`);
+  // Reload the static document for each hash route. This validates direct entry
+  // into every route and avoids Playwright treating a hash change as a
+  // same-document navigation with no document response.
+  const response=await page.goto(`${ORIGIN}/?smoke=${++navigationSequence}${hash}`,{waitUntil:'networkidle'});
+  assert(response?.ok(),`HTTP failure for ${hash}${response?`: ${response.status()}`:''}`);
   await page.waitForTimeout(120);
   const failures=[...new Set([...errors,...badResponses])];
   assert(failures.length===0,`${hash} emitted browser/resource errors: ${failures.join(' | ')}`);
