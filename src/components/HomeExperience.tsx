@@ -85,7 +85,8 @@ function RouteTypeSlider(){
     if(event.key==='ArrowRight')next=(index+1)%routeTypes.length;
     if(event.key==='ArrowLeft')next=(index-1+routeTypes.length)%routeTypes.length;
     if(event.key==='Home')next=0;if(event.key==='End')next=routeTypes.length-1;
-    change(next);requestAnimationFrame(()=>tabRefs.current[next]?.focus());
+    change(next);
+    tabRefs.current[next]?.focus();
   };
   useEffect(()=>()=>{if(timer.current)clearTimeout(timer.current);},[]);
   const current=routeTypes[active];const previousItem=previous===null?null:routeTypes[previous];
