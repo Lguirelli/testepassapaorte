@@ -44,3 +44,48 @@ Evidências consultadas: GitHub Actions run `34778365458`.
 Ferramentas de apoio: Context7, documentação oficial do Playwright sobre baseURL/deployment; Building React Native Apps, princípio medir antes de otimizar. Aplicação permanece Next.js; não foram adicionadas dependências nativas ou otimizações sem medição.
 
 Pendências comprovadas: estabilizar os dois retries de Axe, finalizar smoke remoto e classificar separadamente o E2E de persistência, que permanece fora da aceitação visual.
+
+## Validação de 2026-09-14
+
+Esta seção atualiza as pendências históricas acima. O banco continua adiado por decisão do usuário; nenhuma migration, seed ou alteração de infraestrutura de banco foi executada nesta rodada.
+
+- Base: `3017c4c667ee27660d9f20ee4f4a2e222fb86ee5`.
+- Branch: `work/visual-validation-september14`.
+- Correção: `d05b07ad74f3fd48f515cc156439f93d00af14c7`.
+- PR: https://github.com/Lguirelli/testepassapaorte/pull/15
+- CI da correção: https://github.com/Lguirelli/testepassapaorte/actions/runs/34793873612
+- Production inspecionada: https://testepassapaorte-iota.vercel.app/
+- Deployment de Production: `dpl_ActkynoWFxJUzSTwZXWWwpPe6Fok`, READY, commit base `3017c4c`.
+
+### MEDIUM: teste de altura confundia layout com perspectiva
+
+Os runs `34792418288` (main) e `34793272109` (outra branch) falharam no mesmo teste: a altura projetada de um card lateral era 183,481 px, abaixo do mínimo de 189 px. Os outros 52 casos E2E passaram em ambas as execuções.
+
+A inspeção DOM no navegador da Production confirmou oito imagens com `offsetHeight=220`; os retângulos projetados eram 220, 202,104 ou 183,481 px conforme a posição na galeria. A escala/perspectiva explica a diferença, sem erro na altura de layout.
+
+`tests/e2e/05-responsive.spec.ts` agora compara `offsetHeight`. Os limites de 189–221 px e diferença máxima de 1 px permanecem. A suíte `tests/visual/encontros.spec.ts` continua verificando os retângulos projetados, separação entre cards, blur, centralização, drag e hover. Nenhum CSS ou comportamento foi alterado para satisfazer o teste.
+
+### Evidências executadas
+
+- CI validate: PASS, incluindo instalação, auditoria estática, TypeScript, lint, testes unitários e build.
+- CI visual: **68 PASS, 0 FAIL, sem retries**, Chromium, 2,8 minutos, job `103823107155`.
+- Axe: nenhuma violação critical/serious nos casos auditados da suíte visual; isso não declara ausência de violações moderate/minor.
+- Matriz visual: 1371×936, 347×844 com touch, 844×390 com touch e 887×700 com reduced motion. Resize de Home/mapa nas larguras 347, 529, 713, 887, 979, 1113 e 1371 px.
+- Rotas auditadas: `/`, `/explorar`, `/mapa`, `/parceiros`, `/pontos-turisticos`, `/roteiro`, `/lugares/igreja-matriz-nossa-senhora-do-rosario`, `/parceiros/cafe-neblina-alta`; fluxo temporário até calendário e Passaporte. Health visual 200 verificado pelo Playwright do CI, com banco explicitamente não utilizado.
+- A suíte captura console.error, pageerror e respostas HTTP >=400 nas páginas públicas. Screenshots de interações, dark mode e paleta ficam nos artifacts do run, juntamente com o relatório Playwright.
+- TypeScript e lint também executados localmente: PASS; lint apresenta 8 warnings preexistentes, sem erros.
+- Navegador cloud em Production: Home renderizada; próximo parceiro seleciona Bistrô Estação Verde; slider seleciona Natureza; FAQ abre; formulário de oito etapas gera roteiro sem login; carimbo simulado aparece no calendário; Passaporte abre sem login. Inspeção de screenshots da galeria e do roteiro realizada.
+- Logs consultados no navegador apresentaram erros da extensão do próprio browser; não foram classificados como erros da aplicação.
+- E2E da correção: **53 PASS, 47 SKIPPED, 0 FAIL**, sem retries, 5,1 minutos, job `103823280179`. A quantidade total coletada foi 100; os skips existentes não contam como casos aprovados. O teste de altura anteriormente falho passou.
+
+### HIGH: nova Preview bloqueada pela cota Vercel
+
+O status Vercel do commit `d05b07a` retornou literalmente `Deployment rate limited — retry in 24 hours.` Nenhum deployment foi criado para esse commit. A Production inspecionada corresponde à base, não à correção candidata. Não foi solicitado upgrade pago nem tentado contornar a cota.
+
+A validação remota do commit candidato e sua aceitação de deployment permanecem bloqueadas. O job remoto de Production do workflow atual executa apenas em main ou workflow_dispatch; não foi executado nesta PR. Os resultados remotos históricos não substituem essa pendência.
+
+### Limitações locais e configuração preservada
+
+Playwright standalone local permanece bloqueado pela instalação do Chromium, que retornou timeout/502 e download truncado. Chromium e Playwright executaram efetivamente no GitHub Actions; a navegação cloud foi uma verificação adicional. A tentativa de abrir `/health` no browser cloud retornou `ERR_BLOCKED_BY_CLIENT`, sem evidência de falha do servidor; não foi considerada aprovação de health remoto.
+
+Node 24.x já estava na base externa e foi preservado, sem mudança de versão nesta rodada. Nenhuma dependência foi adicionada. Context7 e Building React Native Apps foram consultados anteriormente como apoio; a aplicação canônica continua Next.js.
