@@ -1,0 +1,112 @@
+/* Theme-aware route skeletons. These shapes mirror the page rhythm so route changes do not jump. */
+.skeleton-shell{
+  min-height:58vh;
+  display:grid;
+  align-content:start;
+  gap:clamp(2rem,5vw,3.5rem);
+  padding:clamp(1rem,4vw,3rem) 0;
+  color:var(--text-primary);
+}
+
+.skeleton-copy{
+  display:grid;
+  gap:.8rem;
+  width:min(100%,46rem);
+}
+
+.skeleton-line,
+.skeleton-media,
+.skeleton-chip,
+.skeleton-button{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  isolation:isolate;
+  background:var(--surface-muted);
+  border:1px solid color-mix(in srgb,var(--border-default) 34%,transparent);
+}
+
+.skeleton-line::after,
+.skeleton-media::after,
+.skeleton-chip::after,
+.skeleton-button::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  transform:translateX(-105%);
+  background:linear-gradient(
+    100deg,
+    transparent 8%,
+    color-mix(in srgb,var(--surface-raised) 68%,transparent) 42%,
+    color-mix(in srgb,var(--surface-raised) 88%,transparent) 50%,
+    color-mix(in srgb,var(--surface-raised) 68%,transparent) 58%,
+    transparent 92%
+  );
+  animation:skeleton-sweep 1.35s var(--motion-ease) infinite;
+}
+
+.skeleton-kicker{width:min(9rem,32%);height:.72rem;border-radius:var(--radius-pill)}
+.skeleton-title{width:min(42rem,92%);height:clamp(2.5rem,6vw,4.35rem);border-radius:var(--radius-sm)}
+.skeleton-title-short{width:min(28rem,68%)}
+.skeleton-body{width:min(38rem,88%);height:1rem;border-radius:var(--radius-pill)}
+.skeleton-body-short{width:min(29rem,70%)}
+
+.skeleton-actions{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:.45rem}
+.skeleton-button{width:10rem;height:2.85rem;border-radius:var(--radius-pill)}
+.skeleton-button-secondary{width:8rem;background:var(--surface-raised)}
+
+.skeleton-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:var(--gap);
+}
+
+.skeleton-card{
+  min-width:0;
+  padding:1rem;
+  border:1px solid color-mix(in srgb,var(--border-default) 48%,transparent);
+  border-radius:var(--radius-lg);
+  background:var(--surface-raised);
+  box-shadow:0 12px 32px color-mix(in srgb,#000 5%,transparent);
+}
+
+.skeleton-media{
+  width:100%;
+  aspect-ratio:4/3;
+  border-radius:calc(var(--radius-lg) - .25rem);
+  margin-bottom:1rem;
+}
+
+.skeleton-card-copy{display:grid;gap:.65rem}
+.skeleton-chip{width:5.8rem;height:1.35rem;border-radius:var(--radius-pill)}
+.skeleton-card-title{width:84%;height:1.35rem;border-radius:var(--radius-sm)}
+.skeleton-card-text{width:100%;height:.85rem;border-radius:var(--radius-pill)}
+.skeleton-card-text-short{width:68%}
+
+@keyframes skeleton-sweep{
+  to{transform:translateX(105%)}
+}
+
+@media(max-width:900px){
+  .skeleton-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .skeleton-card:last-child{display:none}
+}
+
+@media(max-width:620px){
+  .skeleton-shell{gap:2rem;padding-top:.5rem}
+  .skeleton-grid{grid-template-columns:1fr}
+  .skeleton-card:nth-child(n+2){display:none}
+  .skeleton-actions{width:100%}
+  .skeleton-button{flex:1 1 9rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .skeleton-line::after,
+  .skeleton-media::after,
+  .skeleton-chip::after,
+  .skeleton-button::after{
+    animation:none;
+    transform:none;
+    opacity:.38;
+  }
+}
