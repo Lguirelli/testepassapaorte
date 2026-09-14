@@ -1,0 +1,160 @@
+name: Repository Insights
+
+on:
+  push:
+    branches:
+      - main
+      - storytelling-ready-routes
+    paths:
+      - 'src/**'
+      - 'github-pages/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/**'
+      - 'package.json'
+      - 'next.config.ts'
+      - 'index.html'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'github-pages/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/**'
+      - 'package.json'
+      - 'next.config.ts'
+      - 'index.html'
+  workflow_dispatch:
+
+concurrency:
+  group: repository-insights-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: 24
+
+jobs:
+  architecture:
+    name: Repository map and legacy signals
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Generate repository insights
+        run: node scripts/repository-insights.mjs > /tmp/repository-insights.md
+      - name: Publish dashboard in Actions summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f artifacts/repository-insights/report.md ]; then
+            cat artifacts/repository-insights/report.md >> "$GITHUB_STEP_SUMMARY"
+          elif [ -f /tmp/repository-insights.md ]; then
+            cat /tmp/repository-insights.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload interactive repository dashboard
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-insights
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            artifacts/repository-insights/index.html
+            artifacts/repository-insights/report.md
+            artifacts/repository-insights/report.json
+
+  visual-structure:
+    name: Build and visual structure guard
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      APP_MODE: visual
+      NEXT_PUBLIC_SITE_URL: https://example.invalid
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
+      - name: UX/UI structure audit
+        run: npm run audit:uxui
+      - name: Responsive structure audit
+        run: npm run audit:responsive
+      - name: Interaction contract audit
+        run: npm run audit:interactions
+      - name: Static/Next parity audit
+        run: npm run audit:pages-parity
+      - name: Build visual runtime
+        run: npm run build
+      - name: Publish visual guard summary
+        if: always()
+        run: |
+          {
+            echo '## Build and visual structure guard'
+            echo ''
+            echo 'Checks TypeScript, unit tests, UX/UI invariants, responsiveness, interaction contracts, static/Next parity and a database-free production build.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  browser-visual:
+    name: Browser visual and interaction matrix
+    needs: visual-structure
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      APP_MODE: visual
+      NEXT_PUBLIC_SITE_URL: https://example.invalid
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build visual runtime
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run Next.js browser visual matrix
+        run: npx playwright test --config=playwright.visual.config.ts
+      - name: Run GitHub Pages browser smoke
+        if: always()
+        run: node scripts/static-pages-smoke.mjs
+      - name: Upload visual browser report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: storytelling-visual-report
+          if-no-files-found: ignore
+          retention-days: 14
+          path: |
+            playwright-report/
+            test-results/
+      - name: Publish browser summary
+        if: always()
+        run: |
+          {
+            echo '## Browser visual matrix'
+            echo ''
+            echo 'Validates Next.js across wide, narrow, landscape and reduced-motion projects, then opens the GitHub Pages preview in Chromium to check canonical home, navigation, six ready routes, keyboard interactions, mobile overflow and reduced motion.'
+          } >> "$GITHUB_STEP_SUMMARY"

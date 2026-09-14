@@ -1,10 +1,9 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const publicPaths=['/','/explorar','/mapa','/parceiros','/pontos-turisticos','/roteiro','/lugares/igreja-matriz-nossa-senhora-do-rosario','/parceiros/cafe-neblina-alta'];
+const publicPaths=['/','/explorar','/mapa','/parceiros','/pontos-turisticos','/roteiros','/roteiros/fim-de-semana-a-dois','/roteiro','/lugares/igreja-matriz-nossa-senhora-do-rosario','/parceiros/cafe-neblina-alta'];
 
 async function seriousA11yViolations(page:import('@playwright/test').Page){
- // Audit the settled UI, not intermediate opacity during page/slide entry.
  await page.evaluate(async()=>{
   const animations=document.getAnimations().filter(animation=>animation.playState==='running'&&Number.isFinite(Number(animation.effect?.getComputedTiming().endTime)));
   await Promise.all(animations.map(animation=>animation.finished.catch(()=>undefined)));
@@ -27,13 +26,25 @@ for(const path of publicPaths){
   page.on('response',response=>{if(response.status()>=400)errors.push('HTTP '+response.status()+' '+new URL(response.url()).pathname);});
   const response=await page.goto(path);
   expect(response?.status()).toBe(200);
-  await expect(page.locator('h1')).toBeVisible();
+  const title=page.locator('h1');
+  await expect(title).toHaveCount(1);
+  await expect(title).toBeVisible();
   await expect(page.getByText('Falha temporária',{exact:true})).toHaveCount(0);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth),`Overflow on ${path}`).toBeLessThanOrEqual(2);
   expect(await seriousA11yViolations(page)).toEqual([]);
   expect(errors).toEqual([]);
  });
 }
+
+test('ready route creates an editable guest itinerary without onboarding',async({page})=>{
+ await page.goto('/roteiros/fim-de-semana-a-dois');
+ await expect(page.getByRole('heading',{name:/Dois dias para aproveitar sem pressa/i})).toBeVisible();
+ await page.getByRole('button',{name:'Usar este roteiro',exact:true}).click();
+ await expect(page).toHaveURL(/\/experiencia\/roteiro/);
+ await expect.poll(()=>page.evaluate(()=>location.pathname)).toBe('/experiencia/roteiro');
+ await expect(page.getByRole('heading',{name:/Seu roteiro, dia a dia/i})).toBeVisible();
+ await expect(page.getByText(/Etapa 1 de 8/i)).toHaveCount(0);
+});
 
 test('route steps build a full guest itinerary without login',async({page})=>{
  await page.goto('/roteiro');
@@ -54,11 +65,11 @@ test('gallery, route tabs, FAQ and mobile menu respond to keyboard',async({page}
  await gallery.focus();
  await page.keyboard.press('ArrowLeft');
  await expect(page.getByText('Parceiro em destaque: Café Neblina Alta',{exact:true})).toBeVisible();
- const firstTab=page.getByRole('tab',{name:'Primeira visita',exact:true});
+ const firstTab=page.getByRole('tab',{name:'Primeira vez em Serra Negra',exact:true});
  await firstTab.focus();
  await page.keyboard.press('ArrowRight');
- await expect(page.getByRole('tab',{name:'Natureza',exact:true})).toHaveAttribute('aria-selected','true');
- const faq=page.getByRole('button',{name:'É possível reservar ou pagar pelo Passaporte?',exact:true});
+ await expect(page.getByRole('tab',{name:'Fim de semana a dois',exact:true})).toHaveAttribute('aria-selected','true');
+ const faq=page.getByRole('button',{name:'Preciso responder perguntas para começar?',exact:true});
  await faq.focus();await page.keyboard.press('Enter');
  await expect(faq).toHaveAttribute('aria-expanded','true');
  const menu=page.getByRole('button',{name:'Abrir menu',exact:true});
@@ -83,17 +94,8 @@ test('Encontros gallery keeps the center card readable and controls outside the 
   const right=node.querySelector<HTMLElement>('[data-offset="1"] .card');
   const next=document.querySelector<HTMLElement>('button[aria-label="Próximo parceiro"]');
   if(!center||!left||!right||!next)throw new Error('Gallery geometry nodes missing');
-  const c=center.getBoundingClientRect();
-  const l=left.getBoundingClientRect();
-  const r=right.getBoundingClientRect();
-  const n=next.getBoundingClientRect();
-  return {
-   centerHeight:c.height,
-   centerBottom:c.bottom,
-   controlsTop:n.top,
-   leftExposure:c.left-l.left,
-   rightExposure:r.right-c.right,
-  };
+  const c=center.getBoundingClientRect();const l=left.getBoundingClientRect();const r=right.getBoundingClientRect();const n=next.getBoundingClientRect();
+  return {centerHeight:c.height,centerBottom:c.bottom,controlsTop:n.top,leftExposure:c.left-l.left,rightExposure:r.right-c.right};
  });
  expect(geometry.centerHeight).toBeLessThan(500);
  expect(geometry.controlsTop).toBeGreaterThanOrEqual(geometry.centerBottom-8);
@@ -101,9 +103,9 @@ test('Encontros gallery keeps the center card readable and controls outside the 
  expect(geometry.rightExposure).toBeGreaterThan(90);
 });
 
-test('home and map adapt continuously across intermediate widths and dark mode remains accessible',async({page})=>{
+test('home, ready routes and map adapt continuously across intermediate widths and dark mode remains accessible',async({page})=>{
  const widths=[347,529,713,887,979,1113,1371];
- for(const path of ['/','/mapa']){
+ for(const path of ['/','/roteiros','/mapa']){
   await page.goto(path);await expect(page.locator('h1')).toBeVisible();
   for(const width of widths){
    await page.setViewportSize({width,height:700});
@@ -118,16 +120,12 @@ test('home and map adapt continuously across intermediate widths and dark mode r
  await page.screenshot({path:test.info().outputPath('home-dark.png'),fullPage:true});
 });
 
-
 test('desktop Dock labels remain on one line',async({page})=>{
  await page.setViewportSize({width:1371,height:936});
  await page.goto('/');
  const nav=page.getByRole('navigation',{name:'Navegação principal',exact:true});
  await expect(nav).toBeVisible();
- const labels=await nav.locator('a').evaluateAll(links=>links.map(link=>{
-  const range=document.createRange();range.selectNodeContents(link);
-  return {text:link.textContent,lines:new Set([...range.getClientRects()].map(rect=>Math.round(rect.top))).size};
- }));
+ const labels=await nav.locator('a').evaluateAll(links=>links.map(link=>{const range=document.createRange();range.selectNodeContents(link);return {text:link.textContent,lines:new Set([...range.getClientRects()].map(rect=>Math.round(rect.top))).size};}));
  for(const label of labels)expect(label.lines,`Dock label wraps: ${label.text}`).toBe(1);
 });
 
@@ -170,54 +168,41 @@ test('resizing an open compact menu releases scrolling and moves focus to deskto
 
 test('route tab keyboard handling does not steal a subsequent focus change',async({page})=>{
  await page.goto('/');
- await page.getByRole('tab',{name:'Primeira visita',exact:true}).focus();
- // Keep both events within one frame to reproduce the previously deferred focus.
+ await page.getByRole('tab',{name:'Primeira vez em Serra Negra',exact:true}).focus();
  await page.evaluate(async()=>{
   document.activeElement?.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));
   document.querySelector<HTMLElement>('[data-testid="home-faq-trigger-1"]')!.focus();
   await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
  });
- const faq=page.getByRole('button',{name:'É possível reservar ou pagar pelo Passaporte?',exact:true});
+ const faq=page.getByRole('button',{name:'Os roteiros prontos ficam engessados?',exact:true});
  await expect(faq).toBeFocused();
  await page.keyboard.press('Enter');
  await expect(faq).toHaveAttribute('aria-expanded','true');
- await expect(page.getByRole('tab',{name:'Natureza',exact:true})).toHaveAttribute('aria-selected','true');
+ await expect(page.getByRole('tab',{name:'Fim de semana a dois',exact:true})).toHaveAttribute('aria-selected','true');
 });
 
 test('Green marks selected/current state while hover stays in the dark greens',async({page})=>{
  await page.setViewportSize({width:1371,height:936});
  await page.goto('/');
- const palette=await page.evaluate(()=>{
-  const style=getComputedStyle(document.documentElement);
-  return {
-   green:style.getPropertyValue('--green').trim().toUpperCase(),
-   darkGreen:style.getPropertyValue('--dark-green').trim().toUpperCase(),
-   greenBlack:style.getPropertyValue('--green-black').trim().toUpperCase(),
-  };
- });
+ const palette=await page.evaluate(()=>{const style=getComputedStyle(document.documentElement);return {green:style.getPropertyValue('--green').trim().toUpperCase(),darkGreen:style.getPropertyValue('--dark-green').trim().toUpperCase(),greenBlack:style.getPropertyValue('--green-black').trim().toUpperCase()};});
  expect(palette).toEqual({green:'#008542',darkGreen:'#003328',greenBlack:'#001F18'});
-
  const current=page.locator('.main-nav a[aria-current="page"]').first();
  await expect(current).toBeVisible();
  await expect.poll(()=>current.evaluate(node=>getComputedStyle(node).boxShadow)).toContain('0, 133, 66');
  await current.hover();
  await expect.poll(()=>current.evaluate(node=>getComputedStyle(node).boxShadow)).toContain('0, 133, 66');
-
  const neutralNav=page.locator('.main-nav a:not(.button):not([aria-current="page"])').first();
  await neutralNav.hover();
  await expect.poll(()=>neutralNav.evaluate(node=>getComputedStyle(node).backgroundColor)).not.toBe('rgb(0, 133, 66)');
  await expect.poll(()=>neutralNav.evaluate(node=>getComputedStyle(node).boxShadow)).not.toContain('0, 133, 66');
-
- const selectedTab=page.getByRole('tab',{name:'Primeira visita',exact:true});
+ const selectedTab=page.getByRole('tab',{name:'Primeira vez em Serra Negra',exact:true});
  await expect(selectedTab).toHaveAttribute('aria-selected','true');
  await expect.poll(()=>selectedTab.evaluate(node=>({background:getComputedStyle(node).backgroundColor,color:getComputedStyle(node).color}))).toEqual({background:'rgb(0, 133, 66)',color:'rgb(255, 255, 255)'});
  await selectedTab.hover();
  await expect.poll(()=>selectedTab.evaluate(node=>getComputedStyle(node).backgroundColor)).toBe('rgb(0, 133, 66)');
-
- const neutralTab=page.getByRole('tab',{name:'Natureza',exact:true});
+ const neutralTab=page.getByRole('tab',{name:'Fim de semana a dois',exact:true});
  await neutralTab.hover();
  await expect.poll(()=>neutralTab.evaluate(node=>getComputedStyle(node).backgroundColor)).not.toBe('rgb(0, 133, 66)');
-
  await page.getByRole('combobox',{name:'Aparência',exact:true}).selectOption('dark');
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
  await expect.poll(()=>selectedTab.evaluate(node=>({background:getComputedStyle(node).backgroundColor,color:getComputedStyle(node).color}))).toEqual({background:'rgb(0, 133, 66)',color:'rgb(255, 255, 255)'});

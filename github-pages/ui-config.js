@@ -4,14 +4,15 @@
     storeVersion: 3,
     navigation: {
       main: [
+        { label:'Início', href:'#/', iconKey:'nav.home' },
         { label:'Explorar', href:'#/explorar', iconKey:'nav.explore' },
         { label:'Pontos turísticos', href:'#/explorar?relation=public_point', iconKey:'map.place' },
-        { label:'Roteiros', href:'#/viagens/demo-trip-001/roteiro', iconKey:'nav.route' },
+        { label:'Roteiros', href:'#/roteiros', iconKey:'nav.route' },
         { label:'Mapa', href:'#/explorar?view=map', iconKey:'nav.map' },
         { label:'Para parceiros', href:'#/parceiros', iconKey:'nav.partners' },
-        { label:'Montar meu roteiro', href:'#/roteiro', iconKey:'route.add', cta:true }
+        { label:'Criar do zero', href:'#/roteiro', iconKey:'route.add', cta:true }
       ],
-      pageMap: { explorar:'#/explorar', roteiro:'#/viagens/demo-trip-001/roteiro', viagens:'#/viagens/demo-trip-001/roteiro', parceiros:'#/parceiros', 'para-parceiros':'#/parceiros' }
+      pageMap: { home:'#/', explorar:'#/explorar', roteiro:'#/roteiro', viagens:'#/viagens/demo-trip-001/roteiro', parceiros:'#/parceiros', 'para-parceiros':'#/parceiros' }
     },
     themeOptions: [
       {value:'system',label:'Sistema',iconKey:'theme.system'},
@@ -19,17 +20,17 @@
       {value:'dark',label:'Escuro',iconKey:'theme.dark'}
     ],
     footer: {
-      description:'Descubra lugares, organize sua viagem e guarde as experiências vividas em Serra Negra.',
+      description:'Descubra lugares, escolha um roteiro, adapte sua viagem e guarde as experiências vividas em Serra Negra.',
       groups:[
-        {label:'Descobrir',items:[{label:'Explorar',href:'#/explorar'},{label:'Montar roteiro',href:'#/roteiro'},{label:'Meu Passaporte',href:'#/meu-passaporte'}]},
+        {label:'Descobrir',items:[{label:'Roteiros prontos',href:'#/roteiros'},{label:'Criar do zero',href:'#/roteiro'},{label:'Explorar',href:'#/explorar'},{label:'Meu Passaporte',href:'#/meu-passaporte'}]},
         {label:'Ecossistema',items:[{label:'Para parceiros',href:'#/parceiros'},{label:'Área de operação',href:'#/admin'},{label:'Restaurar prévia',action:'reset-demo'}]},
         {label:'Transparência',items:[{label:'Privacidade',href:'#/privacidade'},{label:'Termos de uso',href:'#/termos'},{label:'Cookies e armazenamento',href:'#/cookies'},{label:'Acessibilidade',href:'#/acessibilidade'}]}
       ]
     },
     pageMeta: {
-      home:['Passaporte Serra Negra','Descubra lugares, organize caminhos e explore Serra Negra do seu jeito.'],
+      home:['Passaporte Serra Negra','Escolha um roteiro pronto, adapte sua viagem e guarde o que realmente viveu em Serra Negra.'],
       explorar:['Explorar · Passaporte Serra Negra','Busque lugares, experiências e categorias para montar seu caminho por Serra Negra.'],
-      roteiro:['Montar roteiro · Passaporte Serra Negra','Responda às etapas essenciais e organize um roteiro flexível para sua viagem.'],
+      roteiro:['Criar roteiro do zero · Passaporte Serra Negra','Responda às etapas essenciais quando quiser construir a viagem sem partir de um roteiro pronto.'],
       viagens:['Minha viagem · Passaporte Serra Negra','Consulte roteiro e calendário usando o mesmo estado demonstrativo da viagem.'],
       'meu-passaporte':['Meu Passaporte · Passaporte Serra Negra','Veja registros demonstrativos separados dos itens apenas planejados.'],
       admin:['Operação · Passaporte Serra Negra','Área de operação da prévia navegável.'],
@@ -79,17 +80,17 @@
     home: {
       quickSearch:['Natureza','Cafés','Cultura','Sem custo'],
       routeTypes:[
-        {id:'primeira-visita',label:'Primeira visita',title:'Um começo sem pressa',body:'Uma seleção demonstrativa que combina paisagem, centro e uma pausa gastronômica.',placeIds:['place-mirante-araucarias','place-centro-cultural','place-cafe-neblina']},
-        {id:'natureza',label:'Natureza',title:'Verde e horizonte',body:'Paradas ao ar livre e tempo livre para caminhar sem transformar o dia em uma corrida.',placeIds:['place-jardim-nascentes','place-mirante-araucarias','place-casa-mel']},
-        {id:'gastronomia',label:'Gastronomia',title:'Sabores pelo caminho',body:'Uma sequência demonstrativa de café, almoço e produção local, sempre com dados fictícios.',placeIds:['place-cafe-neblina','place-bistro-estacao','place-casa-mel']},
-        {id:'chuva',label:'Dia de chuva',title:'Descobertas em ambiente interno',body:'Alternativas demonstrativas para reorganizar a viagem quando o clima muda.',placeIds:['place-centro-cultural','place-atelie-pedra-folha','place-aguas-claras']}
+        {id:'primeira-visita',slug:'serra-negra-essencial-2-dias',label:'Primeira vez em Serra Negra',eyebrow:'Primeira vez em Serra Negra',title:'Serra Negra essencial em 2 dias',body:'Um primeiro contato equilibrado com paisagens, referências da cidade, pausas e descobertas sem transformar o fim de semana em uma corrida.',days:'2 dias',audience:'Primeira visita',image:'./assets/tourism/fontana-di-trevi.jpg',placeIds:['place-mirante-araucarias','place-centro-cultural','place-cafe-neblina']},
+        {id:'casal',slug:'fim-de-semana-a-dois',label:'Fim de semana a dois',eyebrow:'Fim de semana a dois',title:'Dois dias para aproveitar sem pressa',body:'Paisagens, cafés, gastronomia e pausas maiores para quem quer viver a cidade com um ritmo mais tranquilo.',days:'2 dias',audience:'Casal',image:'./assets/tourism/mirante-alto-da-serra.jpg',placeIds:['place-mirante-araucarias','place-cafe-neblina','place-bistro-estacao']},
+        {id:'familia',slug:'familia-com-criancas',label:'Viagem em família',eyebrow:'Viagem em família',title:'Serra Negra com crianças',body:'Um roteiro com variedade, intervalos e menos pressão de tempo para equilibrar adultos e crianças ao longo do dia.',days:'2 dias',audience:'Família',image:'./assets/tourism/parque-fonte-santo-agostinho.jpg',placeIds:['place-jardim-nascentes','place-centro-cultural','place-casa-mel']},
+        {id:'chuva',slug:'dia-de-chuva',label:'Dia de chuva',eyebrow:'Quando o tempo muda',title:'Um dia de chuva que continua funcionando',body:'Alternativas cobertas e uma sequência mais flexível para não depender de mirantes ou longos períodos ao ar livre.',days:'1 dia',audience:'Qualquer companhia',image:'./assets/tourism/igreja-nossa-senhora-rosario.jpg',placeIds:['place-centro-cultural','place-atelie-pedra-folha','place-aguas-claras']},
+        {id:'natureza',slug:'natureza-e-mirantes',label:'Natureza e mirantes',eyebrow:'Mais tempo ao ar livre',title:'Natureza, mirantes e paisagens',body:'Um caminho para quem quer priorizar horizonte, áreas abertas e contemplação, com menos trocas de contexto ao longo do dia.',days:'1 dia',audience:'Paisagens e natureza',image:'./assets/tourism/mirante-alto-da-serra.jpg',placeIds:['place-jardim-nascentes','place-mirante-araucarias','place-casa-mel']},
+        {id:'gastronomia',slug:'cafes-e-sabores',label:'Cafés e sabores',eyebrow:'Sabores pelo caminho',title:'Cafés, gastronomia e descobertas locais',body:'Uma viagem organizada ao redor de pausas gastronômicas, cafés e experiências que combinam com quem gosta de descobrir a cidade pelo sabor.',days:'1 dia',audience:'Gastronomia',image:'./assets/tourism/feira-artesanato.jpg',placeIds:['place-cafe-neblina','place-bistro-estacao','place-casa-mel']}
       ],
       faq:[
-        {question:'Preciso criar conta?',answer:'Não nesta demonstração. O estado é salvo somente no navegador para permitir validar os fluxos.'},
-        {question:'Como funcionam os roteiros?',answer:'Você responde ao onboarding, recebe um roteiro demonstrativo e pode mover, fixar, remover ou adicionar paradas sem reconstrução automática.'},
-        {question:'Como funciona o Passaporte?',answer:'Planejamento e visita registrada são estados diferentes. O Passaporte reúne apenas os registros demonstrativos confirmados.'},
-        {question:'Como funciona o QR?',answer:'O QR real ainda não está integrado nesta fase. O registro manual existe somente para validar a experiência e permanece identificado como demonstração.'},
-        {question:'Posso alterar o roteiro?',answer:'Sim. As mudanças locais são persistidas no navegador e refletidas também no calendário.'}
+        {question:'Preciso responder perguntas para começar?',answer:'Não. Você pode começar por um roteiro pronto. O questionário completo fica para quem prefere criar a viagem do zero.'},
+        {question:'O roteiro pronto fica engessado?',answer:'Não. A curadoria funciona como base e você continua podendo trocar, mover, remover e adicionar paradas.'},
+        {question:'Qual é a diferença entre roteiro e Passaporte?',answer:'O roteiro organiza a intenção da viagem. O Passaporte mantém separado aquilo que foi planejado do que realmente foi vivido.'}
       ],
       passportSteps:[
         {label:'Explorar',iconKey:'nav.explore'},
