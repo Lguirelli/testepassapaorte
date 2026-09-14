@@ -34,7 +34,6 @@
 
 /* Product actions use Green persistently; hover/press depth uses Dark Green. */
 .primary,.button.primary,
-button[aria-pressed="true"]:not(.ghost),
 .choice.selected,
 .chip.active{
   background:var(--accent-selected)!important;
@@ -42,7 +41,6 @@ button[aria-pressed="true"]:not(.ghost),
   border-color:var(--accent-selected)!important;
 }
 .primary:hover,.button.primary:hover,
-button[aria-pressed="true"]:not(.ghost):hover,
 .choice.selected:hover,
 .chip.active:hover{
   background:var(--accent-hover)!important;
