@@ -30,7 +30,9 @@ test('place card media uses one bounded viewport independent of source image rat
     await page.goto('/');
     const media=page.locator('[data-card-media="true"]:visible');
     await expect(media.first()).toBeVisible();
-    const heights=await media.evaluateAll(nodes=>nodes.slice(0,8).map(node=>(node as HTMLElement).getBoundingClientRect().height));
+    // Card transforms intentionally change visual bounds in the circular gallery.
+    // Compare layout heights here; gallery tests separately cover projected geometry.
+    const heights=await media.evaluateAll(nodes=>nodes.slice(0,8).map(node=>(node as HTMLElement).offsetHeight));
     expect(heights.length).toBeGreaterThan(0);
     for(const height of heights){
       expect(height).toBeGreaterThanOrEqual(189);
