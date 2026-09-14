@@ -16,6 +16,7 @@ const shell = read('github-pages/ui-shell.js');
 const sync = read('github-pages/product-sync.css');
 const currentHomeJs = read('github-pages/current-home.js');
 const currentHomeCss = read('github-pages/current-home.css');
+const homeContrastCss = read('github-pages/home-contrast.css');
 
 const tokenValue = (css, token) => {
   const match = css.match(new RegExp(`--${token}:([^;]+);`));
@@ -46,20 +47,23 @@ for (const rule of ['height:clamp(190px,22vw,220px)','min-height:190px','max-hei
 const uxuiPosition = index.indexOf('./uxui-system.css');
 const syncPosition = index.indexOf('./product-sync.css');
 const homeCssPosition = index.indexOf('./current-home.css');
+const contrastCssPosition = index.indexOf('./home-contrast.css');
 const homeJsPosition = index.indexOf('./current-home.js');
 if (syncPosition < 0) fail('product-sync.css is not loaded by github-pages/index.html');
 else if (uxuiPosition < 0 || syncPosition < uxuiPosition) fail('product-sync.css must load after uxui-system.css');
 if (homeCssPosition < syncPosition) fail('current-home.css must load after product-sync.css');
+if (contrastCssPosition < homeCssPosition) fail('home-contrast.css must load after current-home.css');
 if (homeJsPosition < 0) fail('current-home.js is not loaded by github-pages/index.html');
 if (!index.includes('psn-pages-version')) fail('Pages document is missing a release marker for cache diagnostics');
 
 const nextContracts=[
   ['ready route primary path','href="/roteiros"'],
-  ['custom builder secondary path','href="/roteiro"'],
+  ['custom planner secondary path','href="/roteiro"'],
   ['ready route slider','home-route-slider'],
   ['partner circular gallery','home-partner-gallery'],
   ['FAQ interaction','home-faq'],
-  ['passport distinction','Planejar é uma coisa. Viver é outra.'],
+  ['passport distinction','O plano termina. A experiência fica.'],
+  ['planner CTA','Planejar minha viagem'],
 ];
 for(const [label,needle] of nextContracts)if(!home.includes(needle))fail(`Next home lost ${label}: ${needle}`);
 
@@ -69,8 +73,8 @@ for(const needle of ['READY_ROUTES',...readyRouteSlugs])if(!routes.includes(need
 const navigationContracts=[
   ['explicit home navigation',"label:'Início'"],
   ['ready routes navigation',"href:'#/roteiros'"],
-  ['custom builder navigation',"label:'Criar do zero'"],
-  ['custom builder href',"href:'#/roteiro'"],
+  ['custom planner navigation',"label:'Planejar minha viagem'"],
+  ['custom planner href',"href:'#/roteiro'"],
 ];
 for(const [label,needle] of navigationContracts)if(!config.includes(needle))fail(`GitHub Pages canonical navigation lost ${label}: ${needle}`);
 if(shell.includes('normalizedNav'))fail('ui-shell.js must consume canonical navigation without rewriting it');
@@ -82,9 +86,10 @@ for(const question of ['Preciso responder perguntas para começar?','O roteiro p
 const pagesContracts=[
   ['ready routes page','renderReadyRoutes'],
   ['ready route primary path','href=\"#/roteiros\"'],
-  ['custom builder path','href=\"#/roteiro\"'],
+  ['custom planner path','href=\"#/roteiro\"'],
   ['current home marker','data-current-home'],
-  ['passport distinction','Planejar é uma coisa. Viver é outra.'],
+  ['passport distinction','O plano termina. A experiência fica.'],
+  ['planner CTA','Planejar minha viagem'],
   ['ready-route slug consumption','slug||r.id'],
   ['shared FAQ consumption','CONFIG.home?.faq'],
   ['gallery keyboard support',"e.key==='ArrowRight'"],
@@ -95,5 +100,8 @@ for(const [label,needle] of pagesContracts)if(!currentHomeJs.includes(needle))fa
 for (const selector of ['.ch-hero','.ch-gallery','.ch-route-slide','.ch-card-grid4','.ch-faq','.ch-passport','.ch-final']) {
   if (!currentHomeCss.includes(selector)) fail(`current-home.css is missing ${selector}`);
 }
+for (const selector of ['.ch-hero-bg','.ch-search input::placeholder','.ch-meetings .ch-eyebrow','.ch-final p']) {
+  if (!homeContrastCss.includes(selector)) fail(`home-contrast.css is missing ${selector}`);
+}
 
-if (!process.exitCode) console.log('GitHub Pages parity audit passed: tokens, canonical navigation, six ready routes, FAQ, card media and interaction contracts are synchronized.');
+if (!process.exitCode) console.log('GitHub Pages parity audit passed: tokens, canonical navigation, six ready routes, revised narrative, contrast layer, FAQ, card media and interaction contracts are synchronized.');
