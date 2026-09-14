@@ -67,7 +67,7 @@ export default async function ReadyRouteDetail({params}:{params:Promise<{slug:st
           <p className="eyebrow">Quer mais controle desde o início?</p>
           <h2>Planeje a viagem a partir das suas escolhas.</h2>
           <p>Informe datas, companhia, interesses, intenção, ritmo, transporte e necessidades para criar uma primeira versão personalizada do seu caminho.</p>
-          <Link className="button" href="/roteiro">Planejar minha viagem</Link>
+          <Link className="button trip-planner-cta" href="/roteiro">Planejar minha viagem</Link>
         </div>
       </div>
 

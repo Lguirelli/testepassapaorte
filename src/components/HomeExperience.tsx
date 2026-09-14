@@ -103,7 +103,7 @@ function RouteTypeSlider(){
       {previousItem&&<article aria-hidden="true" inert className={`${styles.routeSlide} ${direction===1?styles.slideOutLeft:styles.slideOutRight}`}><RouteSlideContent item={previousItem}/></article>}
       <article key={current.slug} className={`${styles.routeSlide} ${direction===1?styles.slideInRight:styles.slideInLeft}`}><RouteSlideContent item={current}/></article>
     </div>
-    <div className="actions" style={{justifyContent:'center',marginTop:'1.25rem'}}><Link className="button" href="/roteiros">Ver todos os roteiros</Link><Link className="button" href="/roteiro">Planejar minha viagem</Link></div>
+    <div className="actions" style={{justifyContent:'center',marginTop:'1.25rem'}}><Link className="button" href="/roteiros">Ver todos os roteiros</Link><Link className="button trip-planner-cta" href="/roteiro">Planejar minha viagem</Link></div>
   </section>;
 }
 
@@ -163,7 +163,7 @@ export default function HomeExperience({featured,partners,categories,routePlaces
         <p className="eyebrow">Descubra · organize · adapte · registre</p>
         <WarpTitle/>
         <p className="lead">O Passaporte conecta o que você quer viver com lugares, experiências e negócios locais para transformar intenção em um caminho possível por Serra Negra.</p>
-        <div className="actions"><Link className="button primary" href="/roteiros">Explorar roteiros</Link><Link className="button" href="/roteiro">Planejar minha viagem</Link></div>
+        <div className="actions"><Link className="button primary" href="/roteiros">Explorar roteiros</Link><Link className="button trip-planner-cta" href="/roteiro">Planejar minha viagem</Link></div>
         <form className={styles.heroSearch} action="/explorar" method="get" role="search">
           <label className="sr-only" htmlFor="home-search">Buscar lugares e experiências</label><Icon name="busca"/><input id="home-search" name="q" type="search" placeholder="Busque um lugar, café, mirante…"/><button type="submit">Buscar</button>
         </form>
@@ -220,7 +220,7 @@ export default function HomeExperience({featured,partners,categories,routePlaces
       <p className="eyebrow">Seu próximo caminho</p>
       <h2 id="next-path-title"><span>Comece com uma direção.</span><span>Faça a viagem ganhar a sua forma.</span></h2>
       <p>Escolha um roteiro que combine com o momento da sua viagem ou planeje uma versão personalizada. O Passaporte acompanha suas escolhas até elas virarem experiência.</p>
-      <div className="actions"><Link className="button primary" href="/roteiros">Explorar roteiros</Link><Link className="button" href="/roteiro">Planejar minha viagem</Link></div>
+      <div className="actions"><Link className="button primary" href="/roteiros">Explorar roteiros</Link><Link className="button trip-planner-cta" href="/roteiro">Planejar minha viagem</Link></div>
     </section>
   </>;
 }

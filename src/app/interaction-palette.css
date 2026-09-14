@@ -6,11 +6,33 @@
   outline-color:var(--accent-selected);
 }
 
-/* Current page: Green is a persistent locator, not a hover-only effect. */
+/* Current page: only label/icon turn Green. No selection capsule, underline or inset marker. */
 .main-nav>a[aria-current=page],
 .main-nav>a[aria-current=page]:hover{
-  background:color-mix(in srgb,var(--accent-selected) 18%,var(--surface-raised));
-  box-shadow:inset 0 -3px 0 var(--accent-selected);
+  color:var(--accent-selected);
+  background:transparent!important;
+  box-shadow:none!important;
+  border-color:transparent;
+  text-decoration:none;
+}
+.main-nav>a[aria-current=page] :where([data-ui-icon],.ui-icon,svg),
+.main-nav>a[aria-current=page]:hover :where([data-ui-icon],.ui-icon,svg){
+  color:currentColor;
+  opacity:1;
+}
+
+/* Every explicit "Planejar minha viagem" action uses one brand treatment. */
+.trip-planner-cta{
+  background:var(--accent-selected)!important;
+  color:var(--accent-selected-text)!important;
+  border-color:var(--accent-selected)!important;
+  border-radius:var(--radius-pill)!important;
+  box-shadow:none!important;
+}
+.trip-planner-cta:hover{
+  background:var(--accent-hover)!important;
+  color:var(--accent-selected-text)!important;
+  border-color:var(--accent-hover)!important;
 }
 
 /* Selected controls use the brand Green with white text for AA contrast. */
@@ -38,10 +60,12 @@
 @media(max-width:1180px){
   .mobile-nav-card>a[aria-current=page],
   .mobile-nav-card>a[aria-current=page]:hover{
-    background:color-mix(in srgb,var(--accent-selected) 18%,var(--surface-raised));
-    box-shadow:inset 3px 0 0 var(--accent-selected);
+    color:var(--accent-selected);
+    background:transparent!important;
+    box-shadow:none!important;
     font-weight:700;
   }
+  .mobile-nav-card>a[aria-current=page] :where([data-ui-icon],.ui-icon,svg){color:currentColor;opacity:1}
   .mobile-nav-card>a:not(.button):not([aria-current=page]):hover{
     background:color-mix(in srgb,var(--accent-hover) 14%,var(--surface-raised));
     box-shadow:inset 3px 0 0 var(--accent-hover);
@@ -63,7 +87,9 @@ html[data-theme="dark"] .main-nav>a[aria-current=page],
 html[data-theme="dark"] .main-nav>a[aria-current=page]:hover,
 html[data-theme="dark"] .mobile-nav-card>a[aria-current=page],
 html[data-theme="dark"] .mobile-nav-card>a[aria-current=page]:hover{
-  background:color-mix(in srgb,var(--accent-selected) 22%,var(--surface-raised));
+  color:var(--accent-selected);
+  background:transparent!important;
+  box-shadow:none!important;
 }
 
 @media(prefers-color-scheme:dark){
@@ -81,6 +107,8 @@ html[data-theme="dark"] .mobile-nav-card>a[aria-current=page]:hover{
   html[data-theme="system"] .main-nav>a[aria-current=page]:hover,
   html[data-theme="system"] .mobile-nav-card>a[aria-current=page],
   html[data-theme="system"] .mobile-nav-card>a[aria-current=page]:hover{
-    background:color-mix(in srgb,var(--accent-selected) 22%,var(--surface-raised));
+    color:var(--accent-selected);
+    background:transparent!important;
+    box-shadow:none!important;
   }
 }

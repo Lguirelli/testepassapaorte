@@ -11,7 +11,7 @@ export default function ReadyRoutesPage(){
         <p className="eyebrow">Roteiros prontos</p>
         <h1>Comece com uma direção. Adapte até a viagem ficar sua.</h1>
         <p className="lead">Escolha uma base pensada para uma situação real: primeira visita, fim de semana a dois, família, chuva, natureza ou sabores. Depois, ajuste ritmo, paradas e ordem conforme a sua viagem ganha forma.</p>
-        <div className={styles.actions}><a className="button primary" href="#roteiros">Ver roteiros</a><Link className="button" href="/roteiro">Planejar minha viagem</Link></div>
+        <div className={styles.actions}><a className="button primary" href="#roteiros">Ver roteiros</a><Link className="button trip-planner-cta" href="/roteiro">Planejar minha viagem</Link></div>
       </div>
       <aside className={styles.heroAside}>
         <p className="eyebrow">Como funciona</p>
