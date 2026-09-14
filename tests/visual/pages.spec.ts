@@ -153,6 +153,21 @@ test('desktop appearance selector fits its labels and stays clear of navigation'
  }
 });
 
+test('resizing an open compact menu releases scrolling and moves focus to desktop navigation',async({page})=>{
+ await page.setViewportSize({width:887,height:700});
+ await page.goto('/');
+ await page.getByRole('button',{name:'Abrir menu',exact:true}).click();
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeVisible();
+ await expect.poll(()=>page.evaluate(()=>document.body.style.overflow)).toBe('hidden');
+ await page.setViewportSize({width:1371,height:936});
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeHidden();
+ await expect.poll(()=>page.evaluate(()=>document.body.style.overflow)).not.toBe('hidden');
+ await expect(page.getByRole('navigation',{name:'Navegação principal',exact:true}).getByRole('link',{name:'Início',exact:true})).toBeFocused();
+ await page.setViewportSize({width:887,height:700});
+ await expect(page.getByRole('button',{name:'Abrir menu',exact:true})).toHaveAttribute('aria-expanded','false');
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeHidden();
+});
+
 test('Green marks selected/current state while hover stays in the dark greens',async({page})=>{
  await page.setViewportSize({width:1371,height:936});
  await page.goto('/');
