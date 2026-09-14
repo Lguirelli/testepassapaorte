@@ -38,3 +38,7 @@ This package adds shared-element transitions only where origin and destination r
 ## Passport cover
 
 The supplied transparent PNG cover is used directly in the "De roteiro a memória" section. Its visual container is transparent; only the artwork receives a drop shadow.
+
+## v18 interaction refinement
+
+O carrossel de parceiros agora trata o gesto como interação contínua: durante Pointer Capture, os cards não usam easing de posição e seguem o deslocamento horizontal diretamente. O clique é processado separadamente: um clique centraliza e um segundo clique no mesmo card dentro da janela de duplo clique abre a experiência. A capa do Passaporte usa apenas `transform` para o hover morph, evitando reflow.

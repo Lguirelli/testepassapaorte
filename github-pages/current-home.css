@@ -42,3 +42,37 @@
 .current-home .ch-gallery[data-dragging="true"]{cursor:grabbing}
 .current-home .ch-gallery[data-dragging="true"] .ch-partner{transition:none!important}
 @media(prefers-reduced-motion:reduce){.current-home .ch-gallery{--drag-shift:0px!important}.current-home .ch-partner{transition:none!important}}
+
+/* v18: true click-and-drag carousel + double-click activation. */
+.current-home .ch-gallery{
+  overscroll-behavior:contain;
+  -webkit-user-select:none;
+  user-select:none;
+}
+.current-home .ch-gallery img,
+.current-home .ch-gallery a{
+  -webkit-user-drag:none;
+  user-drag:none;
+}
+.current-home .ch-gallery[data-dragging="true"] .ch-partner{
+  transition:none!important;
+  will-change:transform;
+}
+
+/* Passport hover morph: scale + a subtle rotation to the left. */
+.current-home .ch-passport-paper img{
+  transform:rotate(0deg) scale(1);
+  transform-origin:50% 52%;
+  transition:transform .46s cubic-bezier(.22,1,.36,1),filter .46s cubic-bezier(.22,1,.36,1);
+  will-change:transform;
+}
+@media (hover:hover) and (pointer:fine){
+  .current-home .ch-passport-paper:hover img{
+    transform:rotate(-2.6deg) scale(1.045);
+    filter:drop-shadow(0 32px 42px rgba(0,0,0,.24));
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .current-home .ch-passport-paper img,
+  .current-home .ch-passport-paper:hover img{transition:none!important;transform:none!important}
+}

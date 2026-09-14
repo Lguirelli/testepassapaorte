@@ -55,3 +55,14 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 - Restored live whole-card drag movement and inertia in "Descobertas no momento certo" while retaining standardized card dimensions.
 - Replaced the illustrative passport sheet/mock with the supplied transparent leather passport cover artwork in "De roteiro a memória".
 - Removed the visual backing box behind the passport cover; the cover itself retains a subtle drop shadow.
+
+## v18 · Carousel interaction + passport hover morph
+
+- `DESCOBERTAS NO MOMENTO CERTO`: click-and-drag real com Pointer Events, captura de ponteiro e transição de posição desligada durante o gesto para o card acompanhar o cursor em tempo real.
+- Threshold de arraste separa gesto de clique.
+- 1 clique em card lateral centraliza a experiência.
+- 2 cliques rápidos no mesmo card abrem a página da experiência; teclado continua abrindo por Enter.
+- Textos de instrução do carrossel foram atualizados para refletir o comportamento.
+- Capa do Passaporte recebe hover morph com `scale(1.045)` e rotação leve para a esquerda (`-2.6deg`), sem alterar layout.
+- `prefers-reduced-motion` desativa o hover morph e as transições do gesto.
+- Next e preview estático mantidos em paridade.

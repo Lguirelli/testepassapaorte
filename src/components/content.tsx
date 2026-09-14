@@ -38,7 +38,7 @@ export function PlaceCard({place,morph=true}:{place:ContentData;morph?:boolean})
     <h3 data-morph-title={morph?'true':undefined}>{place.name}</h3>
     <p>{place.shortDescription}</p>
     <div className="actions"><small><Icon name="lugar-duracao-sugerida" size="xs"/> {place.durationMinutes} min</small><span className="badge">{labels[place.environment||'']}</span></div>
-    <a className="card-morph-link" data-morph-link="true" href={placeUrl(place)} aria-label={`Abrir ${place.name}`}/>
+    <a className="card-morph-link" data-morph-link="true" href={placeUrl(place)} aria-label={`Abrir ${place.name}`} draggable={false}/>
   </article>;
 }
 
