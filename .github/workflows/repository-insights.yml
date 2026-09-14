@@ -42,15 +42,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-
       - name: Generate repository insights
         run: node scripts/repository-insights.mjs > /tmp/repository-insights.md
-
       - name: Publish dashboard in Actions summary
         if: always()
         shell: bash
@@ -60,7 +57,6 @@ jobs:
           elif [ -f /tmp/repository-insights.md ]; then
             cat /tmp/repository-insights.md >> "$GITHUB_STEP_SUMMARY"
           fi
-
       - name: Upload interactive repository dashboard
         if: always()
         uses: actions/upload-artifact@v4
@@ -74,41 +70,84 @@ jobs:
             artifacts/repository-insights/report.json
 
   visual-structure:
-    name: Visual structure guard
+    name: Build and visual structure guard
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    env:
+      APP_MODE: visual
+      NEXT_PUBLIC_SITE_URL: https://example.invalid
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
-
       - name: Install dependencies
         run: npm ci
-
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
       - name: UX/UI structure audit
         run: npm run audit:uxui
-
       - name: Responsive structure audit
         run: npm run audit:responsive
-
       - name: Interaction contract audit
         run: npm run audit:interactions
-
       - name: Static/Next parity audit
         run: npm run audit:pages-parity
-
+      - name: Build visual runtime
+        run: npm run build
       - name: Publish visual guard summary
         if: always()
         run: |
           {
-            echo '## Visual structure guard'
+            echo '## Build and visual structure guard'
             echo ''
-            echo 'This job checks UX/UI invariants, responsive behavior, interaction contracts and parity between the canonical Next.js product and the GitHub Pages preview.'
+            echo 'Checks TypeScript, unit tests, UX/UI invariants, responsiveness, interaction contracts, static/Next parity and a database-free production build.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  browser-visual:
+    name: Browser visual and interaction matrix
+    needs: visual-structure
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      APP_MODE: visual
+      NEXT_PUBLIC_SITE_URL: https://example.invalid
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build visual runtime
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run browser visual matrix
+        run: npx playwright test --config=playwright.visual.config.ts
+      - name: Upload visual browser report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: storytelling-visual-report
+          if-no-files-found: ignore
+          retention-days: 14
+          path: |
+            playwright-report/
+            test-results/
+      - name: Publish browser summary
+        if: always()
+        run: |
+          {
+            echo '## Browser visual matrix'
             echo ''
-            echo '> Browser screenshots remain covered by the existing Playwright visual job; this workflow focuses on fast structural feedback for every visual change.'
+            echo 'Runs the new storytelling across wide, narrow, landscape and reduced-motion projects, including ready-route pages and interaction checks.'
           } >> "$GITHUB_STEP_SUMMARY"
