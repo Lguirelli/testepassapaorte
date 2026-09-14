@@ -22,8 +22,8 @@ export default function ReadyRoutesPage(){
 
     <section id="roteiros" aria-labelledby="ready-routes-title">
       <div className="section-head"><div><p className="eyebrow">Escolha pela situação</p><h2 id="ready-routes-title">Que Serra Negra combina com a sua viagem?</h2></div></div>
-      <div className={styles.grid}>
-        {READY_ROUTES.map(route=><article className={styles.card} key={route.slug}>
+      <div className={styles.grid} data-ready-route-grid>
+        {READY_ROUTES.map(route=><article className={styles.card} data-ready-route-card key={route.slug}>
           <img src={route.image} alt="" loading="lazy"/>
           <div className={styles.cardBody}>
             <p className="eyebrow">{route.eyebrow}</p>

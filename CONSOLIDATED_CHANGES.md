@@ -44,3 +44,6 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 - Menu mobile foi refeito em superfície escura translúcida, texto claro, estados ativos green e CTA green/dark green, seguindo a paleta do produto.
 
 - Menu mobile refinado: ícones reais à direita, títulos próximos e alinhados à direita, padding esquerdo reduzido e CTA mantendo a mesma composição.
+
+
+- Padronização global de cards: cards equivalentes agora usam containers e frames de mídia fixos, imagens com `object-fit: cover`, alturas iguais em grids/carrosséis e truncamento controlado de conteúdo para impedir layout shift ao trocar imagens ou itens.
