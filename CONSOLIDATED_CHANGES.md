@@ -25,3 +25,8 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 - A mesma regra foi aplicada ao runtime Next.js e ao preview estático do GitHub Pages.
 
 - 2026-09-14: tipografia refinada: Arimo em todos os títulos e body copy; Cormorant Garamond restrita a subtítulos e textos editoriais curtos. Títulos usam 700; corpo usa 400/500.
+
+
+- Logo atualizado: header e footer passam a usar somente o SVG wordmark fornecido, inline, com cor adaptativa por modo claro/escuro e sem texto adicional ao lado.
+
+- Header/logo refinado: wordmark SVG deslocado para baixo para se integrar à hero, cor fixa clara no header em todos os temas e remoção das bordas visuais que dividiam seções.
