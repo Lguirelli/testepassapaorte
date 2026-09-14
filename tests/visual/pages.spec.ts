@@ -129,6 +129,58 @@ test('desktop Dock labels remain on one line',async({page})=>{
  for(const label of labels)expect(label.lines,`Dock label wraps: ${label.text}`).toBe(1);
 });
 
+test('desktop appearance selector fits its labels and stays clear of navigation',async({page})=>{
+ await page.goto('/');
+ for(const width of [1181,1200,1371]){
+  await page.setViewportSize({width,height:936});
+  const picker=page.getByRole('combobox',{name:'Aparência',exact:true});
+  await expect(picker).toBeVisible();
+  const geometry=await picker.evaluate(node=>{
+   const select=node as HTMLSelectElement;
+   const style=getComputedStyle(select);
+   const canvas=document.createElement('canvas');
+   const context=canvas.getContext('2d')!;
+   context.font=style.font;
+   const textWidth=Math.max(...Array.from(select.options,option=>context.measureText(option.text).width));
+   const nav=document.querySelector('.main-nav')!.getBoundingClientRect();
+   const tools=document.querySelector('.header-tools')!.getBoundingClientRect();
+   return {available:select.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight),required:textWidth+parseFloat(style.fontSize),gap:tools.left-nav.right};
+  });
+  expect(geometry.available,`Appearance label clipped at ${width}px`).toBeGreaterThanOrEqual(geometry.required);
+  expect(geometry.gap,`Header tools overlap Dock at ${width}px`).toBeGreaterThanOrEqual(0);
+ }
+});
+
+test('resizing an open compact menu releases scrolling and moves focus to desktop navigation',async({page})=>{
+ await page.setViewportSize({width:887,height:700});
+ await page.goto('/');
+ await page.getByRole('button',{name:'Abrir menu',exact:true}).click();
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeVisible();
+ await expect.poll(()=>page.evaluate(()=>document.body.style.overflow)).toBe('hidden');
+ await page.setViewportSize({width:1371,height:936});
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeHidden();
+ await expect.poll(()=>page.evaluate(()=>document.body.style.overflow)).not.toBe('hidden');
+ await expect(page.getByRole('navigation',{name:'Navegação principal',exact:true}).getByRole('link',{name:'Início',exact:true})).toBeFocused();
+ await page.setViewportSize({width:887,height:700});
+ await expect(page.getByRole('button',{name:'Abrir menu',exact:true})).toHaveAttribute('aria-expanded','false');
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeHidden();
+});
+
+test('route tab keyboard handling does not steal a subsequent focus change',async({page})=>{
+ await page.goto('/');
+ await page.getByRole('tab',{name:'Primeira vez em Serra Negra',exact:true}).focus();
+ await page.evaluate(async()=>{
+  document.activeElement?.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));
+  document.querySelector<HTMLElement>('[data-testid="home-faq-trigger-1"]')!.focus();
+  await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
+ });
+ const faq=page.getByRole('button',{name:'Os roteiros prontos ficam engessados?',exact:true});
+ await expect(faq).toBeFocused();
+ await page.keyboard.press('Enter');
+ await expect(faq).toHaveAttribute('aria-expanded','true');
+ await expect(page.getByRole('tab',{name:'Fim de semana a dois',exact:true})).toHaveAttribute('aria-selected','true');
+});
+
 test('Green marks selected/current state while hover stays in the dark greens',async({page})=>{
  await page.setViewportSize({width:1371,height:936});
  await page.goto('/');
