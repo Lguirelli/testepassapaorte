@@ -5,7 +5,7 @@
   const header=document.getElementById('site-header-slot');
   const footer=document.getElementById('site-footer-slot');
   if(!C||!I||!header||!footer) return;
-  const esc=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+  const esc=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const brand=()=>`<a class="brand" href="#/" aria-label="Passaporte Serra Negra, página inicial"><img class="brand-logo" src="./assets/brand/logo-passaporte-serra-negra.svg" alt=""><span><small>Passaporte</small><strong>Serra Negra</strong></span></a>`;
   const normalizedNav=[
     {label:'Início',href:'#/',iconKey:'nav.home'},
