@@ -32,7 +32,18 @@ export function MainNavigation({initialTheme,accountHref,accountLabel}:{initialT
     document.body.style.overflow='hidden';
     const card=mobileCardRef.current;
     const focusables=()=>Array.from(card?.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),select:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])')||[]).filter(el=>!el.hasAttribute('inert'));
-    requestAnimationFrame(()=>focusables()[0]?.focus());
+    const initialFocus=requestAnimationFrame(()=>focusables()[0]?.focus());
+    // CSS decides when compact navigation ends. Release the modal state when
+    // its trigger disappears, including after zoom or a viewport resize.
+    const trigger=triggerRef.current;
+    const resizeObserver=new ResizeObserver(()=>{
+      if(trigger&&trigger.getClientRects().length===0){
+        setMenuPath(null);
+        const destination=navRef.current?.querySelector<HTMLElement>('a[aria-current="page"]')||navRef.current?.querySelector<HTMLElement>('a');
+        destination?.focus();
+      }
+    });
+    if(trigger)resizeObserver.observe(trigger);
     const onKey=(event:KeyboardEvent)=>{
       if(event.key==='Escape'){
         event.preventDefault();
@@ -50,6 +61,8 @@ export function MainNavigation({initialTheme,accountHref,accountLabel}:{initialT
     };
     document.addEventListener('keydown',onKey);
     return()=>{
+      cancelAnimationFrame(initialFocus);
+      resizeObserver.disconnect();
       document.body.style.overflow=prev;
       document.removeEventListener('keydown',onKey);
     };

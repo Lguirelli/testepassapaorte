@@ -153,6 +153,37 @@ test('desktop appearance selector fits its labels and stays clear of navigation'
  }
 });
 
+test('resizing an open compact menu releases scrolling and moves focus to desktop navigation',async({page})=>{
+ await page.setViewportSize({width:887,height:700});
+ await page.goto('/');
+ await page.getByRole('button',{name:'Abrir menu',exact:true}).click();
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeVisible();
+ await expect.poll(()=>page.evaluate(()=>document.body.style.overflow)).toBe('hidden');
+ await page.setViewportSize({width:1371,height:936});
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeHidden();
+ await expect.poll(()=>page.evaluate(()=>document.body.style.overflow)).not.toBe('hidden');
+ await expect(page.getByRole('navigation',{name:'Navegação principal',exact:true}).getByRole('link',{name:'Início',exact:true})).toBeFocused();
+ await page.setViewportSize({width:887,height:700});
+ await expect(page.getByRole('button',{name:'Abrir menu',exact:true})).toHaveAttribute('aria-expanded','false');
+ await expect(page.getByRole('dialog',{name:'Menu principal'})).toBeHidden();
+});
+
+test('route tab keyboard handling does not steal a subsequent focus change',async({page})=>{
+ await page.goto('/');
+ await page.getByRole('tab',{name:'Primeira visita',exact:true}).focus();
+ // Keep both events within one frame to reproduce the previously deferred focus.
+ await page.evaluate(async()=>{
+  document.activeElement?.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));
+  document.querySelector<HTMLElement>('[data-testid="home-faq-trigger-1"]')!.focus();
+  await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
+ });
+ const faq=page.getByRole('button',{name:'É possível reservar ou pagar pelo Passaporte?',exact:true});
+ await expect(faq).toBeFocused();
+ await page.keyboard.press('Enter');
+ await expect(faq).toHaveAttribute('aria-expanded','true');
+ await expect(page.getByRole('tab',{name:'Natureza',exact:true})).toHaveAttribute('aria-selected','true');
+});
+
 test('Green marks selected/current state while hover stays in the dark greens',async({page})=>{
  await page.setViewportSize({width:1371,height:936});
  await page.goto('/');

@@ -103,3 +103,17 @@ O usuário dispensou temporariamente a Vercel e pediu continuidade das correçõ
 - E2E: **53 PASS, 47 SKIPPED, 0 FAIL**, sem retries, 8,3 minutos, job `103826469851`. Skips existentes dependem de projeto/input e não representam testes aprovados.
 - TypeScript e lint locais: PASS, com os mesmos oito warnings preexistentes. O processo de build local perdeu seu identificador; somente o build efetivamente concluído no CI é considerado aprovado.
 - Nenhuma alteração de banco, framework, dependências ou conteúdo. Alterações externas na main, inclusive a camada GitHub Pages, serão preservadas no merge.
+
+## Navegação: resize e foco, 2026-09-14
+
+A PR #15 foi integrada por merge normal em `e101e206a08cde5637849fa92045d3356465f61c`, preservando a main externa `8b4a722`. A auditoria estática da base consolidada passou localmente.
+
+PR desta rodada: https://github.com/Lguirelli/testepassapaorte/pull/18
+
+- MEDIUM, `fad6002c04dfa57d7327b3384e21532af73bba69`: o menu compacto escondido pelo CSS após resize mantinha o estado modal e `body.style.overflow=hidden`. ResizeObserver agora fecha o menu ao desaparecer o trigger e leva o foco ao link atual do Dock. Cleanup desconecta o observer e cancela o frame inicial de foco. Playwright verifica abertura, resize, liberação do scroll, foco e retorno à largura compacta.
+- `999db6cff4c6ca747b98d0cf61d43a5d880fcca0`: smoke da Vercel disponível somente por workflow_dispatch com `validate_production=true`. As verificações locais e do CI continuam automáticas. Mudança solicitada pelo usuário ao dispensar a Vercel temporariamente.
+- MEDIUM, `0d0765474b216e475364ca9b6b4821ccce6df032`: o foco das abas do slider era adiado por requestAnimationFrame e podia capturar o teclado depois de o usuário avançar ao FAQ. Como as abas permanecem montadas, o foco agora é imediato. Teste reproduz dois eventos no mesmo frame e verifica foco/Enter no FAQ após os frames seguintes.
+- Evidência anterior à correção de foco: run `34822910648`, 75 casos visuais aprovados e 1 flaky no FAQ. O teste novo de menu passou nos quatro projetos. Esse resultado não foi tratado como execução sem retries.
+- TypeScript e lint locais passaram; oito warnings preexistentes permanecem.
+- CI final: https://github.com/Lguirelli/testepassapaorte/actions/runs/34823505768 , commit `0d07654`. Validate PASS, incluindo build. Visual: **80 PASS, sem retries**, 2,9 minutos, job `103910210449`; Axe critical/serious = 0 nos casos auditados. Os testes novos de resize e foco passaram nos quatro projetos. E2E: **53 PASS, 47 SKIPPED, 0 FAIL**, sem retries, 7 minutos, job `103910518831`. Smoke remoto corretamente SKIPPED nesta execução de PR.
+- Nenhuma consulta, migration ou seed em banco externo. Nenhum deployment Vercel foi usado como gate desta etapa.

@@ -107,7 +107,9 @@ function RouteTypeSlider(){
     if(event.key==='Home')next=0;
     if(event.key==='End')next=routeTypes.length-1;
     change(next);
-    requestAnimationFrame(()=>tabRefs.current[next]?.focus());
+    // Tabs stay mounted: focus immediately so a later frame cannot steal focus
+    // from the next control the user has already reached.
+    tabRefs.current[next]?.focus();
   };
 
   useEffect(()=>()=>{if(timer.current)clearTimeout(timer.current);},[]);
