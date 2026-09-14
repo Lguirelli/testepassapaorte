@@ -22,8 +22,12 @@ export function PlaceCard({place}:{place:ContentData}){
       alt={alt}
       style={{
         objectPosition:safeObjectPosition(asset?.position),
+        display:'block',
         width:'100%',
         height:'clamp(190px, 22vw, 220px)',
+        minHeight:'190px',
+        maxHeight:'220px',
+        aspectRatio:'auto',
         objectFit:'cover',
       }}
       loading="lazy"
