@@ -11,6 +11,7 @@ const content = read('src/components/content.tsx');
 const home = read('src/components/HomeExperience.tsx');
 const routes = read('src/modules/trips/ready-routes.ts');
 const index = read('github-pages/index.html');
+const config = read('github-pages/ui-config.js');
 const shell = read('github-pages/ui-shell.js');
 const sync = read('github-pages/product-sync.css');
 const currentHomeJs = read('github-pages/current-home.js');
@@ -62,21 +63,37 @@ const nextContracts=[
 ];
 for(const [label,needle] of nextContracts)if(!home.includes(needle))fail(`Next home lost ${label}: ${needle}`);
 
-for(const needle of ['READY_ROUTES','serra-negra-essencial-2-dias','fim-de-semana-a-dois','dia-de-chuva'])if(!routes.includes(needle))fail(`ready route catalog lost contract: ${needle}`);
+const readyRouteSlugs=['serra-negra-essencial-2-dias','fim-de-semana-a-dois','familia-com-criancas','dia-de-chuva','natureza-e-mirantes','cafes-e-sabores'];
+for(const needle of ['READY_ROUTES',...readyRouteSlugs])if(!routes.includes(needle))fail(`ready route catalog lost contract: ${needle}`);
+
+const navigationContracts=[
+  ['explicit home navigation',"label:'Início'"],
+  ['ready routes navigation',"href:'#/roteiros'"],
+  ['custom builder navigation',"label:'Criar do zero'"],
+  ['custom builder href',"href:'#/roteiro'"],
+];
+for(const [label,needle] of navigationContracts)if(!config.includes(needle))fail(`GitHub Pages canonical navigation lost ${label}: ${needle}`);
+if(shell.includes('normalizedNav'))fail('ui-shell.js must consume canonical navigation without rewriting it');
+if(!shell.includes('C.navigation.main.map'))fail('ui-shell.js no longer consumes canonical navigation directly');
+
+for(const slug of readyRouteSlugs)if(!config.includes(`slug:'${slug}'`))fail(`GitHub Pages ready route config lost slug: ${slug}`);
+for(const question of ['Preciso responder perguntas para começar?','O roteiro pronto fica engessado?','Qual é a diferença entre roteiro e Passaporte?'])if(!config.includes(question))fail(`GitHub Pages FAQ config lost question: ${question}`);
 
 const pagesContracts=[
-  ['explicit home navigation','label:\'Início\''],
-  ['ready routes navigation',"href:'#/roteiros'"],
   ['ready routes page','renderReadyRoutes'],
   ['ready route primary path','href=\"#/roteiros\"'],
   ['custom builder path','href=\"#/roteiro\"'],
   ['current home marker','data-current-home'],
   ['passport distinction','Planejar é uma coisa. Viver é outra.'],
+  ['ready-route slug consumption','slug||r.id'],
+  ['shared FAQ consumption','CONFIG.home?.faq'],
+  ['gallery keyboard support',"e.key==='ArrowRight'"],
+  ['gallery inertia','projected=delta+velocity*180'],
 ];
-for(const [label,needle] of pagesContracts){const source=label.includes('navigation')?shell:currentHomeJs;if(!source.includes(needle))fail(`GitHub Pages lost ${label}: ${needle}`);}
+for(const [label,needle] of pagesContracts)if(!currentHomeJs.includes(needle))fail(`GitHub Pages lost ${label}: ${needle}`);
 
 for (const selector of ['.ch-hero','.ch-gallery','.ch-route-slide','.ch-card-grid4','.ch-faq','.ch-passport','.ch-final']) {
   if (!currentHomeCss.includes(selector)) fail(`current-home.css is missing ${selector}`);
 }
 
-if (!process.exitCode) console.log('GitHub Pages parity audit passed: tokens, card media, ready-route hierarchy and key interactions are synchronized.');
+if (!process.exitCode) console.log('GitHub Pages parity audit passed: tokens, canonical navigation, six ready routes, FAQ, card media and interaction contracts are synchronized.');
