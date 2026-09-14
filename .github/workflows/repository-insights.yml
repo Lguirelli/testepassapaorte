@@ -1,0 +1,114 @@
+name: Repository Insights
+
+on:
+  push:
+    branches:
+      - main
+      - storytelling-ready-routes
+    paths:
+      - 'src/**'
+      - 'github-pages/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/**'
+      - 'package.json'
+      - 'next.config.ts'
+      - 'index.html'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'github-pages/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/**'
+      - 'package.json'
+      - 'next.config.ts'
+      - 'index.html'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: 24
+
+jobs:
+  architecture:
+    name: Repository map and legacy signals
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Generate repository insights
+        run: node scripts/repository-insights.mjs > /tmp/repository-insights.md
+
+      - name: Publish dashboard in Actions summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f artifacts/repository-insights/report.md ]; then
+            cat artifacts/repository-insights/report.md >> "$GITHUB_STEP_SUMMARY"
+          elif [ -f /tmp/repository-insights.md ]; then
+            cat /tmp/repository-insights.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload interactive repository dashboard
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-insights
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            artifacts/repository-insights/index.html
+            artifacts/repository-insights/report.md
+            artifacts/repository-insights/report.json
+
+  visual-structure:
+    name: Visual structure guard
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: UX/UI structure audit
+        run: npm run audit:uxui
+
+      - name: Responsive structure audit
+        run: npm run audit:responsive
+
+      - name: Interaction contract audit
+        run: npm run audit:interactions
+
+      - name: Static/Next parity audit
+        run: npm run audit:pages-parity
+
+      - name: Publish visual guard summary
+        if: always()
+        run: |
+          {
+            echo '## Visual structure guard'
+            echo ''
+            echo 'This job checks UX/UI invariants, responsive behavior, interaction contracts and parity between the canonical Next.js product and the GitHub Pages preview.'
+            echo ''
+            echo '> Browser screenshots remain covered by the existing Playwright visual job; this workflow focuses on fast structural feedback for every visual change.'
+          } >> "$GITHUB_STEP_SUMMARY"
