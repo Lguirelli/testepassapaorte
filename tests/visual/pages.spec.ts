@@ -131,6 +131,28 @@ test('desktop Dock labels remain on one line',async({page})=>{
  for(const label of labels)expect(label.lines,`Dock label wraps: ${label.text}`).toBe(1);
 });
 
+test('desktop appearance selector fits its labels and stays clear of navigation',async({page})=>{
+ await page.goto('/');
+ for(const width of [1181,1200,1371]){
+  await page.setViewportSize({width,height:936});
+  const picker=page.getByRole('combobox',{name:'Aparência',exact:true});
+  await expect(picker).toBeVisible();
+  const geometry=await picker.evaluate(node=>{
+   const select=node as HTMLSelectElement;
+   const style=getComputedStyle(select);
+   const canvas=document.createElement('canvas');
+   const context=canvas.getContext('2d')!;
+   context.font=style.font;
+   const textWidth=Math.max(...Array.from(select.options,option=>context.measureText(option.text).width));
+   const nav=document.querySelector('.main-nav')!.getBoundingClientRect();
+   const tools=document.querySelector('.header-tools')!.getBoundingClientRect();
+   return {available:select.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight),required:textWidth+parseFloat(style.fontSize),gap:tools.left-nav.right};
+  });
+  expect(geometry.available,`Appearance label clipped at ${width}px`).toBeGreaterThanOrEqual(geometry.required);
+  expect(geometry.gap,`Header tools overlap Dock at ${width}px`).toBeGreaterThanOrEqual(0);
+ }
+});
+
 test('Green marks selected/current state while hover stays in the dark greens',async({page})=>{
  await page.setViewportSize({width:1371,height:936});
  await page.goto('/');

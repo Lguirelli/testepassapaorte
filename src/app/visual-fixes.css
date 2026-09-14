@@ -20,6 +20,8 @@
 .main-nav{position:absolute;left:50%;margin-left:0;transform:translateX(-50%);width:max-content}
 .main-nav>a{white-space:nowrap;flex-shrink:0}
 .header-tools{margin-left:auto;display:flex;align-items:center;gap:.5rem}
+.header-tools .theme{flex-shrink:0}
+.header-tools .theme select{width:auto;max-width:none}
 .main-nav>a[aria-current=page]{box-shadow:inset 0 -2px 0 color-mix(in srgb,var(--text-primary) 55%,transparent)}
 
 /* Respect browser safe areas on edge-to-edge phones without changing desktop geometry. */
@@ -34,7 +36,7 @@ main{padding-top:calc(var(--header-height) + env(safe-area-inset-top) + 1.7rem);
 
 /* The collapsed header has one visual axis: centered brand, menu trigger on the right.
    Account/passport access and appearance controls live inside the menu at this size. */
-@media (max-width:1120px){
+@media (max-width:1180px){
   .site-header-inner{display:grid;grid-template-columns:minmax(44px,1fr) auto minmax(44px,1fr);align-items:center;gap:.75rem}
   .site-header-inner>.brand{grid-column:2;justify-self:center;margin:0}
   .site-header-inner>.mobile-menu-trigger{grid-column:3;justify-self:end;margin-left:0}

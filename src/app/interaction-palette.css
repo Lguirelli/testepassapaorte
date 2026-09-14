@@ -35,7 +35,7 @@
   background:color-mix(in srgb,var(--accent-hover) 14%,var(--surface-raised));
 }
 
-@media(max-width:1120px){
+@media(max-width:1180px){
   .mobile-nav-card>a[aria-current=page],
   .mobile-nav-card>a[aria-current=page]:hover{
     background:color-mix(in srgb,var(--accent-selected) 18%,var(--surface-raised));
