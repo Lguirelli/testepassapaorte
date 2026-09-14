@@ -30,7 +30,9 @@ async function open(page,hash){
   };
   page.on('pageerror',onPageError);page.on('console',onConsole);page.on('response',onResponse);
   const response=await page.goto(`${ORIGIN}/${hash}`,{waitUntil:'networkidle'});
-  assert(response?.ok(),`HTTP failure for ${hash}`);
+  // A hash-only SPA navigation legitimately returns null because no document
+  // request is issued. When a document response exists, it still must be OK.
+  if(response)assert(response.ok(),`HTTP failure for ${hash}: ${response.status()}`);
   await page.waitForTimeout(120);
   const failures=[...new Set([...errors,...badResponses])];
   assert(failures.length===0,`${hash} emitted browser/resource errors: ${failures.join(' | ')}`);
