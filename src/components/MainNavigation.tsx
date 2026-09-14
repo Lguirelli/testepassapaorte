@@ -12,7 +12,7 @@ function activeKey(pathname:string):MainNavKey|undefined{
   if(pathname==='/pontos-turisticos'||pathname.startsWith('/lugares/'))return'touristPoints';
   if(pathname==='/mapa')return'map';
   if(pathname==='/parceiros'||pathname.startsWith('/parceiros/'))return'partnerProgram';
-  if(pathname==='/roteiro'||/^\/viagens\/[^/]+\/(roteiro|calendario)\/?$/.test(pathname))return'routes';
+  if(pathname==='/roteiros'||pathname.startsWith('/roteiros/')||pathname==='/roteiro'||/^\/viagens\/[^/]+\/(roteiro|calendario)\/?$/.test(pathname))return'routes';
   return undefined;
 }
 
@@ -88,7 +88,7 @@ export function MainNavigation({initialTheme,accountHref,accountLabel}:{initialT
     <nav ref={navRef} data-testid="main-dock-navigation" aria-label="Navegação principal" className="main-nav dock-nav" onPointerMove={event=>{if(event.pointerType!=='touch')updateDock(event.clientX)}} onPointerLeave={resetDock}>
       <Link href={ROUTES.home} aria-current={pathname===ROUTES.home?'page':undefined}>Início</Link>
       {MAIN_NAV.map(item=><Link key={item.key} href={item.href} aria-current={active===item.key?'page':undefined}>{item.label}</Link>)}
-      <Link className="button header-cta" href={ROUTES.tripBuilder}>Montar meu roteiro</Link>
+      <Link className="button header-cta" href={ROUTES.tripBuilder}>Criar do zero</Link>
     </nav>
     <div id="mobile-navigation" data-testid="mobile-navigation" className="mobile-nav-layer" data-open={open?'true':'false'} aria-hidden={!open} role="dialog" aria-modal={open?'true':undefined} aria-label="Menu principal">
       <button className="mobile-nav-backdrop" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{closeMenu();requestAnimationFrame(()=>triggerRef.current?.focus())}}/>
@@ -98,7 +98,7 @@ export function MainNavigation({initialTheme,accountHref,accountLabel}:{initialT
         {MAIN_NAV.map((item,index)=><Link key={item.key} style={{'--stagger':`${(index+1)*38}ms`} as React.CSSProperties} href={item.href} tabIndex={open?0:-1} aria-current={active===item.key?'page':undefined} onClick={closeMenu}><span>{item.label}</span><Icon name="avancar" size="sm"/></Link>)}
         <Link className="mobile-nav-account" style={{'--stagger':`${(MAIN_NAV.length+1)*38}ms`} as React.CSSProperties} href={accountHref} tabIndex={open?0:-1} onClick={closeMenu}><span className="mobile-nav-account-label"><Icon name="conta" size="sm"/><span>{accountLabel}</span></span><Icon name="avancar" size="sm"/></Link>
         <div className="mobile-nav-preferences"><span>Aparência</span><ThemePicker initialTheme={initialTheme}/></div>
-        <Link className="button primary mobile-route-cta" href={ROUTES.tripBuilder} tabIndex={open?0:-1} onClick={closeMenu}>Montar meu roteiro</Link>
+        <Link className="button primary mobile-route-cta" href={ROUTES.tripBuilder} tabIndex={open?0:-1} onClick={closeMenu}>Criar roteiro do zero</Link>
       </nav>
     </div>
   </>;
