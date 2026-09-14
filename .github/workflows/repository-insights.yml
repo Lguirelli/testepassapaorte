@@ -135,8 +135,11 @@ jobs:
         run: npm run build
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
-      - name: Run browser visual matrix
+      - name: Run Next.js browser visual matrix
         run: npx playwright test --config=playwright.visual.config.ts
+      - name: Run GitHub Pages browser smoke
+        if: always()
+        run: node scripts/static-pages-smoke.mjs
       - name: Upload visual browser report
         if: always()
         uses: actions/upload-artifact@v4
@@ -153,5 +156,5 @@ jobs:
           {
             echo '## Browser visual matrix'
             echo ''
-            echo 'Runs the new storytelling across wide, narrow, landscape and reduced-motion projects, including ready-route pages and interaction checks.'
+            echo 'Validates Next.js across wide, narrow, landscape and reduced-motion projects, then opens the GitHub Pages preview in Chromium to check canonical home, navigation, six ready routes, keyboard interactions, mobile overflow and reduced motion.'
           } >> "$GITHUB_STEP_SUMMARY"
