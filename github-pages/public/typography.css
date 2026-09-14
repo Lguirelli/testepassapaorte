@@ -1,14 +1,15 @@
+/* Licensed font files are not distributed. Use installed families or existing fallbacks; see docs/FONTS_NOT_INCLUDED.md. */
 /* Passaporte Serra Negra — typography system
    Origin = page/section titles and subtitles
    Scratchy = decorative/passport/stamp text
    Anodina = body copy and interface text */
-@font-face{font-family:"PSN Origin";src:local("Origin Black Display"),url("./assets/fonts/Origin-BlackDisplay.otf") format("opentype");font-style:normal;font-weight:900;font-display:swap}
-@font-face{font-family:"PSN Scratchy";src:local("Scratchy Regular"),local("Scratchy-Regular"),url("./assets/fonts/Scratchy-Regular.otf") format("opentype");font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina Extra Light"),url("./assets/fonts/Anodina-ExtraLight.otf") format("opentype");font-style:normal;font-weight:250;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina Light"),url("./assets/fonts/Anodina-Light.otf") format("opentype");font-style:normal;font-weight:300;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina"),url("./assets/fonts/Anodina-Regular.otf") format("opentype");font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina Bold"),url("./assets/fonts/Anodina-Bold.otf") format("opentype");font-style:normal;font-weight:700;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina Extra Bold"),url("./assets/fonts/Anodina-ExtraBold.otf") format("opentype");font-style:normal;font-weight:800;font-display:swap}
+@font-face{font-family:"PSN Origin";src:local("Origin Black Display");font-style:normal;font-weight:900;font-display:swap}
+@font-face{font-family:"PSN Scratchy";src:local("Scratchy Regular"),local("Scratchy-Regular");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"PSN Anodina";src:local("Anodina Extra Light");font-style:normal;font-weight:250;font-display:swap}
+@font-face{font-family:"PSN Anodina";src:local("Anodina Light");font-style:normal;font-weight:300;font-display:swap}
+@font-face{font-family:"PSN Anodina";src:local("Anodina");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"PSN Anodina";src:local("Anodina Bold");font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:"PSN Anodina";src:local("Anodina Extra Bold");font-style:normal;font-weight:800;font-display:swap}
 
 :root{
   --font-display:"PSN Origin","Arial Black",Impact,sans-serif;
