@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: passaporte
+      POSTGRES_PASSWORD: passaporte
+      POSTGRES_DB: passaporte
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - passaporte-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U passaporte -d passaporte"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  passaporte-db:

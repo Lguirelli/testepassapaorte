@@ -1,0 +1,380 @@
+/*
+ * Passaporte Serra Negra — UX/UI System Override
+ * Governing principles: task before ornament, content before chrome,
+ * progressive disclosure, visible feedback, semantic interaction,
+ * adaptive reflow, keyboard/touch parity and reduced motion.
+ */
+
+:root{
+  --space-1:.25rem;
+  --space-2:.5rem;
+  --space-3:.75rem;
+  --space-4:1rem;
+  --space-5:1.5rem;
+  --space-6:2rem;
+  --space-7:3rem;
+  --space-8:4rem;
+  --radius-sm:.5rem;
+  --radius-md:.75rem;
+  --radius-lg:1rem;
+  --radius-xl:1.5rem;
+  --radius-pill:999px;
+  --target-min:2.75rem;
+  --content-max:78rem;
+  --reading-max:66ch;
+  --duration-fast:120ms;
+  --duration-base:220ms;
+  --duration-slow:420ms;
+  --ease-standard:cubic-bezier(.22,1,.36,1);
+  --ease-route:cubic-bezier(.16,1,.3,1);
+  --focus-ring:0 0 0 3px color-mix(in srgb,var(--color-focus,var(--focus)) 32%,transparent);
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-right:env(safe-area-inset-right,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --safe-left:env(safe-area-inset-left,0px);
+}
+
+html{
+  text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+  scroll-padding-top:calc(5.25rem + var(--safe-top));
+}
+body{
+  min-inline-size:0;
+  min-block-size:100svh;
+  text-rendering:optimizeLegibility;
+}
+:where(main,section,article,aside,nav,header,footer,form,fieldset,div){min-inline-size:0}
+:where(h1,h2,h3,h4,p,li,dd,dt,label,button,a,strong,small){overflow-wrap:break-word}
+:where(img,video,canvas,svg){max-inline-size:100%;block-size:auto}
+
+/* Project SVG icon system. External Material Symbols are intentionally not used. */
+.ui-icon{
+  display:inline-block;
+  inline-size:var(--icon-size,1.25rem);
+  block-size:var(--icon-size,1.25rem);
+  flex:0 0 var(--icon-size,1.25rem);
+  background:currentColor;
+  -webkit-mask-image:var(--ui-icon-url);
+  mask-image:var(--ui-icon-url);
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-size:contain;
+  mask-size:contain;
+  vertical-align:-.18em;
+  transition:opacity var(--duration-fast) var(--ease-standard),transform var(--duration-base) var(--ease-standard);
+}
+
+/* Global interaction contract */
+:where(button,.button,[role="button"],input,select,textarea,summary){font:inherit}
+:where(button,.button,[role="button"],select,input[type="button"],input[type="submit"],input[type="reset"]){min-block-size:var(--target-min)}
+:where(button,.button,[role="button"],a){-webkit-tap-highlight-color:transparent}
+:where(button,.button,[role="button"],a,select,input,textarea,summary):focus-visible{
+  outline:2px solid var(--color-focus,var(--focus));
+  outline-offset:3px;
+  box-shadow:var(--focus-ring);
+}
+:where(button,.button,[role="button"]):disabled,
+:where(button,.button,[role="button"])[aria-disabled="true"]{
+  cursor:not-allowed;
+  opacity:.56;
+  filter:saturate(.7);
+}
+.button,button{
+  border-radius:var(--radius-md);
+  transition:background-color var(--duration-fast) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard),color var(--duration-fast) var(--ease-standard),transform var(--duration-base) var(--ease-standard),box-shadow var(--duration-base) var(--ease-standard),opacity var(--duration-fast) var(--ease-standard);
+}
+.button.primary,.primary{
+  font-weight:700;
+  box-shadow:0 8px 22px color-mix(in srgb,var(--color-action,var(--accent)) 16%,transparent);
+}
+.button.ghost,.ghost{box-shadow:none}
+
+/* Links must remain distinguishable without requiring hover. */
+:where(.text-link,.breadcrumbs a,.footer-cols a,.footer-brand a:not(.brand)){
+  text-decoration-thickness:1px;
+  text-underline-offset:.2em;
+}
+
+/* Header / navigation: same IA, adaptive presentation. */
+.site-header{
+  min-block-size:4.75rem;
+  padding-block:calc(.72rem + var(--safe-top)) .72rem !important;
+  padding-inline:max(clamp(1rem,3vw,2.25rem),var(--safe-left)) max(clamp(1rem,3vw,2.25rem),var(--safe-right)) !important;
+  gap:clamp(.75rem,2vw,1.75rem) !important;
+}
+.site-header .brand{
+  min-block-size:var(--target-min);
+  padding:.25rem;
+  border-radius:var(--radius-sm);
+}
+.site-header .brand-logo{inline-size:2.25rem;block-size:2.25rem;object-fit:contain}
+.main-nav{gap:clamp(.2rem,.8vw,.8rem) !important}
+.main-nav>a{
+  min-block-size:var(--target-min);
+  padding:.55rem .65rem;
+  border-radius:var(--radius-md);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.main-nav>a[aria-current="page"]{
+  text-decoration:none !important;
+  background:color-mix(in srgb,var(--color-surface-raised,var(--surface)) 70%,transparent);
+  box-shadow:inset 0 -2px 0 currentColor;
+}
+.theme-picker select,.mobile-theme-picker select{min-block-size:var(--target-min);border-radius:var(--radius-md)}
+.mobile-menu{min-inline-size:var(--target-min);min-block-size:var(--target-min)}
+
+/* Content hierarchy */
+:where(.lead,.home-hero-lead,.tourism-heading>p,.categories-heading>p){max-inline-size:var(--reading-max)}
+:where(.psd-kicker,.eyebrow,.v2-kicker){font-weight:750;letter-spacing:.11em}
+.section,.home-section{scroll-margin-top:6rem}
+.section-head,.categories-heading,.tourism-heading{gap:var(--space-5)}
+
+/* Hero: important content survives short and narrow viewports. */
+.home-hero{
+  min-block-size:min(100svh,62rem) !important;
+  display:grid;
+  align-items:center;
+  isolation:isolate;
+}
+.home-hero-content{
+  padding-block:clamp(6.5rem,15vh,10rem) clamp(3rem,10vh,6.5rem) !important;
+  padding-inline:max(clamp(1rem,4vw,3rem),var(--safe-left)) max(clamp(1rem,4vw,3rem),var(--safe-right)) !important;
+}
+.warp-title{
+  max-inline-size:12ch;
+  text-wrap:balance;
+}
+.home-hero-lead{font-size:clamp(1rem,1.2vw + .65rem,1.25rem);line-height:1.55}
+.home-search{max-inline-size:min(100%,46rem)}
+.home-search-row{
+  min-block-size:var(--target-min);
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:var(--space-2);
+}
+.home-search-row input{min-inline-size:0;block-size:auto;min-block-size:var(--target-min)}
+.home-search-row .primary{white-space:nowrap}
+.home-quick-search{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.home-quick-search button{min-block-size:var(--target-min);padding:.55rem .85rem}
+.home-scroll-note{max-inline-size:38rem}
+
+/* Intrinsic grids: content decides column count. */
+.grid,
+.spots-random-grid,
+.categories-grid,
+.tourism-more-grid,
+.route-types-cards,
+.route-reference-grid,
+.partners-mosaic-grid{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr)) !important;
+  gap:clamp(.875rem,2vw,1.5rem) !important;
+}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr)) !important}
+
+/* Cards: clear internal hierarchy, resilient content, stable hit areas. */
+:where(.place-card,.spot-random-card,.category-reference-tile,.route-type-card,.partner-reference-card,.route-reference-card,.card,.panel){
+  container-type:inline-size;
+  border-radius:var(--radius-lg) !important;
+}
+:where(.place-card,.spot-random-card,.category-reference-tile,.route-type-card,.partner-reference-card,.route-reference-card) a,
+:where(.place-card,.spot-random-card,.category-reference-tile,.route-type-card,.partner-reference-card,.route-reference-card) button{
+  min-block-size:var(--target-min);
+}
+.place-card-body p,.spot-random-body p{max-inline-size:62ch}
+.place-card-foot{gap:var(--space-3);align-items:center;flex-wrap:wrap}
+.place-card-action-label{max-inline-size:none !important;opacity:1 !important;overflow:visible !important;margin-inline-end:.35rem !important}
+
+/* Discovery / filters: search, filter and order remain distinct and usable. */
+.filters,.explore-toolbar,.actions{gap:var(--space-3)}
+.filters{align-items:end}
+.filters label{min-inline-size:min(100%,10rem)}
+.filters input,.filters select{min-block-size:var(--target-min);inline-size:100%}
+.explore-view-switch{min-block-size:var(--target-min);align-items:center}
+.explore-view-switch button{min-block-size:2.25rem}
+
+/* Forms: reflow before compression. */
+.form-grid,.editor-grid,.onboarding-grid{
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr)) !important;
+  gap:var(--space-4) !important;
+}
+:where(label,.field){min-inline-size:0}
+:where(input,select,textarea){max-inline-size:100%}
+textarea{min-block-size:7rem;resize:vertical}
+.form-actions,.actions{display:flex;flex-wrap:wrap;align-items:center}
+
+/* FAQ / accordion: whole trigger is a comfortable target. */
+.faq-reference-item button,
+.premium-disclosure>summary{
+  min-block-size:var(--target-min);
+  cursor:pointer;
+}
+.faq-reference-item button{inline-size:100%}
+.faq-reference-answer{overflow:clip}
+
+/* Tables: comparison preserved through intentional scroll. */
+.table-wrap,.table-scroll,[data-table-scroll]{
+  max-inline-size:100%;
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+  scrollbar-gutter:stable;
+}
+.table-wrap table,.table-scroll table,[data-table-scroll] table{min-inline-size:max-content}
+
+/* Maps: controls remain usable without hiding the map. */
+.explore-map-premium,.tourism-location-grid,.map-reference-layout{min-inline-size:0}
+.premium-map{min-block-size:clamp(20rem,55dvh,34rem)}
+.premium-map-pin,.territory-pin-position{min-inline-size:var(--target-min);min-block-size:var(--target-min)}
+
+/* Toast feedback remains visible without blocking the task. */
+.toast{
+  inset-inline:auto max(1rem,var(--safe-right));
+  inset-block:auto max(1rem,var(--safe-bottom));
+  max-inline-size:min(26rem,calc(100vw - 2rem - var(--safe-left) - var(--safe-right)));
+  border-radius:var(--radius-md);
+}
+
+/* Footer keeps support information visually secondary. */
+.v2-footer{
+  padding-block:clamp(2.5rem,6vw,5rem) calc(clamp(2.5rem,6vw,5rem) + var(--safe-bottom));
+  padding-inline:max(clamp(1rem,4vw,3rem),var(--safe-left)) max(clamp(1rem,4vw,3rem),var(--safe-right));
+}
+.footer-brand p{max-inline-size:46ch}
+.footer-cols nav a,.footer-cols nav button{min-block-size:var(--target-min);display:flex;align-items:center}
+
+/* Fine-pointer hover only. Core affordance never depends on hover. */
+@media (hover:hover) and (pointer:fine){
+  :where(.place-card,.spot-random-card,.category-reference-tile,.route-type-card,.partner-reference-card,.route-reference-card):hover{
+    transform:translateY(-4px) scale(1.008);
+  }
+  :where(.button,button:not(:disabled),.main-nav>a):hover .ui-icon{transform:translateY(-1px)}
+  .premium-map-pin:hover{transform:translate(-50%,-50%) scale(1.08) !important}
+}
+@media (hover:none), (pointer:coarse){
+  :where(.place-card,.spot-random-card,.category-reference-tile,.route-type-card,.partner-reference-card,.route-reference-card,.button,button,.ui-icon):hover{
+    transform:none !important;
+    translate:none !important;
+    scale:none !important;
+  }
+}
+
+/* Content-driven navigation collapse. */
+@media (max-width:68rem){
+  .site-header{grid-template-columns:minmax(0,1fr) auto !important}
+  .theme-picker{display:none !important}
+  .mobile-menu{display:inline-flex !important;align-items:center;justify-content:center;gap:.45rem}
+  .main-nav{
+    position:fixed !important;
+    inset-inline:max(.75rem,var(--safe-left)) max(.75rem,var(--safe-right));
+    inset-block-start:calc(4.85rem + var(--safe-top));
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    align-content:start;
+    gap:.35rem !important;
+    max-block-size:calc(100dvh - 5.6rem - var(--safe-top) - var(--safe-bottom));
+    overflow:auto;
+    padding:var(--space-3) !important;
+    border:1px solid var(--color-border-subtle,var(--border));
+    border-radius:var(--radius-xl) !important;
+    background:color-mix(in srgb,var(--color-surface,var(--surface)) 95%,transparent) !important;
+    box-shadow:0 24px 70px rgba(0,0,0,.22) !important;
+    backdrop-filter:blur(20px) saturate(1.08);
+    -webkit-backdrop-filter:blur(20px) saturate(1.08);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(-.5rem) scale(.985);
+    transform-origin:top center;
+    transition:opacity var(--duration-base) var(--ease-standard),transform var(--duration-base) var(--ease-standard),visibility 0s linear var(--duration-base);
+  }
+  .main-nav.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:none;
+    transition-delay:0s;
+  }
+  .main-nav>a{justify-content:flex-start;inline-size:100%;white-space:normal}
+  .main-nav .nav-cta{margin-block-start:.35rem;justify-content:center}
+  .mobile-theme-picker{display:grid !important;gap:.35rem;margin-block-start:.35rem;padding:.7rem;border-top:1px solid var(--color-border-subtle,var(--border))}
+  body.menu-open{overflow:hidden}
+}
+
+/* Layout reflow for narrow containers. */
+@media (max-width:54rem){
+  .home-search-row{grid-template-columns:auto minmax(0,1fr)}
+  .home-search-row .primary{grid-column:1/-1;inline-size:100%}
+  .faq-reference-layout,
+  .passport-reference-layout,
+  .tourism-location-grid,
+  .explore-map-premium,
+  .map-reference-layout{
+    grid-template-columns:1fr !important;
+  }
+  .faq-reference-preview{order:-1}
+  .explore-map-copy{order:2}
+  .map-reference-title{max-inline-size:var(--reading-max)}
+  .section-head,.categories-heading,.tourism-heading{align-items:flex-start;flex-direction:column}
+  .home-personal-strip>span{border-inline-end:0 !important;padding-inline-end:0 !important}
+}
+
+@media (max-width:36rem){
+  :root{--target-min:2.75rem}
+  .site-header{min-block-size:4.25rem !important;padding-block:calc(.5rem + var(--safe-top)) .5rem !important}
+  .site-header .brand small{display:none}
+  .site-header .brand strong{font-size:.9rem}
+  .main-nav{inset-block-start:calc(4.35rem + var(--safe-top))}
+  .home-hero-content{padding-block:clamp(5.5rem,16vh,7.25rem) 3rem !important}
+  .warp-title{font-size:clamp(2.55rem,14vw,4.25rem) !important;max-inline-size:10ch}
+  .home-quick-search{flex-wrap:nowrap;overflow-x:auto;padding-block-end:.25rem;scrollbar-width:thin}
+  .home-quick-search button{flex:0 0 auto}
+  .actions,.form-actions{align-items:stretch}
+  .actions>.button,.actions>button,.form-actions>.button,.form-actions>button{flex:1 1 100%}
+  .toast{inset-inline:max(.75rem,var(--safe-left)) max(.75rem,var(--safe-right));max-inline-size:none}
+}
+
+/* Short viewports: never sacrifice primary hero actions. */
+@media (max-height:40rem){
+  .home-hero{min-block-size:auto !important}
+  .home-hero-content{padding-block:calc(5.5rem + var(--safe-top)) 2.25rem !important}
+  .home-scroll-note{display:none}
+}
+
+/* Large text / zoom resilience. */
+@media (max-width:30rem){
+  .button,button{white-space:normal;text-align:center}
+  .place-card-meta,.place-card-foot{align-items:flex-start;flex-direction:column}
+}
+
+/* Higher contrast preference. */
+@media (prefers-contrast:more){
+  :where(.card,.panel,.place-card,.spot-random-card,.category-reference-tile,.route-type-card,.main-nav){border-width:2px !important}
+  :where(.button,button,a):focus-visible{outline-width:3px;outline-offset:3px;box-shadow:none}
+}
+
+/* Reduced motion is a complete interaction mode, not a partial patch. */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto !important}
+  *,*::before,*::after{
+    scroll-behavior:auto !important;
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  .main-nav{transform:none !important}
+  .ui-icon{transform:none !important}
+}
+
+/* Windows / forced-colors support. */
+@media (forced-colors:active){
+  :where(.button,button,.card,.panel,.place-card,.main-nav){forced-color-adjust:auto}
+  .ui-icon{background:CanvasText}
+  :where(.button,button,a,input,select,textarea):focus-visible{outline:3px solid Highlight;box-shadow:none}
+}

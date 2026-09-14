@@ -1,0 +1,120 @@
+name: Validate Full Next.js Product
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      validate_production:
+        description: 'Also validate the currently deployed Vercel site'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  APP_MODE: database
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:static
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+        env:
+          NODE_ENV: production
+          SESSION_SECRET: ci-only-session-secret-000000000000000000000000000000
+          IDENTITY_PEPPER: ci-only-identity-pepper-111111111111111111111111111111
+          NEXT_PUBLIC_SITE_URL: https://example.invalid
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: validate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Install Playwright Chromium
+        run: npm run playwright:install:ci
+      - name: Run Playwright E2E + Axe
+        run: npm run test:e2e
+      - name: Upload Playwright artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          if-no-files-found: ignore
+          path: |
+            playwright-report/
+            test-results/
+            docs/validation/
+
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      APP_MODE: visual
+      NEXT_PUBLIC_SITE_URL: https://example.invalid
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test --config=playwright.visual.config.ts
+      - run: npm run lint
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-playwright-report
+          path: |
+            playwright-report/
+            test-results/
+
+  visual-production:
+    name: Public production visual smoke
+    if: github.event_name == 'workflow_dispatch' && inputs.validate_production
+    needs: [validate, visual, e2e]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BASE_URL: https://testepassapaorte-iota.vercel.app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Validate deployed public pages (read-only)
+        run: npx playwright test --config=playwright.visual.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-visual-playwright-report
+          path: |
+            playwright-report/
+            test-results/

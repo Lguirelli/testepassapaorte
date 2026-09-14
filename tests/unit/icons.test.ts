@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';import {readdir} from 'node:fs/promises';
+test('project SVG icon system is present and Material Symbols are not the runtime',async()=>{const source=await readFile('src/design-system/icons/Icon.tsx','utf8');assert.doesNotMatch(source,/Material Symbols|material-symbols/);const files=await readdir('src/design-system/icons/generated');assert.ok(files.filter(f=>f.endsWith('.tsx')).length>20);});

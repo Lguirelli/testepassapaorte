@@ -1,0 +1,3 @@
+import {test,expect} from '@playwright/test';
+import {E2E_AUTH} from './auth-credentials';
+test('partner is confined to its own portal',async({page},info)=>{await page.goto('/login?next=%2Fpainel-parceiro');await page.getByLabel('E-mail').fill(E2E_AUTH.partner.email);await page.getByLabel('Senha').fill(E2E_AUTH.partner.password);await page.getByRole('button',{name:'Entrar'}).click();await expect(page).toHaveURL(/painel-parceiro/);await expect(page.getByText(/Governança/i)).toBeVisible();await page.goto('/admin');await expect(page).toHaveURL('http://localhost:4173/');await page.screenshot({path:`docs/validation/${info.project.name}-partner.png`,fullPage:true});});
