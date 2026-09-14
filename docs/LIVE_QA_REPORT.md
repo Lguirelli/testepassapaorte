@@ -89,3 +89,17 @@ A validação remota do commit candidato e sua aceitação de deployment permane
 Playwright standalone local permanece bloqueado pela instalação do Chromium, que retornou timeout/502 e download truncado. Chromium e Playwright executaram efetivamente no GitHub Actions; a navegação cloud foi uma verificação adicional. A tentativa de abrir `/health` no browser cloud retornou `ERR_BLOCKED_BY_CLIENT`, sem evidência de falha do servidor; não foi considerada aprovação de health remoto.
 
 Node 24.x já estava na base externa e foi preservado, sem mudança de versão nesta rodada. Nenhuma dependência foi adicionada. Context7 e Building React Native Apps foram consultados anteriormente como apoio; a aplicação canônica continua Next.js.
+
+## Revisão do header e continuidade pelo GitHub, 2026-09-14
+
+O usuário dispensou temporariamente a Vercel e pediu continuidade das correções e aplicação no GitHub. A Preview deixa de ser gate desta etapa; nenhuma validação remota nova é alegada.
+
+- LOW: seletor de aparência cortava o rótulo no header. Inspeção na versão publicada confirmou largura máxima de 88 px, fonte de 16 px e padding horizontal de 10,4 px por lado.
+- Commit `4f450535145a410965928a23f1f20e27675e3137`: permite largura intrínseca do seletor e antecipa a navegação compacta de 1120 para 1180 px para acomodar os controles. Os três blocos CSS relacionados mantêm o mesmo breakpoint.
+- Teste novo verifica espaço para todos os rótulos e ausência de sobreposição com o Dock em 1181, 1200 e 1371 px.
+- CI: https://github.com/Lguirelli/testepassapaorte/actions/runs/34795005384
+- Validate: PASS, incluindo static, TypeScript, lint, unitários e build.
+- Visual: **72 PASS**, sem retries, 2,9 minutos, job `103826263415`. Axe critical/serious = 0 nos casos auditados.
+- E2E: **53 PASS, 47 SKIPPED, 0 FAIL**, sem retries, 8,3 minutos, job `103826469851`. Skips existentes dependem de projeto/input e não representam testes aprovados.
+- TypeScript e lint locais: PASS, com os mesmos oito warnings preexistentes. O processo de build local perdeu seu identificador; somente o build efetivamente concluído no CI é considerado aprovado.
+- Nenhuma alteração de banco, framework, dependências ou conteúdo. Alterações externas na main, inclusive a camada GitHub Pages, serão preservadas no merge.
