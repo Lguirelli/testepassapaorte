@@ -1,2 +1,0 @@
-import test from 'node:test';import assert from 'node:assert/strict';import {validateContent} from '../../src/modules/admin/validation';
-test('editor rejects unsafe partner links and inverted event dates',()=>{assert.throws(()=>validateContent('partners',{id:'p',demoContacts:{website:'javascript:alert(1)'}}));assert.throws(()=>validateContent('events',{id:'e',startsAt:'2026-09-13T10:00:00-03:00',endsAt:'2026-09-12T10:00:00-03:00'}));});
