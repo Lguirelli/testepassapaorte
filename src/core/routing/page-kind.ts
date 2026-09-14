@@ -2,6 +2,8 @@ export type PageKind =
   | 'home'
   | 'explore'
   | 'tourist-index'
+  | 'ready-routes'
+  | 'ready-route-detail'
   | 'map'
   | 'partner-acquisition'
   | 'partner-detail'
@@ -17,6 +19,8 @@ export function pageKindForPath(pathname:string):PageKind {
   if (pathname === '/') return 'home';
   if (pathname === '/explorar') return 'explore';
   if (pathname === '/pontos-turisticos') return 'tourist-index';
+  if (pathname === '/roteiros') return 'ready-routes';
+  if (/^\/roteiros\/[^/]+\/?$/.test(pathname)) return 'ready-route-detail';
   if (pathname === '/mapa') return 'map';
   if (pathname === '/parceiros') return 'partner-acquisition';
   if (/^\/parceiros\/[^/]+\/?$/.test(pathname)) return 'partner-detail';
