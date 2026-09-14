@@ -9,7 +9,9 @@ const fail = (message) => {
 const foundation = read('src/design-system/tokens/foundation.css');
 const content = read('src/components/content.tsx');
 const home = read('src/components/HomeExperience.tsx');
+const routes = read('src/modules/trips/ready-routes.ts');
 const index = read('github-pages/index.html');
+const shell = read('github-pages/ui-shell.js');
 const sync = read('github-pages/product-sync.css');
 const currentHomeJs = read('github-pages/current-home.js');
 const currentHomeCss = read('github-pages/current-home.css');
@@ -33,20 +35,11 @@ for (const contract of [
   "maxHeight:'220px'",
   "objectFit:'cover'",
 ]) {
-  if (!compactContent.includes(contract.replace(/\s+/g, ''))) {
-    fail(`current PlaceCard contract changed (${contract}); update github-pages/product-sync.css`);
-  }
+  if (!compactContent.includes(contract.replace(/\s+/g, ''))) fail(`current PlaceCard contract changed (${contract}); update github-pages/product-sync.css`);
 }
 
-for (const rule of [
-  'height:clamp(190px,22vw,220px)',
-  'min-height:190px',
-  'max-height:220px',
-  'object-fit:cover',
-]) {
-  if (!sync.replace(/\s+/g, '').includes(rule.replace(/\s+/g, ''))) {
-    fail(`GitHub Pages is missing PlaceCard media rule: ${rule}`);
-  }
+for (const rule of ['height:clamp(190px,22vw,220px)','min-height:190px','max-height:220px','object-fit:cover']) {
+  if (!sync.replace(/\s+/g, '').includes(rule.replace(/\s+/g, ''))) fail(`GitHub Pages is missing PlaceCard media rule: ${rule}`);
 }
 
 const uxuiPosition = index.indexOf('./uxui-system.css');
@@ -59,26 +52,31 @@ if (homeCssPosition < syncPosition) fail('current-home.css must load after produ
 if (homeJsPosition < 0) fail('current-home.js is not loaded by github-pages/index.html');
 if (!index.includes('psn-pages-version')) fail('Pages document is missing a release marker for cache diagnostics');
 
-for (const phrase of [
-  'Descubra Serra Negra do seu jeito.',
-  'Organize os dias da sua viagem e guarde os lugares que fizeram parte dela.',
-  'Descobertas que podem entrar no seu percurso',
-  'Veja como as escolhas se encontram',
-  'Encontre um ritmo para os seus dias',
-  'Comece por aquilo que combina com você',
-  'O mesmo lugar pode fazer sentido em momentos diferentes.',
-  'Encontre um caminho pelo que chama sua atenção',
-  'Planejar é uma coisa. Viver é outra.',
-  'Comece pela curiosidade.',
-]) {
-  if (!home.includes(phrase)) fail(`current HomeExperience no longer contains expected phrase: ${phrase}`);
-  if (!currentHomeJs.includes(phrase)) fail(`GitHub Pages current home is missing current product phrase: ${phrase}`);
-}
+const nextContracts=[
+  ['ready route primary path','href="/roteiros"'],
+  ['custom builder secondary path','href="/roteiro"'],
+  ['ready route slider','home-route-slider'],
+  ['partner circular gallery','home-partner-gallery'],
+  ['FAQ interaction','home-faq'],
+  ['passport distinction','Planejar é uma coisa. Viver é outra.'],
+];
+for(const [label,needle] of nextContracts)if(!home.includes(needle))fail(`Next home lost ${label}: ${needle}`);
+
+for(const needle of ['READY_ROUTES','serra-negra-essencial-2-dias','fim-de-semana-a-dois','dia-de-chuva'])if(!routes.includes(needle))fail(`ready route catalog lost contract: ${needle}`);
+
+const pagesContracts=[
+  ['explicit home navigation','label:\'Início\''],
+  ['ready routes navigation',"href:'#/roteiros'"],
+  ['ready routes page','renderReadyRoutes'],
+  ['ready route primary path','href=\"#/roteiros\"'],
+  ['custom builder path','href=\"#/roteiro\"'],
+  ['current home marker','data-current-home'],
+  ['passport distinction','Planejar é uma coisa. Viver é outra.'],
+];
+for(const [label,needle] of pagesContracts){const source=label.includes('navigation')?shell:currentHomeJs;if(!source.includes(needle))fail(`GitHub Pages lost ${label}: ${needle}`);}
 
 for (const selector of ['.ch-hero','.ch-gallery','.ch-route-slide','.ch-card-grid4','.ch-faq','.ch-passport','.ch-final']) {
   if (!currentHomeCss.includes(selector)) fail(`current-home.css is missing ${selector}`);
 }
 
-if (!process.exitCode) {
-  console.log('GitHub Pages parity audit passed: tokens, card media and current HomeExperience structure are synchronized.');
-}
+if (!process.exitCode) console.log('GitHub Pages parity audit passed: tokens, card media, ready-route hierarchy and key interactions are synchronized.');
