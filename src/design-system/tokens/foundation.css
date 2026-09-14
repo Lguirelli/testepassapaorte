@@ -12,6 +12,11 @@
   --shadow:0 16px 45px #00000014;--shadow-raised:0 24px 70px #0000001c;
   --container:82.5rem;--container-wide:100rem;--header-height:88px;--content-readable:72ch;--component-card-min:17rem;--component-panel-min:18rem;--safe-inline:max(1rem,env(safe-area-inset-left));--safe-block-end:max(1rem,env(safe-area-inset-bottom));
   --motion-ease:cubic-bezier(.22,1,.36,1);--motion-fast:160ms;--motion-base:260ms;--motion-slow:420ms;--route-slide-duration:680ms;--route-slide-ease:cubic-bezier(.16,1,.3,1);
+  /* Cross-runtime semantic aliases. These resolve live when base tokens change. */
+  --color-canvas:var(--canvas);--color-section:var(--section);--color-surface:var(--surface);--color-surface-raised:var(--surface-raised);--color-surface-inset:var(--surface-inset);
+  --color-text:var(--text);--color-text-primary:var(--text);--color-text-secondary:var(--text-secondary);--color-text-muted:var(--text-muted);
+  --color-border-subtle:var(--border-default);--color-border-control:var(--border-default);--color-icon:var(--text-primary);
+  --color-action:var(--accent-primary);--color-action-hover:var(--action-hover);--color-action-text:var(--accent-text);
   color-scheme:light
 }
 [data-theme=dark]{

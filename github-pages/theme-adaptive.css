@@ -1,71 +1,22 @@
-/* Final adaptive theme bridge for the static presentation runtime.
-   Loaded after legacy/home layers so semantic theme tokens win the cascade. */
-:root{
-  --color-text-primary:var(--color-text);
-}
-
-.current-home{
-  color:var(--color-text);
-  background:var(--color-canvas);
-}
-
-.current-home :where(.ch-section-head,.ch-choice-card,.ch-interest-card,.ch-panel,.ch-faq-item,.ch-route-stop){
-  color:var(--color-text);
-}
-
-.current-home :where(.ch-choice-card,.ch-interest-card,.ch-panel,.ch-place-card){
-  background:var(--color-surface-raised);
-  border-color:var(--color-border-subtle);
-}
-
-.current-home :where(.ch-place-card-body p,.ch-panel p,.ch-faq-answer p,.ch-center p:not(.ch-eyebrow)){
-  color:var(--color-text-secondary);
-}
-
-.current-home :where(.ch-place-card-body small,.ch-choice-card small,.ch-interest-card small,.ch-route-stop small,.ch-eyebrow){
-  color:var(--color-text-muted);
-}
-
-.current-home .ch-tab{
-  background:var(--color-surface-raised);
-  color:var(--color-text);
-  border-color:var(--color-border-control);
-}
-
-.current-home .ch-faq-item button{
-  color:var(--color-text);
-}
-
-.current-home .ch-button:not(.ch-button-primary){
-  background:var(--color-surface-raised);
-  color:var(--color-text);
-  border-color:var(--color-border-control);
-}
-
-.current-home .ch-card-icon{
-  color:var(--color-text);
-}
-
-.current-home :where(svg,[data-ui-icon],.ui-icon){
-  color:currentColor;
-}
-
-[data-resolved-theme="dark"] .current-home .ch-section{
-  border-color:var(--color-border-subtle);
-}
-
-[data-resolved-theme="dark"] .current-home .ch-choice-card:hover,
-[data-resolved-theme="dark"] .current-home .ch-interest-card:hover,
-[data-resolved-theme="dark"] .current-home .ch-place-card:hover{
-  border-color:var(--color-border-control);
-}
-
-/* Intentionally fixed contexts remain optically stable across themes. */
-.current-home :where(.ch-hero,.ch-meetings,.ch-route-slide,.ch-final){
-  color:var(--on-dark-text,#f3f1ec);
-}
-.current-home .ch-partner-card,
-.current-home .ch-passport-paper,
-.current-home .ch-search{
-  color:var(--fixed-paper-text,#161618);
-}
+/* Final adaptive theme bridge for the static presentation runtime. Loaded after legacy/home layers. */
+:root{--color-text-primary:var(--color-text);--brand-green:#008542;--brand-dark-green:#003328}
+.current-home{color:var(--color-text);background:var(--color-canvas)}
+.current-home :where(h1,h2,h3,strong,.ch-section-head,.ch-choice-card,.ch-interest-card,.ch-panel,.ch-faq-item,.ch-route-stop){color:var(--color-text)}
+.current-home :where(.ch-choice-card,.ch-interest-card,.ch-panel,.ch-place-card){background:var(--color-surface-raised);border-color:var(--color-border-subtle)}
+.current-home :where(.ch-place-card-body p,.ch-panel p,.ch-faq-answer p,.ch-center p:not(.ch-eyebrow)){color:var(--color-text-secondary)}
+.current-home :where(.ch-place-card-body small,.ch-choice-card small,.ch-interest-card small,.ch-route-stop small,.ch-eyebrow){color:var(--color-text-muted)}
+.current-home .ch-tab{background:var(--color-surface-raised);color:var(--color-text);border-color:var(--color-border-control)}
+.current-home .ch-tab[aria-selected=true]{background:var(--brand-green);color:#fff;border-color:var(--brand-green)}
+.current-home .ch-faq-item button{color:var(--color-text)}
+.current-home .ch-button:not(.ch-button-primary):not(.ch-trip-planner-cta){background:var(--color-surface-raised);color:var(--color-text);border-color:var(--color-border-control)}
+.current-home .ch-card-icon{color:var(--color-text)}
+.current-home :where(svg,[data-ui-icon],.ui-icon){color:currentColor}
+[data-resolved-theme=dark] .current-home .ch-section,[data-theme=dark] .current-home .ch-section{border-color:var(--color-border-subtle)}
+[data-resolved-theme=dark] .current-home .ch-choice-card:hover,[data-resolved-theme=dark] .current-home .ch-interest-card:hover,[data-resolved-theme=dark] .current-home .ch-place-card:hover{border-color:var(--color-border-control)}
+/* Keep image/editorial and paper contexts optically stable across themes. */
+.current-home :where(.ch-hero,.ch-meetings,.ch-route-slide,.ch-final){color:var(--on-dark-text,#f3f1ec)}
+.current-home .ch-meetings :where(h1,h2,h3,strong),.current-home .ch-route-slide :where(h1,h2,h3,strong),.current-home .ch-final :where(h1,h2,h3,strong){color:var(--on-dark-text,#f3f1ec)}
+.current-home .ch-partner-card,.current-home .ch-passport-paper,.current-home .ch-search{color:var(--fixed-paper-text,#161618)}
+/* Planner actions are always Green pills. */
+.current-home .ch-trip-planner-cta,.trip-planner-cta{background:var(--brand-green)!important;color:#fff!important;border-color:var(--brand-green)!important;border-radius:999px!important;box-shadow:none!important}
+.current-home .ch-trip-planner-cta:hover,.trip-planner-cta:hover{background:var(--brand-dark-green)!important;color:#fff!important;border-color:var(--brand-dark-green)!important}

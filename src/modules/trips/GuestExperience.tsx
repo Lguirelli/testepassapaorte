@@ -15,7 +15,7 @@ type ExperienceProps={places:ContentData[];categories?:ContentData[];initialDay?
 
 function useGuestDraft(){const draft=useSyncExternalStore(subscribeGuestDraft,readGuestDraft,()=>null);const commit=useCallback((next:GuestTripDraft)=>writeGuestDraft(next),[]);return{draft,commit};}
 
-function EmptyGuestState(){return <section className="route-state panel"><p className="eyebrow">Experiência de apresentação</p><h1>Monte seu roteiro para começar.</h1><p>Você pode conhecer todo o fluxo sem criar conta. O login só será solicitado quando decidir salvar a viagem.</p><Link className="button primary" href="/roteiro">Montar meu roteiro</Link></section>;}
+function EmptyGuestState(){return <section className="route-state panel"><p className="eyebrow">Experiência de apresentação</p><h1>Monte seu roteiro para começar.</h1><p>Você pode conhecer todo o fluxo sem criar conta. O login só será solicitado quando decidir salvar a viagem.</p><Link className="button primary trip-planner-cta" href="/roteiro">Planejar minha viagem</Link></section>;}
 
 function SaveTripButton({draft,label='Salvar minha viagem'}:{draft:GuestTripDraft;label?:string}){
   const router=useRouter();const[pending,start]=useTransition();const[message,setMessage]=useState('');
