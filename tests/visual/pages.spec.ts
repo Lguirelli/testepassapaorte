@@ -26,7 +26,9 @@ for(const path of publicPaths){
   page.on('response',response=>{if(response.status()>=400)errors.push('HTTP '+response.status()+' '+new URL(response.url()).pathname);});
   const response=await page.goto(path);
   expect(response?.status()).toBe(200);
-  await expect(page.locator('h1')).toBeVisible();
+  const title=page.locator('h1');
+  await expect(title).toHaveCount(1);
+  await expect(title).toBeVisible();
   await expect(page.getByText('Falha temporária',{exact:true})).toHaveCount(0);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth),`Overflow on ${path}`).toBeLessThanOrEqual(2);
   expect(await seriousA11yViolations(page)).toEqual([]);
@@ -39,8 +41,9 @@ test('ready route creates an editable guest itinerary without onboarding',async(
  await expect(page.getByRole('heading',{name:/Dois dias para aproveitar sem pressa/i})).toBeVisible();
  await page.getByRole('button',{name:'Usar este roteiro',exact:true}).click();
  await expect(page).toHaveURL(/\/experiencia\/roteiro/);
+ await expect.poll(()=>page.evaluate(()=>location.pathname)).toBe('/experiencia/roteiro');
  await expect(page.getByRole('heading',{name:/Seu roteiro, dia a dia/i})).toBeVisible();
- await expect(page).not.toHaveURL(/\/roteiro$/);
+ await expect(page.getByText(/Etapa 1 de 8/i)).toHaveCount(0);
 });
 
 test('route steps build a full guest itinerary without login',async({page})=>{
