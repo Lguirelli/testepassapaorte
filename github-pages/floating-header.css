@@ -1,0 +1,101 @@
+/* Floating icon dock for the static preview. */
+.site-header{
+  position:fixed!important;
+  top:clamp(.65rem,1.2vw,1rem)!important;
+  left:50%!important;
+  right:auto!important;
+  width:min(1480px,calc(100% - clamp(1rem,3vw,2.25rem)))!important;
+  min-height:clamp(4.65rem,5.2vw,5.15rem)!important;
+  height:clamp(4.65rem,5.2vw,5.15rem)!important;
+  transform:translateX(-50%)!important;
+  padding:0 clamp(.7rem,1.5vw,1.15rem)!important;
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:clamp(.55rem,1.1vw,1rem)!important;
+  border:0!important;
+  border-radius:clamp(1.1rem,1.5vw,1.45rem)!important;
+  background:rgba(14,15,16,.62)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(.88) brightness(.72)!important;
+  backdrop-filter:blur(22px) saturate(.88) brightness(.72)!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.035)!important;
+  overflow:visible!important;
+  z-index:100!important;
+}
+.site-header.is-scrolled{
+  background:rgba(12,13,14,.72)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(.82) brightness(.68)!important;
+  backdrop-filter:blur(24px) saturate(.82) brightness(.68)!important;
+  box-shadow:0 14px 38px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.04)!important;
+}
+.site-header .brand{align-self:center!important;align-items:center!important;padding-top:0!important;color:#F3F1EC!important}
+.site-header .brand-wordmark{inline-size:clamp(8.7rem,10.5vw,10.9rem)!important;transform:translateY(.18rem)!important;color:#F3F1EC!important}
+.site-header .brand-wordmark svg{fill:#F3F1EC!important;color:#F3F1EC!important}
+
+@media(min-width:981px){
+  .site-header .main-nav{
+    position:static!important;
+    justify-self:center!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:clamp(.2rem,.45vw,.42rem)!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    -webkit-backdrop-filter:none!important;
+    backdrop-filter:none!important;
+    overflow:visible!important;
+  }
+  .site-header .main-nav>a.nav-icon-link,
+  .site-header .main-nav>a.nav-icon-link.button{
+    --dock-scale:1;
+    position:relative!important;
+    display:grid!important;
+    place-items:center!important;
+    flex:0 0 48px!important;
+    width:48px!important;height:48px!important;min-width:48px!important;min-height:48px!important;
+    padding:0!important;margin:0!important;
+    border:0!important;border-radius:999px!important;
+    background:transparent!important;color:rgba(243,241,236,.78)!important;
+    text-decoration:none!important;box-shadow:none!important;overflow:visible!important;
+    transform:scale(var(--dock-scale))!important;
+    transition:transform 300ms cubic-bezier(.22,1,.36,1),color 220ms ease,background 220ms ease!important;
+  }
+  .site-header .main-nav>a.nav-icon-link .ui-icon{--icon-size:26px!important;width:26px!important;height:26px!important;opacity:1!important}
+  .site-header .main-nav>a.nav-icon-link:hover,
+  .site-header .main-nav>a.nav-icon-link:focus-visible{background:rgba(255,255,255,.075)!important;color:#F3F1EC!important}
+  .site-header .main-nav>a.nav-icon-link[aria-current='page']{background:transparent!important;color:#16A864!important;text-decoration:none!important;box-shadow:none!important}
+  .site-header .main-nav .nav-cta{background:#008542!important;color:#fff!important}
+  .site-header .main-nav .nav-cta:hover,.site-header .main-nav .nav-cta:focus-visible{background:#005F36!important;color:#fff!important}
+  .nav-dock-motion{position:relative!important;display:grid!important;place-items:center!important;width:100%!important;height:100%!important}
+  .nav-hover-label{
+    position:absolute!important;left:50%!important;top:calc(100% + .62rem)!important;z-index:20!important;
+    display:block!important;width:max-content!important;max-width:15rem!important;padding:.38rem .62rem!important;
+    border:0!important;border-radius:999px!important;background:rgba(12,13,14,.92)!important;color:#F3F1EC!important;
+    font:600 .73rem/1.2 var(--font-body)!important;letter-spacing:.005em!important;white-space:nowrap!important;
+    opacity:0!important;pointer-events:none!important;transform:translate(-50%,-6px) scale(.96)!important;
+    box-shadow:0 8px 24px rgba(0,0,0,.24)!important;-webkit-backdrop-filter:blur(14px)!important;backdrop-filter:blur(14px)!important;
+    transition:opacity 170ms ease,transform 220ms cubic-bezier(.22,1,.36,1)!important;
+  }
+  .nav-icon-link:hover .nav-hover-label,.nav-icon-link:focus-visible .nav-hover-label{opacity:1!important;transform:translate(-50%,0) scale(1)!important}
+}
+.site-header .theme-picker{justify-self:end!important;color:#F3F1EC!important}
+.site-header .theme-picker-label{color:#F3F1EC!important}
+.site-header .theme-picker select{border:0!important;border-radius:999px!important;background:rgba(255,255,255,.07)!important;color:#F3F1EC!important;box-shadow:none!important}
+.site-header .theme-picker select:hover,.site-header .theme-picker select:focus-visible{background:rgba(255,255,255,.11)!important}
+.site-header .mobile-menu{border:0!important;background:rgba(255,255,255,.075)!important;color:#F3F1EC!important}
+
+@media(max-width:980px){
+  .site-header{top:.6rem!important;width:calc(100% - 1rem)!important;height:4.65rem!important;min-height:4.65rem!important;border-radius:1.15rem!important;grid-template-columns:auto 1fr auto!important}
+  .site-header .brand-wordmark{inline-size:clamp(8rem,29vw,9.6rem)!important;transform:translateY(.12rem)!important}
+  .site-header .mobile-menu{display:inline-flex!important;justify-self:end!important}
+  .site-header .theme-picker{display:none!important}
+}
+@media(max-width:650px){
+  .site-header{top:.45rem!important;width:calc(100% - .75rem)!important;height:4.45rem!important;min-height:4.45rem!important;border-radius:1rem!important;padding-inline:.6rem!important}
+  .site-header .brand-wordmark{inline-size:clamp(7.5rem,39vw,8.8rem)!important}
+}
+@media(prefers-reduced-motion:reduce){.nav-hover-label,.nav-icon-link{transition:none!important}}

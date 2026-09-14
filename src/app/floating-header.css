@@ -1,0 +1,175 @@
+/* Floating header dock: compact, icon-led and always layered over page content. */
+.site-header{
+  position:fixed!important;
+  top:clamp(.65rem,1.2vw,1rem)!important;
+  left:50%!important;
+  right:auto!important;
+  inset-inline:auto!important;
+  width:min(1480px,calc(100% - clamp(1rem,3vw,2.25rem)))!important;
+  height:clamp(4.65rem,5.2vw,5.15rem)!important;
+  transform:translateX(-50%)!important;
+  border:0!important;
+  border-radius:clamp(1.1rem,1.5vw,1.45rem)!important;
+  background:rgba(14,15,16,.62)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(.88) brightness(.72)!important;
+  backdrop-filter:blur(22px) saturate(.88) brightness(.72)!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.035)!important;
+  overflow:visible!important;
+}
+.site-header[data-scrolled='true']{
+  background:rgba(12,13,14,.72)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(.82) brightness(.68)!important;
+  backdrop-filter:blur(24px) saturate(.82) brightness(.68)!important;
+  box-shadow:0 14px 38px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.04)!important;
+}
+.site-header-inner{
+  height:100%!important;
+  max-width:none!important;
+  padding:0 clamp(.7rem,1.5vw,1.15rem)!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:clamp(.55rem,1.1vw,1rem)!important;
+}
+.site-header .brand{
+  flex:0 0 auto!important;
+  align-self:center!important;
+  align-items:center!important;
+  padding-top:0!important;
+  color:#F3F1EC!important;
+}
+.site-header .brand-wordmark{
+  inline-size:clamp(8.7rem,10.5vw,10.9rem)!important;
+  transform:translateY(.18rem)!important;
+  color:#F3F1EC!important;
+}
+.site-header .brand-wordmark svg{fill:#F3F1EC!important;color:#F3F1EC!important}
+
+/* Desktop dock: visual labels are tooltips, not permanent layout content. */
+.main-nav.dock-nav{
+  margin-inline:auto!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(.2rem,.45vw,.42rem)!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  overflow:visible!important;
+}
+.main-nav.dock-nav>a.nav-icon-link,
+.main-nav.dock-nav>a.nav-icon-link.button{
+  --dock-scale:1;
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  flex:0 0 48px!important;
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  min-height:48px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:rgba(243,241,236,.78)!important;
+  text-decoration:none!important;
+  transform:scale(var(--dock-scale))!important;
+  transform-origin:center!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  transition:transform 300ms cubic-bezier(.22,1,.36,1),color 220ms ease,background 220ms ease!important;
+}
+.main-nav.dock-nav>a.nav-icon-link [data-ui-icon]{
+  width:26px!important;
+  height:26px!important;
+  opacity:1!important;
+  transition:transform 260ms cubic-bezier(.22,1,.36,1),color 220ms ease!important;
+}
+.main-nav.dock-nav>a.nav-icon-link:hover,
+.main-nav.dock-nav>a.nav-icon-link:focus-visible{
+  color:#F3F1EC!important;
+  background:rgba(255,255,255,.075)!important;
+}
+.main-nav.dock-nav>a.nav-icon-link:hover [data-ui-icon],
+.main-nav.dock-nav>a.nav-icon-link:focus-visible [data-ui-icon]{transform:translateY(-1px) scale(1.08)}
+.main-nav.dock-nav>a.nav-icon-link[aria-current='page']{
+  color:#16A864!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.main-nav.dock-nav .header-cta.trip-planner-cta{
+  background:#008542!important;
+  color:#fff!important;
+}
+.main-nav.dock-nav .header-cta.trip-planner-cta:hover,
+.main-nav.dock-nav .header-cta.trip-planner-cta:focus-visible{
+  background:#005F36!important;
+  color:#fff!important;
+}
+.nav-dock-motion{position:relative;display:grid;place-items:center;width:100%;height:100%}
+.nav-hover-label{
+  position:absolute;
+  left:50%;
+  top:calc(100% + .62rem);
+  z-index:20;
+  display:block;
+  width:max-content;
+  max-width:15rem;
+  padding:.38rem .62rem;
+  border:0;
+  border-radius:999px;
+  background:rgba(12,13,14,.92);
+  color:#F3F1EC;
+  font:600 .73rem/1.2 var(--font-body)!important;
+  letter-spacing:.005em!important;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transform:translate(-50%,-6px) scale(.96);
+  transform-origin:top center;
+  box-shadow:0 8px 24px rgba(0,0,0,.24);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  transition:opacity 170ms ease,transform 220ms cubic-bezier(.22,1,.36,1);
+}
+.nav-icon-link:hover .nav-hover-label,
+.nav-icon-link:focus-visible .nav-hover-label{opacity:1;transform:translate(-50%,0) scale(1)}
+
+/* Right-side utilities blend into the floating dock instead of creating boxes. */
+.header-tools{flex:0 0 auto!important;gap:.28rem!important;margin-left:0!important;color:#F3F1EC!important}
+.site-header .icon-button{
+  width:44px!important;height:44px!important;min-height:44px!important;
+  border:0!important;background:transparent!important;color:#F3F1EC!important;box-shadow:none!important;
+}
+.site-header .icon-button:hover,.site-header .icon-button:focus-visible{background:rgba(255,255,255,.075)!important}
+.site-header .theme select{
+  height:42px!important;
+  min-height:42px!important;
+  max-width:84px!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.07)!important;
+  color:#F3F1EC!important;
+  box-shadow:none!important;
+}
+.site-header .theme select:hover,.site-header .theme select:focus-visible{background:rgba(255,255,255,.11)!important}
+
+@media(max-width:1180px){
+  .main-nav.dock-nav{display:none!important}
+  .site-header{top:.6rem!important;width:calc(100% - 1rem)!important;height:4.65rem!important;border-radius:1.15rem!important}
+  .site-header .brand-wordmark{inline-size:clamp(8rem,29vw,9.6rem)!important;transform:translateY(.12rem)!important}
+  .mobile-menu-trigger{margin-left:auto!important;border:0!important;background:rgba(255,255,255,.075)!important;color:#F3F1EC!important}
+}
+@media(max-width:720px){
+  .site-header{top:.45rem!important;width:calc(100% - .75rem)!important;height:4.45rem!important;border-radius:1rem!important}
+  .site-header-inner{padding-inline:.6rem!important}
+  .site-header .brand-wordmark{inline-size:clamp(7.5rem,39vw,8.8rem)!important}
+  .header-tools{gap:.1rem!important}
+  .icon-button,.mobile-menu-trigger{width:42px!important;height:42px!important;flex-basis:42px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .nav-hover-label,.main-nav.dock-nav>a.nav-icon-link,.main-nav.dock-nav>a.nav-icon-link [data-ui-icon]{transition:none!important}
+}

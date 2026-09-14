@@ -4,8 +4,16 @@ import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect,useRef,useState} from 'react';
 import {MAIN_NAV,ROUTES,type MainNavKey} from '@/core/routing/routes';
-import {Icon} from '@/design-system/icons';
+import {Icon,type IconName} from '@/design-system/icons';
 import {ThemePicker} from './ThemePicker';
+
+const NAV_ICON:Record<MainNavKey,IconName>={
+  explore:'explorar',
+  touristPoints:'mapa-ponto-turistico',
+  routes:'roteiro',
+  map:'mapa',
+  partnerProgram:'parceiros',
+};
 
 function activeKey(pathname:string):MainNavKey|undefined{
   if(pathname==='/explorar')return'explore';
@@ -97,9 +105,9 @@ export function MainNavigation({initialTheme,accountHref,accountLabel}:{initialT
   return <>
     <button ref={triggerRef} className="mobile-menu-trigger" type="button" aria-label={open?'Fechar menu':'Abrir menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={()=>setMenuPath(open?null:pathname)}><Icon name={open?'fechar':'menu'}/></button>
     <nav ref={navRef} data-testid="main-dock-navigation" aria-label="Navegação principal" className="main-nav dock-nav" onPointerMove={event=>{if(event.pointerType!=='touch')updateDock(event.clientX)}} onPointerLeave={resetDock}>
-      <Link href={ROUTES.home} aria-current={pathname===ROUTES.home?'page':undefined}>Início</Link>
-      {MAIN_NAV.map(item=><Link key={item.key} href={item.href} aria-current={active===item.key?'page':undefined}>{item.label}</Link>)}
-      <Link className="button header-cta trip-planner-cta" href={ROUTES.tripBuilder}>Planejar minha viagem</Link>
+      <Link className="nav-icon-link" href={ROUTES.home} aria-label="Início" aria-current={pathname===ROUTES.home?'page':undefined}><span className="nav-dock-motion"><Icon name="home" size={26}/><span className="nav-hover-label" aria-hidden="true">Início</span></span></Link>
+      {MAIN_NAV.map(item=><Link className="nav-icon-link" key={item.key} href={item.href} aria-label={item.label} aria-current={active===item.key?'page':undefined}><span className="nav-dock-motion"><Icon name={NAV_ICON[item.key]} size={26}/><span className="nav-hover-label" aria-hidden="true">{item.label}</span></span></Link>)}
+      <Link className="button header-cta trip-planner-cta nav-icon-link" href={ROUTES.tripBuilder} aria-label="Planejar minha viagem"><span className="nav-dock-motion"><Icon name="roteiro-adicionar-parada" size={25}/><span className="nav-hover-label" aria-hidden="true">Planejar minha viagem</span></span></Link>
     </nav>
     <div id="mobile-navigation" data-testid="mobile-navigation" className="mobile-nav-layer" data-open={open?'true':'false'} aria-hidden={!open} role="dialog" aria-modal={open?'true':undefined} aria-label="Menu principal">
       <button className="mobile-nav-backdrop" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{closeMenu();requestAnimationFrame(()=>triggerRef.current?.focus())}}/>

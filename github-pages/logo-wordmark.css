@@ -1,7 +1,6 @@
 /* Brand wordmark logo */
 .brand{color:var(--color-text)}
-.brand-wordmark{display:block;inline-size:clamp(9.5rem,14vw,12.75rem);line-height:0;color:currentColor;flex:0 0 auto}
-.brand-wordmark svg{display:block;width:100%;height:auto;overflow:visible;color:currentColor;fill:currentColor}
+.brand-wordmark{display:block;inline-size:clamp(9.5rem,14vw,12.75rem);aspect-ratio:1362.45/614.35;line-height:0;color:currentColor;flex:0 0 auto;background:currentColor;-webkit-mask:url('./assets/brand/logo-passaporte-serra-negra-wordmark.svg') center/contain no-repeat;mask:url('./assets/brand/logo-passaporte-serra-negra-wordmark.svg') center/contain no-repeat}
 .v2-footer .brand-wordmark{inline-size:clamp(10rem,16vw,13.5rem)}
 @media(max-width:900px){.brand-wordmark{inline-size:clamp(8.5rem,34vw,11rem)}}
 @media(max-width:760px){.brand-wordmark{inline-size:clamp(8rem,42vw,10rem)}}
