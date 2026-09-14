@@ -130,7 +130,7 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
   const stageRef=useRef<HTMLDivElement>(null);
   const drag=useRef<{startX:number;lastX:number;lastTime:number;velocity:number}|null>(null);
   const dragged=useRef(false);const pointerFrame=useRef<number|null>(null);const wheelLock=useRef(false);const wheelTimer=useRef<number|null>(null);
-  const clickState=useRef<{id:string;at:number}|null>(null);const navigateBypass=useRef(false);
+  const navigateBypass=useRef(false);
   useEffect(()=>()=>{if(wheelTimer.current)window.clearTimeout(wheelTimer.current);if(pointerFrame.current!==null)cancelAnimationFrame(pointerFrame.current);},[]);
   const move=(delta:number)=>{if(items.length)setActive(value=>(value+delta+items.length)%items.length);};
   if(!items.length)return <p className="empty">Nenhum parceiro publicado nesta seleção.</p>;
@@ -138,22 +138,30 @@ function PartnerGallery({partners}:{partners:ContentData[]}){
   const resetDrag=()=>{stageRef.current?.style.setProperty('--drag-shift','0px');stageRef.current?.removeAttribute('data-dragging');};
   const onPointerDown=(event:ReactPointerEvent<HTMLDivElement>)=>{if(event.button!==0)return;const now=performance.now();drag.current={startX:event.clientX,lastX:event.clientX,lastTime:now,velocity:0};dragged.current=false;event.currentTarget.setPointerCapture(event.pointerId);event.currentTarget.dataset.dragging='true';};
   const onPointerMove=(event:ReactPointerEvent<HTMLDivElement>)=>{const state=drag.current;if(!state)return;const now=performance.now();const delta=event.clientX-state.startX;state.velocity=(event.clientX-state.lastX)/Math.max(1,now-state.lastTime);state.lastX=event.clientX;state.lastTime=now;if(Math.abs(delta)>6){dragged.current=true;event.preventDefault();}writeDrag(delta*.56);};
-  const onPointerUp=(event:ReactPointerEvent<HTMLDivElement>)=>{const state=drag.current;if(!state)return;const projected=(event.clientX-state.startX)+state.velocity*190;drag.current=null;if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);resetDrag();const magnitude=Math.abs(projected)>230?2:Math.abs(projected)>48?1:0;if(magnitude)move(projected<0?magnitude:-magnitude);};
+  const onPointerUp=(event:ReactPointerEvent<HTMLDivElement>)=>{const state=drag.current;if(!state)return;const projected=(event.clientX-state.startX)+state.velocity*180;drag.current=null;if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);resetDrag();const magnitude=Math.abs(projected)>230?2:Math.abs(projected)>48?1:0;if(magnitude)move(projected<0?magnitude:-magnitude);};
   const onWheel=(event:ReactWheelEvent<HTMLDivElement>)=>{if(wheelLock.current||Math.abs(event.deltaY)+Math.abs(event.deltaX)<12)return;wheelLock.current=true;move((event.deltaY||event.deltaX)>0?1:-1);if(wheelTimer.current)window.clearTimeout(wheelTimer.current);wheelTimer.current=window.setTimeout(()=>{wheelLock.current=false;wheelTimer.current=null;},280);};
   const centerCard=(index:number)=>{setActive(index);requestAnimationFrame(()=>stageRef.current?.focus({preventScroll:true}));};
   return <>
-    <div className={styles.galleryViewport}><div ref={stageRef} className={styles.galleryStage} data-testid="home-partner-gallery" data-center-hover={centerHover?'true':'false'} tabIndex={0} aria-label="Galeria de parceiros. Arraste os cards. Um clique centraliza; dois cliques abrem a experiência. Também é possível rolar ou usar as setas do teclado." onKeyDown={event=>{if(event.key==='ArrowLeft'){event.preventDefault();move(-1);}if(event.key==='ArrowRight'){event.preventDefault();move(1);}}} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={()=>{drag.current=null;dragged.current=false;clickState.current=null;resetDrag();}} onWheel={onWheel} onClickCapture={event=>{
+    <div className={styles.galleryViewport}><div ref={stageRef} className={styles.galleryStage} data-testid="home-partner-gallery" data-center-hover={centerHover?'true':'false'} tabIndex={0} aria-label="Galeria de parceiros. Arraste os cards. Um clique centraliza; dois cliques abrem a experiência. Também é possível rolar ou usar as setas do teclado." onKeyDown={event=>{if(event.key==='ArrowLeft'){event.preventDefault();move(-1);}if(event.key==='ArrowRight'){event.preventDefault();move(1);}}} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={()=>{drag.current=null;dragged.current=false;resetDrag();}} onWheel={onWheel} onDragStartCapture={event=>event.preventDefault()} onClickCapture={event=>{
       if(navigateBypass.current||event.detail===0)return;
       const target=event.target instanceof Element?event.target:null;
       const host=target?.closest<HTMLElement>('[data-gallery-card-id]');
       if(!host)return;
       event.preventDefault();event.stopPropagation();
-      if(dragged.current){dragged.current=false;clickState.current=null;return;}
-      const id=host.dataset.galleryCardId||'';const index=Number(host.dataset.galleryIndex);const now=performance.now();const previous=clickState.current;const isDouble=Boolean(previous&&previous.id===id&&now-previous.at<=420);
-      if(isDouble){clickState.current=null;const link=host.querySelector<HTMLAnchorElement>('a.card-morph-link');if(link){navigateBypass.current=true;link.click();queueMicrotask(()=>{navigateBypass.current=false;});}return;}
-      clickState.current={id,at:now};window.setTimeout(()=>{if(clickState.current?.id===id&&performance.now()-clickState.current.at>=400)clickState.current=null;},440);if(Number.isFinite(index)&&index!==active)centerCard(index);
+      if(dragged.current){dragged.current=false;return;}
+      const index=Number(host.dataset.galleryIndex);
+      if(Number.isFinite(index)&&index!==active)centerCard(index);
+    }} onDoubleClickCapture={event=>{
+      if(navigateBypass.current)return;
+      const target=event.target instanceof Element?event.target:null;
+      const host=target?.closest<HTMLElement>('[data-gallery-card-id]');
+      if(!host)return;
+      event.preventDefault();event.stopPropagation();
+      if(dragged.current){dragged.current=false;return;}
+      const link=host.querySelector<HTMLAnchorElement>('a.card-morph-link');
+      if(link){navigateBypass.current=true;link.click();queueMicrotask(()=>{navigateBypass.current=false;});}
     }}>
-      {items.map((place,index)=>{const offset=circularOffset(index,active,items.length);const visible=Math.abs(offset)<=2;const distance=Math.abs(offset);const style={'--x':`calc(${offset} * clamp(230px, 34cqi, 440px))`,'--y':`${distance*24}px`,'--z':`${distance*-110}px`,'--rot':`${offset*-4}deg`,'--opacity':String(Math.max(.48,1-distance*.2)),'--stack':String(10-distance),'--blur':`${distance*2.5}px`,'--side-scale':String(1-distance*.08),'--hover-shift':`calc(${offset} * clamp(42px, 6cqi, 86px))`} as GalleryStyle;return <div key={place.id} className={styles.galleryPosition} data-gallery-index={index} data-gallery-card-id={place.id} data-offset={offset} data-visible={visible?'true':'false'} style={style}><div className={styles.galleryMotion} aria-hidden={offset!==0} inert={offset!==0} onPointerEnter={()=>offset===0&&setCenterHover(true)} onPointerLeave={()=>offset===0&&setCenterHover(false)}><PlaceCard place={place}/></div>{visible&&offset!==0&&<button type="button" data-testid={`home-gallery-center-${index}`} className={styles.gallerySideActivate} aria-label={`Centralizar ${place.name}`}/>}</div>;})}
+      {items.map((place,index)=>{const offset=circularOffset(index,active,items.length);const visible=Math.abs(offset)<=2;const distance=Math.abs(offset);const style={'--x':`calc(${offset} * clamp(230px, 34cqi, 440px))`,'--y':`${distance*24}px`,'--z':`${distance*-110}px`,'--rot':`${offset*-4}deg`,'--opacity':String(Math.max(.48,1-distance*.2)),'--stack':String(10-distance),'--blur':`${distance*2.5}px`,'--side-scale':String(1-distance*.08),'--hover-shift':`calc(${offset} * clamp(42px, 6cqi, 86px))`} as GalleryStyle;return <div key={place.id} className={styles.galleryPosition} data-gallery-index={index} data-gallery-card-id={place.id} data-offset={offset} data-visible={visible?'true':'false'} style={style}><div className={styles.galleryDrag}><div className={styles.galleryMotion} aria-hidden={offset!==0} inert={offset!==0} onPointerEnter={()=>offset===0&&setCenterHover(true)} onPointerLeave={()=>offset===0&&setCenterHover(false)}><PlaceCard place={place}/></div>{visible&&offset!==0&&<button type="button" data-testid={`home-gallery-center-${index}`} className={styles.gallerySideActivate} aria-label={`Centralizar ${place.name}`}/>}</div></div>;})}
     </div></div>
     <p className="sr-only" aria-live="polite">Parceiro em destaque: {items[active]?.name}</p>
     <div className={styles.galleryControls}><button type="button" aria-label="Parceiro anterior" onClick={()=>move(-1)}><Icon name="chevron-esquerda"/></button><p>ARRASTE · 1 CLIQUE CENTRALIZA · 2 CLIQUES ABREM</p><button type="button" aria-label="Próximo parceiro" onClick={()=>move(1)}><Icon name="chevron-direita"/></button></div>
@@ -214,7 +222,7 @@ export default function HomeExperience({featured,partners,categories,routePlaces
     </section>
 
     <section className={`${styles.section} ${styles.passportIntro}`} aria-labelledby="passport-intro-title">
-      <div className={styles.passportPaper} aria-hidden="true"><img src="/assets/brand/passport/passaporte-capa-couro.png" alt=""/></div>
+      <div className={styles.passportPaper} data-passport-cover="true" aria-hidden="true"><img src="/assets/brand/passport/passaporte-capa-couro.png" alt=""/></div>
       <div><p className="eyebrow">De roteiro a memória</p><h2 id="passport-intro-title">O plano termina. A experiência fica.</h2><p>O roteiro registra intenção. O Passaporte guarda os lugares que realmente fizeram parte da viagem e transforma o percurso vivido em memória.</p><div className="actions"><Link className="button primary" href="/meu-passaporte">Ver meu Passaporte</Link><Link className="button" href="/roteiros">Escolher um roteiro</Link></div></div>
     </section>
 

@@ -106,7 +106,7 @@
 
 .galleryStage{container-type:inline-size;--drag-shift:0px}
 .galleryPosition{
-  transform:translate3d(calc(-50% + var(--x) + var(--drag-shift)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot));
+  transform:translate3d(calc(-50% + var(--x)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot));
 }
 .galleryMotion{transform:scale(var(--side-scale));filter:blur(var(--blur));will-change:transform,filter}
 .galleryPosition[data-offset="0"] .galleryMotion{filter:none}
@@ -116,11 +116,11 @@
 .galleryStage[data-dragging="true"] .galleryPosition{transition:none}
 .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="-1"],
 .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="1"]{
-  transform:translate3d(calc(-50% + var(--x) + var(--hover-shift) + var(--drag-shift)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot));
+  transform:translate3d(calc(-50% + var(--x) + var(--hover-shift)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot));
 }
 .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="-2"],
 .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="2"]{
-  transform:translate3d(calc(-50% + var(--x) + var(--hover-shift) + var(--drag-shift)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot));
+  transform:translate3d(calc(-50% + var(--x) + var(--hover-shift)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot));
 }
 .galleryPosition[data-offset="0"] .galleryMotion:hover{transform:translateY(-8px) scale(1.06);filter:drop-shadow(0 24px 32px #0002)}
 
@@ -165,7 +165,7 @@
   .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="-2"],
   .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="-1"],
   .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="1"],
-  .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="2"]{transform:translate3d(calc(-50% + var(--x) + var(--drag-shift)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot))}
+  .galleryStage[data-center-hover="true"] .galleryPosition[data-offset="2"]{transform:translate3d(calc(-50% + var(--x)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot))}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -215,21 +215,39 @@
   will-change:transform;
 }
 
-/* Passport hover morph: small scale + rotation to the left, without layout shift. */
-.passportPaper img{
-  transform:rotate(0deg) scale(1);
-  transform-origin:50% 52%;
-  transition:transform 460ms cubic-bezier(.22,1,.36,1),filter 460ms cubic-bezier(.22,1,.36,1);
+/* v19: dedicated drag layer. Position/hover transforms live on the outer card;
+   pointer movement lives here, so the two effects cannot overwrite each other. */
+.galleryDrag{
+  position:relative;
+  width:100%;
+  transform:translate3d(var(--drag-shift,0px),0,0);
+  transition:transform 220ms cubic-bezier(.22,1,.36,1);
   will-change:transform;
 }
+.galleryStage[data-dragging="true"] .galleryDrag{
+  transition:none!important;
+}
+.galleryStage[data-dragging="true"] .galleryMotion{
+  transition:none!important;
+  pointer-events:none;
+}
+
+/* v19: morph the actual passport cover container. */
+.passportPaper[data-passport-cover="true"]{
+  transform:rotate(0deg) scale(1)!important;
+  transform-origin:50% 54%;
+  transition:transform 480ms cubic-bezier(.22,1,.36,1),filter 480ms cubic-bezier(.22,1,.36,1)!important;
+  will-change:transform;
+  cursor:default;
+}
 @media (hover:hover) and (pointer:fine){
-  .passportPaper:hover img,
-  .passportPaper:focus-within img{
-    transform:rotate(-2.6deg) scale(1.045);
-    filter:drop-shadow(0 32px 42px rgba(0,0,0,.24));
+  .passportPaper[data-passport-cover="true"]:hover{
+    transform:rotate(-2.8deg) scale(1.048)!important;
+    filter:drop-shadow(0 30px 38px rgba(0,0,0,.22))!important;
   }
 }
 @media (prefers-reduced-motion:reduce){
-  .passportPaper img{transition:none!important;transform:none!important}
-  .passportPaper:hover img,.passportPaper:focus-within img{transform:none!important}
+  .galleryDrag{transform:none!important;transition:none!important}
+  .passportPaper[data-passport-cover="true"],
+  .passportPaper[data-passport-cover="true"]:hover{transition:none!important;transform:none!important}
 }

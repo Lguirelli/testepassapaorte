@@ -66,3 +66,11 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 - Capa do Passaporte recebe hover morph com `scale(1.045)` e rotação leve para a esquerda (`-2.6deg`), sem alterar layout.
 - `prefers-reduced-motion` desativa o hover morph e as transições do gesto.
 - Next e preview estático mantidos em paridade.
+
+
+## v19 — interaction fix actually applied
+- Carousel drag moved to a dedicated nested drag layer, separate from the card positioning/hover transform, so pointer movement cannot be overridden.
+- Native pointer capture retained; native `dblclick` now opens the experience, while one click only centers.
+- Drag-start on card media/links is blocked to prevent the browser's native image/link dragging.
+- Passport hover morph now targets the actual cover container with scale + slight left rotation.
+- Static `current-home.css` and `current-home.js` cache keys were bumped so browsers cannot reuse the previous interaction files.
