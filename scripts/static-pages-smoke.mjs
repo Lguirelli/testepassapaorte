@@ -92,11 +92,13 @@ try{
   assert(before!==after,'Partner gallery did not move from keyboard input');
 
   await open(page,'#/roteiros');
+  await page.waitForFunction(()=>document.body.dataset.page==='roteiros'&&document.querySelectorAll('.ch-card-grid4 .ch-choice-card').length===6);
   assert(await page.locator('h1').count()===1,'Ready-routes library must expose exactly one h1');
-  assert(await page.locator('a[href^="#/roteiros/"]').count()===6,'Static ready-routes library must expose six routes');
+  assert(await page.locator('.ch-card-grid4 .ch-choice-card').count()===6,'Static ready-routes library must expose six route cards');
   assert(await page.getByRole('link',{name:'Planejar minha viagem',exact:true}).count()>=1,'Ready-routes page lost the personalized-planning CTA');
 
   await open(page,'#/roteiros/fim-de-semana-a-dois');
+  await page.getByRole('heading',{name:/Dois dias para aproveitar sem pressa/i}).waitFor();
   assert(await page.getByRole('heading',{name:/Dois dias para aproveitar sem pressa/i}).count()===1,'Ready-route detail did not render the expected preset');
   assert(await page.getByRole('link',{name:/Usar este roteiro/i}).count()===1,'Ready-route detail is missing its primary action');
 
