@@ -28,6 +28,7 @@
     "audit:pages-parity": "node scripts/audit-pages-parity.mjs",
     "audit:vercel": "node scripts/audit-vercel-build.mjs",
     "audit:interactions": "node scripts/audit-interactions.mjs",
+    "audit:repository": "node scripts/repository-insights.mjs",
     "playwright:install": "playwright install chromium",
     "playwright:install:ci": "playwright install --with-deps chromium",
     "test:e2e:remote": "node scripts/e2e-remote.mjs",
