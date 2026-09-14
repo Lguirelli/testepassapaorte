@@ -2,8 +2,8 @@
 @import url("/home-visual-contrast.css");
 
 /* Passaporte Serra Negra — two-family typography system.
-   Arimo: interface, navigation, body copy and high-impact headings.
-   Cormorant Garamond: editorial contrast, supporting headings and passport details. */
+   Arimo: every title, body copy, interface control and navigation label.
+   Cormorant Garamond: subtitles and concise editorial accents only. */
 :root{
   --font-body:"Arimo",sans-serif;
   --font-display:"Arimo",sans-serif;
@@ -13,8 +13,9 @@
 }
 
 html,body,button,input,select,textarea{font-family:var(--font-body)}
-h1,h2{font-family:var(--font-display);font-style:normal}
-h3{font-family:var(--font-serif)}
+body,p,li,dd,dt,label,input,select,textarea{font-family:var(--font-body);font-weight:400}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-style:normal;font-weight:700}
+.subtitle,.subheading,.section-subtitle,.editorial-subtitle,.tagline,.lead{font-family:var(--font-serif);font-weight:600}
 
 .stamp,.stamp strong,.passport-stamp-demo,.passport-stamp-demo strong,
 .passport-book-cover strong,.passport-cover>strong,.passport-book-page>strong,

@@ -23,3 +23,5 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 - Hierarquia agora usa principalmente variação de peso, tamanho, tracking e itálico, sem terceira família decorativa.
 - Removidas as referências ativas a Origin Black Display, Scratchy, Anodina e Inter.
 - A mesma regra foi aplicada ao runtime Next.js e ao preview estático do GitHub Pages.
+
+- 2026-09-14: tipografia refinada: Arimo em todos os títulos e body copy; Cormorant Garamond restrita a subtítulos e textos editoriais curtos. Títulos usam 700; corpo usa 400/500.

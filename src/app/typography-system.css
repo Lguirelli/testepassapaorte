@@ -1,4 +1,6 @@
-/* Final typography layer. Keep the product to Arimo + Cormorant Garamond only. */
+/* Final typography layer.
+   Arimo owns titles, interface and body copy.
+   Cormorant Garamond is restricted to subtitles and short editorial accents. */
 :root{
   --font-body:"Arimo",sans-serif;
   --font-display:"Arimo",sans-serif;
@@ -11,39 +13,70 @@ html,body,button,input,select,textarea{
   font-family:var(--font-body)!important;
 }
 
-body{
+body,
+p,
+li,
+dd,
+dt,
+label,
+input,
+select,
+textarea{
+  font-family:var(--font-body)!important;
   font-weight:400;
+}
+
+body{
   letter-spacing:-.006em;
 }
 
 h1,
-[data-testid="home-hero"] h1{
+h2,
+h3,
+h4,
+h5,
+h6,
+[data-testid="home-hero"] h1,
+.card h3,
+.panel h3{
   font-family:var(--font-display)!important;
+  font-style:normal!important;
   font-weight:700!important;
+}
+
+h1,
+[data-testid="home-hero"] h1{
   letter-spacing:-.058em!important;
 }
 
 h2{
-  font-family:var(--font-display)!important;
-  font-weight:600!important;
   letter-spacing:-.045em!important;
 }
 
-h3,
+h3,h4,h5,h6,
 .card h3,
 .panel h3{
+  letter-spacing:-.026em!important;
+}
+
+/* Editorial subtitles only: keep these concise. */
+.subtitle,
+.subheading,
+.section-subtitle,
+.editorial-subtitle,
+.tagline,
+.lead,
+[data-testid="home-hero"] .lead{
   font-family:var(--font-serif)!important;
+  font-style:normal;
   font-weight:600!important;
-  letter-spacing:-.025em!important;
+  letter-spacing:-.018em!important;
 }
 
 .lead,
 [data-testid="home-hero"] .lead{
-  font-family:var(--font-serif)!important;
-  font-weight:500!important;
   font-size:clamp(1.18rem,1.8vw,1.45rem)!important;
   line-height:1.38!important;
-  letter-spacing:-.018em!important;
 }
 
 .eyebrow,
@@ -67,10 +100,13 @@ small{
 button,
 .button,
 .site-header a,
-.site-header button{
+.site-header button,
+strong,
+b{
   font-weight:600;
 }
 
+/* Short editorial marks may use Cormorant. They must not carry long body copy. */
 .stamp,
 .stamp strong,
 .passport-stamp-demo,
