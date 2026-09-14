@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect,useMemo,useRef,useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import type {CSSProperties,PointerEvent as ReactPointerEvent,WheelEvent as ReactWheelEvent} from 'react';
 import type {ContentData} from '@/core/db/schema';
@@ -27,9 +27,9 @@ function categoryIcon(category:ContentData):IconName{
 }
 
 const faqs=[
-  ['Preciso responder perguntas para começar?','Não. O caminho principal é escolher um roteiro pronto e adaptá-lo. O questionário completo aparece apenas quando você decide criar uma viagem do zero.'],
-  ['Os roteiros prontos ficam engessados?','Não. Ao usar uma base, ela vira uma viagem editável. Você pode mover, trocar, remover, fixar e adicionar paradas sem perder suas escolhas manuais.'],
-  ['Qual é a diferença entre roteiro e Passaporte?','O roteiro organiza o que você pretende viver. O Passaporte registra o que realmente fez parte da viagem, mantendo planejamento e presença como coisas diferentes.'],
+  ['Preciso responder perguntas para começar?','Não. Você pode começar por um roteiro pronto e adaptar depois. Se preferir mais controle desde o início, use o planejamento personalizado.'],
+  ['Os roteiros prontos ficam engessados?','Não. Eles funcionam como ponto de partida: você pode mover, trocar, remover, fixar e adicionar paradas.'],
+  ['Qual é a diferença entre roteiro e Passaporte?','O roteiro organiza o que você pretende viver. O Passaporte registra o que realmente fez parte da viagem, sem misturar plano com presença.'],
 ] as const;
 
 function circularOffset(index:number,active:number,total:number){
@@ -93,8 +93,8 @@ function RouteTypeSlider(){
   return <section className={`${styles.section} ${styles.routeTypes}`} aria-labelledby="route-types-title">
     <div className={styles.centerHead}>
       <p className="eyebrow">Roteiros para começar</p>
-      <h2 id="route-types-title">Escolha uma boa base antes de pensar em cada detalhe.</h2>
-      <p>Os roteiros partem de situações reais de viagem. Você escolhe um, cria sua própria versão e muda o que quiser depois.</p>
+      <h2 id="route-types-title">Escolha um ponto de partida que combine com a sua viagem.</h2>
+      <p>Cada roteiro parte de uma situação real e organiza uma primeira versão possível. Você adapta o ritmo, as paradas e a ordem conforme a viagem ganha forma.</p>
     </div>
     <div className={styles.routeTabs} role="tablist" aria-label="Roteiros prontos">
       {routeTypes.map((item,index)=><button ref={node=>{tabRefs.current[index]=node}} key={item.slug} type="button" role="tab" data-testid={`home-route-tab-${index}`} aria-selected={active===index} tabIndex={active===index?0:-1} className={active===index?styles.routeTabActive:styles.routeTab} onKeyDown={event=>onTabKey(event,index)} onClick={()=>change(index)}>{item.eyebrow}</button>)}
@@ -103,7 +103,7 @@ function RouteTypeSlider(){
       {previousItem&&<article aria-hidden="true" inert className={`${styles.routeSlide} ${direction===1?styles.slideOutLeft:styles.slideOutRight}`}><RouteSlideContent item={previousItem}/></article>}
       <article key={current.slug} className={`${styles.routeSlide} ${direction===1?styles.slideInRight:styles.slideInLeft}`}><RouteSlideContent item={current}/></article>
     </div>
-    <div className="actions" style={{justifyContent:'center',marginTop:'1.25rem'}}><Link className="button" href="/roteiros">Ver todos os roteiros</Link><Link className="button" href="/roteiro">Criar do zero</Link></div>
+    <div className="actions" style={{justifyContent:'center',marginTop:'1.25rem'}}><Link className="button" href="/roteiros">Ver todos os roteiros</Link><Link className="button" href="/roteiro">Planejar minha viagem</Link></div>
   </section>;
 }
 
@@ -156,17 +156,15 @@ function FAQ(){
 }
 
 export default function HomeExperience({featured,partners,categories,routePlaces}:Props){
-  const startCategories=useMemo(()=>categories.slice(0,4),[categories]);
   return <>
     <section className={styles.hero} data-testid="home-hero">
       <div className={styles.heroBackdrop} aria-hidden="true"><img src="/assets/brand/hero/serra-negra-header-2048.webp" alt=""/></div>
       <div className={styles.heroContent}>
-        <p className="eyebrow">Roteiros prontos · liberdade para adaptar · memória</p>
+        <p className="eyebrow">Descubra · organize · adapte · registre</p>
         <WarpTitle/>
-        <p className="lead">Comece por uma viagem já pensada para diferentes formas de viver a cidade. Use como está, adapte para você ou crie tudo do zero.</p>
-        <div className="actions"><Link className="button primary" href="/roteiros">Explorar roteiros</Link><Link className="button" href="/roteiro">Criar do zero</Link></div>
+        <p className="lead">O Passaporte conecta o que você quer viver com lugares, experiências e negócios locais para transformar intenção em um caminho possível por Serra Negra.</p>
         <form className={styles.heroSearch} action="/explorar" method="get" role="search">
-          <label className="sr-only" htmlFor="home-search">Buscar lugares e experiências</label><Icon name="busca"/><input id="home-search" name="q" type="search" placeholder="Ou busque um lugar, café, mirante…"/><button type="submit">Explorar</button>
+          <label className="sr-only" htmlFor="home-search">Buscar lugares e experiências</label><Icon name="busca"/><input id="home-search" name="q" type="search" placeholder="Busque um lugar, café, mirante…"/><button type="submit">Buscar</button>
         </form>
       </div>
     </section>
@@ -174,54 +172,54 @@ export default function HomeExperience({featured,partners,categories,routePlaces
     <RouteTypeSlider/>
 
     <section className={`${styles.section} ${styles.routeLine}`} aria-labelledby="route-line-title">
-      <div className={styles.centerHead}><p className="eyebrow">Comece pronto. Depois faça virar seu.</p><h2 id="route-line-title">Uma boa base reduz decisões sem tirar seu controle.</h2><p>O roteiro organiza uma primeira sequência possível. A partir daí, cada parada pode ser trocada, movida, fixada ou removida.</p></div>
+      <div className={styles.centerHead}><p className="eyebrow">Da intenção ao caminho</p><h2 id="route-line-title">Transforme escolhas soltas em um dia que faz sentido.</h2><p>O Passaporte ajuda a aproximar lugares, tempo e deslocamento para que o roteiro funcione como caminho, não como lista.</p></div>
       <div className={styles.routeTrack} data-testid="home-route-track">{routePlaces.slice(0,4).map((place,index)=><Link className={styles.routeStop} href={placeUrl(place)} key={place.id}><span className={styles.routeDot}>{index+1}</span><strong>{place.name}</strong><small>{place.durationMinutes||60} min</small></Link>)}</div>
       <div className="actions" style={{justifyContent:'center',marginTop:'1.5rem'}}><Link className="button primary" href="/roteiros">Escolher um roteiro</Link></div>
     </section>
 
     <section className={`${styles.section} ${styles.meetings}`} aria-labelledby="meetings-title">
-      <div className={styles.centerHead}><p className="eyebrow">Encontros pelo caminho</p><h2 id="meetings-title">Negócios locais entram quando fazem sentido para a viagem.</h2><p>O objetivo não é transformar o roteiro em uma lista de anúncios. Parceiros aparecem como descobertas compatíveis com o percurso, interesse e contexto.</p></div>
+      <div className={styles.centerHead}><p className="eyebrow">Descobertas no momento certo</p><h2 id="meetings-title">Negócios locais aparecem quando acrescentam algo ao seu caminho.</h2><p>Cafés, produtores, restaurantes e experiências entram como descobertas compatíveis com o percurso e com o que você procura, não como anúncios soltos.</p></div>
       <PartnerGallery partners={partners}/>
     </section>
 
     <section className={`${styles.section} ${styles.contextual}`} aria-labelledby="contextual-title">
-      <div className={styles.centerHead}><p className="eyebrow">O roteiro acompanha o contexto</p><h2 id="contextual-title">Planejar ajuda. Poder mudar é o que torna o plano útil.</h2><p>Clima, ritmo e escolhas ao longo do dia podem mudar. A viagem deve continuar legível mesmo quando a ordem original deixa de fazer sentido.</p></div>
+      <div className={styles.centerHead}><p className="eyebrow">O dia muda. O roteiro também.</p><h2 id="contextual-title">Seu plano continua útil quando a viagem muda.</h2><p>Clima, horários, ritmo e novas descobertas podem alterar o dia. Você reorganiza o percurso sem perder o que já decidiu.</p></div>
       <div className={styles.contextGrid}>
-        <article className="panel"><Icon name="clima-parcialmente-nublado"/><h3>Contexto do dia</h3><p>Alternativas podem fazer mais sentido conforme clima e condições disponíveis.</p></article>
-        <article className="panel"><Icon name="roteiro"/><h3>Ritmo real</h3><p>Você pode diminuir, acelerar ou reorganizar o dia sem recomeçar a viagem inteira.</p></article>
-        <article className="panel"><Icon name="passaporte"/><h3>O que aconteceu</h3><p>O Passaporte registra a experiência vivida, não apenas aquilo que estava no plano.</p></article>
+        <article className="panel"><Icon name="clima-parcialmente-nublado"/><h3>Contexto do dia</h3><p>Compare alternativas conforme clima, horários e o tempo disponível.</p></article>
+        <article className="panel"><Icon name="roteiro"/><h3>Ritmo da viagem</h3><p>Mude a ordem, reduza ou acrescente paradas sem reconstruir tudo.</p></article>
+        <article className="panel"><Icon name="passaporte"/><h3>Memória do que foi vivido</h3><p>O Passaporte separa o que estava planejado do que realmente aconteceu.</p></article>
       </div>
     </section>
 
     <section className={`${styles.section} ${styles.firstPaths}`} aria-labelledby="first-paths-title">
-      <div className={styles.sectionHead}><div><p className="eyebrow">Descubra antes de decidir</p><h2 id="first-paths-title">Conheça lugares que podem entrar no seu caminho</h2></div><Link className={styles.secondaryLink} href="/pontos-turisticos">Conhecer todos os pontos <Icon name="avancar" size="sm"/></Link></div>
+      <div className={styles.sectionHead}><div><p className="eyebrow">Explore o território</p><h2 id="first-paths-title">Descubra lugares antes de decidir o que entra no roteiro</h2></div><Link className={styles.secondaryLink} href="/pontos-turisticos">Ver todos os pontos <Icon name="avancar" size="sm"/></Link></div>
       <div className={styles.featuredGrid} data-testid="home-featured-grid">{featured.map(place=><PlaceCard key={place.id} place={place}/>)}</div>
     </section>
 
     <section className={`${styles.section} ${styles.interests}`} aria-labelledby="interests-title">
-      <div className={styles.centerHead}><p className="eyebrow">Coleções para explorar</p><h2 id="interests-title">Ainda não quer um roteiro? Comece pelo que chama sua atenção.</h2><p>Interesses funcionam como descoberta livre. Quando algo fizer sentido, você pode levar essas escolhas para a viagem.</p><Link className="button" href="/explorar">Explorar tudo</Link></div>
-      <div className={styles.interestGrid}>{categories.map(category=><Link className={styles.interestCard} key={category.id} href={`/explorar?category=${category.id}`}><span><Icon name={categoryIcon(category)}/></span><strong>{category.name}</strong><small>Explorar interesse</small></Link>)}</div>
+      <div className={styles.centerHead}><p className="eyebrow">Explore do seu jeito</p><h2 id="interests-title">Ainda sem roteiro? Comece pelo que desperta sua curiosidade.</h2><p>Navegue por interesses e encontre descobertas que podem ganhar lugar na sua viagem quando fizer sentido.</p><Link className="button" href="/explorar">Explorar por interesse</Link></div>
+      <div className={styles.interestGrid}>{categories.map(category=><Link className={styles.interestCard} key={category.id} href={`/explorar?category=${category.id}`}><span><Icon name={categoryIcon(category)}/></span><strong>{category.name}</strong><small>Ver descobertas</small></Link>)}</div>
     </section>
 
     <section className={`${styles.section} ${styles.passportIntro}`} aria-labelledby="passport-intro-title">
       <div className={styles.passportPaper} aria-hidden="true"><img src="/assets/brand/passport/folha-passaporte.svg" alt=""/></div>
-      <div><p className="eyebrow">Meu Passaporte</p><h2 id="passport-intro-title">Planejar é uma coisa. Viver é outra.</h2><p>Seu roteiro começa como intenção. O Passaporte guarda os registros do que realmente entrou para a viagem e transforma o percurso vivido em memória.</p><div className="actions"><Link className="button primary" href="/meu-passaporte">Conhecer o Passaporte</Link><Link className="button" href="/roteiros">Escolher roteiro</Link></div></div>
+      <div><p className="eyebrow">De roteiro a memória</p><h2 id="passport-intro-title">O plano termina. A experiência fica.</h2><p>O roteiro registra intenção. O Passaporte guarda os lugares que realmente fizeram parte da viagem e transforma o percurso vivido em memória.</p><div className="actions"><Link className="button primary" href="/meu-passaporte">Ver meu Passaporte</Link><Link className="button" href="/roteiros">Escolher um roteiro</Link></div></div>
     </section>
 
     <section className={`${styles.section} ${styles.mapSection}`} aria-labelledby="map-context-title">
-      <div className={styles.centerHead}><p className="eyebrow">Serra Negra pelo território</p><h2 id="map-context-title">Entenda proximidades antes de gastar tempo se deslocando.</h2><p>Mapa, lugares e roteiro compartilham o mesmo contexto territorial para ajudar a construir dias mais coerentes.</p><Link className="button" href="/mapa">Abrir mapa</Link></div>
+      <div className={styles.centerHead}><p className="eyebrow">Proximidade importa</p><h2 id="map-context-title">Veja o que cabe no mesmo dia antes de atravessar a cidade.</h2><p>Use o mapa para entender distâncias, combinar paradas próximas e construir um percurso mais coerente.</p><Link className="button" href="/mapa">Explorar no mapa</Link></div>
       <div className={styles.mapWrap}><MockMap places={routePlaces.slice(0,6)}/></div>
     </section>
 
     <section className={`${styles.section} ${styles.faqOnly}`} aria-labelledby="faq-title">
-      <div className={styles.centerHead}><p className="eyebrow">Antes de começar</p><h2 id="faq-title">Pronto não significa fechado.</h2><p>O essencial para entender a diferença entre escolher uma base, adaptar uma viagem e registrar o que foi vivido.</p></div><FAQ/>
+      <div className={styles.centerHead}><p className="eyebrow">Como funciona</p><h2 id="faq-title">Você escolhe quanto quer planejar.</h2><p>Comece por uma base pronta ou personalize desde o início. Em qualquer caminho, o roteiro continua editável e o Passaporte registra o que foi vivido.</p></div><FAQ/>
     </section>
 
     <section className={`${styles.section} ${styles.finalCta}`} aria-labelledby="next-path-title" data-testid="home-final-cta">
       <p className="eyebrow">Seu próximo caminho</p>
-      <h2 id="next-path-title"><span>Escolha uma boa base.</span><span>Faça a viagem virar sua.</span></h2>
-      <p>Comece com um roteiro pronto para a situação que mais combina com você ou construa tudo do zero quando quiser controle total desde a primeira escolha.</p>
-      <div className="actions"><Link className="button primary" href="/roteiros">Explorar roteiros</Link><Link className="button" href="/roteiro">Criar do zero</Link></div>
+      <h2 id="next-path-title"><span>Comece com uma direção.</span><span>Faça a viagem ganhar a sua forma.</span></h2>
+      <p>Escolha um roteiro que combine com o momento da sua viagem ou planeje uma versão personalizada. O Passaporte acompanha suas escolhas até elas virarem experiência.</p>
+      <div className="actions"><Link className="button primary" href="/roteiros">Explorar roteiros</Link><Link className="button" href="/roteiro">Planejar minha viagem</Link></div>
     </section>
   </>;
 }

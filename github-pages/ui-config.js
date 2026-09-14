@@ -10,7 +10,7 @@
         { label:'Roteiros', href:'#/roteiros', iconKey:'nav.route' },
         { label:'Mapa', href:'#/explorar?view=map', iconKey:'nav.map' },
         { label:'Para parceiros', href:'#/parceiros', iconKey:'nav.partners' },
-        { label:'Criar do zero', href:'#/roteiro', iconKey:'route.add', cta:true }
+        { label:'Planejar minha viagem', href:'#/roteiro', iconKey:'route.add', cta:true }
       ],
       pageMap: { home:'#/', explorar:'#/explorar', roteiro:'#/roteiro', viagens:'#/viagens/demo-trip-001/roteiro', parceiros:'#/parceiros', 'para-parceiros':'#/parceiros' }
     },
@@ -20,17 +20,17 @@
       {value:'dark',label:'Escuro',iconKey:'theme.dark'}
     ],
     footer: {
-      description:'Descubra lugares, escolha um roteiro, adapte sua viagem e guarde as experiências vividas em Serra Negra.',
+      description:'Descubra o que combina com a sua viagem, organize o caminho e guarde o que realmente viveu em Serra Negra.',
       groups:[
-        {label:'Descobrir',items:[{label:'Roteiros prontos',href:'#/roteiros'},{label:'Criar do zero',href:'#/roteiro'},{label:'Explorar',href:'#/explorar'},{label:'Meu Passaporte',href:'#/meu-passaporte'}]},
+        {label:'Descobrir',items:[{label:'Roteiros prontos',href:'#/roteiros'},{label:'Planejar minha viagem',href:'#/roteiro'},{label:'Explorar',href:'#/explorar'},{label:'Meu Passaporte',href:'#/meu-passaporte'}]},
         {label:'Ecossistema',items:[{label:'Para parceiros',href:'#/parceiros'},{label:'Área de operação',href:'#/admin'},{label:'Restaurar prévia',action:'reset-demo'}]},
         {label:'Transparência',items:[{label:'Privacidade',href:'#/privacidade'},{label:'Termos de uso',href:'#/termos'},{label:'Cookies e armazenamento',href:'#/cookies'},{label:'Acessibilidade',href:'#/acessibilidade'}]}
       ]
     },
     pageMeta: {
-      home:['Passaporte Serra Negra','Escolha um roteiro pronto, adapte sua viagem e guarde o que realmente viveu em Serra Negra.'],
+      home:['Passaporte Serra Negra','Descubra o que combina com a sua viagem, organize um roteiro possível e guarde o que realmente viveu em Serra Negra.'],
       explorar:['Explorar · Passaporte Serra Negra','Busque lugares, experiências e categorias para montar seu caminho por Serra Negra.'],
-      roteiro:['Criar roteiro do zero · Passaporte Serra Negra','Responda às etapas essenciais quando quiser construir a viagem sem partir de um roteiro pronto.'],
+      roteiro:['Planejar minha viagem · Passaporte Serra Negra','Conte como você quer viver Serra Negra e monte um roteiro personalizado a partir das suas escolhas.'],
       viagens:['Minha viagem · Passaporte Serra Negra','Consulte roteiro e calendário usando o mesmo estado demonstrativo da viagem.'],
       'meu-passaporte':['Meu Passaporte · Passaporte Serra Negra','Veja registros demonstrativos separados dos itens apenas planejados.'],
       admin:['Operação · Passaporte Serra Negra','Área de operação da prévia navegável.'],
@@ -88,9 +88,9 @@
         {id:'gastronomia',slug:'cafes-e-sabores',label:'Cafés e sabores',eyebrow:'Sabores pelo caminho',title:'Cafés, gastronomia e descobertas locais',body:'Uma viagem organizada ao redor de pausas gastronômicas, cafés e experiências que combinam com quem gosta de descobrir a cidade pelo sabor.',days:'1 dia',audience:'Gastronomia',image:'./assets/tourism/feira-artesanato.jpg',placeIds:['place-cafe-neblina','place-bistro-estacao','place-casa-mel']}
       ],
       faq:[
-        {question:'Preciso responder perguntas para começar?',answer:'Não. Você pode começar por um roteiro pronto. O questionário completo fica para quem prefere criar a viagem do zero.'},
-        {question:'O roteiro pronto fica engessado?',answer:'Não. A curadoria funciona como base e você continua podendo trocar, mover, remover e adicionar paradas.'},
-        {question:'Qual é a diferença entre roteiro e Passaporte?',answer:'O roteiro organiza a intenção da viagem. O Passaporte mantém separado aquilo que foi planejado do que realmente foi vivido.'}
+        {question:'Preciso responder perguntas para começar?',answer:'Não. Você pode começar por um roteiro pronto e adaptar depois. Se preferir mais controle desde o início, use o planejamento personalizado.'},
+        {question:'O roteiro pronto fica engessado?',answer:'Não. Ele funciona como ponto de partida e você continua podendo trocar, mover, remover, fixar e adicionar paradas.'},
+        {question:'Qual é a diferença entre roteiro e Passaporte?',answer:'O roteiro organiza o que você pretende viver. O Passaporte registra o que realmente fez parte da viagem, sem misturar plano com presença.'}
       ],
       passportSteps:[
         {label:'Explorar',iconKey:'nav.explore'},

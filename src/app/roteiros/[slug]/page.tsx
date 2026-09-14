@@ -45,7 +45,7 @@ export default async function ReadyRouteDetail({params}:{params:Promise<{slug:st
       <div>
         <p className="eyebrow">A lógica deste roteiro</p>
         <h2>Uma base pronta, não uma sequência engessada.</h2>
-        <p className="lead">A curadoria define a intenção e o ritmo. Quando você usa o roteiro, o Passaporte combina essa base com os lugares disponíveis e cria uma versão editável para a sua viagem.</p>
+        <p className="lead">A curadoria define uma direção e um ritmo. Quando você usa o roteiro, o Passaporte transforma essa base em uma versão editável para a sua viagem.</p>
 
         <div className={styles.principles}>
           <article><strong>Curadoria</strong><p>O roteiro começa por uma situação de viagem real, não por uma lista genérica de atrações.</p></article>
@@ -64,10 +64,10 @@ export default async function ReadyRouteDetail({params}:{params:Promise<{slug:st
         </section>
 
         <div className={styles.customBox}>
-          <p className="eyebrow">Prefere decidir tudo?</p>
-          <h2>Você também pode começar com uma página em branco.</h2>
-          <p>O construtor completo pergunta datas, companhia, interesses, intenção, ritmo, transporte e necessidades para montar uma viagem do zero.</p>
-          <Link className="button" href="/roteiro">Criar roteiro do zero</Link>
+          <p className="eyebrow">Quer mais controle desde o início?</p>
+          <h2>Planeje a viagem a partir das suas escolhas.</h2>
+          <p>Informe datas, companhia, interesses, intenção, ritmo, transporte e necessidades para criar uma primeira versão personalizada do seu caminho.</p>
+          <Link className="button" href="/roteiro">Planejar minha viagem</Link>
         </div>
       </div>
 
