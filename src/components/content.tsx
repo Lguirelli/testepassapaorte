@@ -1,5 +1,4 @@
 import {safeAssetSrc,safeObjectPosition} from '@/core/security/sanitize';
-import Link from 'next/link';
 import {Icon} from '@/design-system/icons';
 import type {ContentData} from '@/core/db/schema';
 import {PlaceMap} from './PlaceMap';
@@ -7,17 +6,18 @@ import {placeUrl} from '@/modules/content/urls';
 
 export const labels:Record<string,string>={tourist_point:'Ponto turístico',business:'Estabelecimento',partner:'Parceiro',public_point:'Ponto público',free:'Sem custo',paid:'Pago',paid_with_booking:'Pago com reserva',free_with_booking:'Gratuito com reserva',mixed:'Misto',unknown:'Não informado',indoor:'Ambiente interno',outdoor:'Ao ar livre',within_1_hour:'Em até 1 hora',same_day:'No mesmo dia',within_few_hours:'Em algumas horas',partly_cloudy:'Parcialmente nublado',rain:'Chuva',clear:'Céu aberto',planned:'Planejado',fixed:'Fixado',moved:'Movido',removed:'Removido'};
 
-export function PlaceCard({place}:{place:ContentData}){
+export function PlaceCard({place,morph=true}:{place:ContentData;morph?:boolean}){
   const asset=place.imageAsset;
   const remoteIsIllustrative=asset?.illustrative===true||asset?.notActualPlace===true;
   const preferFallback=remoteIsIllustrative&&Boolean(asset?.fallbackSrc);
   const image=safeAssetSrc(preferFallback?asset?.fallbackSrc:(asset?.src||asset?.fallbackSrc),'/placeholders/card.svg');
   const alt=preferFallback?`Imagem de ${place.name}`:(asset?.alt||`Imagem de ${place.name}`);
   const kind=labels[place.commercialRelation||'']||labels[place.placeType||''];
-  return <article className="card" data-testid={`place-card-${place.id}`}>
+  return <article className="card" data-testid={`place-card-${place.id}`} data-morph-card={morph?'place':undefined} data-morph-id={morph?place.id:undefined}>
     <img
       className="placeholder"
       data-card-media="true"
+      data-morph-media={morph?'true':undefined}
       src={image}
       alt={alt}
       style={{
@@ -34,10 +34,11 @@ export function PlaceCard({place}:{place:ContentData}){
       decoding="async"
       draggable={false}
     />
-    <span className="eyebrow">{place.synthetic?`${kind} · DEMO`:kind}</span>
-    <h3><Link href={placeUrl(place)}>{place.name}</Link></h3>
+    <span className="eyebrow" data-morph-meta={morph?'true':undefined}>{place.synthetic?`${kind} · DEMO`:kind}</span>
+    <h3 data-morph-title={morph?'true':undefined}>{place.name}</h3>
     <p>{place.shortDescription}</p>
     <div className="actions"><small><Icon name="lugar-duracao-sugerida" size="xs"/> {place.durationMinutes} min</small><span className="badge">{labels[place.environment||'']}</span></div>
+    <a className="card-morph-link" data-morph-link="true" href={placeUrl(place)} aria-label={`Abrir ${place.name}`}/>
   </article>;
 }
 

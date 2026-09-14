@@ -23,15 +23,16 @@ export default function ReadyRoutesPage(){
     <section id="roteiros" aria-labelledby="ready-routes-title">
       <div className="section-head"><div><p className="eyebrow">Escolha pela situação</p><h2 id="ready-routes-title">Que Serra Negra combina com a sua viagem?</h2></div></div>
       <div className={styles.grid} data-ready-route-grid>
-        {READY_ROUTES.map(route=><article className={styles.card} data-ready-route-card key={route.slug}>
-          <img src={route.image} alt="" loading="lazy"/>
+        {READY_ROUTES.map(route=><article className={styles.card} data-ready-route-card data-morph-card="route" data-morph-id={route.slug} key={route.slug}>
+          <img src={route.image} alt="" loading="lazy" data-morph-media="true"/>
           <div className={styles.cardBody}>
             <p className="eyebrow">{route.eyebrow}</p>
-            <h2>{route.title}</h2>
+            <h2 data-morph-title="true">{route.title}</h2>
             <p>{route.summary}</p>
-            <div className={styles.meta}><span>{route.durationDays} {route.durationDays===1?'dia':'dias'}</span><span>{route.paceLabel}</span><span>{route.audience}</span></div>
-            <Link className={styles.cardLink} href={`/roteiros/${route.slug}`}>Conhecer este roteiro →</Link>
+            <div className={styles.meta} data-morph-meta="true"><span>{route.durationDays} {route.durationDays===1?'dia':'dias'}</span><span>{route.paceLabel}</span><span>{route.audience}</span></div>
+            <span className={styles.cardLink}>Conhecer este roteiro →</span>
           </div>
+          <a className="route-morph-link" data-morph-link="true" href={`/roteiros/${route.slug}`} aria-label={`Conhecer ${route.title}`}>Conhecer este roteiro</a>
         </article>)}
       </div>
     </section>

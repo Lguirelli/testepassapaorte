@@ -18,7 +18,7 @@
   const touristPoints=()=>places().filter(p=>visible(p)&&(p.placeType==='tourist_point'||p.commercialRelation==='public_point'));
   const partners=()=>places().filter(p=>visible(p)&&p.commercialRelation==='partner');
   const hrefFor=p=>p?.commercialRelation==='partner'?`#/parceiros/${esc(p.slug||p.id)}`:`#/lugares/${esc(p.slug||p.id)}`;
-  const card=(p,i)=>`<a class="ch-place-card" href="${hrefFor(p)}"><img src="${esc(imageFor(p,i))}" alt="" loading="lazy"><div class="ch-place-card-body"><small>${esc((p.categoryIds||[]).map(categoryName).slice(0,2).join(' · ')||'Serra Negra')}</small><h3>${esc(p.name||'Lugar em Serra Negra')}</h3><p>${esc(p.shortDescription||'Descubra este lugar e considere como ele pode entrar no seu percurso.')}</p></div></a>`;
+  const card=(p,i)=>`<a class="ch-place-card" data-shared-place="${esc(p.id)}" href="${hrefFor(p)}"><img data-morph-media src="${esc(imageFor(p,i))}" alt="" loading="lazy"><div class="ch-place-card-body"><small data-morph-meta>${esc((p.categoryIds||[]).map(categoryName).slice(0,2).join(' · ')||'Serra Negra')}</small><h3 data-morph-title>${esc(p.name||'Lugar em Serra Negra')}</h3><p>${esc(p.shortDescription||'Descubra este lugar e considere como ele pode entrar no seu percurso.')}</p></div></a>`;
 
   const configRoutes=Array.isArray(CONFIG.home?.routeTypes)?CONFIG.home.routeTypes:[];
   const readyRoutes=configRoutes.map((route,index)=>({
@@ -30,6 +30,18 @@
     image:normalizeAsset(route.image||fallbackImages[index%fallbackImages.length])
   }));
   const faqs=(Array.isArray(CONFIG.home?.faq)?CONFIG.home.faq:[]).map(item=>[item.question,item.answer]);
+  let pendingRouteMorph=null;
+  const reducedMotion=()=>window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const clearRouteMorph=()=>{
+    document.querySelectorAll('[style*="view-transition-name: route-"]').forEach(node=>{node.style.viewTransitionName='';});
+    pendingRouteMorph=null;
+  };
+  const applyRouteMorphTarget=()=>{
+    if(!pendingRouteMorph)return;
+    const root=document.querySelector(`[data-route-target="${CSS.escape(pendingRouteMorph)}"]`);if(!root)return;
+    const media=root.querySelector('[data-morph-media]');const title=root.querySelector('[data-morph-title]');const meta=root.querySelector('[data-morph-meta]');
+    if(media)media.style.viewTransitionName='route-media';if(title)title.style.viewTransitionName='route-title';if(meta)meta.style.viewTransitionName='route-meta';
+  };
 
   function syncCurrentNav(key){
     document.querySelectorAll('#main-nav a').forEach(link=>link.removeAttribute('aria-current'));
@@ -55,7 +67,7 @@
 
       <section class="ch-section"><div class="ch-shell"><div class="ch-center"><p class="ch-eyebrow">DA INTENÇÃO AO CAMINHO</p><h2>Transforme escolhas soltas em um dia que faz sentido.</h2><p>O Passaporte ajuda a aproximar lugares, tempo e deslocamento para que o roteiro funcione como caminho, não como lista.</p></div><div class="ch-route-track">${routePlaces.slice(0,4).map((p,i)=>`<a class="ch-route-stop" href="${hrefFor(p)}"><span class="ch-route-dot">${i+1}</span><strong>${esc(p.name)}</strong><small>${esc(p.durationMinutes||60)} min</small></a>`).join('')}</div><div class="ch-actions" style="justify-content:center"><a class="ch-button ch-button-primary" href="#/roteiros">Escolher um roteiro</a></div></div></section>
 
-      <section class="ch-section ch-meetings"><div class="ch-shell"><div class="ch-center"><p class="ch-eyebrow">DESCOBERTAS NO MOMENTO CERTO</p><h2>Negócios locais aparecem quando acrescentam algo ao seu caminho.</h2><p>Cafés, produtores, restaurantes e experiências entram como descobertas compatíveis com o percurso e com o que você procura, não como anúncios soltos.</p></div><div class="ch-gallery" data-current-gallery tabindex="0" aria-label="Parceiros ao longo do caminho">${partnerList.map((p,i)=>`<article class="ch-partner" data-gallery-index="${i}"><div class="ch-partner-card"><img src="${esc(imageFor(p,i+2))}" alt="" loading="lazy"><div><small>${esc((p.categoryIds||[]).map(categoryName).slice(0,2).join(' · ')||'Parceiro')}</small><h3>${esc(p.name)}</h3><p>${esc(p.shortDescription||'Uma descoberta local que pode entrar no percurso.')}</p><a class="ch-button" href="${hrefFor(p)}">Conhecer experiência</a></div></div></article>`).join('')}</div><div class="ch-gallery-controls"><button type="button" data-gallery-prev aria-label="Parceiro anterior">←</button><span>ARRASTE · ROLE · CLIQUE · USE AS SETAS</span><button type="button" data-gallery-next aria-label="Próximo parceiro">→</button></div></div></section>
+      <section class="ch-section ch-meetings"><div class="ch-shell"><div class="ch-center"><p class="ch-eyebrow">DESCOBERTAS NO MOMENTO CERTO</p><h2>Negócios locais aparecem quando acrescentam algo ao seu caminho.</h2><p>Cafés, produtores, restaurantes e experiências entram como descobertas compatíveis com o percurso e com o que você procura, não como anúncios soltos.</p></div><div class="ch-gallery" data-current-gallery tabindex="0" aria-label="Parceiros ao longo do caminho">${partnerList.map((p,i)=>`<article class="ch-partner" data-gallery-index="${i}" data-shared-place="${esc(p.id)}"><div class="ch-partner-card"><img data-morph-media src="${esc(imageFor(p,i+2))}" alt="" loading="lazy"><div><small data-morph-meta>${esc((p.categoryIds||[]).map(categoryName).slice(0,2).join(' · ')||'Parceiro')}</small><h3 data-morph-title>${esc(p.name)}</h3><p>${esc(p.shortDescription||'Uma descoberta local que pode entrar no percurso.')}</p><a class="ch-button" href="${hrefFor(p)}">Conhecer experiência</a></div></div></article>`).join('')}</div><div class="ch-gallery-controls"><button type="button" data-gallery-prev aria-label="Parceiro anterior">←</button><span>ARRASTE · ROLE · CLIQUE · USE AS SETAS</span><button type="button" data-gallery-next aria-label="Próximo parceiro">→</button></div></div></section>
 
       <section class="ch-section"><div class="ch-shell"><div class="ch-center"><p class="ch-eyebrow">O DIA MUDA. O ROTEIRO TAMBÉM.</p><h2>Seu plano continua útil quando a viagem muda.</h2><p>Clima, horários, ritmo e novas descobertas podem alterar o dia. Você reorganiza o percurso sem perder o que já decidiu.</p></div><div class="ch-context-grid"><article class="ch-panel"><span class="ch-card-icon">☁</span><h3>Contexto do dia</h3><p>Compare alternativas conforme clima, horários e o tempo disponível.</p></article><article class="ch-panel"><span class="ch-card-icon">↝</span><h3>Ritmo da viagem</h3><p>Mude a ordem, reduza ou acrescente paradas sem reconstruir tudo.</p></article><article class="ch-panel"><span class="ch-card-icon">◇</span><h3>Memória do que foi vivido</h3><p>O Passaporte separa o que estava planejado do que realmente aconteceu.</p></article></div></div></section>
 
@@ -63,7 +75,7 @@
 
       <section class="ch-section"><div class="ch-shell"><div class="ch-center"><p class="ch-eyebrow">EXPLORE DO SEU JEITO</p><h2>Ainda sem roteiro? Comece pelo que desperta sua curiosidade.</h2><p>Navegue por interesses e encontre descobertas que podem ganhar lugar na sua viagem quando fizer sentido.</p><div class="ch-actions" style="justify-content:center"><a class="ch-button" href="#/explorar">Explorar por interesse</a></div></div><div class="ch-card-grid4">${cats.map(c=>`<a class="ch-interest-card" href="#/explorar?category=${encodeURIComponent(c.id)}"><span class="ch-card-icon">○</span><strong>${esc(c.name)}</strong><small>Ver descobertas</small></a>`).join('')}</div></div></section>
 
-      <section class="ch-section"><div class="ch-shell ch-passport"><div class="ch-passport-paper" aria-hidden="true"><img src="./assets/brand/passport/folha-passaporte.svg" alt=""></div><div><p class="ch-eyebrow">DE ROTEIRO A MEMÓRIA</p><h2>O plano termina. A experiência fica.</h2><p>O roteiro registra intenção. O Passaporte guarda os lugares que realmente fizeram parte da viagem e transforma o percurso vivido em memória.</p><div class="ch-actions"><a class="ch-button ch-button-primary" href="#/meu-passaporte">Ver meu Passaporte</a><a class="ch-button" href="#/roteiros">Escolher um roteiro</a></div></div></div></section>
+      <section class="ch-section"><div class="ch-shell ch-passport"><div class="ch-passport-paper" aria-hidden="true"><img src="./assets/brand/passport/passaporte-capa-couro.png" alt=""></div><div><p class="ch-eyebrow">DE ROTEIRO A MEMÓRIA</p><h2>O plano termina. A experiência fica.</h2><p>O roteiro registra intenção. O Passaporte guarda os lugares que realmente fizeram parte da viagem e transforma o percurso vivido em memória.</p><div class="ch-actions"><a class="ch-button ch-button-primary" href="#/meu-passaporte">Ver meu Passaporte</a><a class="ch-button" href="#/roteiros">Escolher um roteiro</a></div></div></div></section>
 
       <section class="ch-section"><div class="ch-shell"><div class="ch-center"><p class="ch-eyebrow">PROXIMIDADE IMPORTA</p><h2>Veja o que cabe no mesmo dia antes de atravessar a cidade.</h2><p>Use o mapa para entender distâncias, combinar paradas próximas e construir um percurso mais coerente.</p><div class="ch-actions" style="justify-content:center"><a class="ch-button" href="#/explorar?view=map">Explorar no mapa</a></div></div><div class="ch-map">${routePlaces.slice(0,6).map((p,i)=>`<a class="ch-pin" title="${esc(p.name)}" href="${hrefFor(p)}" style="left:${12+(i*15)%78}%;top:${22+(i*19)%58}%">${i+1}</a>`).join('')}</div></div></section>
 
@@ -74,14 +86,14 @@
     bindHome(partnerList);
   }
 
-  function routeCard(r){return `<a class="ch-choice-card" href="#/roteiros/${esc(r.slug||r.id)}"><span class="ch-card-icon">✦</span><small>${esc(r.days)} · ${esc(r.audience)}</small><strong>${esc(r.title)}</strong><span>${esc(r.body)}</span></a>`;}
+  function routeCard(r){const id=esc(r.slug||r.id);return `<a class="ch-choice-card" data-shared-route="${id}" href="#/roteiros/${id}"><span class="ch-card-icon">✦</span><small data-morph-meta>${esc(r.days)} · ${esc(r.audience)}</small><strong data-morph-title>${esc(r.title)}</strong><span>${esc(r.body)}</span></a>`;}
   function renderReadyRoutes(){
     if(!app||!isReadyRoutes())return;
     syncCurrentNav('routes');document.body.dataset.page='roteiros';
     const parts=path().split('/').filter(Boolean);const selected=parts[1]?readyRoutes.find(route=>(route.slug||route.id)===parts[1]):null;
     if(selected){
       document.title=`${selected.title} · Passaporte Serra Negra`;
-      app.innerHTML=`<div class="current-home"><section class="ch-section"><div class="ch-shell"><a class="ch-button" href="#/roteiros">← Todos os roteiros</a><div class="ch-passport" style="margin-top:1.5rem"><div class="ch-passport-paper" aria-hidden="true"><img src="${esc(selected.image)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:18px"></div><div><p class="ch-eyebrow">${esc(selected.eyebrow)}</p><h1 style="font-size:clamp(2.4rem,6vw,5rem);line-height:.98">${esc(selected.title)}</h1><p class="ch-lead">${esc(selected.body)}</p><div class="ch-filters"><span>${esc(selected.days)}</span><span>${esc(selected.audience)}</span></div><div class="ch-actions"><a class="ch-button ch-button-primary" href="#/viagens/demo-trip-001/roteiro">Usar este roteiro na demonstração</a><a class="ch-button ch-trip-planner-cta" href="#/roteiro">Planejar minha viagem</a></div></div></div></div></section><section class="ch-section"><div class="ch-shell"><div class="ch-center"><p class="ch-eyebrow">UMA BASE, NÃO UMA REGRA</p><h2>Curadoria para começar. Liberdade para adaptar.</h2><p>Na versão completa, escolher este roteiro cria uma cópia editável da viagem. A prévia estática abre o roteiro demonstrativo existente para mostrar a experiência de edição.</p></div><div class="ch-context-grid"><article class="ch-panel"><h3>Escolha</h3><p>Comece por uma situação de viagem real.</p></article><article class="ch-panel"><h3>Adapte</h3><p>Troque e reorganize paradas conforme sua necessidade.</p></article><article class="ch-panel"><h3>Viva</h3><p>O Passaporte mantém separado o planejado do que foi registrado.</p></article></div></div></section></div>`;
+      app.innerHTML=`<div class="current-home"><section class="ch-section"><div class="ch-shell"><a class="ch-button" href="#/roteiros">← Todos os roteiros</a><div class="ch-passport" data-route-target="${esc(selected.slug||selected.id)}" style="margin-top:1.5rem"><div class="ch-passport-paper" data-morph-media aria-hidden="true"><img src="${esc(selected.image)}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:18px"></div><div><p class="ch-eyebrow">${esc(selected.eyebrow)}</p><h1 data-morph-title style="font-size:clamp(2.4rem,6vw,5rem);line-height:.98">${esc(selected.title)}</h1><p class="ch-lead">${esc(selected.body)}</p><div class="ch-filters" data-morph-meta><span>${esc(selected.days)}</span><span>${esc(selected.audience)}</span></div><div class="ch-actions"><a class="ch-button ch-button-primary" href="#/viagens/demo-trip-001/roteiro">Usar este roteiro na demonstração</a><a class="ch-button ch-trip-planner-cta" href="#/roteiro">Planejar minha viagem</a></div></div></div></div></section><section class="ch-section"><div class="ch-shell"><div class="ch-center"><p class="ch-eyebrow">UMA BASE, NÃO UMA REGRA</p><h2>Curadoria para começar. Liberdade para adaptar.</h2><p>Na versão completa, escolher este roteiro cria uma cópia editável da viagem. A prévia estática abre o roteiro demonstrativo existente para mostrar a experiência de edição.</p></div><div class="ch-context-grid"><article class="ch-panel"><h3>Escolha</h3><p>Comece por uma situação de viagem real.</p></article><article class="ch-panel"><h3>Adapte</h3><p>Troque e reorganize paradas conforme sua necessidade.</p></article><article class="ch-panel"><h3>Viva</h3><p>O Passaporte mantém separado o planejado do que foi registrado.</p></article></div></div></section></div>`;
       return;
     }
     document.title='Roteiros prontos · Passaporte Serra Negra';
@@ -93,7 +105,7 @@
     app.querySelectorAll('[data-faq]').forEach(btn=>btn.addEventListener('click',()=>{const id=btn.dataset.faq;const answer=app.querySelector(`[data-faq-answer="${id}"]`);const next=btn.getAttribute('aria-expanded')!=='true';btn.setAttribute('aria-expanded',String(next));answer?.setAttribute('data-open',String(next));}));
     const slide=app.querySelector('[data-route-slide]');
     const tabs=[...app.querySelectorAll('[data-route-tab]')];
-    const drawRoute=index=>{const r=readyRoutes[index]||readyRoutes[0];if(!r||!slide)return;slide.innerHTML=`<article class="ch-route-slide"><div class="ch-route-copy"><p class="ch-eyebrow">${esc(r.days)} · ${esc(r.audience)}</p><h3>${esc(r.title)}</h3><p>${esc(r.body)}</p><a class="ch-button ch-button-primary" href="#/roteiros/${esc(r.slug||r.id)}">Conhecer este roteiro</a></div><img src="${esc(r.image)}" alt=""><aside class="ch-route-meta"><strong>O que você pode mudar</strong><span>paradas e ordem</span><span>horários e ritmo</span><span>novas descobertas</span></aside></article>`;};
+    const drawRoute=index=>{const r=readyRoutes[index]||readyRoutes[0];if(!r||!slide)return;slide.innerHTML=`<article class="ch-route-slide" data-shared-route="${esc(r.slug||r.id)}"><div class="ch-route-copy"><p class="ch-eyebrow" data-morph-meta>${esc(r.days)} · ${esc(r.audience)}</p><h3 data-morph-title>${esc(r.title)}</h3><p>${esc(r.body)}</p><a class="ch-button ch-button-primary" href="#/roteiros/${esc(r.slug||r.id)}">Conhecer este roteiro</a></div><img data-morph-media src="${esc(r.image)}" alt=""><aside class="ch-route-meta"><strong>O que você pode mudar</strong><span>paradas e ordem</span><span>horários e ritmo</span><span>novas descobertas</span></aside></article>`;};
     const activateRouteTab=(index,focus=false)=>{const safe=(index+tabs.length)%Math.max(tabs.length,1);tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===safe));tab.tabIndex=i===safe?0:-1;});drawRoute(safe);if(focus)tabs[safe]?.focus();};
     tabs.forEach((btn,index)=>{btn.addEventListener('click',()=>activateRouteTab(index));btn.addEventListener('keydown',e=>{let next=index;if(e.key==='ArrowRight')next=index+1;else if(e.key==='ArrowLeft')next=index-1;else if(e.key==='Home')next=0;else if(e.key==='End')next=tabs.length-1;else return;e.preventDefault();activateRouteTab(next,true);});});drawRoute(0);
     let active=0;const items=[...app.querySelectorAll('[data-gallery-index]')];
@@ -102,15 +114,28 @@
     const move=delta=>{if(!items.length)return;active=(active+delta+items.length)%items.length;updateGallery();};
     app.querySelector('[data-gallery-prev]')?.addEventListener('click',()=>move(-1));app.querySelector('[data-gallery-next]')?.addEventListener('click',()=>move(1));items.forEach((el,i)=>el.addEventListener('click',e=>{if(i!==active){e.preventDefault();active=i;updateGallery();}}));gallery?.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)<8)return;e.preventDefault();move(e.deltaY>0?1:-1);},{passive:false});gallery?.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();move(1);}if(e.key==='ArrowLeft'){e.preventDefault();move(-1);}});
     let pointerId=null,startX=0,lastX=0,lastAt=0,velocity=0;
-    gallery?.addEventListener('pointerdown',e=>{pointerId=e.pointerId;startX=lastX=e.clientX;lastAt=performance.now();velocity=0;gallery.setPointerCapture?.(e.pointerId);});
-    gallery?.addEventListener('pointermove',e=>{if(pointerId!==e.pointerId)return;const now=performance.now();const dt=Math.max(1,now-lastAt);velocity=(e.clientX-lastX)/dt;lastX=e.clientX;lastAt=now;});
-    const release=e=>{if(pointerId!==e.pointerId)return;const delta=e.clientX-startX;const projected=delta+velocity*180;if(Math.abs(projected)>45)move(projected<0?1:-1);pointerId=null;};
+    gallery?.addEventListener('pointerdown',e=>{pointerId=e.pointerId;startX=lastX=e.clientX;lastAt=performance.now();velocity=0;gallery.dataset.dragging='true';gallery.style.setProperty('--drag-shift','0px');gallery.setPointerCapture?.(e.pointerId);});
+    gallery?.addEventListener('pointermove',e=>{if(pointerId!==e.pointerId)return;const now=performance.now();const dt=Math.max(1,now-lastAt);velocity=(e.clientX-lastX)/dt;lastX=e.clientX;lastAt=now;const delta=Math.max(-110,Math.min(110,(e.clientX-startX)*.42));gallery.style.setProperty('--drag-shift',`${delta}px`);});
+    const release=e=>{if(pointerId!==e.pointerId)return;const delta=e.clientX-startX;const projected=delta+velocity*180;gallery.style.setProperty('--drag-shift','0px');delete gallery.dataset.dragging;if(Math.abs(projected)>45)move(projected<0?1:-1);pointerId=null;};
     gallery?.addEventListener('pointerup',release);gallery?.addEventListener('pointercancel',release);updateGallery();
     const warp=app.querySelector('[data-current-warp]');warp?.addEventListener('pointermove',e=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const r=warp.getBoundingClientRect();const x=((e.clientX-r.left)/Math.max(r.width,1)-.5);warp.children[0].style.transform=`translate(${x*10}px,${x*-2}px) rotate(${x*-.5}deg)`;warp.children[1].style.transform=`translate(${x*-12}px,${x*2}px) rotate(${x*.6}deg)`;});warp?.addEventListener('pointerleave',()=>[...warp.children].forEach(x=>x.style.transform=''));
   }
 
   function render(){if(isHome())renderHome();else if(isReadyRoutes())renderReadyRoutes();}
-  const schedule=()=>setTimeout(render,0);
+  document.addEventListener('click',event=>{
+    const host=event.target.closest?.('[data-shared-route]');if(!host)return;
+    const link=event.target.closest?.('a[href^="#/roteiros/"]')||host.closest?.('a[href^="#/roteiros/"]')||host.querySelector?.('a[href^="#/roteiros/"]');if(!link)return;
+    pendingRouteMorph=host.dataset.sharedRoute;
+    const media=host.querySelector('[data-morph-media]');const title=host.querySelector('[data-morph-title]');const meta=host.querySelector('[data-morph-meta]');
+    if(media)media.style.viewTransitionName='route-media';if(title)title.style.viewTransitionName='route-title';if(meta)meta.style.viewTransitionName='route-meta';
+  },{capture:true});
+  const schedule=()=>{
+    if(pendingRouteMorph&&!reducedMotion()&&typeof document.startViewTransition==='function'){
+      const transition=document.startViewTransition(()=>{render();applyRouteMorphTarget();});
+      transition.finished.finally(clearRouteMorph);return;
+    }
+    setTimeout(()=>{render();applyRouteMorphTarget();},0);
+  };
   window.addEventListener('hashchange',schedule);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule);else schedule();
 })();

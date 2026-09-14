@@ -176,3 +176,23 @@
   .galleryStage[data-center-hover="true"] .galleryPosition{transform:translate3d(calc(-50% + var(--x)),calc(-50% + var(--y)),var(--z)) rotate(var(--rot))!important}
   .slideInRight,.slideInLeft,.slideOutLeft,.slideOutRight{animation:none!important}
 }
+
+/* Passport cover presentation: use the supplied cover artwork directly, with no box behind it. */
+.passportPaper{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  transform:none!important;
+  overflow:visible!important;
+}
+.passportPaper img{
+  width:min(430px,92%)!important;
+  max-height:500px!important;
+  object-fit:contain!important;
+  display:block;
+  filter:drop-shadow(0 26px 34px rgba(0,0,0,.20));
+}
+@media(max-width:760px){
+  .passportPaper img{width:min(360px,88vw)!important;max-height:390px!important}
+}

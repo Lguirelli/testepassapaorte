@@ -211,8 +211,8 @@
     return `<article class="place-card ${variant==='editorial'?'place-card-editorial':''}" data-map-place="${esc(place.id)}" data-shared-place="${esc(place.id)}"${vt}>
       <a class="place-card-media" href="${href}" aria-label="Abrir ${esc(place.name)}">${cardMedia(place)}</a>
       <div class="place-card-body">
-        <div class="place-card-meta"><span>${esc(cats||relationLabel(place.commercialRelation))}</span><span>${distance!=null?`${distance.toFixed(1).replace('.',',')} km`: `${esc(place.durationMinutes)} min`}</span></div>
-        <h3><a href="${href}">${esc(place.name)}</a></h3>
+        <div class="place-card-meta" data-morph-meta><span>${esc(cats||relationLabel(place.commercialRelation))}</span><span>${distance!=null?`${distance.toFixed(1).replace('.',',')} km`: `${esc(place.durationMinutes)} min`}</span></div>
+        <h3 data-morph-title><a href="${href}">${esc(place.name)}</a></h3>
         <p>${esc(place.shortDescription)}</p>
         <div class="place-card-foot"><div>${statusBadges(place)}</div><span class="place-card-arrow" aria-hidden="true"><span class="place-card-action-label">Explorar</span>${icon('avancar')}</span></div>
       </div>
@@ -396,7 +396,7 @@
   function homePassportIntroSection(){
     const steps=CONFIG.home.passportSteps;
     const dates=tripDates(state.trip); const stampDate=dates[0]?fmtCapsDate(dates[0]).replace(/\s\d{4}$/,''):'DATA';
-    return `<section class="home-section home-passport-intro" data-psd-layer="10" aria-labelledby="passport-intro-title"><div class="psd-container passport-reference-layout"><div class="passport-reference-mock"><div class="passport-wire" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div class="passport-book"><div class="passport-book-cover"><img src="./assets/brand/logo-passaporte-serra-negra.svg" alt=""><small>PASSAPORTE</small><strong>SERRA<br>NEGRA</strong><span>memórias da viagem</span></div><div class="passport-book-page"><small>VISITA</small><strong>${esc(stampDate)}</strong><span>PRÉVIA</span><em>${state.trip.visits.length} registros locais</em></div></div></div><div class="passport-reference-copy"><p class="psd-kicker">Da intenção à memória</p><h2 id="passport-intro-title">O roteiro organiza.<br>O Passaporte guarda.</h2><p>A experiência separa claramente o que você pretende fazer daquilo que registrou como vivido.</p><ol>${steps.map((x,i)=>`<li><span>0${i+1}</span>${icon(x.iconKey,'',{size:18})}<strong>${esc(x.label)}</strong></li>`).join('')}</ol><a class="button light-button" href="#/meu-passaporte">${icon('nav.passport','',{size:18})}Abrir meu Passaporte</a></div></div></section>`;
+    return `<section class="home-section home-passport-intro" data-psd-layer="10" aria-labelledby="passport-intro-title"><div class="psd-container passport-reference-layout"><div class="passport-reference-mock"><img class="passport-cover-art" src="./assets/brand/passport/passaporte-capa-couro.png" alt="" aria-hidden="true"></div><div class="passport-reference-copy"><p class="psd-kicker">Da intenção à memória</p><h2 id="passport-intro-title">O roteiro organiza.<br>O Passaporte guarda.</h2><p>A experiência separa claramente o que você pretende fazer daquilo que registrou como vivido.</p><ol>${steps.map((x,i)=>`<li><span>0${i+1}</span>${icon(x.iconKey,'',{size:18})}<strong>${esc(x.label)}</strong></li>`).join('')}</ol><a class="button light-button" href="#/meu-passaporte">${icon('nav.passport','',{size:18})}Abrir meu Passaporte</a></div></div></section>`;
   }
   function homeMapSection(){
     const ps=rankPlacesForTrip(researchedTouristPlaces()).slice(0,8); const positions=mapPositions(ps);
@@ -616,7 +616,7 @@
     const preview=places.find(p=>p.id===ui.explore.previewPlace);
     const previewHref=preview?(preview.commercialRelation==='partner'?`#/parceiros/${preview.slug}`:`#/lugares/${preview.slug}`):'#';
     const content=ui.explore.view==='map'
-      ? `<div class="explore-map-premium"><div class="explore-map-copy"><p class="eyebrow">Exploração territorial</p><h3>Os mesmos resultados, vistos pela cidade.</h3><p class="muted">Passe sobre um pin para relacionar mapa e lista. Clique para abrir uma prévia sem perder o contexto.</p><div class="explore-map-index">${places.slice(0,8).map((p,i)=>`<button type="button" data-map-preview="${esc(p.id)}" data-map-place="${esc(p.id)}" class="${p.id===ui.explore.previewPlace?'is-selected':''}"><span>${String(i+1).padStart(2,'0')}</span><strong>${esc(p.name)}</strong></button>`).join('')}</div>${preview?`<article class="explore-map-preview" data-shared-place="${esc(preview.id)}" tabindex="-1"><div class="explore-map-preview-media">${scenicMedia(preview,'map-preview')}</div><small>${esc((preview.categoryIds||[]).map(categoryName).join(' · '))}</small><h3>${esc(preview.name)}</h3><p>${esc(preview.shortDescription)}</p><div class="actions"><a class="button primary" href="${previewHref}">Ver experiência ${icon('nav.forward','',{size:16})}</a><button data-action="add-trip" data-place="${esc(preview.id)}">${icon('route.add','',{size:16})}Adicionar</button></div></article>`:''}</div>${mockMap(places,{transitionNames:true,preview:true,activeId:ui.explore.previewPlace})}</div>`
+      ? `<div class="explore-map-premium"><div class="explore-map-copy"><p class="eyebrow">Exploração territorial</p><h3>Os mesmos resultados, vistos pela cidade.</h3><p class="muted">Passe sobre um pin para relacionar mapa e lista. Clique para abrir uma prévia sem perder o contexto.</p><div class="explore-map-index">${places.slice(0,8).map((p,i)=>`<button type="button" data-map-preview="${esc(p.id)}" data-map-place="${esc(p.id)}" class="${p.id===ui.explore.previewPlace?'is-selected':''}"><span>${String(i+1).padStart(2,'0')}</span><strong>${esc(p.name)}</strong></button>`).join('')}</div>${preview?`<article class="explore-map-preview" data-shared-place="${esc(preview.id)}" tabindex="-1"><div class="explore-map-preview-media" data-morph-media>${scenicMedia(preview,'map-preview')}</div><small data-morph-meta>${esc((preview.categoryIds||[]).map(categoryName).join(' · '))}</small><h3 data-morph-title>${esc(preview.name)}</h3><p>${esc(preview.shortDescription)}</p><div class="actions"><a class="button primary" href="${previewHref}">Ver experiência ${icon('nav.forward','',{size:16})}</a><button data-action="add-trip" data-place="${esc(preview.id)}">${icon('route.add','',{size:16})}Adicionar</button></div></article>`:''}</div>${mockMap(places,{transitionNames:true,preview:true,activeId:ui.explore.previewPlace})}</div>`
       : (places.length?`<div class="grid two explore-premium-grid">${places.map(p=>placeCard(p,'default',{transitionName:true})).join('')}</div>`:'<div class="empty">Nenhum lugar corresponde aos filtros.</div>');
     el.innerHTML = `${section(summary,'Resultado',`${weatherStrip()}<div style="height:1rem"></div><div class="explore-view-stage" data-explore-view-stage="${ui.explore.view}">${content}</div>`)}${renderEventsSection()}`;
   }
@@ -674,8 +674,8 @@
         <div class="tourism-hero-copy">
           ${breadcrumbs([{label:'Início',href:'#/'},{label:'Pontos turísticos',href:'#/explorar?relation=public_point'},{label:p.name}])}
           <span class="tourism-research-badge">${icon('place.info','',{size:14})}Informação pública pesquisada</span>
-          <p class="v2-kicker">${esc(categories||'Ponto turístico')} · Serra Negra</p>
-          <h1>${esc(p.name)}</h1>
+          <p class="v2-kicker" data-place-meta="${esc(p.id)}">${esc(categories||'Ponto turístico')} · Serra Negra</p>
+          <h1 data-place-title="${esc(p.id)}">${esc(p.name)}</h1>
           <p class="lead">${esc(p.shortDescription)}</p>
           <div class="tourism-hero-actions">${statusBadges(p)}<button class="light-button" data-action="add-trip" data-place="${p.id}">${icon('route.add','',{size:18})}${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button><button class="light-button" data-action="register-visit" data-place="${p.id}">${icon(visitFor(p.id)?'qr.already':'qr.visited','',{size:18})}${visitFor(p.id)?'Visita registrada':'Registrar visita'}</button></div>
         </div>
@@ -705,7 +705,7 @@
       {iconKey:p.environment==='outdoor'?'place.outdoor':'nav.home',label:'Ambiente',value:environmentLabel(p.environment)},
       {iconKey:p.costType==='free'?'place.free':'place.cost',label:'Custo',value:costLabel(p.costType)}
     ];
-    app.innerHTML = `${breadcrumbs([{label:'Início',href:'#/'},{label:'Explorar',href:'#/explorar'},{label:p.name}])}<section class="hero"><div><p class="eyebrow">Ponto turístico · demonstração</p><h1 class="compact">${esc(p.name)}</h1><p class="lead">${esc(p.shortDescription)}</p><div class="actions">${statusBadges(p)}<button class="primary" data-action="add-trip" data-place="${p.id}">${icon('route.add','',{size:18})}${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button><button data-action="register-visit" data-place="${p.id}">${icon(visitFor(p.id)?'qr.already':'qr.visited','',{size:18})}${visitFor(p.id)?'Visita registrada':'Registrar visita'}</button></div></div><div class="hero-visual premium-generic-hero">${scenicMedia(p,'generic-hero')}<div class="mark">PONTO<br><strong>DEMO</strong></div></div></section>
+    app.innerHTML = `${breadcrumbs([{label:'Início',href:'#/'},{label:'Explorar',href:'#/explorar'},{label:p.name}])}<section class="hero"><div><p class="eyebrow" data-place-meta="${esc(p.id)}">Ponto turístico · demonstração</p><h1 class="compact" data-place-title="${esc(p.id)}">${esc(p.name)}</h1><p class="lead">${esc(p.shortDescription)}</p><div class="actions">${statusBadges(p)}<button class="primary" data-action="add-trip" data-place="${p.id}">${icon('route.add','',{size:18})}${plannedItemFor(p.id)?'Já está no roteiro':'Adicionar ao roteiro'}</button><button data-action="register-visit" data-place="${p.id}">${icon(visitFor(p.id)?'qr.already':'qr.visited','',{size:18})}${visitFor(p.id)?'Visita registrada':'Registrar visita'}</button></div></div><div class="hero-visual premium-generic-hero">${scenicMedia(p,'generic-hero')}<div class="mark">PONTO<br><strong>DEMO</strong></div></div></section>
       <section class="section two-col"><div><p class="eyebrow">Sobre o lugar</p><h2>Conheça este ponto</h2><p class="lead">${esc(p.longDescription||p.shortDescription)}</p><div class="gallery"><div></div><div></div><div></div></div></div><aside class="sidebar"><div class="panel"><h3>Informações rápidas</h3>${factList(facts)}</div>${weatherStrip()}</aside></section>
       ${section('Experiências neste lugar','O que fazer',exps.length?`<div class="grid">${exps.map(e=>`<article class="panel"><span class="badge status-with-icon">${icon('map.experience','',{size:14})}${esc(costLabel(e.costType))}</span><h3>${esc(e.name)}</h3><p class="muted icon-label">${icon(e.environment==='outdoor'?'place.outdoor':'nav.home','',{size:16})}${e.durationMinutes} min · ${esc(environmentLabel(e.environment))}</p></article>`).join('')}</div>`:'<div class="empty">Nenhuma experiência associada.</div>')}
       ${evs.length?section('Eventos','Agenda',`<div class="grid">${evs.map(e=>`<article class="panel"><span class="badge status-with-icon">${icon('map.event','',{size:14})}${fmtDate(e.startsAt.slice(0,10))}</span><h3>${esc(e.name)}</h3><p>${esc(costLabel(e.costType))}</p></article>`).join('')}</div>`):''}
@@ -734,7 +734,7 @@
       {iconKey:'place.duration',label:'Duração sugerida',value:`${p.durationMinutes} min`}
     ];
     app.innerHTML = `<div class="partner-page-v2">
-      <section class="partner-hero-v2 full-bleed">${scenicMedia(p,'partner-hero')}<div class="partner-hero-overlay"></div><div class="v2-container partner-hero-copy">${breadcrumbs([{label:'Início',href:'#/'},{label:'Explorar',href:'#/explorar'},{label:p.name}])}<p class="v2-kicker">${esc((p.categoryIds||[]).map(categoryName).join(' · '))} · parceiro demo</p><h1>${esc(p.name)}</h1><p>${esc(p.shortDescription)}</p><div class="partner-hero-actions"><button class="light-button" data-action="add-trip" data-place="${p.id}">${icon('route.add','',{size:18})}${planned?'Já está no roteiro':'Adicionar ao roteiro'}</button><span class="partner-stamp">PARCEIRO<br><strong>DEMO</strong></span></div></div></section>
+      <section class="partner-hero-v2 full-bleed">${scenicMedia(p,'partner-hero')}<div class="partner-hero-overlay"></div><div class="v2-container partner-hero-copy">${breadcrumbs([{label:'Início',href:'#/'},{label:'Explorar',href:'#/explorar'},{label:p.name}])}<p class="v2-kicker" data-place-meta="${esc(p.id)}">${esc((p.categoryIds||[]).map(categoryName).join(' · '))} · parceiro demo</p><h1 data-place-title="${esc(p.id)}">${esc(p.name)}</h1><p>${esc(p.shortDescription)}</p><div class="partner-hero-actions"><button class="light-button" data-action="add-trip" data-place="${p.id}">${icon('route.add','',{size:18})}${planned?'Já está no roteiro':'Adicionar ao roteiro'}</button><span class="partner-stamp">PARCEIRO<br><strong>DEMO</strong></span></div></div></section>
       <div class="v2-container partner-quick-wrap">${partnerQuickInfo(p,partner)}</div>
       <section class="v2-section"><div class="v2-container partner-about-grid"><div><p class="v2-kicker">Sobre este lugar</p><h2>Uma parada que entra no contexto da viagem.</h2><p class="v2-copy">${esc(p.shortDescription)}</p><p class="muted">Conteúdo sintético para validação. Nenhum dado de atendimento ou localização representa um estabelecimento real.</p></div><div class="partner-about-media">${scenicMedia(p,'about')}<div class="partner-mini-media">${scenicMedia(p,'mini')}</div></div></div></section>
       ${exps.length?`<section class="v2-section partner-features full-bleed"><div class="v2-container"><div class="v2-section-heading light"><div><p class="v2-kicker">O que você encontra aqui</p><h2>Experiências associadas</h2></div><p>Os módulos abaixo são derivados das experiências existentes no seed demonstrativo.</p></div><div class="partner-feature-grid">${exps.map((e,i)=>`<article class="partner-feature ${i%2?'reverse':''}"><div class="feature-media">${scenicMedia(p,'feature-block')}</div><div><span class="badge status-with-icon">${icon('map.experience','',{size:14})}${esc(costLabel(e.costType))}</span><h3>${esc(e.name)}</h3><p>${e.durationMinutes} min · ${esc(environmentLabel(e.environment))}</p>${e.bookingType==='external_required'?`<button class="light-button" data-action="demo-contact">${icon('place.booking','',{size:18})}Solicitar reserva demo</button>`:''}</div></article>`).join('')}</div></div></section>`:''}
@@ -1001,22 +1001,42 @@
   function prepareSharedTransitionFromClick(target){
     const host=target?.closest?.('[data-shared-place]'); if(!host)return;
     const id=host.dataset.sharedPlace; if(!id)return;
-    const media=host.matches('[data-place-media]')?host:host.querySelector?.(`[data-place-media="${id}"]`)||host.querySelector?.('[data-place-media]')||host;
+    const media=host.matches('[data-place-media]')?host:host.querySelector?.(`[data-place-media="${id}"]`)||host.querySelector?.('[data-place-media]')||host.querySelector?.('[data-morph-media]')||host;
+    const title=host.querySelector?.('[data-morph-title]');
+    const meta=host.querySelector?.('[data-morph-meta]');
     if(host!==media&&host.style?.viewTransitionName)host.style.viewTransitionName='';
     pendingSharedPlaceId=id; pendingSharedSource=media;
     if(media?.style)media.style.viewTransitionName='place-media';
+    if(title?.style)title.style.viewTransitionName='place-title';
+    if(meta?.style)meta.style.viewTransitionName='place-meta';
   }
   function applySharedTransitionTarget(){
     if(!pendingSharedPlaceId)return;
     const selectors=[`.tourism-hero [data-place-media="${pendingSharedPlaceId}"]`,`.partner-hero-v2 [data-place-media="${pendingSharedPlaceId}"]`,`[data-place-media="${pendingSharedPlaceId}"]`];
-    const target=selectors.map(sel=>document.querySelector(sel)).find(Boolean);
-    if(target?.style)target.style.viewTransitionName='place-media';
+    const media=selectors.map(sel=>document.querySelector(sel)).find(Boolean);
+    const title=document.querySelector(`[data-place-title="${pendingSharedPlaceId}"]`);
+    const meta=document.querySelector(`[data-place-meta="${pendingSharedPlaceId}"]`);
+    if(media?.style)media.style.viewTransitionName='place-media';
+    if(title?.style)title.style.viewTransitionName='place-title';
+    if(meta?.style)meta.style.viewTransitionName='place-meta';
   }
   function clearSharedTransition(){
     if(pendingSharedSource?.style)pendingSharedSource.style.viewTransitionName='';
-    const current=document.querySelector('[style*="view-transition-name: place-media"], [style*="view-transition-name:place-media"]');
-    if(current?.style)current.style.viewTransitionName='';
+    document.querySelectorAll('[style*="view-transition-name: place-media"],[style*="view-transition-name:place-media"],[style*="view-transition-name: place-title"],[style*="view-transition-name:place-title"],[style*="view-transition-name: place-meta"],[style*="view-transition-name:place-meta"]').forEach(node=>{node.style.viewTransitionName='';});
     pendingSharedSource=null; pendingSharedPlaceId=null;
+  }
+  function transitionMapPreview(id,source){
+    const apply=()=>{
+      ui.explore.previewPlace=id;renderExploreResults();
+      const preview=document.querySelector(`.explore-map-preview[data-shared-place="${id}"]`);
+      if(preview?.style)preview.style.viewTransitionName='map-preview';
+      requestAnimationFrame(()=>preview?.focus?.({preventScroll:true}));
+    };
+    if(reducedMotion()||typeof document.startViewTransition!=='function'){apply();return;}
+    if(source?.style)source.style.viewTransitionName='map-preview';
+    document.startViewTransition(apply).finished.finally(()=>{
+      const preview=document.querySelector('.explore-map-preview');if(preview?.style)preview.style.viewTransitionName='';
+    });
   }
   function renderWithRouteTransition(direction=1){
     closeMobileNavigation();
@@ -1098,7 +1118,7 @@
   document.addEventListener('click',e=>{
     const t=e.target.closest('button,[data-action],[data-filter-category],[data-day],[data-day-calendar],[data-calendar-mode],[data-passport-page],[data-admin-kind],[data-admin-edit],[data-route-action],[data-onboard-key],[data-home-spot],[data-home-partner],[data-route-type],[data-home-faq],[data-participation-tab],[data-partner-scroll],[data-explore-view],[data-map-preview]'); if(!t)return;
     if(t.dataset.exploreView){transitionExploreView(t.dataset.exploreView);return}
-    if(t.dataset.mapPreview){ui.explore.previewPlace=t.dataset.mapPreview;renderExploreResults();requestAnimationFrame(()=>document.querySelector('.explore-map-preview')?.focus?.({preventScroll:true}));return}
+    if(t.dataset.mapPreview){transitionMapPreview(t.dataset.mapPreview,t);return}
     if(t.dataset.homeSpot!==undefined){ui.homeSpotIndex=Number(t.dataset.homeSpot);renderHome();return}
     if(t.dataset.homePartner!==undefined){ui.homePartnerIndex=Number(t.dataset.homePartner);renderHome();return}
     if(t.dataset.routeType){if(t.dataset.action==='route-type-to-onboarding'){ui.homeRouteType=t.dataset.routeType;location.hash='#/roteiro';return}if(t.closest('.route-types-tabs')){setHomeRouteType(t.dataset.routeType);return}ui.homeRouteType=t.dataset.routeType;renderHome();return}

@@ -5,6 +5,7 @@ import {scorePlace} from '@/modules/trips/engine';
 import {READY_ROUTES,profileForReadyRoute,readyRouteBySlug} from '@/modules/trips/ready-routes';
 import {ReadyRouteStart} from '@/components/ReadyRouteStart';
 import styles from '../ready-routes.module.css';
+import {morphNames,morphStyle} from '@/core/ui/morph';
 
 export const dynamic='force-dynamic';
 
@@ -32,12 +33,12 @@ export default async function ReadyRouteDetail({params}:{params:Promise<{slug:st
   return <>
     <Link className={styles.back} href="/roteiros">← Todos os roteiros</Link>
     <section className={styles.detailHero}>
-      <img src={route.image} alt=""/>
+      <img src={route.image} alt="" data-morph-media="true" style={morphStyle(morphNames.routeMedia(route.slug))}/>
       <div className={styles.detailCopy}>
         <p className="eyebrow">{route.eyebrow}</p>
-        <h1>{route.title}</h1>
+        <h1 data-morph-title="true" style={morphStyle(morphNames.routeTitle(route.slug))}>{route.title}</h1>
         <p>{route.summary}</p>
-        <div className={styles.meta}><span>{route.durationDays} {route.durationDays===1?'dia':'dias'}</span><span>{route.paceLabel}</span><span>{route.audience}</span></div>
+        <div className={styles.meta} data-morph-meta="true" style={morphStyle(morphNames.routeMeta(route.slug))}><span>{route.durationDays} {route.durationDays===1?'dia':'dias'}</span><span>{route.paceLabel}</span><span>{route.audience}</span></div>
       </div>
     </section>
 

@@ -202,3 +202,9 @@ body[data-page="home"] .mobile-menu img{width:20px!important;height:20px!importa
 .scenic-media.has-stock-photo .scenic-ridge,.scenic-media.has-stock-photo .scenic-sun{display:none;}
 .scenic-media.has-stock-photo .scenic-grain{opacity:.16;z-index:2;}
 .scenic-media.has-stock-photo .scenic-caption{position:relative;z-index:3;background:rgba(22,22,24,.66);color:#F3F1EC;backdrop-filter:blur(3px);}
+
+/* Real passport cover artwork: transparent presentation container. */
+.passport-reference-mock{background:transparent!important;border:0!important;box-shadow:none!important;min-height:500px;display:grid;place-items:center}
+.passport-reference-mock .passport-cover-art{display:block;width:min(430px,92%);max-height:520px;object-fit:contain;filter:drop-shadow(0 28px 38px rgba(0,0,0,.28))}
+.passport-reference-mock .passport-wire,.passport-reference-mock .passport-book{display:none!important}
+@media(max-width:760px){.passport-reference-mock{min-height:320px}.passport-reference-mock .passport-cover-art{width:min(360px,88vw);max-height:390px}}

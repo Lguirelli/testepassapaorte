@@ -47,3 +47,11 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 
 
 - Padronização global de cards: cards equivalentes agora usam containers e frames de mídia fixos, imagens com `object-fit: cover`, alturas iguais em grids/carrosséis e truncamento controlado de conteúdo para impedir layout shift ao trocar imagens ou itens.
+
+## Morph transitions, carousel and passport cover
+
+- Added shared-element morphs for tourist cards, partner cards, ready-route cards, the center partner carousel card, map pins, map previews and their matching detail targets.
+- Map pins use real HTML interactive elements over the map artwork so pin-to-preview morph geometry remains reliable.
+- Restored live whole-card drag movement and inertia in "Descobertas no momento certo" while retaining standardized card dimensions.
+- Replaced the illustrative passport sheet/mock with the supplied transparent leather passport cover artwork in "De roteiro a memória".
+- Removed the visual backing box behind the passport cover; the cover itself retains a subtle drop shadow.

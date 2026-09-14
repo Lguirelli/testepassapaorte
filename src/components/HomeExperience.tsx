@@ -100,8 +100,8 @@ function RouteTypeSlider(){
       {routeTypes.map((item,index)=><button ref={node=>{tabRefs.current[index]=node}} key={item.slug} type="button" role="tab" data-testid={`home-route-tab-${index}`} aria-selected={active===index} tabIndex={active===index?0:-1} className={active===index?styles.routeTabActive:styles.routeTab} onKeyDown={event=>onTabKey(event,index)} onClick={()=>change(index)}>{item.eyebrow}</button>)}
     </div>
     <div className={styles.slideViewport} data-testid="home-route-slider" aria-live="polite">
-      {previousItem&&<article aria-hidden="true" inert className={`${styles.routeSlide} ${direction===1?styles.slideOutLeft:styles.slideOutRight}`}><RouteSlideContent item={previousItem}/></article>}
-      <article key={current.slug} className={`${styles.routeSlide} ${direction===1?styles.slideInRight:styles.slideInLeft}`}><RouteSlideContent item={current}/></article>
+      {previousItem&&<article aria-hidden="true" inert data-morph-card="route" data-morph-id={previousItem.slug} className={`${styles.routeSlide} ${direction===1?styles.slideOutLeft:styles.slideOutRight}`}><RouteSlideContent item={previousItem}/></article>}
+      <article key={current.slug} data-morph-card="route" data-morph-id={current.slug} className={`${styles.routeSlide} ${direction===1?styles.slideInRight:styles.slideInLeft}`}><RouteSlideContent item={current}/></article>
     </div>
     <div className="actions" style={{justifyContent:'center',marginTop:'1.25rem'}}><Link className="button" href="/roteiros">Ver todos os roteiros</Link><Link className="button trip-planner-cta" href="/roteiro">Planejar minha viagem</Link></div>
   </section>;
@@ -111,12 +111,12 @@ function RouteSlideContent({item}:{item:ReadyRoutePreset}){
   return <>
     <div className={styles.slideCopy}>
       <span className={styles.slideIcon}><Icon name="roteiro"/></span>
-      <p className="eyebrow">{item.durationDays} {item.durationDays===1?'dia':'dias'} · {item.paceLabel}</p>
-      <h3>{item.title}</h3>
+      <p className="eyebrow" data-morph-meta="true">{item.durationDays} {item.durationDays===1?'dia':'dias'} · {item.paceLabel}</p>
+      <h3 data-morph-title="true">{item.title}</h3>
       <p>{item.summary}</p>
-      <Link href={`/roteiros/${item.slug}`}>Conhecer este roteiro</Link>
+      <a data-morph-link="true" href={`/roteiros/${item.slug}`}>Conhecer este roteiro</a>
     </div>
-    <div className={styles.slideVisual} aria-hidden="true"><img src={item.image} alt=""/></div>
+    <div className={styles.slideVisual} aria-hidden="true" data-morph-media="true"><img src={item.image} alt=""/></div>
     <aside className={styles.slideMeta}>
       <strong>O que você pode mudar</strong>
       <span>paradas e ordem</span><span>horários e ritmo</span><span>novas descobertas</span>
@@ -203,7 +203,7 @@ export default function HomeExperience({featured,partners,categories,routePlaces
     </section>
 
     <section className={`${styles.section} ${styles.passportIntro}`} aria-labelledby="passport-intro-title">
-      <div className={styles.passportPaper} aria-hidden="true"><img src="/assets/brand/passport/folha-passaporte.svg" alt=""/></div>
+      <div className={styles.passportPaper} aria-hidden="true"><img src="/assets/brand/passport/passaporte-capa-couro.png" alt=""/></div>
       <div><p className="eyebrow">De roteiro a memória</p><h2 id="passport-intro-title">O plano termina. A experiência fica.</h2><p>O roteiro registra intenção. O Passaporte guarda os lugares que realmente fizeram parte da viagem e transforma o percurso vivido em memória.</p><div className="actions"><Link className="button primary" href="/meu-passaporte">Ver meu Passaporte</Link><Link className="button" href="/roteiros">Escolher um roteiro</Link></div></div>
     </section>
 
