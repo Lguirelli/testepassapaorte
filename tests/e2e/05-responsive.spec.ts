@@ -53,7 +53,7 @@ test('low height and mobile landscape preserve navigation and primary content',a
     const mobileNav=page.locator('#mobile-navigation[data-open="true"]');
     if(await mobileNav.count()){
       await expect(mobileNav).toBeVisible();
-      await expect(page.getByRole('link',{name:/Montar meu roteiro/i}).last()).toBeVisible();
+      await expect(page.getByRole('link',{name:/Planejar minha viagem/i}).last()).toBeVisible();
     }
   }
 });
