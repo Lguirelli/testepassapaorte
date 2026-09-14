@@ -74,3 +74,9 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 - Drag-start on card media/links is blocked to prevent the browser's native image/link dragging.
 - Passport hover morph now targets the actual cover container with scale + slight left rotation.
 - Static `current-home.css` and `current-home.js` cache keys were bumped so browsers cannot reuse the previous interaction files.
+
+
+## v20 mobile menu
+- Menu mobile reduzido para a metade direita da viewport, com pouco espaço antes dos títulos.
+- Ícones mobile reforçados em 24px, cor explícita e traço maior no Next; máscaras estáticas forçadas a renderizar com currentColor.
+- Títulos e ícones permanecem alinhados à direita; CTA e seletor de aparência foram compactados para o novo corte.

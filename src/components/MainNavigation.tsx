@@ -113,11 +113,11 @@ export function MainNavigation({initialTheme,accountHref,accountLabel}:{initialT
       <button className="mobile-nav-backdrop" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{closeMenu();requestAnimationFrame(()=>triggerRef.current?.focus())}}/>
       <nav ref={mobileCardRef} className="mobile-nav-card" aria-label="Navegação mobile" inert={!open}>
         <div className="mobile-nav-title"><span>Explorar Serra Negra</span><button type="button" aria-label="Fechar menu" tabIndex={open?0:-1} onClick={()=>{closeMenu();requestAnimationFrame(()=>triggerRef.current?.focus())}}><Icon name="fechar"/></button></div>
-        <Link style={{'--stagger':'0ms'} as React.CSSProperties} href={ROUTES.home} tabIndex={open?0:-1} aria-current={pathname===ROUTES.home?'page':undefined} onClick={closeMenu}><span>Início</span><Icon name="home" size={22}/></Link>
-        {MAIN_NAV.map((item,index)=><Link key={item.key} style={{'--stagger':`${(index+1)*38}ms`} as React.CSSProperties} href={item.href} tabIndex={open?0:-1} aria-current={active===item.key?'page':undefined} onClick={closeMenu}><span>{item.label}</span><Icon name={NAV_ICON[item.key]} size={22}/></Link>)}
-        <Link className="mobile-nav-account" style={{'--stagger':`${(MAIN_NAV.length+1)*38}ms`} as React.CSSProperties} href={accountHref} tabIndex={open?0:-1} onClick={closeMenu}><span>{accountLabel}</span><Icon name="conta" size={22}/></Link>
+        <Link style={{'--stagger':'0ms'} as React.CSSProperties} href={ROUTES.home} tabIndex={open?0:-1} aria-current={pathname===ROUTES.home?'page':undefined} onClick={closeMenu}><span>Início</span><Icon className="mobile-nav-icon" name="home" size={24} strokeWidth={5}/></Link>
+        {MAIN_NAV.map((item,index)=><Link key={item.key} style={{'--stagger':`${(index+1)*38}ms`} as React.CSSProperties} href={item.href} tabIndex={open?0:-1} aria-current={active===item.key?'page':undefined} onClick={closeMenu}><span>{item.label}</span><Icon className="mobile-nav-icon" name={NAV_ICON[item.key]} size={24} strokeWidth={5}/></Link>)}
+        <Link className="mobile-nav-account" style={{'--stagger':`${(MAIN_NAV.length+1)*38}ms`} as React.CSSProperties} href={accountHref} tabIndex={open?0:-1} onClick={closeMenu}><span>{accountLabel}</span><Icon className="mobile-nav-icon" name="conta" size={24} strokeWidth={5}/></Link>
         <div className="mobile-nav-preferences"><span>Aparência</span><ThemePicker initialTheme={initialTheme}/></div>
-        <Link className="button primary mobile-route-cta trip-planner-cta" href={ROUTES.tripBuilder} tabIndex={open?0:-1} onClick={closeMenu}><span>Planejar minha viagem</span><Icon name="roteiro-adicionar-parada" size={22}/></Link>
+        <Link className="button primary mobile-route-cta trip-planner-cta" href={ROUTES.tripBuilder} tabIndex={open?0:-1} onClick={closeMenu}><span>Planejar minha viagem</span><Icon className="mobile-nav-icon" name="roteiro-adicionar-parada" size={24} strokeWidth={5}/></Link>
       </nav>
     </div>
   </>;
