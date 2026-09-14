@@ -32,10 +32,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Audit UX/UI, responsiveness and information hygiene
+      - name: Audit UX/UI, responsiveness, parity and information hygiene
         run: |
           node scripts/audit-uxui.mjs
           node scripts/audit-responsive.mjs
+          node scripts/audit-pages-parity.mjs
           node scripts/audit-sanitization.mjs
           node scripts/scan-sensitive.mjs
 
