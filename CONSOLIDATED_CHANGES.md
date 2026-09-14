@@ -32,3 +32,13 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 - Header/logo refinado: wordmark SVG deslocado para baixo para se integrar à hero, cor fixa clara no header em todos os temas e remoção das bordas visuais que dividiam seções.
 
 - Header refinado como dock flutuante fixo: fundo escuro translúcido com blur, navegação desktop apenas por ícones maiores e rótulos revelados em hover/foco, preservando logo claro e CTA verde.
+
+
+- Header v14: o shell global ficou transparente; apenas os itens de navegação permanecem dentro de um dock central fixo com blur e escurecimento. Logo e seletor de aparência ficam fora do dock e desaparecem com fade no scroll. Tooltips agora possuem uma ponta visual apontando para o ícone correspondente.
+
+
+## Header dock refinement
+- Dock central contém apenas itens de navegação e permanece fixo durante o scroll.
+- Logo à esquerda e aparência à direita ficam fora do dock e desaparecem com fade após o scroll.
+- Tooltips do dock receberam seta/ponta explícita apontando para o ícone.
+- Menu mobile foi refeito em superfície escura translúcida, texto claro, estados ativos green e CTA green/dark green, seguindo a paleta do produto.
