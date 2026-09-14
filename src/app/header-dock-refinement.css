@@ -133,3 +133,47 @@
 @media(prefers-reduced-motion:reduce){
   .site-header .brand,.site-header .header-appearance .theme,.mobile-nav-card,.mobile-nav-backdrop,.mobile-menu-trigger{transition:none!important}
 }
+
+/* Mobile navigation alignment refinement: copy and icon form one right-aligned unit. */
+@media(max-width:1180px){
+  .mobile-nav-card{
+    padding-left:.45rem!important;
+    padding-right:.9rem!important;
+  }
+  .mobile-nav-card>a:not(.button),
+  .mobile-nav-card .mobile-nav-account{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:.55rem!important;
+    padding-left:.2rem!important;
+    padding-right:.72rem!important;
+    text-align:right!important;
+  }
+  .mobile-nav-card>a:not(.button)>span,
+  .mobile-nav-card .mobile-nav-account>span{
+    flex:0 1 auto!important;
+    margin:0!important;
+    text-align:right!important;
+  }
+  .mobile-nav-card>a:not(.button)>[data-ui-icon],
+  .mobile-nav-card>a:not(.button)>svg,
+  .mobile-nav-card .mobile-nav-account>[data-ui-icon],
+  .mobile-nav-card .mobile-nav-account>svg{
+    order:2!important;
+    flex:0 0 auto!important;
+    width:22px!important;
+    height:22px!important;
+  }
+  .mobile-route-cta.trip-planner-cta{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:.58rem!important;
+    padding-left:.35rem!important;
+    padding-right:1rem!important;
+    text-align:right!important;
+  }
+  .mobile-route-cta.trip-planner-cta>[data-ui-icon],
+  .mobile-route-cta.trip-planner-cta>svg{width:22px!important;height:22px!important;flex:0 0 auto!important}
+}

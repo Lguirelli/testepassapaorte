@@ -42,3 +42,5 @@ O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.e
 - Logo à esquerda e aparência à direita ficam fora do dock e desaparecem com fade após o scroll.
 - Tooltips do dock receberam seta/ponta explícita apontando para o ícone.
 - Menu mobile foi refeito em superfície escura translúcida, texto claro, estados ativos green e CTA green/dark green, seguindo a paleta do produto.
+
+- Menu mobile refinado: ícones reais à direita, títulos próximos e alinhados à direita, padding esquerdo reduzido e CTA mantendo a mesma composição.

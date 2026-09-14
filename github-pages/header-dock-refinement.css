@@ -55,3 +55,43 @@
   .site-header .main-nav .mobile-theme-picker select{min-height:44px!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:999px!important;background:#262425!important;color:#F3F1EC!important}
 }
 @media(prefers-reduced-motion:reduce){.site-header .brand,.site-header .theme-picker,.nav-hover-label,.site-header .main-nav{transition:none!important}}
+
+/* Mobile navigation alignment refinement: actual menu icons at the right edge. */
+@media(max-width:980px){
+  .site-header .main-nav{
+    padding-left:.45rem!important;
+    padding-right:.9rem!important;
+  }
+  .site-header .main-nav>a.nav-icon-link,
+  .site-header .main-nav>a.nav-icon-link.button{
+    justify-content:flex-end!important;
+    padding-left:.2rem!important;
+    padding-right:.72rem!important;
+    text-align:right!important;
+  }
+  .site-header .main-nav .nav-dock-motion{
+    flex-direction:row-reverse!important;
+    justify-content:flex-start!important;
+    gap:.55rem!important;
+    width:auto!important;
+    margin-left:auto!important;
+  }
+  .site-header .main-nav .nav-hover-label{
+    text-align:right!important;
+    flex:0 1 auto!important;
+  }
+  .site-header .main-nav .nav-dock-motion>[data-ui-icon],
+  .site-header .main-nav .nav-dock-motion>svg{
+    flex:0 0 auto!important;
+    width:22px!important;
+    height:22px!important;
+  }
+  .site-header .main-nav .nav-cta{
+    justify-content:flex-end!important;
+    padding-right:1rem!important;
+  }
+  .site-header .main-nav .nav-cta .nav-dock-motion{
+    justify-content:flex-start!important;
+    margin-left:auto!important;
+  }
+}
