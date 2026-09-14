@@ -5,7 +5,7 @@
 3. **PostGIS:** o MVP funciona sem PostGIS em PGlite; consultas territoriais avançadas devem usar PostgreSQL/PostGIS em produção quando necessário.
 4. **Clima:** nenhum clima é inventado. A UI exibe contexto somente quando há `weather_snapshots` verificados.
 5. **Parceiros:** os parceiros incluídos no seed funcional são sintéticos e marcados como tal. Nenhuma relação comercial real é inferida.
-6. **Fontes licenciadas:** binários de Origin Black Display, Scratchy e Anodina não são distribuídos neste pacote; `public/typography.css` preserva a configuração/fallbacks.
+6. **Tipografia web:** Arimo e Cormorant Garamond são as únicas famílias do produto; os binários não são empacotados e o navegador usa fallbacks genéricos quando a fonte web não estiver disponível.
 7. **Legal:** textos de privacidade, termos e cookies são base operacional e precisam de revisão jurídica antes do lançamento comercial.
 8. **Reservas/pagamentos:** permanecem externos ao produto nesta fase.
 

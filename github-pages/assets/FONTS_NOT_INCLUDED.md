@@ -1,9 +1,3 @@
-# Fontes não incluídas
+# Tipografia
 
-Os binários de Origin, Scratchy e Anodina não fazem parte deste pacote.
-
-Use os nomes e caminhos documentados em:
-- `../01_NEXT_BASELINE/public/typography.css`
-- `../06_SELECTED_DOCS/references__TYPOGRAPHY_SETUP.md`
-
-Forneça os arquivos de fonte licenciados separadamente ao ambiente de desenvolvimento.
+A apresentação usa somente **Arimo** e **Cormorant Garamond**. Os arquivos binários das fontes não são incluídos no pacote; o navegador carrega as famílias web e usa fallbacks genéricos quando necessário.

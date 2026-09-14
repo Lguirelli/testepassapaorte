@@ -14,3 +14,12 @@ Este pacote reúne as alterações solicitadas até esta rodada sobre a base pri
 - arquivos necessários para build/deploy na Vercel, sem segredos reais.
 
 O pacote não contém `.git`, `node_modules`, `.next`, `.vercel` ou arquivos `.env` reais.
+
+## Tipografia Arimo + Cormorant Garamond
+
+- Sistema tipográfico reduzido a duas famílias: Arimo e Cormorant Garamond.
+- Arimo assume corpo, navegação, controles, labels, eyebrows e títulos de maior impacto.
+- Cormorant Garamond assume títulos menores, leads editoriais e superfícies de Passaporte/carimbo.
+- Hierarquia agora usa principalmente variação de peso, tamanho, tracking e itálico, sem terceira família decorativa.
+- Removidas as referências ativas a Origin Black Display, Scratchy, Anodina e Inter.
+- A mesma regra foi aplicada ao runtime Next.js e ao preview estático do GitHub Pages.

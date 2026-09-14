@@ -1,26 +1,21 @@
-/* Licensed font files are not distributed. Use installed families or existing fallbacks; see docs/FONTS_NOT_INCLUDED.md. */
-/* Passaporte Serra Negra — typography system
-   Origin = page/section titles and subtitles
-   Scratchy = decorative/passport/stamp text
-   Anodina = body copy and interface text */
-@font-face{font-family:"PSN Origin";src:local("Origin Black Display");font-style:normal;font-weight:900;font-display:swap}
-@font-face{font-family:"PSN Scratchy";src:local("Scratchy Regular"),local("Scratchy-Regular");font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina Extra Light");font-style:normal;font-weight:250;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina Light");font-style:normal;font-weight:300;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina");font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina Bold");font-style:normal;font-weight:700;font-display:swap}
-@font-face{font-family:"PSN Anodina";src:local("Anodina Extra Bold");font-style:normal;font-weight:800;font-display:swap}
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
+/* Passaporte Serra Negra — two-family typography system.
+   Arimo: interface, navigation, body copy and high-impact headings.
+   Cormorant Garamond: editorial contrast, supporting headings and passport details. */
 :root{
-  --font-display:"PSN Origin","Arial Black",Impact,sans-serif;
-  --font-decorative:"PSN Scratchy","Segoe Print","Bradley Hand",cursive;
-  --font-body:"PSN Anodina",Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-body:"Arimo",sans-serif;
+  --font-display:"Arimo",sans-serif;
+  --font-serif:"Cormorant Garamond",serif;
+  --font-decorative:"Cormorant Garamond",serif;
+  --home-serif:var(--font-serif);
 }
 
-/* Explicit role mapping. UI controls stay readable in Anodina. */
 html,body,button,input,select,textarea{font-family:var(--font-body)}
-h1,h2,h3{font-family:var(--font-display);font-style:normal}
+h1,h2{font-family:var(--font-display);font-style:normal}
+h3{font-family:var(--font-serif)}
 
-/* Scratchy is deliberately restricted to passport/decorative surfaces. */
 .stamp,.stamp strong,.passport-stamp-demo,.passport-stamp-demo strong,
-.passport-book-cover strong,.passport-cover>strong,.passport-book-page>strong,.passport-book-page>small,.passport-book-page>span,.passport-page-demo .passport-stamp-demo,.hero-visual .mark{font-family:var(--font-decorative)}
+.passport-book-cover strong,.passport-cover>strong,.passport-book-page>strong,
+.passport-book-page>small,.passport-book-page>span,.passport-page-demo .passport-stamp-demo,
+.hero-visual .mark{font-family:var(--font-decorative)}

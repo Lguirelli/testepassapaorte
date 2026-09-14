@@ -117,3 +117,8 @@
 
 - targets de header/dots/controles compactos corrigidos de 39–40/32 px para 44 px conforme o sistema global de UX/UI; teste responsivo passa a exigir 44 px.
 - execução remota do Playwright é pública/visual por padrão e aceita `--full` com credenciais `E2E_*` para Preview dedicada.
+
+### 2026-09-14 — Tipografia consolidada
+- Padronização para Arimo + Cormorant Garamond.
+- Remoção das famílias tipográficas anteriores do runtime ativo.
+- Nova camada final `typography-system.css` para manter pesos, escalas e papéis tipográficos consistentes.

@@ -7,7 +7,7 @@
 :root{
   --psd-container:min(81.25vw,1560px);
   --psd-gutter:max(24px,calc((100vw - var(--psd-container))/2));
-  --home-serif:var(--font-display);
+  --home-serif:var(--font-serif);
   --home-radius:22px;
   --home-shadow:0 26px 70px rgba(22,22,24,.12);
   --home-dark:#161618;

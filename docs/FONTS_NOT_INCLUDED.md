@@ -1,5 +1,5 @@
-# Fontes não incluídas
+# Tipografia
 
-Os binários licenciados de **Origin Black Display**, **Scratchy** e **Anodina** não fazem parte deste pacote final.
+A interface usa somente **Arimo** e **Cormorant Garamond**.
 
-A configuração de família/fallback permanece em `public/typography.css`. Ao disponibilizar os arquivos devidamente licenciados no ambiente de implantação, ajuste somente os `@font-face`/caminhos previstos nesse arquivo, sem substituir silenciosamente a identidade por outra fonte decorativa.
+As famílias são carregadas como fontes web no navegador e não são distribuídas como arquivos binários dentro deste repositório. O sistema mantém apenas fallbacks genéricos `sans-serif` e `serif` para situações sem rede.
