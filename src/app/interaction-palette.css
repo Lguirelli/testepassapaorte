@@ -1,0 +1,86 @@
+/* Semantic interaction color states.
+   Green (#008542) communicates persistent state (current/selected/focus) and primary action.
+   Green Black and Dark Green are supporting detail colors for hover/press depth. */
+
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{
+  outline-color:var(--accent-selected);
+}
+
+/* Current page: Green is a persistent locator, not a hover-only effect. */
+.main-nav>a[aria-current=page],
+.main-nav>a[aria-current=page]:hover{
+  background:color-mix(in srgb,var(--accent-selected) 18%,var(--surface-raised));
+  box-shadow:inset 0 -3px 0 var(--accent-selected);
+}
+
+/* Selected controls use the brand Green with white text for AA contrast. */
+.chips a[aria-current=page],
+.chips a[aria-current=page]:hover,
+.chips button[aria-pressed=true],
+.chips button[aria-pressed=true]:hover,
+[role=tab][aria-selected=true],
+[role=tab][aria-selected=true]:hover{
+  background:var(--accent-selected);
+  color:var(--accent-selected-text);
+  border-color:var(--accent-selected);
+  box-shadow:none;
+}
+
+/* Hover for unselected interactive items uses only the supporting dark greens. */
+.main-nav>a:not(.button):not([aria-current=page]):hover,
+.chips a:not([aria-current=page]):hover,
+.chips button:not([aria-pressed=true]):hover,
+[role=tab]:not([aria-selected=true]):hover{
+  border-color:var(--accent-hover);
+  background:color-mix(in srgb,var(--accent-hover) 14%,var(--surface-raised));
+}
+
+@media(max-width:1120px){
+  .mobile-nav-card>a[aria-current=page],
+  .mobile-nav-card>a[aria-current=page]:hover{
+    background:color-mix(in srgb,var(--accent-selected) 18%,var(--surface-raised));
+    box-shadow:inset 3px 0 0 var(--accent-selected);
+    font-weight:700;
+  }
+  .mobile-nav-card>a:not(.button):not([aria-current=page]):hover{
+    background:color-mix(in srgb,var(--accent-hover) 14%,var(--surface-raised));
+    box-shadow:inset 3px 0 0 var(--accent-hover);
+  }
+}
+
+/* Dark mode preserves the same semantic hierarchy. */
+html[data-theme="dark"] .chips a[aria-current=page],
+html[data-theme="dark"] .chips a[aria-current=page]:hover,
+html[data-theme="dark"] .chips button[aria-pressed=true],
+html[data-theme="dark"] .chips button[aria-pressed=true]:hover,
+html[data-theme="dark"] [role=tab][aria-selected=true],
+html[data-theme="dark"] [role=tab][aria-selected=true]:hover{
+  background:var(--accent-selected);
+  color:var(--accent-selected-text);
+  border-color:var(--accent-selected);
+}
+html[data-theme="dark"] .main-nav>a[aria-current=page],
+html[data-theme="dark"] .main-nav>a[aria-current=page]:hover,
+html[data-theme="dark"] .mobile-nav-card>a[aria-current=page],
+html[data-theme="dark"] .mobile-nav-card>a[aria-current=page]:hover{
+  background:color-mix(in srgb,var(--accent-selected) 22%,var(--surface-raised));
+}
+
+@media(prefers-color-scheme:dark){
+  html[data-theme="system"] .chips a[aria-current=page],
+  html[data-theme="system"] .chips a[aria-current=page]:hover,
+  html[data-theme="system"] .chips button[aria-pressed=true],
+  html[data-theme="system"] .chips button[aria-pressed=true]:hover,
+  html[data-theme="system"] [role=tab][aria-selected=true],
+  html[data-theme="system"] [role=tab][aria-selected=true]:hover{
+    background:var(--accent-selected);
+    color:var(--accent-selected-text);
+    border-color:var(--accent-selected);
+  }
+  html[data-theme="system"] .main-nav>a[aria-current=page],
+  html[data-theme="system"] .main-nav>a[aria-current=page]:hover,
+  html[data-theme="system"] .mobile-nav-card>a[aria-current=page],
+  html[data-theme="system"] .mobile-nav-card>a[aria-current=page]:hover{
+    background:color-mix(in srgb,var(--accent-selected) 22%,var(--surface-raised));
+  }
+}
