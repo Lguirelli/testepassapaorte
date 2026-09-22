@@ -29,3 +29,5 @@ jobs:
                 git push origin --delete "$branch"
               fi
             done
+
+# one-shot trigger
