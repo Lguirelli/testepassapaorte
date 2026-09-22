@@ -1,5 +1,8 @@
 # Arquitetura
 
+> **Status atual:** este documento descreve a arquitetura funcional preservada do runtime de banco. A apresentação canônica da `main` roda em `APP_MODE=visual`; consulte `README.md` para a fonte de verdade da fase atual.
+
+
 ## Decisão principal
 
 O Passaporte Serra Negra possui um único runtime de produção em Next.js. A SPA estática anterior não faz parte do runtime final.
