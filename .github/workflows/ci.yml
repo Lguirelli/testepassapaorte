@@ -1,10 +1,44 @@
-name: Validar apresentação
-on: [push, pull_request, workflow_dispatch]
+name: Validate Passaporte Serra Negra
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: passaporte-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  build:
+  validate:
+    name: Static, types, unit and build
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      APP_MODE: visual
+      NEXT_PUBLIC_SITE_URL: https://example.invalid
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:static
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+
+  visual:
+    name: Visual presentation QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: validate
     env:
       APP_MODE: visual
       NEXT_PUBLIC_SITE_URL: https://example.invalid
@@ -16,3 +50,37 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: npm run playwright:install:ci
+      - run: npx playwright test --config=playwright.visual.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-playwright-report
+          if-no-files-found: ignore
+          path: |
+            playwright-report/
+            test-results/
+
+  database-e2e:
+    name: Preserved database runtime E2E
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: validate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run playwright:install:ci
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: database-e2e-report
+          if-no-files-found: ignore
+          path: |
+            playwright-report/
+            test-results/
+            docs/validation/
