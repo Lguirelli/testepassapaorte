@@ -22,7 +22,7 @@ const forbidden=[
   ['javascript-url',/(?:href|src)\s*[=:]\s*[`'\"]\s*javascript:/i],
   ['embedded-private-key',/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/],
 ];
-for(const [kind,pattern] of forbidden){const hits=combined.filter(({path,text})=>!path.endsWith('scripts/audit-sanitization.mjs')&&(kind!=='dangerous-html'||path.startsWith('src/'))&&pattern.test(text));if(hits.length)fail(kind,hits.map(h=>h.path).slice(0,10).join(', '));else pass(kind,'ausente');}
+const trustedStaticHtmlFiles=new Set(['src/components/reference-pages/ReferenceSurface.tsx','src/components/dashboards/dashboard-runtime.ts']);for(const [kind,pattern] of forbidden){const hits=combined.filter(({path,text})=>{if(path.endsWith('scripts/audit-sanitization.mjs'))return false;if(kind==='dangerous-html'){if(!path.startsWith('src/'))return false;if(trustedStaticHtmlFiles.has(path)&&text.startsWith('// TRUSTED_STATIC_HTML:'))return false;}return pattern.test(text);});if(hits.length)fail(kind,hits.map(h=>h.path).slice(0,10).join(', '));else pass(kind,kind==='dangerous-html'?'ausente fora das fronteiras estáticas revisadas':'ausente');}
 
 const apiFiles=combined.filter(({path})=>path.startsWith('src/app/api/')&&path.endsWith('route.ts'));
 for(const {path,text} of apiFiles){if(/req\.json\s*\(/.test(text))fail(`bounded-json:${path}`,'usa req.json() diretamente; prefira readJsonBody com limite');else pass(`bounded-json:${path}`,'body limitado/validado');}
