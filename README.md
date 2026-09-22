@@ -46,6 +46,12 @@ npm run dev
 
 Abra `http://localhost:4173`. Para conferir a compilação, execute `npm run build`.
 
+## Fonte de verdade atual
+
+A branch `main` é a fonte canônica. A fase atual é **visual/presentação**: `APP_MODE=visual` é o padrão e as páginas de apresentação não dependem de banco. O runtime de banco, migrations e autenticação permanece no repositório como base preservada para evolução futura, mas não define o comportamento da apresentação atual.
+
+O GitHub Pages usa o `index.html` da raiz como bootstrap para a prévia em `github-pages/`. A Vercel publica o aplicativo Next.js da raiz. O CI valida auditorias estáticas, TypeScript, lint, testes unitários, build, Playwright visual e a compatibilidade do runtime de banco preservado.
+
 ## Escopo desta versão
 
 Apresentação em modo visual (`APP_MODE=visual`), sem banco de dados. Painéis, métricas e logins de demonstração são simulados. O header original foi preservado e as duas capas têm conteúdo centralizado. A busca usa bordas completamente arredondadas.
