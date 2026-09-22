@@ -1,4 +1,0 @@
-import {Icon} from '@/design-system/icons';
-export type StampData={placeName:string;occurredAt:string;visitNumber:number;evidence:string;outsidePlannedRoute?:boolean};
-export type StampRendererProps={data:StampData};
-export function StampRenderer({data}:StampRendererProps){return <details className="stamp"><summary><span className="stamp-mark"><Icon name="passaporte"/><strong>{data.placeName}</strong><small>{new Date(data.occurredAt).toLocaleDateString('pt-BR',{timeZone:'America/Sao_Paulo'})} · VISITA Nº {data.visitNumber}</small></span></summary><p>Presença registrada a partir de evidência <strong>{data.evidence}</strong>.</p>{data.outsidePlannedRoute&&<p>Descoberta fora do planejamento no momento do registro.</p>}<p>Este registro não comprova compra, reserva, consumo ou gasto.</p></details>;}

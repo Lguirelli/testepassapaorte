@@ -1,5 +1,0 @@
-'use server';
-import {publicErrorMessage} from '@/core/security/sanitize';
-import {revalidatePath} from 'next/cache';import {currentActor} from '@/core/auth/session';import {createPartnerRequest,updatePartnerEditable} from './service';
-export async function savePartner(_state:{ok:boolean;message:string},form:FormData){try{const actor=await currentActor();if(!actor)throw new Error('Sessão expirada.');await updatePartnerEditable(actor,form);revalidatePath('/painel-parceiro','layout');revalidatePath('/parceiros','layout');return{ok:true,message:'Alterações editáveis publicadas.'};}catch(error){return{ok:false,message:publicErrorMessage(error,'Não foi possível salvar.')};}}
-export async function requestPartnerChange(_state:{ok:boolean;message:string},form:FormData){try{const actor=await currentActor();if(!actor)throw new Error('Sessão expirada.');await createPartnerRequest(actor,form);revalidatePath('/painel-parceiro/solicitacoes');return{ok:true,message:'Solicitação enviada para revisão do Admin.'};}catch(error){return{ok:false,message:publicErrorMessage(error,'Não foi possível enviar.')};}}
