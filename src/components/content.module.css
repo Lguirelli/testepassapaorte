@@ -1,0 +1,29 @@
+.placeCard {
+  transition:
+    transform var(--motion-card) var(--ease-standard),
+    box-shadow var(--motion-card) var(--ease-standard),
+    border-color var(--motion-card) var(--ease-standard);
+}
+
+.placeCard:hover,
+.placeCard:focus-within {
+  transform:translateY(-5px) scale(1.012);
+  box-shadow:var(--shadow-card);
+  border-color:var(--text-muted);
+}
+
+.mapPin {
+  transition:transform var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard);
+  transform-origin:center;
+}
+
+.mapPin:hover {
+  transform:scale(1.08);
+  color:var(--accent-secondary);
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .placeCard:hover,
+  .placeCard:focus-within,
+  .mapPin:hover { transform:none; }
+}

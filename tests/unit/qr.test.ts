@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {isQrDuplicate} from '../../src/modules/qr/service';
+test('QR deduplication respects configured window',()=>{const now=new Date('2026-09-12T15:00:00Z');assert.equal(isQrDuplicate(new Date('2026-09-12T14:45:01Z'),now,15),true);assert.equal(isQrDuplicate(new Date('2026-09-12T14:44:59Z'),now,15),false);assert.equal(isQrDuplicate(undefined,now,30),false);});

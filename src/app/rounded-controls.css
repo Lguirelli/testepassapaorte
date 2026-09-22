@@ -1,0 +1,57 @@
+/* Final control-shape and hero-image refinement. Loaded last so legacy layers cannot square controls or hide the hero image. */
+button,
+.button,
+[role="button"]{
+  border-radius:14px!important;
+}
+
+/* Keep purpose-built circular icon controls circular. */
+button[aria-label]:not(:has(span)):not(:has(strong)),
+.galleryControls button,
+.galleryDots button{
+  border-radius:999px!important;
+}
+
+/* Search is intentionally full-pill, including its submit action. */
+[data-testid="home-hero"] [role="search"]{
+  border-radius:999px!important;
+  overflow:hidden;
+}
+[data-testid="home-hero"] [role="search"] button{
+  border-radius:999px!important;
+  padding-inline:1.35rem!important;
+}
+[data-testid="home-hero"] [role="search"] input:focus-visible{
+  border-radius:999px!important;
+}
+
+/* Planner remains a full pill everywhere. */
+.trip-planner-cta{
+  border-radius:999px!important;
+}
+
+/* Restore the Serra Negra hero photography as a clearly visible background. */
+[data-testid="home-hero"]>div[aria-hidden="true"]{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+[data-testid="home-hero"]>div[aria-hidden="true"] img{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:contrast(.98) saturate(.94) brightness(.78)!important;
+}
+[data-testid="home-hero"]::after{
+  background:linear-gradient(180deg,rgba(2,8,5,.2) 0%,rgba(2,8,5,.34) 56%,rgba(2,8,5,.58) 100%)!important;
+}
+
+@media(max-width:760px){
+  [data-testid="home-hero"] [role="search"]{
+    border-radius:28px!important;
+    overflow:visible;
+  }
+  [data-testid="home-hero"] [role="search"] button{
+    border-radius:999px!important;
+  }
+}

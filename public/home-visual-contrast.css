@@ -1,0 +1,13 @@
+/* Visual QA accessibility fixes for Home surfaces.
+   Keep these overrides semantic and scoped to stable ARIA landmarks. */
+
+html[data-theme="dark"] section[aria-labelledby="route-types-title"] .eyebrow{
+  color:#B9D1DF!important;
+}
+
+html[data-theme="dark"] section[aria-labelledby="route-types-title"] article > div:first-child > p:not(.eyebrow),
+html[data-theme="dark"] section[aria-labelledby="route-types-title"] article > div:first-child > a,
+html[data-theme="dark"] section[aria-labelledby="route-types-title"] article > aside > strong,
+html[data-theme="dark"] section[aria-labelledby="route-types-title"] article > aside > span{
+  color:#D6D2CB!important;
+}

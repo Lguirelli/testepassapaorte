@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+@import url("/home-visual-contrast.css");
+
+/* Passaporte Serra Negra — two-family typography system.
+   Arimo: every title, body copy, interface control and navigation label.
+   Cormorant Garamond: subtitles and concise editorial accents only. */
+:root{
+  --font-body:"Arimo",sans-serif;
+  --font-display:"Arimo",sans-serif;
+  --font-serif:"Cormorant Garamond",serif;
+  --font-decorative:"Cormorant Garamond",serif;
+  --home-serif:var(--font-serif);
+}
+
+html,body,button,input,select,textarea{font-family:var(--font-body)}
+body,p,li,dd,dt,label,input,select,textarea{font-family:var(--font-body);font-weight:400}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-style:normal;font-weight:700}
+.subtitle,.subheading,.section-subtitle,.editorial-subtitle,.tagline,.lead{font-family:var(--font-serif);font-weight:600}
+
+.stamp,.stamp strong,.passport-stamp-demo,.passport-stamp-demo strong,
+.passport-book-cover strong,.passport-cover>strong,.passport-book-page>strong,
+.passport-book-page>small,.passport-book-page>span,.passport-page-demo .passport-stamp-demo,
+.hero-visual .mark{font-family:var(--font-decorative)}

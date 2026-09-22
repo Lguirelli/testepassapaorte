@@ -1,0 +1,7 @@
+import fs from 'node:fs';
+import ts from 'typescript';
+const source='src/components/dashboards/';
+const code=ts.transpileModule(fs.readFileSync(source+'dashboard-runtime.ts','utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText.replace('export function mountDashboard','function mountDashboard').replaceAll('href="/','href="#/').replaceAll('href="${path}"','href="#${path}"').replaceAll('href="${partnerMode','href="#${partnerMode');
+fs.writeFileSync('github-pages/dashboard.css',fs.readFileSync(source+'dashboard.css','utf8')+'\n'+fs.readFileSync(source+'dashboard-refinements.css','utf8'));
+fs.writeFileSync('github-pages/dashboards.js',`(()=>{${code}\nlet cleanup;const paths={'/gestao/entrar':'admin-login','/gestao':'overview','/gestao/parceiros':'partners','/gestao/conteudo':'content','/area-parceiro':'partner','/area-parceiro/dados':'profile','/area-parceiro/entrar':'login'};window.PSN_DASHBOARDS={dispose(){cleanup?.();cleanup=undefined;},render(path,app){this.dispose();const view=paths[path];if(!view)return false;const root=document.createElement('div');root.className='psn-dashboard';app.replaceChildren(root);cleanup=mountDashboard(root,view,path=>{location.hash='#'+path});document.title=(view==='login'?'Entrar · Área do parceiro':path.startsWith('/gestao')?'Gestão da cidade':'Área do parceiro')+' | Passaporte Serra Negra';return true;}};})();`);
+console.log('Dashboard pages synchronized.');

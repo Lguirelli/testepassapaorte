@@ -1,0 +1,124 @@
+/* Static card sizing parity.
+   Repeated cards keep a stable shell and stable media frame regardless of source image proportions. */
+:root{
+  --static-place-card-h:440px;
+  --static-place-media-h:200px;
+  --static-route-card-h:540px;
+  --static-partner-card-h:500px;
+}
+
+/* Explore/list place cards. */
+.place-card{
+  height:var(--static-place-card-h)!important;
+  min-height:var(--static-place-card-h)!important;
+  max-height:var(--static-place-card-h)!important;
+  display:grid!important;
+  grid-template-rows:var(--static-place-media-h) minmax(0,1fr)!important;
+  overflow:hidden!important;
+}
+.place-card-media{
+  width:100%!important;
+  height:var(--static-place-media-h)!important;
+  min-height:var(--static-place-media-h)!important;
+  max-height:var(--static-place-media-h)!important;
+  overflow:hidden!important;
+}
+.place-card-media :where(.scenic-media,img,.scenic-photo){width:100%!important;height:100%!important;min-height:100%!important;object-fit:cover!important}
+.place-card-body{min-height:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+.place-card-body h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.place-card-body>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.place-card-foot{margin-top:auto!important}
+
+/* Current canonical Home place cards. */
+.current-home .ch-grid3{align-items:stretch;grid-auto-rows:1fr}
+.current-home .ch-place-card{
+  height:460px!important;
+  min-height:460px!important;
+  max-height:460px!important;
+  grid-template-rows:220px minmax(0,1fr)!important;
+}
+.current-home .ch-place-card>img{width:100%!important;height:220px!important;min-height:220px!important;max-height:220px!important;object-fit:cover!important}
+.current-home .ch-place-card-body{min-height:0;overflow:hidden}
+.current-home .ch-place-card-body h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.current-home .ch-place-card-body p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+
+/* Current Home partner carousel: fixed shell and fixed media height. */
+.current-home .ch-partner{height:500px!important}
+.current-home .ch-partner-card{height:500px!important;display:grid!important;grid-template-rows:285px minmax(0,1fr)!important}
+.current-home .ch-partner-card>img{height:285px!important;min-height:285px!important;max-height:285px!important;object-fit:cover!important}
+.current-home .ch-partner-card>div{min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.current-home .ch-partner-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.current-home .ch-partner-card .ch-button{margin-top:auto}
+
+/* Legacy/alternate partner encounter carousel also receives a stable frame. */
+.encounter-card{height:var(--static-partner-card-h)!important}
+.encounter-card-link{height:100%!important;grid-template-rows:285px minmax(0,1fr)!important}
+.encounter-card-media{height:285px!important;min-height:285px!important;max-height:285px!important}
+.encounter-card-media :where(.scenic-media,.scenic-photo,img){width:100%!important;height:100%!important;object-fit:cover!important}
+
+/* Ready-route/reference card families. */
+.route-cards-grid{align-items:stretch;grid-auto-rows:1fr}
+.route-reference-card{
+  height:var(--static-route-card-h)!important;
+  min-height:var(--static-route-card-h)!important;
+  max-height:var(--static-route-card-h)!important;
+  grid-template-rows:58% 42%!important;
+}
+.route-card-media,.route-card-media .scenic-media,.route-card-media img{width:100%!important;height:100%!important;min-height:0!important;object-fit:cover!important}
+.route-card-body h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+
+/* Category/interest cards in the same grid share an exact row height. */
+.categories-grid{align-items:stretch;grid-auto-rows:1fr}
+.category-reference-tile{height:300px!important;min-height:300px!important;max-height:300px!important}
+.category-reference-tile .scenic-media,.category-reference-tile img{width:100%!important;height:100%!important;object-fit:cover!important}
+
+/* Current Home route type slide never changes height when image/content changes. */
+.current-home [data-route-slide]{height:460px!important;min-height:460px!important}
+.current-home .ch-route-slide{height:460px!important;min-height:460px!important;max-height:460px!important}
+.current-home .ch-route-slide>img{width:100%!important;height:100%!important;object-fit:cover!important}
+
+/* Text-only repeated families keep equal slots. */
+.current-home .ch-card-grid4,.current-home .ch-context-grid{align-items:stretch;grid-auto-rows:1fr}
+.current-home .ch-choice-card,.current-home .ch-interest-card{height:210px!important;min-height:210px!important;max-height:210px!important;overflow:hidden!important}
+.current-home .ch-panel{height:230px;min-height:230px;overflow:hidden}
+
+@media(max-width:760px){
+  :root{--static-place-card-h:420px;--static-place-media-h:190px;--static-route-card-h:500px;--static-partner-card-h:475px}
+  .current-home .ch-place-card{height:430px!important;min-height:430px!important;max-height:430px!important;grid-template-rows:210px minmax(0,1fr)!important}
+  .current-home .ch-place-card>img{height:210px!important;min-height:210px!important;max-height:210px!important}
+  .current-home .ch-partner{height:465px!important}
+  .current-home .ch-partner-card{height:465px!important;grid-template-rows:250px minmax(0,1fr)!important}
+  .current-home .ch-partner-card>img{height:250px!important;min-height:250px!important;max-height:250px!important}
+  .encounter-card-link{grid-template-rows:250px minmax(0,1fr)!important}
+  .encounter-card-media{height:250px!important;min-height:250px!important;max-height:250px!important}
+  .route-reference-card{height:500px!important;min-height:500px!important;max-height:500px!important}
+  .category-reference-tile{height:270px!important;min-height:270px!important;max-height:270px!important}
+  .current-home [data-route-slide]{height:720px!important;min-height:720px!important}
+  .current-home .ch-route-slide{height:720px!important;min-height:720px!important;max-height:720px!important}
+  .current-home .ch-route-slide>img{height:280px!important;min-height:280px!important;max-height:280px!important}
+}
+
+/* First-path cards share one fixed frame too. */
+.spots-random-grid,.spots-rail{align-items:stretch;grid-auto-rows:1fr}
+.spot-random-card{
+  height:520px!important;
+  min-height:520px!important;
+  max-height:520px!important;
+  grid-template-rows:300px minmax(0,1fr)!important;
+}
+.spot-random-media{height:300px!important;min-height:300px!important;max-height:300px!important}
+.spot-random-media :where(.scenic-media,.scenic-photo,img){width:100%!important;height:100%!important;object-fit:cover!important}
+.spot-random-body{min-height:0!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
+.spot-random-body h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.spot-random-body p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.spot-random-body>span{margin-top:auto!important}
+
+/* Alternate scenic spot family, where present, uses the same stable shell per viewport. */
+.spot-reference-card{height:420px!important;min-height:420px!important;max-height:420px!important}
+.spot-reference-card .scenic-media,.spot-reference-card img{width:100%!important;height:100%!important;object-fit:cover!important}
+
+@media(max-width:760px){
+  .spot-random-card{height:500px!important;min-height:500px!important;max-height:500px!important;grid-template-rows:265px minmax(0,1fr)!important}
+  .spot-random-media{height:265px!important;min-height:265px!important;max-height:265px!important}
+  .spot-reference-card{height:380px!important;min-height:380px!important;max-height:380px!important}
+}

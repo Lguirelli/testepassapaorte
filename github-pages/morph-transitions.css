@@ -1,0 +1,26 @@
+/* Shared-element morphs for the static presentation shell. */
+::view-transition-group(place-media),
+::view-transition-group(place-title),
+::view-transition-group(place-meta),
+::view-transition-group(route-media),
+::view-transition-group(route-title),
+::view-transition-group(route-meta),
+::view-transition-group(map-preview){
+  animation-duration:560ms;
+  animation-timing-function:cubic-bezier(.16,1,.3,1);
+}
+::view-transition-old(place-media),::view-transition-new(place-media),
+::view-transition-old(place-title),::view-transition-new(place-title),
+::view-transition-old(place-meta),::view-transition-new(place-meta),
+::view-transition-old(route-media),::view-transition-new(route-media),
+::view-transition-old(route-title),::view-transition-new(route-title),
+::view-transition-old(route-meta),::view-transition-new(route-meta),
+::view-transition-old(map-preview),::view-transition-new(map-preview){
+  mix-blend-mode:normal;
+}
+.explore-map-preview[data-shared-place]{border-radius:16px;overflow:hidden}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-group(place-media),::view-transition-group(place-title),::view-transition-group(place-meta),
+  ::view-transition-group(route-media),::view-transition-group(route-title),::view-transition-group(route-meta),
+  ::view-transition-group(map-preview){animation:none!important}
+}

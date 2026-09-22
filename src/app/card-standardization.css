@@ -1,0 +1,103 @@
+/* Card sizing system
+   Cards that represent the same content type share a fixed shell and a fixed media frame.
+   Images may crop with object-fit:cover, but they never redefine the card's dimensions. */
+
+:root{
+  --card-place-h:440px;
+  --card-place-media-h:200px;
+  --card-route-h:500px;
+  --card-partner-h:440px;
+  --card-context-h:230px;
+  --card-interest-h:210px;
+}
+
+/* Place/entity cards reused by Home, Explore, Map and nearby results. */
+[data-testid^="place-card-"]{
+  height:var(--card-place-h)!important;
+  min-height:var(--card-place-h)!important;
+  max-height:var(--card-place-h)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  overflow:hidden!important;
+}
+[data-testid^="place-card-"]>img[data-card-media="true"]{
+  flex:0 0 var(--card-place-media-h)!important;
+  width:100%!important;
+  height:var(--card-place-media-h)!important;
+  min-height:var(--card-place-media-h)!important;
+  max-height:var(--card-place-media-h)!important;
+  aspect-ratio:auto!important;
+  object-fit:cover!important;
+  margin-bottom:1rem!important;
+}
+[data-testid^="place-card-"]>h3{
+  min-height:2.65em;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+[data-testid^="place-card-"]>p{
+  min-height:4.55em;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+[data-testid^="place-card-"]>.actions{margin-top:auto}
+
+/* All grids that repeat place cards stretch every slot equally. */
+[data-testid="home-featured-grid"],
+.explore-card-grid,
+.map-page-list,
+.grid:has(>[data-testid^="place-card-"]){align-items:stretch;grid-auto-rows:1fr}
+.explore-card-grid>*,.map-page-list>*{min-height:0;height:100%}
+.explore-card-grid [data-testid^="place-card-"],
+.map-page-list [data-testid^="place-card-"]{height:100%!important;min-height:var(--card-place-h)!important;max-height:none!important}
+
+/* Home partner carousel: every card occupies the exact same 3D frame. */
+[data-testid="home-partner-gallery"]>[data-offset]{height:var(--card-partner-h)!important}
+[data-testid="home-partner-gallery"]>[data-offset]>div{height:100%!important}
+[data-testid="home-partner-gallery"] [data-testid^="place-card-"]{
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+}
+[data-testid="home-partner-gallery"] [data-testid^="place-card-"]>img[data-card-media="true"]{
+  flex-basis:190px!important;
+  height:190px!important;
+  min-height:190px!important;
+  max-height:190px!important;
+}
+
+/* Ready-route cards are a single repeatable product family. */
+[data-ready-route-grid]{align-items:stretch;grid-auto-rows:1fr}
+[data-ready-route-card]{height:var(--card-route-h)!important;min-height:var(--card-route-h)!important;max-height:var(--card-route-h)!important}
+[data-ready-route-card]>img{width:100%!important;height:100%!important;object-fit:cover!important}
+[data-ready-route-card] h2{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+[data-ready-route-card] p:not(.eyebrow){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+
+/* The Home route slider keeps one stable viewport while the selected route changes. */
+[data-testid="home-route-slider"]{height:380px!important;min-height:380px!important}
+[data-testid="home-route-slider"]>article{height:100%!important;min-height:0!important}
+[data-testid="home-route-slider"] img{width:100%!important;height:100%!important;object-fit:cover!important}
+
+/* Equal-height non-media card families on the Home. */
+[data-testid="home-featured-grid"]{grid-auto-rows:1fr}
+
+@media(max-width:760px){
+  :root{
+    --card-place-h:420px;
+    --card-place-media-h:190px;
+    --card-route-h:430px;
+    --card-partner-h:390px;
+  }
+  [data-testid="home-partner-gallery"] [data-testid^="place-card-"]>img[data-card-media="true"]{
+    flex-basis:175px!important;height:175px!important;min-height:175px!important;max-height:175px!important;
+  }
+  [data-testid="home-route-slider"]{height:620px!important;min-height:620px!important}
+}
+
+@media(max-width:520px){
+  [data-testid="home-route-slider"]{height:675px!important;min-height:675px!important}
+}

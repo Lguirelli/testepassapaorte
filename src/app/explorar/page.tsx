@@ -1,0 +1,3 @@
+import {publicDataset,filterPlaces,parseFilters} from '@/modules/content/repository';import {ExploreExperience} from '@/components/ExploreExperience';import {SearchTracking} from './tracking';
+export const dynamic='force-dynamic';export const metadata={title:'Explorar Serra Negra',description:'Descubra pontos turísticos, lugares e experiências de Serra Negra por interesse e contexto.',alternates:{canonical:'/explorar'}};
+export default async function Explore({searchParams}:{searchParams:Promise<Record<string,string|undefined>>}){const f=parseFilters(await searchParams);const data=await publicDataset();const places=filterPlaces(data,f);return <><SearchTracking filters={f}/><ExploreExperience places={places} categories={data.categories} filters={f}/></>}

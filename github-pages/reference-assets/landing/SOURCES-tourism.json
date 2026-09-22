@@ -1,0 +1,86 @@
+[
+  {
+    "file": "fontana-di-trevi.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/03-centro-cultural.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "mirante-alto-da-serra.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/01-mirante-vale-araucarias.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "mirante-cristo-redentor.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/01-mirante-vale-araucarias.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "parque-adib-joao-dib.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/02-jardim-nascentes.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "parque-jovino-silveira.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/02-jardim-nascentes.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "teleferico-serra-negra.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/01-mirante-vale-araucarias.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "igreja-nossa-senhora-rosario.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/03-centro-cultural.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "parque-fonte-santo-agostinho.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/02-jardim-nascentes.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "parque-das-fontes.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/02-jardim-nascentes.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "praca-rotas-turisticas.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/01-mirante-vale-araucarias.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "feira-artesanato.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/06-atelie-pedra-folha.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  },
+  {
+    "file": "parque-aquatico.jpg",
+    "type": "real stock photograph",
+    "role": "local fallback for validation",
+    "derived_from_existing_stock_asset": "assets/stock/08-bem-estar-aguas-claras.jpg",
+    "note": "This local fallback is illustrative and does not claim to depict the named attraction."
+  }
+]

@@ -1,0 +1,47 @@
+/* Final composition cleanup for the static preview. */
+.site-header .brand{
+  color:#F3F1EC!important;
+  align-self:stretch;
+  display:flex;
+  align-items:flex-start!important;
+  padding-top:clamp(.72rem,1.25vw,1.05rem);
+}
+.site-header .brand-wordmark{
+  color:#F3F1EC!important;
+  transform:translateY(clamp(.45rem,.8vw,.8rem));
+  transform-origin:top left;
+  position:relative;
+  z-index:3;
+}
+.site-header .brand-wordmark svg{
+  color:#F3F1EC!important;
+  fill:#F3F1EC!important;
+}
+.site-header,
+.site-header.is-scrolled{
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+
+/* Remove only visual separators between sections. */
+.current-home .ch-section,
+.home-v3 .home-section,
+.home-section,
+.section,
+.partners-section,
+.partner-section,
+.tourism-section,
+.v2-section,
+.v2-footer{
+  border-top:0!important;
+  border-bottom:0!important;
+}
+
+@media(max-width:1180px){
+  .site-header .brand{padding-top:.6rem}
+  .site-header .brand-wordmark{transform:translateY(.5rem)}
+}
+@media(max-width:760px){
+  .site-header .brand{padding-top:.5rem}
+  .site-header .brand-wordmark{transform:translateY(.35rem)}
+}
