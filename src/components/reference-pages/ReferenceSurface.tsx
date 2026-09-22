@@ -1,3 +1,4 @@
+// TRUSTED_STATIC_HTML: reviewed build-time presentation artifact; never pass CMS or user content.
 'use client';
 import {useEffect,useRef} from 'react';
 import {useRouter} from 'next/navigation';
