@@ -1,62 +1,15 @@
 {
-  "name": "passaporte-serra-negra",
+  "name": "passaporte-serra-negra-visual",
   "version": "1.0.0",
   "private": true,
+  "description": "Apresentação visual estática do Passaporte Serra Negra.",
   "engines": {
     "node": "24.x"
   },
   "scripts": {
-    "dev": "node scripts/dev.mjs",
-    "build": "next build --webpack",
-    "start": "next start --hostname 0.0.0.0 --port 4173",
-    "lint": "eslint src tests scripts",
-    "typecheck": "tsc --noEmit",
-    "test": "node --import tsx --test tests/unit/*.test.ts",
-    "test:e2e": "playwright test",
-    "db:migrate": "node --import tsx scripts/migrate.ts",
-    "db:seed": "node --import tsx scripts/seed.ts",
-    "local": "node scripts/local.mjs",
-    "local:prepare": "node scripts/local.mjs --prepare-only",
-    "validate": "node scripts/validate-all.mjs",
-    "validate:static": "node scripts/validate-static.mjs && node scripts/scan-sensitive.mjs && node scripts/audit-sanitization.mjs && node scripts/audit-responsive.mjs && node scripts/audit-uxui.mjs && node scripts/audit-pages-parity.mjs && node scripts/audit-vercel-build.mjs && node scripts/audit-interactions.mjs && node scripts/audit-playwright.mjs",
-    "security:scan": "node scripts/scan-sensitive.mjs",
-    "privacy:cleanup": "node --import tsx scripts/privacy-maintenance.ts",
-    "audit:sanitize": "node scripts/audit-sanitization.mjs",
-    "db:sanitize": "node --import tsx scripts/sanitize-existing-data.ts",
-    "audit:responsive": "node scripts/audit-responsive.mjs",
-    "audit:uxui": "node scripts/audit-uxui.mjs",
-    "audit:pages-parity": "node scripts/audit-pages-parity.mjs",
-    "audit:vercel": "node scripts/audit-vercel-build.mjs",
-    "audit:interactions": "node scripts/audit-interactions.mjs",
-    "audit:repository": "node scripts/repository-insights.mjs",
-    "playwright:install": "playwright install chromium",
-    "playwright:install:ci": "playwright install --with-deps chromium",
-    "test:e2e:remote": "node scripts/e2e-remote.mjs",
-    "test:e2e:headed": "playwright test --headed",
-    "test:e2e:report": "playwright show-report",
-    "audit:playwright": "node scripts/audit-playwright.mjs"
-  },
-  "dependencies": {
-    "@electric-sql/pglite": "0.5.8",
-    "drizzle-orm": "0.45.2",
-    "next": "16.3.4",
-    "pg": "8.23.0",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
-    "zod": "4.5.4"
-  },
-  "devDependencies": {
-    "@axe-core/playwright": "4.13.0",
-    "@playwright/test": "1.63.0",
-    "@types/node": "22.20.2",
-    "@types/pg": "8.23.1",
-    "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0",
-    "drizzle-kit": "0.31.10",
-    "eslint": "9.39.5",
-    "eslint-config-next": "16.3.4",
-    "tsx": "4.23.13",
-    "typescript": "6.0.3"
+    "dev": "node scripts/serve.mjs",
+    "validate": "node scripts/validate-static.mjs",
+    "test": "npm run validate"
   },
   "type": "module"
 }

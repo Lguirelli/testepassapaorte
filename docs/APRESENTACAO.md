@@ -1,20 +1,20 @@
 # Roteiro de apresentação
 
+Toda a experiência abaixo é **demonstrativa**. Dados, indicadores, formulários e acessos existem somente no navegador e não representam integrações ou operações reais.
+
 ## 1. Para o turista
 
-Abra `/`: “Serra Negra, no seu ritmo.” Descubra lugares, escolha um roteiro e conheça o Passaporte como registro da viagem.
+Abra `#/`: “Serra Negra, no seu ritmo.” Mostre descoberta, lugares, roteiros e o Passaporte como registro visual da viagem.
 
 ## 2. Para o parceiro
 
-Abra `/parceiros`: “Seu negócio na próxima descoberta.” Mostre a proposta, a página demonstrativa `/parceiros/caminho-do-cafe` e os indicadores do painel.
+Abra `#/parceiros`: “Seu negócio na próxima descoberta.” Depois acesse `#/parceiros/caminho-do-cafe` para mostrar o modelo de página de um estabelecimento.
 
 ## 3. Áreas demonstrativas
 
 | Área | Entrada | Login | Senha |
 | --- | --- | --- | --- |
-| Parceiro | `/area-parceiro/entrar` | `parceiro@passaporte.demo` | `Serra2026!` |
-| Administração | `/gestao/entrar` | `admin@passaporte.demo` | `AdminSerra2026!` |
+| Parceiro | `#/area-parceiro/entrar` | `parceiro@passaporte.demo` | `Serra2026!` |
+| Gestão | `#/gestao/entrar` | `admin@passaporte.demo` | `AdminSerra2026!` |
 
-Os acessos são simulações no navegador. Indicadores e registros são fictícios. Eles demonstram a experiência de acesso restrito, mas não protegem dados reais. A autenticação real existente em `/admin` e `/painel-parceiro` é um fluxo separado.
-
-No painel do parceiro, compare períodos e abra “Dados do seu negócio”. Na gestão, apresente a visão geral, parceiros e conteúdo.
+Os acessos são simulações locais. Eles servem apenas para demonstrar telas, fluxo e leitura de indicadores fictícios.

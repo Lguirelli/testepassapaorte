@@ -1,22 +1,85 @@
-import {existsSync,readFileSync,readdirSync,statSync} from 'node:fs';
-import {join,dirname,extname,resolve} from 'node:path';
-const root=process.cwd();const failures=[];const checks=[];const pass=(name,detail)=>checks.push({name,status:'PASS',detail});const fail=(name,detail)=>{checks.push({name,status:'FAIL',detail});failures.push(`${name}: ${detail}`)};
-const required=['package.json','package-lock.json','.env.example','src/app/page.tsx','src/app/layout.tsx','drizzle/0000_validation.sql','drizzle/0001_relational_domain.sql','drizzle/0002_final_product.sql','seed/tourism-real.json','README.md','src/core/security/sanitize.ts','src/core/security/origin.ts','scripts/scan-sensitive.mjs','scripts/audit-sanitization.mjs','scripts/privacy-maintenance.ts','docs/SANITIZATION_AND_PRIVACY.md'];for(const f of required)(existsSync(f)?pass:fail)(`required:${f}`,existsSync(f)?'present':'missing');
-for(const old of ['app.js','theme.css','visual.css','visual-v2.css']){if(existsSync(old))fail(`legacy:${old}`,'legacy runtime file still exists');else pass(`legacy:${old}`,'absent');}
-if(existsSync('index.html')){const rootIndex=readFileSync('index.html','utf8');if(rootIndex.includes('<base href="./github-pages/">')&&rootIndex.includes('uxui-system.css'))pass('pages-bootstrap:index.html','GitHub Pages bootstrap only');else fail('legacy:index.html','root index must be a documented Pages bootstrap');}else pass('pages-bootstrap:index.html','absent');
-const tourism=JSON.parse(readFileSync('seed/tourism-real.json','utf8'));const slugs=tourism.places.map(p=>p.slug);if(tourism.places.length===12&&new Set(slugs).size===12)pass('tourism','12 researched places with unique slugs');else fail('tourism',`expected 12 unique places, got ${tourism.places.length}/${new Set(slugs).size}`);
-for(const place of tourism.places){const asset=place.imageAsset?.fallbackSrc;if(asset&&!existsSync(join('public',asset.replace(/^\//,''))))fail(`asset:${place.slug}`,asset);}
-const sourceFiles=[];function walk(d){if(!existsSync(d))return;for(const n of readdirSync(d)){const p=join(d,n);const s=statSync(p);if(s.isDirectory())walk(p);else if(/\.(ts|tsx|mjs)$/.test(n))sourceFiles.push(p)}}walk('src');walk('scripts');walk('tests');
-const banned=[/demo-trip-001/,/assertDemo/,/authProvider/,/weatherProvider/,/routesProvider/,/confirmDemoVisit/,/Material Symbols/];for(const f of sourceFiles.filter(f=>f.startsWith('src/'))){const text=readFileSync(f,'utf8');for(const pattern of banned)if(pattern.test(text))fail(`banned:${f}`,String(pattern));}
-function importCandidates(spec,from){let base;if(spec.startsWith('@/'))base=join(root,'src',spec.slice(2));else if(spec.startsWith('.'))base=resolve(dirname(resolve(root,from)),spec);else return [];return [base,`${base}.ts`,`${base}.tsx`,`${base}.mjs`,join(base,'index.ts'),join(base,'index.tsx')];}
-for(const f of sourceFiles.filter(f=>/\.(ts|tsx)$/.test(f))){const rel=f.replace(`${root}/`,'');const text=readFileSync(f,'utf8');const rx=/from\s+['"]([^'"]+)['"]|import\s+['"]([^'"]+)['"]/g;for(const m of text.matchAll(rx)){const spec=m[1]||m[2];const candidates=importCandidates(spec,rel);if(candidates.length&&!candidates.some(existsSync))fail(`import:${rel}`,`unresolved ${spec}`);}}
-const routes=['src/app/explorar/page.tsx','src/app/mapa/page.tsx','src/app/pontos-turisticos/page.tsx','src/app/lugares/[slug]/page.tsx','src/app/parceiros/page.tsx','src/app/parceiros/[slug]/page.tsx','src/app/roteiro/page.tsx','src/app/meu-passaporte/page.tsx','src/app/painel-parceiro/page.tsx','src/app/admin/page.tsx','src/app/q/[code]/page.tsx'];for(const r of routes)(existsSync(r)?pass:fail)(`route:${r}`,existsSync(r)?'present':'missing');
-const schema=readFileSync('src/core/db/schema.ts','utf8');for(const table of ['cities','places','experiences','partners','trips','tripDays','tripItems','visits','qrCodes','sectionDefinitions','pageSections','partnerRequests','trackingEvents','consentRecords','authSessions'])(schema.includes(`export const ${table}`)?pass:fail)(`schema:${table}`,schema.includes(`export const ${table}`)?'defined':'missing');
+import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
+import {dirname, extname, join, resolve} from 'node:path';
 
-const sanitizer=readFileSync('src/core/security/sanitize.ts','utf8');
-for(const requiredFn of ['sanitizeText','sanitizeId','sanitizeHttpsUrl','sanitizeNarrative','sanitizeTrackingPayload','privacySafePath','readJsonBody','publicErrorMessage'])((sanitizer.includes(`function ${requiredFn}`)||sanitizer.includes(`const ${requiredFn}=`))?pass:fail)(`sanitizer:${requiredFn}`,(sanitizer.includes(`function ${requiredFn}`)||sanitizer.includes(`const ${requiredFn}=`))?'defined':'missing');
-const adminValidation=readFileSync('src/modules/admin/validation.ts','utf8');if(adminValidation.includes('.passthrough()'))fail('sanitizer:admin-schema','passthrough is forbidden');else pass('sanitizer:admin-schema','strict schema');
-const trustedStaticHtmlFiles=new Set(['src/components/reference-pages/ReferenceSurface.tsx','src/components/dashboards/dashboard-runtime.ts']);for(const f of sourceFiles.filter(f=>f.startsWith('src/'))){const text=readFileSync(f,'utf8');const hasPrimitive=/dangerouslySetInnerHTML|\.innerHTML\s*=|eval\(|new Function/.test(text);if(!hasPrimitive)continue;const trusted=trustedStaticHtmlFiles.has(f)&&text.startsWith('// TRUSTED_STATIC_HTML:');if(trusted)pass(`injection:${f}`,'reviewed visual-only static HTML boundary');else fail(`injection:${f}`,'unsafe HTML/code execution primitive');}
-for(const api of ['src/app/api/consent/route.ts','src/app/api/tracking/route.ts']){const text=readFileSync(api,'utf8');if(text.includes('readJsonBody')&&text.includes('assertSameOrigin'))pass(`api-boundary:${api}`,'origin and bounded JSON validation');else fail(`api-boundary:${api}`,'missing origin/body boundary validation');}
+const root=process.cwd();
+const site=join(root,'github-pages');
+const failures=[];
+const pass=(name)=>console.log(`✓ ${name}`);
+const fail=(name,detail)=>{failures.push(`${name}: ${detail}`);console.error(`✗ ${name}: ${detail}`);};
 
-const summary={at:new Date().toISOString(),status:failures.length?'FAIL':'PASS',checks,failures};console.log(JSON.stringify(summary,null,2));process.exitCode=failures.length?1:0;
+const forbiddenPaths=['src','public','drizzle','seed','tests','docker-compose.yml','drizzle.config.ts','next.config.ts','next-env.d.ts','tsconfig.json','.env.example'];
+for(const path of forbiddenPaths){
+  if(existsSync(join(root,path))) fail('visual-only',`backend/runtime path still exists: ${path}`);
+}
+if(!failures.length) pass('visual-only repository has no backend/runtime directories');
+
+const required=['index.html','app.js','data.js','references.js','dashboards.js','styles.css','references.css','dashboard.css','site.webmanifest'];
+for(const path of required){
+  if(!existsSync(join(site,path))) fail('required-static-file',path);
+}
+if(required.every(path=>existsSync(join(site,path)))) pass('required presentation files are present');
+
+const vercel=JSON.parse(readFileSync(join(root,'vercel.json'),'utf8'));
+if(vercel.framework!==null) fail('vercel','framework must be null');
+if(vercel.outputDirectory!=='github-pages') fail('vercel','outputDirectory must be github-pages');
+if(vercel.framework===null&&vercel.outputDirectory==='github-pages') pass('Vercel configured as plain static site');
+
+const rootIndex=readFileSync(join(root,'index.html'),'utf8');
+if(!rootIndex.includes('<base href="./github-pages/">')) fail('github-pages-bootstrap','root index must target ./github-pages/');
+else pass('GitHub Pages root bootstrap points to static presentation');
+
+const siteIndex=readFileSync(join(site,'index.html'),'utf8');
+const refs=[...siteIndex.matchAll(/(?:src|href)=["']([^"']+)["']/g)].map(m=>m[1]);
+for(const ref of refs){
+  if(/^(?:https?:|mailto:|tel:|#|data:|javascript:)/i.test(ref)) continue;
+  const clean=ref.split(/[?#]/)[0];
+  if(!clean) continue;
+  const target=resolve(dirname(join(site,'index.html')),clean);
+  if(!target.startsWith(resolve(site))) fail('asset-boundary',ref);
+  else if(!existsSync(target)) fail('missing-asset',ref);
+}
+if(!failures.some(x=>x.startsWith('asset-boundary')||x.startsWith('missing-asset'))) pass('index references resolve inside static presentation');
+
+const textExt=new Set(['.html','.css','.js','.json','.md','.mjs','.yml','.yaml']);
+const files=[];
+const walk=dir=>{for(const name of readdirSync(dir)){const path=join(dir,name);const st=statSync(path);if(st.isDirectory()) walk(path);else if(textExt.has(extname(path).toLowerCase())) files.push(path);}};
+walk(root);
+
+const forbiddenTerms=[
+  ['supabase',/supabase/i],
+  ['database-url',/DATABASE_URL/],
+  ['db-mode',/DB_MODE/],
+  ['pglite',/pglite/i],
+  ['drizzle',/drizzle/i],
+  ['postgres',/postgres(?:ql)?/i],
+  ['server-auth-secret',/SESSION_SECRET|IDENTITY_PEPPER/]
+];
+for(const [label,pattern] of forbiddenTerms){
+  const hits=[];
+  for(const file of files){
+    if(file.endsWith('scripts/validate-static.mjs')) continue;
+    const text=readFileSync(file,'utf8');
+    if(pattern.test(text)) hits.push(file.slice(root.length+1));
+  }
+  if(hits.length) fail(`forbidden-${label}`,hits.slice(0,12).join(', '));
+  else pass(`no ${label} references`);
+}
+
+const networkPatterns=[['fetch',/\bfetch\s*\(/],['xhr',/XMLHttpRequest/],['websocket',/\bWebSocket\s*\(/],['eventsource',/\bEventSource\s*\(/],['api-route',/["'`]\/api\//]];
+const jsFiles=files.filter(f=>f.startsWith(site)&&extname(f)==='.js');
+for(const [label,pattern] of networkPatterns){
+  const hits=jsFiles.filter(file=>pattern.test(readFileSync(file,'utf8'))).map(file=>file.slice(root.length+1));
+  if(hits.length) fail(`network-${label}`,hits.join(', '));
+  else pass(`no ${label} backend calls in presentation JavaScript`);
+}
+
+const demoMarkers=['Demonstração','demonstrativo','simulação','fictício'];
+const combined=jsFiles.map(f=>readFileSync(f,'utf8')).join('\n')+'\n'+siteIndex;
+if(!demoMarkers.some(marker=>combined.toLowerCase().includes(marker.toLowerCase()))) fail('demo-disclosure','presentation must identify simulated content');
+else pass('presentation clearly marks simulated/demo content');
+
+if(failures.length){
+  console.error(`\n${failures.length} validation problem(s).`);
+  process.exit(1);
+}
+console.log('\nStatic visual presentation validated successfully.');

@@ -1,59 +1,48 @@
-# Passaporte Serra Negra
+# Passaporte Serra Negra — apresentação visual
 
-### Descobrir a cidade. Planejar a visita. Guardar a experiência.
+Protótipo estático para apresentar a experiência do **Passaporte Serra Negra** a turistas e parceiros.
 
-Protótipo de apresentação com duas jornadas: o turista encontra experiências e organiza sua viagem; o parceiro apresenta seu negócio e acompanha indicadores demonstrativos.
+Esta versão é deliberadamente simples: **não possui banco de dados, backend, autenticação real, API, persistência remota ou infraestrutura externa**. Todos os lugares, métricas, formulários, logins e estados apresentados são exemplos locais para demonstração de produto e UX.
 
-## Comece aqui
+## Como abrir
 
-- **[Publicar no GitHub e na Vercel](VERCEL_DEPLOY.md)** — passo a passo de implantação.
-- **[Apresentar o produto](docs/APRESENTACAO.md)** — páginas, sequência sugerida e logins de demonstração.
-- **[Decisões de narrativa e visual](docs/NARRATIVAS.md)** — evolução do projeto.
-
-## Páginas principais
-
-| Jornada | Endereço |
-| --- | --- |
-| Turista | `/` |
-| Seja parceiro | `/parceiros` |
-| Exemplo de estabelecimento | `/parceiros/caminho-do-cafe` |
-| Painel do parceiro | `/area-parceiro` |
-| Dados do parceiro | `/area-parceiro/dados` |
-| Administração | `/gestao` |
-
-## Organização
-
-```text
-src/                 Aplicação Next.js, páginas e componentes
-public/              Imagens, fontes e demais arquivos públicos
-docs/                Apresentação, decisões e documentação técnica
-scripts/             Ferramentas de desenvolvimento e manutenção
-tests/               Testes do projeto
-github-pages/        Prévia estática auxiliar; não é a raiz da Vercel
-package.json         Dependências e comandos
-package-lock.json    Versões para instalação com npm
-vercel.json          Configuração da publicação
-```
-
-## Executar localmente
-
-Node.js 24 e npm:
+A apresentação publicada usa `github-pages/index.html`. Localmente:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Abra `http://localhost:4173`. Para conferir a compilação, execute `npm run build`.
+Abra `http://127.0.0.1:4173`.
 
-## Fonte de verdade atual
+## Rotas demonstrativas
 
-A branch `main` é a fonte canônica. A fase atual é **visual/presentação**: `APP_MODE=visual` é o padrão e as páginas de apresentação não dependem de banco. O runtime de banco, migrations e autenticação permanece no repositório como base preservada para evolução futura, mas não define o comportamento da apresentação atual.
+A navegação usa hash para funcionar em qualquer hospedagem estática:
 
-O GitHub Pages usa o `index.html` da raiz como bootstrap para a prévia em `github-pages/`. A Vercel publica o aplicativo Next.js da raiz. O CI valida auditorias estáticas, TypeScript, lint, testes unitários, build, Playwright visual e a compatibilidade do runtime de banco preservado.
+- `#/` — experiência do turista;
+- `#/explorar` — descoberta de lugares;
+- `#/roteiros` — roteiros demonstrativos;
+- `#/parceiros` — proposta para parceiros;
+- `#/parceiros/caminho-do-cafe` — exemplo de página de parceiro;
+- `#/area-parceiro/entrar` — acesso demonstrativo do parceiro;
+- `#/gestao/entrar` — acesso demonstrativo de gestão.
 
-## Escopo desta versão
+Consulte `docs/APRESENTACAO.md` para o roteiro de apresentação.
 
-Apresentação em modo visual (`APP_MODE=visual`), sem banco de dados. Painéis, métricas e logins de demonstração são simulados. O header original foi preservado e as duas capas têm conteúdo centralizado. A busca usa bordas completamente arredondadas.
+## Estrutura
 
-A documentação histórica em `docs/historico/` descreve também recursos do runtime completo; siga o guia de publicação desta raiz para a apresentação inicial.
+```text
+github-pages/       Site estático completo: HTML, CSS, JavaScript e assets
+index.html          Bootstrap para publicação pelo GitHub Pages a partir da raiz
+docs/               Roteiro, narrativa e evidências visuais
+scripts/            Servidor local e validação do pacote estático
+vercel.json         Publicação estática da pasta github-pages/
+```
+
+## Validação
+
+```sh
+npm run validate
+```
+
+O validador impede que camadas de backend/banco voltem ao repositório, verifica os assets da apresentação e bloqueia chamadas de rede/API no JavaScript publicado.

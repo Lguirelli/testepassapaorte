@@ -1,4 +1,4 @@
-name: Validate Passaporte Serra Negra
+name: Validate visual presentation
 
 on:
   push:
@@ -10,17 +10,13 @@ permissions:
   contents: read
 
 concurrency:
-  group: passaporte-${{ github.workflow }}-${{ github.ref }}
+  group: passaporte-visual-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  validate:
-    name: Static, types, unit and build
+  static:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    env:
-      APP_MODE: visual
-      NEXT_PUBLIC_SITE_URL: https://example.invalid
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,59 +24,17 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run validate:static
-      - run: npm run typecheck
-      - run: npm run lint
-      - run: npm test
-      - run: npm run build
-
-  visual:
-    name: Visual presentation QA
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-    needs: validate
-    env:
-      APP_MODE: visual
-      NEXT_PUBLIC_SITE_URL: https://example.invalid
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - run: npm run playwright:install:ci
-      - run: npx playwright test --config=playwright.visual.config.ts
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: visual-playwright-report
-          if-no-files-found: ignore
-          path: |
-            playwright-report/
-            test-results/
-
-  database-e2e:
-    name: Preserved database runtime E2E
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    needs: validate
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run playwright:install:ci
-      - run: npm run test:e2e
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: database-e2e-report
-          if-no-files-found: ignore
-          path: |
-            playwright-report/
-            test-results/
-            docs/validation/
+      - run: npm run validate
+      - name: HTTP smoke test
+        shell: bash
+        run: |
+          node scripts/serve.mjs > /tmp/passaporte-static.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 0.25
+          done
+          curl --fail --silent http://127.0.0.1:4173/ | grep -q '<title>'
+          curl --fail --silent http://127.0.0.1:4173/app.js >/dev/null
+          curl --fail --silent http://127.0.0.1:4173/references.js >/dev/null
